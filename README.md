@@ -38,14 +38,14 @@
 
 # data repos
 
-- https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold/tree/ab12ea5c8e7873087e27e1223d2d3c7de3fbaccf
+- https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold
 - https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_6_apis_ner_models
-- https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/tree/3f5b73780d4113f327a42f60e747171e14e6d35c
+- https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat
 - https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_8_fasttext_models
 - https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_9_wikpedia_we_training_data
 - https://github.com/acdh-oeaw/veld_data_10_we_evaluation
 - https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_11_word2vec_models
-- https://github.com/acdh-oeaw/veld_data_12_eltec_original_selection/tree/b9f5f1b60a45a2f25e8352d4154e698f3a3100fc
+- https://github.com/acdh-oeaw/veld_data_12_eltec_original_selection
 - https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_13_eltec_txt_transformed
 - https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_14_udpipe_models
 - https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_15_eltec_udpipe_conllu
