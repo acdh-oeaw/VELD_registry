@@ -1,10 +1,20 @@
 # VELD registry
 
-## setup
+## setup and execution
 
-- create `.env` variable and save your github token there, like so: 
+The github and gitlab API crawlers need access tokens, these are persisted in a `.env` file at the
+root directory of this repo and have contents like so: 
 ```
-github_token=ghp_YHqgbbUlHpa4ud9ov0BiHUfYdFJfVAs4fEhO
+github_token=<INSERT_TOKEN_HERE>
+gitlab_token=<INSERT_TOKEN_HERE>
+```
+
+Executed with docker compose: 
+```
+# newer docker versions:
+docker compose up 
+# older docker versions with compose being a separate command:
+docker-compose up
 ```
 
 # chain velds

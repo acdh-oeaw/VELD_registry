@@ -1,0 +1,12 @@
+
+services:
+  veld_registry:
+    build: .
+    command: python /app/src/create_registry.py
+    working_dir: /app/
+    volumes:
+      - ./:/app/
+    environment:
+      - github_token
+      - gitlab_token
+
