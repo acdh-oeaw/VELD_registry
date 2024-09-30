@@ -1,0 +1,16 @@
+https://github.com/acdh-oeaw/veld_code_3_apis_ner_evaluate_old_models
+https://github.com/acdh-oeaw/veld_code_4_apis_ner_transform_to_gold
+https://github.com/acdh-oeaw/veld_code_5_simple_docker_test
+https://github.com/acdh-oeaw/veld_code_7_train_spacy_ner
+https://github.com/acdh-oeaw/veld_code_9_jupyter_notebook_base
+https://github.com/acdh-oeaw/veld_code_10_akp_ner
+https://github.com/acdh-oeaw/veld_code_11_publish_to_hf
+https://github.com/acdh-oeaw/veld_code_12_fasttext
+https://github.com/acdh-oeaw/veld_code_13_word2vec
+https://github.com/acdh-oeaw/veld_code_14_we_evaluation
+https://github.com/acdh-oeaw/veld_code_15_udpipe
+https://github.com/acdh-oeaw/veld_code_16_xml_xslt_transformer
+https://github.com/acdh-oeaw/veld_code_17_glove
+https://github.com/acdh-oeaw/veld_code_18_clscorgi
+https://github.com/acdh-oeaw/veld_code_19_we_preprocessing
+https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing

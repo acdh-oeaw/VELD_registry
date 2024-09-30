@@ -1,0 +1,10 @@
+
+services:
+  veld_registry:
+    extends:
+      file: ./modules/VELD_registry/compose.yaml
+      service: veld_registry
+    volumes:
+      - ./data/:/app/in/
+      - ./README.md:/app/out/README.md
+

@@ -1,0 +1,16 @@
+https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_6_apis_ner_models
+https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_8_fasttext_models
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_9_wikpedia_we_training_data
+https://github.com/acdh-oeaw/veld_data_10_we_evaluation
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_11_word2vec_models
+https://github.com/acdh-oeaw/veld_data_12_eltec_original_selection
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_13_eltec_txt_transformed
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_14_udpipe_models
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_15_eltec_udpipe_conllu
+https://github.com/acdh-oeaw/veld_data_16_eltec_conllu_stats
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_17_glove_models
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models
+https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner

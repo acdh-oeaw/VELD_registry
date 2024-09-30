@@ -5,7 +5,7 @@ services:
     command: python -u /app/src/create_registry.py
     working_dir: /app/
     volumes:
-      - ./:/app/
+      - ./src/:/app/src/
     environment:
       - github_token
       - gitlab_token
