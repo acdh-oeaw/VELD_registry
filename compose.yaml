@@ -2,7 +2,7 @@
 services:
   veld_registry:
     build: .
-    command: python /app/src/create_registry.py
+    command: python -u /app/src/create_registry.py
     working_dir: /app/
     volumes:
       - ./:/app/

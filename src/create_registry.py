@@ -9,8 +9,8 @@ GITHUB_TOKEN = os.getenv("github_token")
 GITLAB_TOKEN = os.getenv("gitlab_token")
 
 
-def crawl_repo_github(repo_url, path, veld_list):
-    response = requests.get(url=repo_url + "/" + path, headers={"Authorization": f"token {GITHUB_TOKEN}"})
+def crawl_repo_github(repo_api_url, path, veld_list):
+    response = requests.get(url=repo_api_url + "/" + path, headers={"Authorization": f"token {GITHUB_TOKEN}"})
     response_dict_list = response.json()
     for item_dict in response_dict_list:
         item_type = item_dict["type"]
@@ -20,15 +20,15 @@ def crawl_repo_github(repo_url, path, veld_list):
             if item_file_name.startswith("veld") and item_file_name.endswith(".yaml"):
                 veld_list.append(item_path)
         elif item_type == "dir":
-            crawl_repo_github(repo_url, item_path, veld_list)
+            crawl_repo_github(repo_api_url, item_path, veld_list)
     return veld_list
 
 
-def crawl_repo_gitlab(repo_url, path, veld_list):
+def crawl_repo_gitlab(repo_api_url, path, veld_list):
     page = "1"
     while page != "":
         response = requests.get(
-            url=repo_url, 
+            url=repo_api_url, 
             headers={"PRIVATE-TOKEN": GITLAB_TOKEN},
             params={"path": path, "page": page}
         )
@@ -41,7 +41,7 @@ def crawl_repo_gitlab(repo_url, path, veld_list):
                 if item_file_name.startswith("veld") and item_file_name.endswith(".yaml"):
                     veld_list.append(item_path)
             elif item_type == "tree":
-                crawl_repo_gitlab(repo_url, item_path, veld_list)
+                crawl_repo_gitlab(repo_api_url, item_path, veld_list)
         page = response.headers.get("X-Next-Page")
     return veld_list
 
@@ -50,7 +50,7 @@ def process_links():
     content = ""
     with open("README.md", "r") as f:
         for line in f:
-            if not line.startswith("  -"):
+            if not line.startswith("  "):
                 content += line
             if line.startswith("- http"):
                 repo_url = line[2:-1]
@@ -66,7 +66,7 @@ def process_links():
                     repo_api_url = "https://gitlab.oeaw.ac.at/api/v4/projects/" + repo_api_url + \
                         "/repository/tree"
                     veld_list = crawl_repo_gitlab(repo_api_url, "", [])
-                print(line)
+                print(repo_url)
                 print(veld_list)
                 for veld in veld_list:
                     veld_url = repo_url + "/blob/main/" + veld
