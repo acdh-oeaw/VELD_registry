@@ -6,8 +6,9 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 
 ## setup and execution
 
-The github and gitlab API crawlers need access tokens, these are persisted in a `.env` file at the
-root directory of this repo with a content like so: 
+To crawl the repos and update the registry in this README file, the github and gitlab API crawlers 
+need access tokens, these are persisted in a `.env` file at the root directory of this repo with a 
+content like so: 
 ```
 github_token=<INSERT_TOKEN_HERE>
 gitlab_token=<INSERT_TOKEN_HERE>
