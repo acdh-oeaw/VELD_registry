@@ -1,5 +1,9 @@
 # VELD registry
 
+This is a living collection VELD repositories and containing velds.
+
+The technical concept for the VELD design can be found here: https://zenodo.org/records/13318651
+
 ## setup and execution
 
 The github and gitlab API crawlers need access tokens, these are persisted in a `.env` file at the
