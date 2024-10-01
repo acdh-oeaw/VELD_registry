@@ -76,18 +76,18 @@ def generate_list(link_txt_path):
 
 
 def main():
-    content = ""
-    with open(README_PATH, "r") as f:
-        for line in f:
-            content += line
-            if line == "# registered VELD repos and contained velds\n":
-                content += "\n## chain velds\n"
-                content += generate_list(TXT_PATH_CHAIN_VELDS)
-                content += "\n## code velds\n"
-                content += generate_list(TXT_PATH_CODE_VELDS)
-                content += "\n## data velds\n"
-                content += generate_list(TXT_PATH_DATA_VELDS)
-                break
+    content = (
+        "# VELD registry\n"
+        "This is a living collection of VELD repositories and their contained velds.\n"
+        "The technical concept for the VELD design can be found here: "
+        "https://zenodo.org/records/13318651\n"
+    )
+    content += "\n## chain velds\n"
+    content += generate_list(TXT_PATH_CHAIN_VELDS)
+    content += "\n## code velds\n"
+    content += generate_list(TXT_PATH_CODE_VELDS)
+    content += "\n## data velds\n"
+    content += generate_list(TXT_PATH_DATA_VELDS)
     with open(README_PATH, "w") as f:
         f.write(content)
 

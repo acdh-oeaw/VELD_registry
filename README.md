@@ -1,28 +1,6 @@
 # VELD registry
-
 This is a living collection of VELD repositories and their contained velds.
-
 The technical concept for the VELD design can be found here: https://zenodo.org/records/13318651
-
-## setup and execution
-
-To crawl the repos and update the registry in this README file, the github and gitlab API crawlers 
-need access tokens, these are persisted in a `.env` file at the root directory of this repo with a 
-content like so: 
-```
-github_token=<INSERT_TOKEN_HERE>
-gitlab_token=<INSERT_TOKEN_HERE>
-```
-
-Execute with docker compose: 
-```
-# newer docker versions:
-docker compose up 
-# older docker versions with compose being a separate command:
-docker-compose up
-```
-
-# registered VELD repos and contained velds
 
 ## chain velds
 - https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models
