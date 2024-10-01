@@ -77,10 +77,10 @@ def generate_list(link_txt_path):
 
 def main():
     content = (
-        "# VELD registry\n"
-        "This is a living collection of VELD repositories and their contained velds.\n"
+        "# VELD registry\n\n"
+        "This is a living collection of VELD repositories and their contained velds.\n\n"
         "The technical concept for the VELD design can be found here: "
-        "https://zenodo.org/records/13318651\n"
+        "https://zenodo.org/records/13318651\n\n"
     )
     content += "\n## chain velds\n"
     content += generate_list(TXT_PATH_CHAIN_VELDS)

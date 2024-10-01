@@ -1,6 +1,9 @@
 # VELD registry
+
 This is a living collection of VELD repositories and their contained velds.
+
 The technical concept for the VELD design can be found here: https://zenodo.org/records/13318651
+
 
 ## chain velds
 - https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models
