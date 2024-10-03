@@ -1,10 +1,12 @@
 
 services:
   veld_registry:
-    extends:
-      file: ./modules/VELD_registry/compose.yaml
-      service: veld_registry
+    build: .
+    command: python -u /app/src/create_registry.py
+    working_dir: /app/
     volumes:
-      - ./data/:/app/in/
-      - ./README.md:/app/out/README.md
+      - ./src/:/app/src/
+    environment:
+      - github_token
+      - gitlab_token
 
