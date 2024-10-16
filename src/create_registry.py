@@ -1,7 +1,9 @@
+import base64
 import os
 
 import yaml
 import requests
+from veld_spec import validate
 
 
 GITHUB_TOKEN = os.getenv("github_token")
@@ -21,7 +23,13 @@ def crawl_repo_github(repo_api_url, path, veld_list):
         if item_type == "file":
             item_file_name = item_path.split("/")[-1]
             if item_file_name.startswith("veld") and item_file_name.endswith(".yaml"):
-                veld_list.append(item_path)
+                response = requests.get(repo_api_url + item_path).json()
+                item_content = base64.b64decode(response["content"]).decode("utf-8")
+                veld_metadata = yaml.safe_load(item_content)
+                veld_list.append({
+                    "path": item_path,
+                    "valid": validate(veld_metadata)[0],
+                })
         elif item_type == "dir":
             crawl_repo_github(repo_api_url, item_path, veld_list)
     return veld_list
@@ -61,17 +69,18 @@ def generate_list(link_txt_path):
                 )
                 repo_api_url += "/contents/"
                 veld_list = crawl_repo_github(repo_api_url, "", [])
-            elif "gitlab.oeaw.ac.at" in repo_url:
-                repo_api_url = repo_url.replace("https://gitlab.oeaw.ac.at/", "")
-                repo_api_url = repo_api_url.replace("/", "%2F")
-                repo_api_url = "https://gitlab.oeaw.ac.at/api/v4/projects/" + repo_api_url + \
-                    "/repository/tree"
-                veld_list = crawl_repo_gitlab(repo_api_url, "", [])
+            # elif "gitlab.oeaw.ac.at" in repo_url:
+            #     repo_api_url = repo_url.replace("https://gitlab.oeaw.ac.at/", "")
+            #     repo_api_url = repo_api_url.replace("/", "%2F")
+            #     repo_api_url = "https://gitlab.oeaw.ac.at/api/v4/projects/" + repo_api_url + \
+            #         "/repository/tree"
+            #     veld_list = crawl_repo_gitlab(repo_api_url, "", [])
             print(repo_url)
             print(veld_list)
             for veld in veld_list:
-                veld_url = repo_url + "/blob/main/" + veld
-                content += f"  - [{veld}]({veld_url})\n"
+                veld_url = repo_url + "/blob/main/" + veld["path"]
+                content += f"  - [{veld['path']}]({veld_url})\n"
+                content += f"    - valid: {veld['valid']}"
     return content
 
 
