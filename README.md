@@ -51,7 +51,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: False, elements not matching anything at: /x-veld/chain/about
 - https://github.com/acdh-oeaw/veld_chain_15_glove
   - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_infer.yaml)
-    - valid: False, elements not matching anything at: /services/veld_infer/volumes,environment
+    - valid: True
   - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_train.yaml)
     - valid: False, elements not matching anything at: /x-veld/chain/about
 - https://github.com/acdh-oeaw/veld_chain_16_clscorgi
@@ -59,69 +59,69 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: False, elements not matching anything at: /x-veld/chain/about
 - https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki
   - [veld_analyse_evaluation.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_analyse_evaluation.yaml)
-    - valid: False, elements not matching anything at: /services/veld_analyse_evaluation/volumes,environment
+    - valid: True
   - [veld_jupyter_notebook_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_fasttext.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_fasttext/volumes
+    - valid: True
   - [veld_jupyter_notebook_glove.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_glove.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_glove/volumes
+    - valid: True
   - [veld_jupyter_notebook_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_word2vec.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_word2vec/volumes
+    - valid: True
   - [veld_multi_chain__preprocess.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_download_and_extract/volumes,environment
+    - valid: True
   - [veld_multi_chain__preprocess_train_eval.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess_train_eval.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec/volumes,environment
+    - valid: True
   - [veld_preprocess_clean.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_clean.yaml)
     - valid: True
   - [veld_preprocess_download_and_extract.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_download_and_extract.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_download_and_extract/volumes,environment
+    - valid: True
   - [veld_preprocess_lowercase.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_lowercase.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_lowercase/volumes,environment
+    - valid: True
   - [veld_preprocess_remove_punctuation.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_remove_punctuation.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_remove_punctuation/volumes,environment
+    - valid: True
   - [veld_preprocess_sample.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_sample.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_sample/volumes,environment
+    - valid: True
   - [veld_preprocess_transform_wiki_json_to_txt.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_transform_wiki_json_to_txt/volumes,environment
+    - valid: True
   - [veld_train_eval_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_fasttext.yaml)
-    - valid: False, elements not matching anything at: /services/veld_train_fasttext/volumes,environment
+    - valid: True
   - [veld_train_eval_glove.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_glove.yaml)
-    - valid: False, elements not matching anything at: /services/veld_train_glove/volumes,environment
+    - valid: True
   - [veld_train_eval_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_word2vec.yaml)
-    - valid: False, elements not matching anything at: /services/veld_train_word2vec/volumes,environment
+    - valid: True
 - https://github.com/acdh-oeaw/veld_chain_18_MARA_load_and_publish_models
 - https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc
   - [veld_analyse_evaluation.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml)
-    - valid: False, elements not matching anything at: /services/veld_analyse_evaluation/volumes,environment
+    - valid: True
   - [veld_analyse_evaluation_non_interactive.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml)
-    - valid: False, elements not matching anything at: /services/veld_analyse_evaluation_non_interactive/volumes,environment
+    - valid: True
   - [veld_eval_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_fasttext.yaml)
-    - valid: False, elements not matching anything at: /services/veld_eval_fasttext/volumes,environment,depends_on
+    - valid: False, elements not matching anything at: /services/veld_eval_fasttext/depends_on
   - [veld_eval_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml)
-    - valid: False, elements not matching anything at: /services/veld_eval_glove/volumes,environment
+    - valid: True
   - [veld_eval_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml)
-    - valid: False, elements not matching anything at: /services/veld_eval_word2vec/volumes,environment
+    - valid: True
   - [veld_jupyter_notebook_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_fasttext.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_fasttext/ports,volumes
+    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_fasttext/ports
   - [veld_jupyter_notebook_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_glove.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_glove/ports,volumes
+    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_glove/ports
   - [veld_jupyter_notebook_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_word2vec.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_word2vec/ports,volumes
+    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_word2vec/ports
   - [veld_preprocess_clean.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml)
     - valid: True
   - [veld_preprocess_lowercase.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_lowercase/volumes,environment
+    - valid: True
   - [veld_preprocess_remove_punctuation.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_remove_punctuation/volumes,environment
+    - valid: True
   - [veld_preprocess_sample.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_sample/volumes,environment
+    - valid: True
   - [veld_preprocess_strip.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml)
-    - valid: False, elements not matching anything at: /services/veld_preprocess_strip/volumes,environment
+    - valid: True
   - [veld_train_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml)
-    - valid: False, elements not matching anything at: /services/veld_train_fasttext/volumes,environment
+    - valid: True
   - [veld_train_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml)
-    - valid: False, elements not matching anything at: /services/veld_train_glove/volumes,environment
+    - valid: True
   - [veld_train_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml)
-    - valid: False, elements not matching anything at: /services/veld_train_word2vec/volumes,environment
+    - valid: True
 
 ## code velds
 - https://github.com/acdh-oeaw/veld_code_3_apis_ner_evaluate_old_models
