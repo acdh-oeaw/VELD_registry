@@ -1,0 +1,110 @@
+x-veld:
+  code:
+    description: "udpipe inference setup"
+    topics: 
+      - "NLP"
+      - "Machine learning"
+      - "tokenization"
+      - "lemmatization"
+      - "part of speech"
+      - "dependency parsing"
+      - "universal dependencies"
+      - "grammatical annotation"
+
+    inputs:
+      - volume: /veld/input/1/
+        environment: in_txt_path
+        file_type: "txt"
+        contents: "natural text"
+      - volume: /veld/input/2/
+        environment: in_model_path
+        file_type: "udpipe model"
+        contents: "natural text"
+        contents:
+          - "NLP model"
+          - "tokenizer"
+          - "lemmatizer"
+
+    outputs:
+      - volume: /veld/output/
+        environment: out_conllu_path
+        file_type:
+          - "conllu"
+          - "tsv"
+        contents: 
+          - "inferenced NLP data"
+          - "tokenized text"
+          - "lemmatized text"
+          - "part of speech of text"
+          - "universal dependencies of text"
+          - "grammatically annotated text"
+          - "linguistic data"
+
+    settings:
+      # tokenizer options (see https://ufal.mff.cuni.cz/udpipe/1/users-manual#run_udpipe_tokenizer )
+      - environment: tokenizer
+        description: "if tokenizer config should be read or not"
+        type: boolean
+        optional: true
+        default: true
+      - environment: tokenizer_normalized_spaces
+        description: "by default, UDPipe uses custom MISC fields to exactly encode spaces in the original document (as described below). If true, only the standard CoNLL-U v2 markup (SpaceAfter=No and # newpar) is used."
+        type: boolean
+        optional: true
+        default: false
+      - environment: tokenizer_presegmented
+        description: "the input file is assumed to be already segmented, with each sentence on a separate line, and is only tokenized (respecting sentence breaks)"
+        type: boolean
+        optional: true
+        default: false
+      - environment: tokenizer_ranges
+        description: "for each token, a range in the original document is stored in the format described below."
+        type: boolean
+        optional: true
+        default: false
+      - environment: tokenizer_joint_with_parsing
+        description: "an experimental mode performing sentence segmentation jointly using the tokenizer and the parser (see Milan Straka and Jana Straková: Tokenizing, POS Tagging, Lemmatizing and Parsing UD 2.0 with UDPipe paper for details)."
+        type: boolean
+        optional: true
+        default: false
+      - environment: tokenizer_joint_change_boundary_logprob
+        description: "for every sentence boundary not returned by the tokenizer (i.e., either 0, 1 or 2 times). The joint sentence segmentation chooses such a segmentation, where every sentence has length at most joint_max_sentence_len and the sum of logprobs of all sentences is as large as possible."
+        type: boolean
+        optional: true
+        default: false
+
+      # tagger options (see https://ufal.mff.cuni.cz/udpipe/1/users-manual#run_udpipe_tagger )
+      - environment: tagger
+        description: "if tagger config should be read or not"
+        type: boolean
+        optional: true
+        default: true
+
+      # parser options (see https://ufal.mff.cuni.cz/udpipe/1/users-manual#run_udpipe_parser )
+      - environment: parser
+        description: "if parser config should be read or not"
+        type: boolean
+        optional: true
+        default: true
+
+services:
+  veld_infer:
+    build: .
+    command: /veld/code/infer.sh
+    volumes:
+      - ./volumes/tokenize/input/1/:/veld/input/1/ 
+      - ./volumes/tokenize/input/2/:/veld/input/2/
+      - ./volumes/tokenize/output/:/veld/output/
+      - ./src/main/:/veld/code/
+    environment:
+      in_txt_path: null
+      in_model_path: null
+      out_conllu_path: null
+      tokenizer: true
+      tokenizer_normalized_spaces: false
+      tokenizer_presegmented: false
+      tokenizer_ranges: false
+      tokenizer_joint_with_parsing: false
+      tokenizer_joint_change_boundary_logprob: false
+      tagger: true
+      parser: true

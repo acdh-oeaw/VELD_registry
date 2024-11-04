@@ -1,0 +1,23 @@
+x-veld:
+  chain:
+    description: "chain to analyse the conllu data which was inferenced by udpipe on several ELTeC
+      corpora."
+    topics:
+      - "NLP"
+      - "Machine learning"
+      - "tokenization"
+      - "lemmatization"
+      - "part of speech"
+      - "dependency parsing"
+      - "universal dependencies"
+      - "grammatical annotation"
+
+services:
+  veld_anayse:
+    extends:
+      file: ./veld_code_19_analyse_conllu/veld.yaml
+      service: veld
+    volumes:
+      - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
+      - ./veld_data_16_eltec_conllu_stats/:/veld/output/
+

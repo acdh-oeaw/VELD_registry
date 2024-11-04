@@ -1,0 +1,19 @@
+x-veld:
+  chain:
+    description: "cleaning and converting json into spaCy docbin"
+    topics:
+      - "ETL"
+      - "NLP"
+      - "Machine learning"
+
+services:
+  veld_convert:
+    extends:
+      file: ./veld_code_7_train_spacy_ner/veld_convert.yaml
+      service: veld_convert
+    volumes:
+      - ./veld_data_5_apis_oebl__ner_gold/data/:/veld/input/
+      - ./spacy_docbin/:/veld/output/
+    environment:
+      in_json_file: "apis_oebl__ner__3_cleaned_simplified.json"
+

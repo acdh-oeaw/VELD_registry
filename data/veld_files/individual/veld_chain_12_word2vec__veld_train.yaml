@@ -1,0 +1,22 @@
+x-veld:
+  chain:
+    description: "train word2vec on wikipedia"
+
+services:
+  veld_train:
+    extends:
+      file: ./veld_code_13_word2vec/veld_train.yaml
+      service: veld_train
+    volumes:
+      - ./veld_data_9_we_training_data/:/veld/input/
+      - ./veld_data_11_word2vec_models/:/veld/output/
+    environment:
+      train_data_path: "/veld/input/data/de_wiki_cleaned_sentences.txt"
+      train_data_description: "german wikipedia, subset, txt"
+      model_path: "/veld/output/data/"
+      training_architecture: "word2vec_v1"
+      model_id: "m2"
+      vector_size: 500
+      window: 5
+      min_count: 5
+

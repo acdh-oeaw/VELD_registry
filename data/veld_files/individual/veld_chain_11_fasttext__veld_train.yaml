@@ -1,0 +1,24 @@
+x-veld:
+  chain:
+    description: "a fasttext training and inference jupyter notebook."
+    topics:
+      - "NLP"
+      - "Machine Learning"
+      - "word embeddings"
+
+services:
+  veld_train:
+    extends:
+      file: ./veld_code_12_fasttext/veld.yaml
+      service: veld
+    volumes:
+      - ./veld_data_9_we_training_data/data/:/veld/input/
+      - ./veld_data_8_fasttext_models/data/:/veld/output/
+    environment:
+      in_train_data_file: "de_wiki_cleaned_sentences.txt"
+      train_data_description: "german wikipedia, subset, txt"
+      training_architecture: "fasttext_v1"
+      model_id: "m4"
+      vector_size: 200
+      epochs: 50
+

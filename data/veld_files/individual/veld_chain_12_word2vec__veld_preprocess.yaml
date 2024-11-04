@@ -1,0 +1,16 @@
+x-veld:
+  chain:
+    description: "preprocess wikipedia data"
+
+services:
+  veld_preprocess:
+    extends:
+      file: ./veld_code_13_word2vec/veld_preprocess.yaml
+      service: veld_preprocess
+    volumes:
+      - ./veld_data_9_we_training_data/:/veld/input/
+      - ./veld_data_9_we_training_data/:/veld/output/
+    environment:
+      unprocessed_file_path: "/veld/input/data/de_wiki.csv"
+      processed_file_path: "/veld/output/data/de_wiki_cleaned_sentences.txt"
+

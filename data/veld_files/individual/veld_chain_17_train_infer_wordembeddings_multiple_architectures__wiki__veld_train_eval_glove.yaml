@@ -1,0 +1,49 @@
+x-veld:
+  chain:
+
+services:
+  veld_train_glove:
+    extends:
+      file: ./veld_code_17_glove/veld_train.yaml
+      service: veld_train 
+    volumes:
+      - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/input/:z
+      - ./data_local/models/glove/m1/:/veld/output/:z
+    environment:
+      in_corpus_file: "de_wiki_sample.txt"
+      out_vocab_file: "m1_vocab.txt"
+      out_cooccurrence_file: "m1_cooccurrence.bin"
+      out_cooccurrence_shuf_file: "m1_cooccurrence_shuf.bin"
+      out_vector_file: "m1_vector"
+      model_id: "m1"
+      model_description: "glove test model"
+      verbose: 2
+      memory: 4.0
+      vocab_min_count: 5
+      vector_size: 200
+      max_iter: 50
+      window_size: 15
+      binary: 2
+      num_threads: 14
+      x_max: 10
+
+  veld_eval_glove:
+    extends:
+      file: ./veld_code_14_we_evaluation/veld_eval_glove.yaml
+      service: veld_eval_glove
+    volumes:
+      - ./data_local/models/glove/m1/:/veld/input/1/:z
+      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+      - ./veld_data_10_we_evaluation/evaluation_results/logs/glove/:/veld/output/2/:z
+    environment:
+      in_1_vector_file: m1_vector.txt
+      model_id: m1
+      in_1_model_metadata_file: veld.yaml
+      in_2_eval_gold_data_file: eval_data_lowercase.yaml
+      out_1_eval_summary_file: summary.yaml
+      out_2_eval_log_file: m1.txt
+    depends_on:
+      veld_train_glove:
+        condition: service_completed_successfully
+

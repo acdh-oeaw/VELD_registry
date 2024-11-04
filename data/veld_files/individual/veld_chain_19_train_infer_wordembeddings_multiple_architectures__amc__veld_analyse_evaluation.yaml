@@ -1,0 +1,16 @@
+x-veld:
+  chain:
+
+services:
+  veld_analyse_evaluation:
+    extends:
+      file: ./veld_code_14_we_evaluation/veld_analyse_evaluation.yaml
+      service: veld_analyse_evaluation
+    volumes:
+      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
+      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/:z
+    environment:
+      in_evaluation_summary_file: "summary.yaml"
+      out_visualization_html_file: "summary_visualized.html"
+      out_visualization_png_file: "summary_visualized.png"
+

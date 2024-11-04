@@ -1,0 +1,65 @@
+x-veld:
+  chain:
+    description: "xml / xslt transformation of ELTeC data"
+    topics:
+      - "NLP"
+      - "Machine learning"
+      - "tokenization"
+      - "lemmatization"
+      - "part of speech"
+      - "dependency parsing"
+      - "universal dependencies"
+      - "grammatical annotation"
+
+# define some variables here once, so that following services can reuse it
+x-vars: 
+  - &var_extends
+    file: ./veld_code_16_xml_xslt_transformer/veld.yaml
+    service: veld
+  - &var_volumes
+    - ./veld_data_12_eltec_original_selection/:/veld/input/1/
+    - ./xsl/:/veld/input/2/
+    - ./veld_data_13_eltec_txt_transformed/:/veld/output/
+
+services:
+
+  veld_preprocess_cze:
+    extends: *var_extends
+    volumes: *var_volumes
+    environment:
+      in_xsl_path: "/veld/input/2/transformation.xsl"
+      in_xml_path: "/veld/input/1/data/ELTeC-cze/level1/"
+      out_txt_path: "/veld/output/data/ELTeC-cze/level1/"
+
+  veld_preprocess_deu:
+    extends: *var_extends
+    volumes: *var_volumes
+    environment:
+      in_xsl_path: "/veld/input/2/transformation.xsl"
+      in_xml_path: "/veld/input/1/data/ELTeC-deu/level1/"
+      out_txt_path: "/veld/output/data/ELTeC-deu/level1/"
+
+  veld_preprocess_eng:
+    extends: *var_extends
+    volumes: *var_volumes
+    environment:
+      in_xsl_path: "/veld/input/2/transformation.xsl"
+      in_xml_path: "/veld/input/1/data/ELTeC-eng/level1/"
+      out_txt_path: "/veld/output/data/ELTeC-eng/level1/"
+
+  veld_preprocess_fra:
+    extends: *var_extends
+    volumes: *var_volumes
+    environment:
+      in_xsl_path: "/veld/input/2/transformation.xsl"
+      in_xml_path: "/veld/input/1/data/ELTeC-fra/level1/"
+      out_txt_path: "/veld/output/data/ELTeC-fra/level1/"
+
+  veld_preprocess_spa:
+    extends: *var_extends
+    volumes: *var_volumes
+    environment:
+      in_xsl_path: "/veld/input/2/transformation.xsl"
+      in_xml_path: "/veld/input/1/data/ELTeC-spa/level1/"
+      out_txt_path: "/veld/output/data/ELTeC-spa/level1/"
+

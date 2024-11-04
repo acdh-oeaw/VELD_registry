@@ -1,0 +1,25 @@
+x-veld:
+  chain:
+    description: "train a udpipe model"
+    topics: 
+      - "NLP"
+      - "Machine learning"
+      - "tokenization"
+      - "lemmatization"
+      - "part of speech"
+      - "dependency parsing"
+      - "universal dependencies"
+      - "grammatical annotation"
+
+services:
+  veld_train:
+    extends:
+      file: ./veld_code_15_udpipe/veld_train.yaml
+      service: veld_train
+    volumes:
+      - ./data/training_data/:/veld/input/
+      - ./data/models/:/veld/output/
+    environment:
+      train_data_path: "/veld/input/UD_English-GUM/en_gum-ud-train.conllu"
+      model_path: "/veld/output/self_trained.model"
+

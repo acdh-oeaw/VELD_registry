@@ -1,0 +1,17 @@
+x-veld:
+  chain:
+    description: "pushing spacy model to huggingface."
+    topics: "NLP"
+
+services:
+  veld_publish:
+    extends:
+      file: ./veld_code_11_publish_to_hf/veld.yaml
+      service: veld
+    volumes:
+      - ./veld_data_6_apis_ner_models/models/m3/model/:/veld/input/
+    environment:
+      in_model_folder: "model-best"
+      model_name: "APIS_OEBL_NER_trf"
+      version: "1.0"
+

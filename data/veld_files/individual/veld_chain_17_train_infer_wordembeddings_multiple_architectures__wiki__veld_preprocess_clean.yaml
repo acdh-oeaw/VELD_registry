@@ -1,0 +1,18 @@
+x-veld:
+  code:
+
+services:
+  veld_preprocess_clean:
+    extends:
+      file: ./veld_code_19_we_preprocessing/veld_preprocess_clean.yaml
+      service: veld_preprocess_clean
+    volumes:
+      - ./veld_data_18_amc_we_training_data__test/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/data/:/veld/input/:z
+      - ./veld_data_18_amc_we_training_data__test/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/data/:/veld/output/:z
+    environment:
+      in_file: "data.txt"
+      out_file_clean: "data.txt"
+      out_file_dirty: "data_removed.txt"
+      min_percentage_char: 80
+
+

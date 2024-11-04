@@ -1,0 +1,14 @@
+x-veld:
+  data:
+    about:
+      description: "trained NER models with spaCy 3.6 on APIS ner data"
+      topics:
+        - "NLP"
+        - "Machine learning"
+        - "Named entity recognition"
+    file_formats: "spacy model"
+    contents:
+      - "NLP model"
+      - "NER model"
+      - "Machine learning model"
+

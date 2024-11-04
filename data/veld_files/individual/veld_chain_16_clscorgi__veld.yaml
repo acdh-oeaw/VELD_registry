@@ -1,0 +1,24 @@
+x-veld:
+  chain:
+    description: "reading in generated conllu files from udpipe and transform them to
+      clscorgi-conforming json files for further ingestion into clscor catalogue"
+    topics:
+      - "NLP"
+      - "Machine learning"
+      - "tokenization"
+      - "lemmatization"
+      - "part of speech"
+      - "dependency parsing"
+      - "universal dependencies"
+      - "grammatical annotation"      
+
+services:
+  veld:
+    extends:
+      file: ./veld_code_18_clscorgi/veld.yaml
+      service: veld
+    volumes:
+      - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
+    environment:
+      TOKEN: "PLACEHOLDER"
+

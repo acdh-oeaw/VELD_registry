@@ -1,0 +1,16 @@
+x-veld:
+  chain:
+    description: "a simple copy command, copying one file from a veld repo to a dedicated 
+      huggingface data repository for that file, containing NER gold data."
+    topics:
+      - "ETL"
+      - "Named entity recognition"
+
+services:
+  veld:
+    image: bash:5.2.21
+    volumes:
+      - ./veld_data_5_apis_oebl__ner_gold/data/:/veld/input/
+      - ./APIS_OEBL__Named_Entity_Recognition/:/veld/output/
+    command: cp /veld/input/apis_oebl__ner__3_cleaned_simplified.json /veld/output/data.json
+

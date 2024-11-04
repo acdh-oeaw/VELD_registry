@@ -5,185 +5,59 @@ This is a living collection of VELD repositories and their contained velds.
 The technical concept for the VELD design can be found here: https://zenodo.org/records/13318651
 
 
-## chain velds
-- https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models
-  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models/blob/main/veld.yaml)
+## data velds
+- https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold
+  - [veld.yaml](https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold/blob/main/veld.yaml)
     - valid: True
     - metadata:
-      - description: hard-coded evaluation of several spaCy 2.2.4 models.
+      - description: transformed NER data from APIS. 'Uncleaned' means that the indices of the annotated entities sometimes are slightly off, and lose something of the word or take in whitespaces. This can be a problem with spaCy which is very strict on token boundaries.  For the cleaned data, the indices of the uncleaned data were corrected to match precise token boundaries.  Redundancies and overlaps were removed.
       - topics: NLP, Machine learning, Named entity recognition
-- https://github.com/acdh-oeaw/veld_chain_6_apis_ner_transform_to_gold
-  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_6_apis_ner_transform_to_gold/blob/main/veld.yaml)
+      - file_type: json
+      - contents: gold data, NLP gold data, NER gold data
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_6_apis_ner_models
+  - [veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_6_apis_ner_models/blob/main/veld.yaml)
+    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+- https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat
+  - [linkedcat/veld.yaml](https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat/veld.yaml)
     - valid: True
     - metadata:
-      - description: Conversion of apis ner model data to harmonized custom json format.
-      - topics: ETL, data cleaning
-- https://github.com/acdh-oeaw/veld_chain_7_train
-  - [veld_convert.yaml](https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_convert.yaml)
+      - description: Prefered dataset is not this one, but linkedcat2! This dataset was created by applying a custom trained SpaCy NER model an APIS / ÖBL data, on data set 'linkedcat2' at our solr index. The csv file is split into id column, character start index of recognized entity, character end index of entity, label of entity type, and a small context window.
+      - topics: NLP, Named Entity Recognition
+      - file_type: csv
+      - contents: NER data, inferenced NLP data
+  - [linkedcat2/veld.yaml](https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat2/veld.yaml)
     - valid: True
     - metadata:
-      - description: cleaning and converting json into spaCy docbin
-      - topics: ETL, NLP, Machine learning
-  - [veld_publish.yaml](https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_publish.yaml)
+      - description: Prefered dataset is this one, not linkedcat! This dataset was created by applying a custom trained SpaCy NER model an APIS / ÖBL data, on data set 'linkedcat2' at our solr index. The csv file is split into id column, character start index of recognized entity, character end index of entity, label of entity type, and a small context window.
+      - topics: NLP, Named Entity Recognition
+      - file_type: csv
+      - contents: NER data, inferenced NLP data
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_8_fasttext_models
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_9_wikpedia_we_training_data
+- https://github.com/acdh-oeaw/veld_data_10_we_evaluation
+  - [evaluation_gold_data/capitalized/veld.yaml](https://github.com/acdh-oeaw/veld_data_10_we_evaluation/blob/main/evaluation_gold_data/capitalized/veld.yaml)
+    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+  - [evaluation_gold_data/lowercase/veld.yaml](https://github.com/acdh-oeaw/veld_data_10_we_evaluation/blob/main/evaluation_gold_data/lowercase/veld.yaml)
+    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_11_word2vec_models
+- https://github.com/acdh-oeaw/veld_data_12_eltec_original_selection
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_13_eltec_txt_transformed
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_14_udpipe_models
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_15_eltec_udpipe_conllu
+- https://github.com/acdh-oeaw/veld_data_16_eltec_conllu_stats
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_17_glove_models
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models
+  - [veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models/blob/main/veld.yaml)
     - valid: True
     - metadata:
-      - description: pushing spacy model to huggingface.
-      - topics: NLP
-  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_train.yaml)
-    - valid: True
-    - metadata:
-      - description: A NER trainig setup, utilizing spaCy 3's config system.
-      - topics: NLP, Machine learning, Named entity recognition
-- https://github.com/acdh-oeaw/veld_chain_9_akp_ner
-  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_9_akp_ner/blob/main/veld.yaml)
-    - valid: True
-    - metadata:
-      - description: This repo uses self-trained spaCy NER models on the linkedcat dataset to extract entities, which are stored in csv files.
-      - topics: NLP, Machine learning, Named entity recognition
-- https://github.com/acdh-oeaw/veld_chain_10_apis_ner_to_huggingface
-  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_10_apis_ner_to_huggingface/blob/main/veld.yaml)
-    - valid: False, non-optional key missing: 'extends', at: /services/veld/
-- https://github.com/acdh-oeaw/veld_chain_11_fasttext
-  - [veld_eval.yaml](https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_eval.yaml)
-    - valid: True
-    - metadata:
-      - description: custom evaluation logic for word2vec, fasttext and glove models
-      - topics: NLP, Machine Learning, word embeddings, evaluation
-  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_train.yaml)
-    - valid: True
-    - metadata:
-      - description: a fasttext training and inference jupyter notebook.
-      - topics: NLP, Machine Learning, word embeddings
-- https://github.com/acdh-oeaw/veld_chain_12_word2vec
-  - [veld_eval.yaml](https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_eval.yaml)
-    - valid: True
-    - metadata:
-      - description: evaluate word2vec model
-  - [veld_preprocess.yaml](https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_preprocess.yaml)
-    - valid: True
-    - metadata:
-      - description: preprocess wikipedia data
-  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_train.yaml)
-    - valid: True
-    - metadata:
-      - description: train word2vec on wikipedia
-- https://github.com/acdh-oeaw/veld_chain_13_udpipe
-  - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_infer.yaml)
-    - valid: True
-    - metadata:
-      - description: use a udpipe model to infer on raw text
-      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
-  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_train.yaml)
-    - valid: True
-    - metadata:
-      - description: train a udpipe model
-      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
-- https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference
-  - [veld_analyse.yaml](https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_analyse.yaml)
-    - valid: True
-    - metadata:
-      - description: chain to analyse the conllu data which was inferenced by udpipe on several ELTeC corpora.
-      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
-  - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_infer.yaml)
-    - valid: False, elements not matching anything at: /x-vars
-  - [veld_preprocess.yaml](https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_preprocess.yaml)
-    - valid: False, elements not matching anything at: /x-vars
-- https://github.com/acdh-oeaw/veld_chain_15_glove
-  - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_infer.yaml)
-    - valid: True
-    - metadata:
-      - description: A jupyter notebook that loads GloVe vectors and provides some convenient functions to use them.
-      - topics: NLP, Machine learning, word embeddings
-  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_train.yaml)
-    - valid: True
-    - metadata:
-      - description: Trainings setup using glove on amc data
-      - topics: NLP, Machine learning, word embeddings
-- https://github.com/acdh-oeaw/veld_chain_16_clscorgi
-  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_16_clscorgi/blob/main/veld.yaml)
-    - valid: True
-    - metadata:
-      - description: reading in generated conllu files from udpipe and transform them to clscorgi-conforming json files for further ingestion into clscor catalogue
-      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
-- https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki
-  - [veld_analyse_evaluation.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_analyse_evaluation.yaml)
-    - valid: True
-  - [veld_jupyter_notebook_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_fasttext.yaml)
-    - valid: True
-  - [veld_jupyter_notebook_glove.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_glove.yaml)
-    - valid: True
-  - [veld_jupyter_notebook_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_word2vec.yaml)
-    - valid: True
-    - metadata:
-      - description: a word2vec jupyter notebook, for quick experiments
-      - topics: NLP, Machine Learning, word embeddings
-  - [veld_multi_chain__preprocess.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess.yaml)
-    - valid: True
-  - [veld_multi_chain__preprocess_train_eval.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess_train_eval.yaml)
-    - valid: True
-  - [veld_preprocess_clean.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_clean.yaml)
-    - valid: True
-  - [veld_preprocess_download_and_extract.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_download_and_extract.yaml)
-    - valid: True
-    - metadata:
-      - description: downloading wikipedia archive and extracting each article to a json file.
-      - topics: NLP, Machine Learning, ETL
-  - [veld_preprocess_lowercase.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_lowercase.yaml)
-    - valid: True
-  - [veld_preprocess_remove_punctuation.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_remove_punctuation.yaml)
-    - valid: True
-  - [veld_preprocess_sample.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_sample.yaml)
-    - valid: True
-  - [veld_preprocess_transform_wiki_json_to_txt.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml)
-    - valid: True
-    - metadata:
-      - description: transforming wikipedia raw jsons to a single txt file.
-      - topics: NLP, Machine Learning, ETL
-  - [veld_train_eval_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_fasttext.yaml)
-    - valid: True
-  - [veld_train_eval_glove.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_glove.yaml)
-    - valid: True
-  - [veld_train_eval_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_word2vec.yaml)
-    - valid: True
-    - metadata:
-      - description: a multi-chain, doing training and evaluation of a word2vec model
-      - topics: NLP, Machine Learning, word embeddings, model evaluation
-- https://github.com/acdh-oeaw/veld_chain_18_MARA_load_and_publish_models
-  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_18_MARA_load_and_publish_models/blob/main/veld.yaml)
-    - valid: False, elements not matching anything at: /services/veld/build
-- https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc
-  - [veld_analyse_evaluation.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml)
-    - valid: True
-  - [veld_analyse_evaluation_non_interactive.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml)
-    - valid: True
-  - [veld_eval_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_fasttext.yaml)
-    - valid: False, elements not matching anything at: /services/veld_eval_fasttext/depends_on
-  - [veld_eval_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml)
-    - valid: True
-  - [veld_eval_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml)
-    - valid: True
-  - [veld_jupyter_notebook_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_fasttext.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_fasttext/ports
-  - [veld_jupyter_notebook_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_glove.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_glove/ports
-  - [veld_jupyter_notebook_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_word2vec.yaml)
-    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_word2vec/ports
-  - [veld_preprocess_clean.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml)
-    - valid: True
-  - [veld_preprocess_lowercase.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml)
-    - valid: True
-  - [veld_preprocess_remove_punctuation.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml)
-    - valid: True
-  - [veld_preprocess_sample.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml)
-    - valid: True
-  - [veld_preprocess_strip.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml)
-    - valid: True
-  - [veld_train_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml)
-    - valid: True
-  - [veld_train_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml)
-    - valid: True
-  - [veld_train_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml)
-    - valid: True
+      - description: created in the MARA project
+      - topics: NLP, text classification
+      - file_type: spacy model
+      - contents: spacy model, spacy textcat model
+- https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner
+  - [veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner/blob/main/veld.yaml)
+    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
 
 ## code velds
 - https://github.com/acdh-oeaw/veld_code_3_apis_ner_evaluate_old_models
@@ -556,78 +430,182 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
           - file_type: txt
           - contents: NLP training data, word embeddings training data, raw text
 
-## data velds
-- https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold
-  - [veld.yaml](https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold/blob/main/veld.yaml)
+## chain velds
+- https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models
+  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models/blob/main/veld.yaml)
     - valid: True
     - metadata:
-      - description: transformed NER data from APIS. 'Uncleaned' means that the indices of the annotated entities sometimes are slightly off, and lose something of the word or take in whitespaces. This can be a problem with spaCy which is very strict on token boundaries.  For the cleaned data, the indices of the uncleaned data were corrected to match precise token boundaries.  Redundancies and overlaps were removed.
+      - description: hard-coded evaluation of several spaCy 2.2.4 models.
       - topics: NLP, Machine learning, Named entity recognition
-      - file_type: json
-      - contents: gold data, NLP gold data, NER gold data
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_6_apis_ner_models
-  - [veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_6_apis_ner_models/blob/main/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
-- https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat
-  - [linkedcat/veld.yaml](https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat/veld.yaml)
+- https://github.com/acdh-oeaw/veld_chain_6_apis_ner_transform_to_gold
+  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_6_apis_ner_transform_to_gold/blob/main/veld.yaml)
     - valid: True
     - metadata:
-      - description: Prefered dataset is not this one, but linkedcat2! This dataset was created by applying a custom trained SpaCy NER model an APIS / ÖBL data, on data set 'linkedcat2' at our solr index. The csv file is split into id column, character start index of recognized entity, character end index of entity, label of entity type, and a small context window.
-      - topics: NLP, Named Entity Recognition
-      - file_type: csv
-      - contents: NER data, inferenced NLP data
-  - [linkedcat2/veld.yaml](https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat2/veld.yaml)
+      - description: Conversion of apis ner model data to harmonized custom json format.
+      - topics: ETL, data cleaning
+- https://github.com/acdh-oeaw/veld_chain_7_train
+  - [veld_convert.yaml](https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_convert.yaml)
     - valid: True
     - metadata:
-      - description: Prefered dataset is this one, not linkedcat! This dataset was created by applying a custom trained SpaCy NER model an APIS / ÖBL data, on data set 'linkedcat2' at our solr index. The csv file is split into id column, character start index of recognized entity, character end index of entity, label of entity type, and a small context window.
-      - topics: NLP, Named Entity Recognition
-      - file_type: csv
-      - contents: NER data, inferenced NLP data
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_8_fasttext_models
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_9_wikpedia_we_training_data
-- https://github.com/acdh-oeaw/veld_data_10_we_evaluation
-  - [evaluation_gold_data/capitalized/veld.yaml](https://github.com/acdh-oeaw/veld_data_10_we_evaluation/blob/main/evaluation_gold_data/capitalized/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
-  - [evaluation_gold_data/lowercase/veld.yaml](https://github.com/acdh-oeaw/veld_data_10_we_evaluation/blob/main/evaluation_gold_data/lowercase/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_11_word2vec_models
-- https://github.com/acdh-oeaw/veld_data_12_eltec_original_selection
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_13_eltec_txt_transformed
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_14_udpipe_models
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_15_eltec_udpipe_conllu
-- https://github.com/acdh-oeaw/veld_data_16_eltec_conllu_stats
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_17_glove_models
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data
-  - [data/203_vert_rftt_inhalt_nodup/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/veld.yaml)
-    - valid: False, root node x-veld missing
-  - [data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned__sampled/veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data/blob/main/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned__sampled/veld.yaml)
-    - valid: False, root node x-veld missing
-- https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models
-  - [veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models/blob/main/veld.yaml)
+      - description: cleaning and converting json into spaCy docbin
+      - topics: ETL, NLP, Machine learning
+  - [veld_publish.yaml](https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_publish.yaml)
     - valid: True
     - metadata:
-      - description: created in the MARA project
-      - topics: NLP, text classification
-      - file_type: spacy model
-      - contents: spacy model, spacy textcat model
-- https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner
-  - [veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner/blob/main/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+      - description: pushing spacy model to huggingface.
+      - topics: NLP
+  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_train.yaml)
+    - valid: True
+    - metadata:
+      - description: A NER trainig setup, utilizing spaCy 3's config system.
+      - topics: NLP, Machine learning, Named entity recognition
+- https://github.com/acdh-oeaw/veld_chain_9_akp_ner
+  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_9_akp_ner/blob/main/veld.yaml)
+    - valid: True
+    - metadata:
+      - description: This repo uses self-trained spaCy NER models on the linkedcat dataset to extract entities, which are stored in csv files.
+      - topics: NLP, Machine learning, Named entity recognition
+- https://github.com/acdh-oeaw/veld_chain_10_apis_ner_to_huggingface
+  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_10_apis_ner_to_huggingface/blob/main/veld.yaml)
+    - valid: False, non-optional key missing: 'extends', at: /services/veld/
+- https://github.com/acdh-oeaw/veld_chain_11_fasttext
+  - [veld_eval.yaml](https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_eval.yaml)
+    - valid: True
+    - metadata:
+      - description: custom evaluation logic for word2vec, fasttext and glove models
+      - topics: NLP, Machine Learning, word embeddings, evaluation
+  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_train.yaml)
+    - valid: True
+    - metadata:
+      - description: a fasttext training and inference jupyter notebook.
+      - topics: NLP, Machine Learning, word embeddings
+- https://github.com/acdh-oeaw/veld_chain_12_word2vec
+  - [veld_eval.yaml](https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_eval.yaml)
+    - valid: True
+    - metadata:
+      - description: evaluate word2vec model
+  - [veld_preprocess.yaml](https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_preprocess.yaml)
+    - valid: True
+    - metadata:
+      - description: preprocess wikipedia data
+  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_train.yaml)
+    - valid: True
+    - metadata:
+      - description: train word2vec on wikipedia
+- https://github.com/acdh-oeaw/veld_chain_13_udpipe
+  - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_infer.yaml)
+    - valid: True
+    - metadata:
+      - description: use a udpipe model to infer on raw text
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_train.yaml)
+    - valid: True
+    - metadata:
+      - description: train a udpipe model
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+- https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference
+  - [veld_analyse.yaml](https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_analyse.yaml)
+    - valid: True
+    - metadata:
+      - description: chain to analyse the conllu data which was inferenced by udpipe on several ELTeC corpora.
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+  - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_infer.yaml)
+    - valid: False, elements not matching anything at: /x-vars
+  - [veld_preprocess.yaml](https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_preprocess.yaml)
+    - valid: False, elements not matching anything at: /x-vars
+- https://github.com/acdh-oeaw/veld_chain_15_glove
+  - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_infer.yaml)
+    - valid: True
+    - metadata:
+      - description: A jupyter notebook that loads GloVe vectors and provides some convenient functions to use them.
+      - topics: NLP, Machine learning, word embeddings
+  - [veld_train.yaml](https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_train.yaml)
+    - valid: True
+    - metadata:
+      - description: Trainings setup using glove on amc data
+      - topics: NLP, Machine learning, word embeddings
+- https://github.com/acdh-oeaw/veld_chain_16_clscorgi
+  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_16_clscorgi/blob/main/veld.yaml)
+    - valid: True
+    - metadata:
+      - description: reading in generated conllu files from udpipe and transform them to clscorgi-conforming json files for further ingestion into clscor catalogue
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+- https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki
+  - [veld_analyse_evaluation.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_analyse_evaluation.yaml)
+    - valid: True
+  - [veld_jupyter_notebook_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_fasttext.yaml)
+    - valid: True
+  - [veld_jupyter_notebook_glove.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_glove.yaml)
+    - valid: True
+  - [veld_jupyter_notebook_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_word2vec.yaml)
+    - valid: True
+    - metadata:
+      - description: a word2vec jupyter notebook, for quick experiments
+      - topics: NLP, Machine Learning, word embeddings
+  - [veld_multi_chain__preprocess.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess.yaml)
+    - valid: True
+  - [veld_multi_chain__preprocess_train_eval.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess_train_eval.yaml)
+    - valid: True
+  - [veld_preprocess_clean.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_clean.yaml)
+    - valid: True
+  - [veld_preprocess_download_and_extract.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_download_and_extract.yaml)
+    - valid: True
+    - metadata:
+      - description: downloading wikipedia archive and extracting each article to a json file.
+      - topics: NLP, Machine Learning, ETL
+  - [veld_preprocess_lowercase.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_lowercase.yaml)
+    - valid: True
+  - [veld_preprocess_remove_punctuation.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_remove_punctuation.yaml)
+    - valid: True
+  - [veld_preprocess_sample.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_sample.yaml)
+    - valid: True
+  - [veld_preprocess_transform_wiki_json_to_txt.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml)
+    - valid: True
+    - metadata:
+      - description: transforming wikipedia raw jsons to a single txt file.
+      - topics: NLP, Machine Learning, ETL
+  - [veld_train_eval_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_fasttext.yaml)
+    - valid: True
+  - [veld_train_eval_glove.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_glove.yaml)
+    - valid: True
+  - [veld_train_eval_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_word2vec.yaml)
+    - valid: True
+    - metadata:
+      - description: a multi-chain, doing training and evaluation of a word2vec model
+      - topics: NLP, Machine Learning, word embeddings, model evaluation
+- https://github.com/acdh-oeaw/veld_chain_18_MARA_load_and_publish_models
+  - [veld.yaml](https://github.com/acdh-oeaw/veld_chain_18_MARA_load_and_publish_models/blob/main/veld.yaml)
+    - valid: False, elements not matching anything at: /services/veld/build
+- https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc
+  - [veld_analyse_evaluation.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml)
+    - valid: True
+  - [veld_analyse_evaluation_non_interactive.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml)
+    - valid: True
+  - [veld_eval_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_fasttext.yaml)
+    - valid: False, elements not matching anything at: /services/veld_eval_fasttext/depends_on
+  - [veld_eval_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml)
+    - valid: True
+  - [veld_eval_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml)
+    - valid: True
+  - [veld_jupyter_notebook_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_fasttext.yaml)
+    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_fasttext/ports
+  - [veld_jupyter_notebook_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_glove.yaml)
+    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_glove/ports
+  - [veld_jupyter_notebook_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_word2vec.yaml)
+    - valid: False, elements not matching anything at: /services/veld_jupyter_notebook_word2vec/ports
+  - [veld_preprocess_clean.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml)
+    - valid: True
+  - [veld_preprocess_lowercase.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml)
+    - valid: True
+  - [veld_preprocess_remove_punctuation.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml)
+    - valid: True
+  - [veld_preprocess_sample.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml)
+    - valid: True
+  - [veld_preprocess_strip.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml)
+    - valid: True
+  - [veld_train_fasttext.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml)
+    - valid: True
+  - [veld_train_glove.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml)
+    - valid: True
+  - [veld_train_word2vec.yaml](https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml)
+    - valid: True

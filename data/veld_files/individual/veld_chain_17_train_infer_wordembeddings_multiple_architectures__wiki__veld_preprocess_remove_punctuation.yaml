@@ -1,0 +1,18 @@
+x-veld:
+  chain:
+
+services:
+  veld_preprocess_remove_punctuation:
+    extends:
+      file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
+      service: veld_preprocess_remove_punctuation
+    volumes:
+      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
+      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/:z
+    environment:
+      in_txt_file: "de_wiki_sample.txt"
+      out_txt_file: "de_wiki_sample.txt"
+      out_data_description: "sample wikipedia, single txt, removed punctuation"
+      cpu_count: 14
+      info_interval: 10
+
