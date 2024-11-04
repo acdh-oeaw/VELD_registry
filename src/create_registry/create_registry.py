@@ -9,12 +9,12 @@ from veld_spec import validate
 
 GITHUB_TOKEN = os.getenv("github_token")
 GITLAB_TOKEN = os.getenv("gitlab_token")
-IN_LINKS_DATA_PATH = "./data/links_repos/links_data_velds.txt"
-IN_LINKS_CODE_PATH = "./data/links_repos/links_code_velds.txt"
-IN_LINKS_CHAIN_PATH = "./data/links_repos/links_chain_velds.txt"
-OUT_README_PATH = "./README.md"
-OUT_VELD_INDIVIDUAL_FOLDER = "./data/veld_files/individual/"
-OUT_VELD_MERGED_PATH = "./data/veld_files/merged/all_velds_merged.yaml"
+IN_LINKS_DATA_PATH = "/app/data/links_repos/links_data_velds.txt"
+IN_LINKS_CODE_PATH = "/app/data/links_repos/links_code_velds.txt"
+IN_LINKS_CHAIN_PATH = "/app/data/links_repos/links_chain_velds.txt"
+OUT_README_PATH = "/app/README.md"
+OUT_VELD_INDIVIDUAL_FOLDER = "/app/data/veld_files/individual/"
+OUT_VELD_MERGED_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
 
 
 def validate_metadata(veld_metadata_str):
