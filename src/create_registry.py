@@ -169,7 +169,7 @@ def generate_list(link_txt_path, all_velds):
                     validate_message = "False, " + veld["validation_result"][1]
                 content += f"    - valid: {validate_message}\n"
                 if veld["validation_result"][0]:
-                    all_velds[out_veld_id] = veld["metadata"]
+                    all_velds[out_veld_id] = {"url": veld_url, "content": veld["metadata"]}
                     content_md = handle_metadata(veld, 4)
                     if content_md != "":
                         content += f"    - metadata:\n"
@@ -196,7 +196,7 @@ def main():
     content += content_tmp
     with open(OUT_README_PATH, "w") as f:
         f.write(content)
-    with open(OUT_VELD_MERGED_PATH, "w") as f_out:
+    with open(OUT_VELD_MERGED_PATH, "w", encoding="utf-8") as f_out:
         yaml.dump(all_velds, f_out, sort_keys=False)
 
 
