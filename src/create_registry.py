@@ -132,12 +132,11 @@ def handle_metadata(veld, level):
     return content
 
 
-def generate_list(link_txt_path):
+def generate_list(link_txt_path, all_velds):
     content = ""
     test_count_gh = 0
     test_count_gl = 0
     limit = math.inf
-    all_velds = {}
     with open(link_txt_path, "r") as f:
         for line in f:
             content += "- " + line
@@ -175,12 +174,11 @@ def generate_list(link_txt_path):
                     if content_md != "":
                         content += f"    - metadata:\n"
                         content += content_md
-            with open(OUT_VELD_MERGED_PATH, "w") as f_out:
-                yaml.dump(all_velds, f_out, sort_keys=False)
-    return content
+    return content, all_velds
 
 
 def main():
+    all_velds = {}
     content = (
         "# VELD registry\n\n"
         "This is a living collection of VELD repositories and their contained velds.\n\n"
@@ -188,13 +186,18 @@ def main():
         "https://zenodo.org/records/13318651\n\n"
     )
     content += "\n## data velds\n"
-    content += generate_list(IN_LINKS_DATA_PATH)
+    content_tmp, all_velds = generate_list(IN_LINKS_DATA_PATH, all_velds)
+    content += content_tmp
     content += "\n## code velds\n"
-    content += generate_list(IN_LINKS_CODE_PATH)
+    content_tmp, all_velds = generate_list(IN_LINKS_CODE_PATH, all_velds)
+    content += content_tmp
     content += "\n## chain velds\n"
-    content += generate_list(IN_LINKS_CHAIN_PATH)
+    content_tmp, all_velds = generate_list(IN_LINKS_CHAIN_PATH, all_velds)
+    content += content_tmp
     with open(OUT_README_PATH, "w") as f:
         f.write(content)
+    with open(OUT_VELD_MERGED_PATH, "w") as f_out:
+        yaml.dump(all_velds, f_out, sort_keys=False)
 
 
 if __name__ == "__main__":
