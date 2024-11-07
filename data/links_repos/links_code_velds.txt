@@ -14,3 +14,4 @@ https://github.com/acdh-oeaw/veld_code_17_glove
 https://github.com/acdh-oeaw/veld_code_18_clscorgi
 https://github.com/acdh-oeaw/veld_code_19_we_preprocessing
 https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing
+https://github.com/acdh-oeaw/bert_embeddings

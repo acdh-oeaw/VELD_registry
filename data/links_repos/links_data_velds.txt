@@ -14,3 +14,4 @@ https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_17_glove_models
 https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_18_amc_we_training_data
 https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models
 https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/bert_amc_embeddings_db
