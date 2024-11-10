@@ -1,2247 +1,2397 @@
-https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold/blob/main/veld.yaml:
-  x-veld:
-    data:
-      description: transformed NER data from APIS. 'Uncleaned' means that the indices
-        of the annotated entities sometimes are slightly off, and lose something of
-        the word or take in whitespaces. This can be a problem with spaCy which is
-        very strict on token boundaries.  For the cleaned data, the indices of the
-        uncleaned data were corrected to match precise token boundaries.  Redundancies
-        and overlaps were removed.
-      topics:
-      - NLP
-      - Machine learning
-      - Named entity recognition
-      file_type: json
-      contents:
-      - gold data
-      - NLP gold data
-      - NER gold data
-https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat/veld.yaml:
-  x-veld:
-    data:
-      file_type: csv
-      description: "Prefered dataset is not this one, but linkedcat2! This dataset\
-        \ was created by applying a custom trained SpaCy NER model an APIS / \xD6\
-        BL data, on data set 'linkedcat2' at our solr index. The csv file is split\
-        \ into id column, character start index of recognized entity, character end\
-        \ index of entity, label of entity type, and a small context window."
-      topics:
-      - NLP
-      - Named Entity Recognition
-      contents:
-      - NER data
-      - inferenced NLP data
-https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat2/veld.yaml:
-  x-veld:
-    data:
-      file_type: csv
-      description: "Prefered dataset is this one, not linkedcat! This dataset was\
-        \ created by applying a custom trained SpaCy NER model an APIS / \xD6BL data,\
-        \ on data set 'linkedcat2' at our solr index. The csv file is split into id\
-        \ column, character start index of recognized entity, character end index\
-        \ of entity, label of entity type, and a small context window."
-      topics:
-      - NLP
-      - Named Entity Recognition
-      contents:
-      - NER data
-      - inferenced NLP data
-https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models/blob/main/veld.yaml:
-  x-veld:
-    data:
-      file_type: spacy model
-      description: created in the MARA project
-      topics:
-      - NLP
-      - text classification
-      contents:
-      - spacy model
-      - spacy textcat model
-https://github.com/acdh-oeaw/veld_code_4_apis_ner_transform_to_gold/blob/main/veld.yaml:
-  x-veld:
-    code:
-      description: hard-coded conversion of apis ner models to custom json format.
-      topics:
-      - ETL
-      - data cleaning
-      inputs:
-      - volume: /veld/input/
-        description: This input is hard-wired to the apis spacy-ner repo and not made
-          for generic usage.
-        file_type:
-        - pickle
-        - txt
-        - json
-        contents: NER gold data
-      outputs:
-      - volume: /veld/output/1/
-        environment: out_json_cleaned_file
-        description: raw uncleaned, as it was originally. Now just transformed to
-          json.
+veld_data_5_apis_oebl__ner_gold__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold/blob/main/veld.yaml
+  content:
+    x-veld:
+      data:
+        description: transformed NER data from APIS. 'Uncleaned' means that the indices
+          of the annotated entities sometimes are slightly off, and lose something
+          of the word or take in whitespaces. This can be a problem with spaCy which
+          is very strict on token boundaries.  For the cleaned data, the indices of
+          the uncleaned data were corrected to match precise token boundaries.  Redundancies
+          and overlaps were removed.
+        topics:
+        - NLP
+        - Machine learning
+        - Named entity recognition
         file_type: json
-        contents: NER gold data
-      - volume: /veld/output/1/
-        environment: out_json_uncleaned_file
-        description: removed empty entity annotations and fixed border issues.
-        file_type: json
-        contents: NER gold data
-      - volume: /veld/output/1/
-        environment: out_json_cleaned_simplified_file
-        description: additionally to cleaning, this data is slimmed down from superfluous
-          entity ids in favor of simplified entity classes.
-        file_type: json
-        contents: NER gold data
-      - volume: /veld/output/2/
-        environment: out_log_file
-        file_type: txt
-  services:
-    veld:
-      build: .
-      command: python /veld/code/extract_and_clean.py
-      volumes:
-      - ./src/:/veld/code/
-      environment:
-        out_json_uncleaned_file: null
-        out_json_cleaned_file: null
-        out_json_cleaned_simplified_file: null
-        out_log_file: null
-https://github.com/acdh-oeaw/veld_code_5_simple_docker_test/blob/main/veld.yaml:
-  x-veld:
-    code:
-      description: prints information about the python intepreter within the docker
-        container.
-      topics: testing
-  services:
-    veld:
-      build: .
-      command: python /veld/code/test.py
-      volumes:
-      - ./test.py:/veld/code/test.py
-https://github.com/acdh-oeaw/veld_code_7_train_spacy_ner/blob/main/veld_convert.yaml:
-  x-veld:
-    code:
-      description: prepare data for spacy NER training, since spacy expects the entity
-        annotation indices to be precisely at the beginning and end of the words,
-        and also no overlapping entity annotations. Then it converts the data to spaCy
-        docbin, and prepares it for training by splitting it into train, dev, eval
-        subsets, and shuffling them randomly.
-      topics:
-      - ETL
-      - NLP
-      - Machine learning
-      inputs:
-      - volume: /veld/input/
-        file_type: json
-        description: path to csv file, containing NER gold data
-        environment: in_json_file
-        contents: NER gold data
-      outputs:
-      - volume: /veld/output/
-        environment: output_spacy_docbin_folder
-        description: path to spacy docbin file, containing NER gold data and spacy
-          nlp data
-        file_type: spacy docbin
-        contents: NER gold data
-      settings:
-      - environment: percentage_train
-        description: percentage of data allocated to training set
-        env_type: int
-        default: 80
-      - environment: percentage_dev
-        description: percentage of data allocated to dev set
-        env_type: int
-        default: 10
-      - environment: percentage_eval
-        description: percentage of data allocated to eval set
-        env_type: int
-        default: 10
-      - environment: seed
-        description: seed for initial random shuffling of training data
-        env_type: int
-        default: 42
-  services:
-    veld_convert:
-      build: .
-      command: python /veld/code/convert.py
-      volumes:
-      - ./src/convert/:/veld/code/
-      environment:
-        in_json_file: null
-        output_spacy_docbin_folder: null
-        percentage_train: 80
-        percentage_dev: 10
-        percentage_eval: 10
-        seed: 42
-https://github.com/acdh-oeaw/veld_code_7_train_spacy_ner/blob/main/veld_train.yaml:
-  x-veld:
-    code:
-      description: A NER trainig setup, utilizing spaCy 3's config system.
-      topics:
-      - NLP
-      - Machine learning
-      - Named entity recognition
-      inputs:
-      - volume: /veld/input/
-        file_type: spacy docbin
-        environment: in_train_docbin_file
-        contents: NER gold data
-      - volume: /veld/input/
-        file_type: spacy docbin
-        environment: in_dev_docbin_file
-        contents: NER gold data
-      - volume: /veld/input/
-        file_type: spacy docbin
-        environment: in_eval_docbin_file
-        contents: NER gold data
-      outputs:
-      - volume: /veld/output/
-        file_type: spacy model
-        environment: out_model_folder
-        description: path to the spacy model
-        contents: NLP model
-      - volume: /veld/output/
-        file_type: txt
-        environment: out_train_log_file
-        description: path to the train log file
-        contents: logs
-      - volume: /veld/output/
-        file_type: txt
-        environment: out_eval_log_file
-        description: path to the eval log file
-        contents: logs
-  services:
-    veld_train:
-      build: .
-      working_dir: /veld/code/
-      command: bash /veld/code/train.sh
-      volumes:
-      - ./src/train/:/veld/code/
-      - ./data/docbin/:/veld/input/
-      - ./data/model/:/veld/output/
-      environment:
-        in_train_docbin_file: null
-        in_dev_docbin_file: null
-        in_eval_docbin_file: null
-        out_model_file: null
-        out_train_log_file: null
-        out_eval_log_file: null
-https://github.com/acdh-oeaw/veld_code_9_jupyter_notebook_base/blob/main/veld.yaml:
-  x-veld:
-    code:
-      description: template veld code repo for a juptyer notebook
-  services:
-    veld:
-      build: .
-      command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
-      ports:
-      - 8888:8888
-      working_dir: /veld/code/
-      volumes:
-      - ./src:/veld/code/
-      - ./volumes/input/:/veld/input/
-      - ./volumes/output/:/veld/output/
-https://github.com/acdh-oeaw/veld_code_10_akp_ner/blob/main/veld.yaml:
-  x-veld:
-    code:
-      description: apply NER models on linkedcat data for usage of the inferenced
-        entites in the AKP project
-      topics:
-      - NLP
-      - Machine learning
-      - Named entity recognition
-      inputs:
-      - volume: /veld/input/
-        file_type: spacy model
         contents:
-        - NLP model
-        - NER model
-      outputs:
-      - volume: /veld/output/
+        - gold data
+        - NLP gold data
+        - NER gold data
+veld_data_7_akp_ner_linkedcat__linkedcat__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat/veld.yaml
+  content:
+    x-veld:
+      data:
         file_type: csv
-        environment: out_csv_file
-        description: inferenced NLP / NER data.
+        description: "Prefered dataset is not this one, but linkedcat2! This dataset\
+          \ was created by applying a custom trained SpaCy NER model an APIS / \xD6\
+          BL data, on data set 'linkedcat2' at our solr index. The csv file is split\
+          \ into id column, character start index of recognized entity, character\
+          \ end index of entity, label of entity type, and a small context window."
+        topics:
+        - NLP
+        - Named Entity Recognition
         contents:
-        - inferenced NLP data
-        - NLP data
         - NER data
-      settings:
-      - environment: solr_core_url
-        description: url pointing to a solr core from where text data should be loaded
-        env_type: url
-  services:
-    veld:
-      build: .
-      command: jupyter notebook --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password=''
-      ports:
-      - 8888:8888
-      working_dir: /veld/code/
-      volumes:
-      - ./src:/veld/code/
-      environment:
-        solr_core_url: null
-        out_csv_file: null
-https://github.com/acdh-oeaw/veld_code_12_fasttext/blob/main/veld_jupyter_notebook.yaml:
-  x-veld:
-    code:
-      description: a fasttext training and inference jupyter notebook.
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-  services:
-    veld_jupyter_notebook:
-      build: .
-      command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
-      ports:
-      - 8888:8888
-      volumes:
-      - ./src/jupyter_notebook/:/veld/code/:z
-      - ./data/:/veld/storage/:z
-https://github.com/acdh-oeaw/veld_code_12_fasttext/blob/main/veld_train.yaml:
-  x-veld:
-    code:
-      description: a fasttext training and inference jupyter notebook.
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-      inputs:
-      - volume: /veld/input/
-        file_type: txt
-        environment: in_train_data_file
-        description: training data must be expressed as one sentence per line.
-        contents: raw text
-      outputs:
-      - volume: /veld/output/
-        file_type:
-        - bin
-        - fasttext model
-        environment: out_model_file
+        - inferenced NLP data
+veld_data_7_akp_ner_linkedcat__linkedcat2__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat2/veld.yaml
+  content:
+    x-veld:
+      data:
+        file_type: csv
+        description: "Prefered dataset is this one, not linkedcat! This dataset was\
+          \ created by applying a custom trained SpaCy NER model an APIS / \xD6BL\
+          \ data, on data set 'linkedcat2' at our solr index. The csv file is split\
+          \ into id column, character start index of recognized entity, character\
+          \ end index of entity, label of entity type, and a small context window."
+        topics:
+        - NLP
+        - Named Entity Recognition
         contents:
-        - fasttext model
+        - NER data
+        - inferenced NLP data
+veld_data_19_mara_models__veld.yaml:
+  url: https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models/blob/main/veld.yaml
+  content:
+    x-veld:
+      data:
+        file_type: spacy model
+        description: created in the MARA project
+        topics:
+        - NLP
+        - text classification
+        contents:
+        - spacy model
+        - spacy textcat model
+veld_code_4_apis_ner_transform_to_gold__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_4_apis_ner_transform_to_gold/blob/main/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: hard-coded conversion of apis ner models to custom json format.
+        topics:
+        - ETL
+        - data cleaning
+        inputs:
+        - volume: /veld/input/
+          description: This input is hard-wired to the apis spacy-ner repo and not
+            made for generic usage.
+          file_type:
+          - pickle
+          - txt
+          - json
+          contents: NER gold data
+        outputs:
+        - volume: /veld/output/1/
+          environment: out_json_cleaned_file
+          description: raw uncleaned, as it was originally. Now just transformed to
+            json.
+          file_type: json
+          contents: NER gold data
+        - volume: /veld/output/1/
+          environment: out_json_uncleaned_file
+          description: removed empty entity annotations and fixed border issues.
+          file_type: json
+          contents: NER gold data
+        - volume: /veld/output/1/
+          environment: out_json_cleaned_simplified_file
+          description: additionally to cleaning, this data is slimmed down from superfluous
+            entity ids in favor of simplified entity classes.
+          file_type: json
+          contents: NER gold data
+        - volume: /veld/output/2/
+          environment: out_log_file
+          file_type: txt
+    services:
+      veld:
+        build: .
+        command: python /veld/code/extract_and_clean.py
+        volumes:
+        - ./src/:/veld/code/
+        environment:
+          out_json_uncleaned_file: null
+          out_json_cleaned_file: null
+          out_json_cleaned_simplified_file: null
+          out_log_file: null
+veld_code_5_simple_docker_test__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_5_simple_docker_test/blob/main/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: prints information about the python intepreter within the docker
+          container.
+        topics: testing
+    services:
+      veld:
+        build: .
+        command: python /veld/code/test.py
+        volumes:
+        - ./test.py:/veld/code/test.py
+veld_code_7_train_spacy_ner__veld_convert.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_7_train_spacy_ner/blob/main/veld_convert.yaml
+  content:
+    x-veld:
+      code:
+        description: prepare data for spacy NER training, since spacy expects the
+          entity annotation indices to be precisely at the beginning and end of the
+          words, and also no overlapping entity annotations. Then it converts the
+          data to spaCy docbin, and prepares it for training by splitting it into
+          train, dev, eval subsets, and shuffling them randomly.
+        topics:
+        - ETL
+        - NLP
+        - Machine learning
+        inputs:
+        - volume: /veld/input/
+          file_type: json
+          description: path to csv file, containing NER gold data
+          environment: in_json_file
+          contents: NER gold data
+        outputs:
+        - volume: /veld/output/
+          environment: output_spacy_docbin_folder
+          description: path to spacy docbin file, containing NER gold data and spacy
+            nlp data
+          file_type: spacy docbin
+          contents: NER gold data
+        settings:
+        - environment: percentage_train
+          description: percentage of data allocated to training set
+          env_type: int
+          default: 80
+        - environment: percentage_dev
+          description: percentage of data allocated to dev set
+          env_type: int
+          default: 10
+        - environment: percentage_eval
+          description: percentage of data allocated to eval set
+          env_type: int
+          default: 10
+        - environment: seed
+          description: seed for initial random shuffling of training data
+          env_type: int
+          default: 42
+    services:
+      veld_convert:
+        build: .
+        command: python /veld/code/convert.py
+        volumes:
+        - ./src/convert/:/veld/code/
+        environment:
+          in_json_file: null
+          output_spacy_docbin_folder: null
+          percentage_train: 80
+          percentage_dev: 10
+          percentage_eval: 10
+          seed: 42
+veld_code_7_train_spacy_ner__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_7_train_spacy_ner/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      code:
+        description: A NER trainig setup, utilizing spaCy 3's config system.
+        topics:
+        - NLP
+        - Machine learning
+        - Named entity recognition
+        inputs:
+        - volume: /veld/input/
+          file_type: spacy docbin
+          environment: in_train_docbin_file
+          contents: NER gold data
+        - volume: /veld/input/
+          file_type: spacy docbin
+          environment: in_dev_docbin_file
+          contents: NER gold data
+        - volume: /veld/input/
+          file_type: spacy docbin
+          environment: in_eval_docbin_file
+          contents: NER gold data
+        outputs:
+        - volume: /veld/output/
+          file_type: spacy model
+          environment: out_model_folder
+          description: path to the spacy model
+          contents: NLP model
+        - volume: /veld/output/
+          file_type: txt
+          environment: out_train_log_file
+          description: path to the train log file
+          contents: logs
+        - volume: /veld/output/
+          file_type: txt
+          environment: out_eval_log_file
+          description: path to the eval log file
+          contents: logs
+    services:
+      veld_train:
+        build: .
+        working_dir: /veld/code/
+        command: bash /veld/code/train.sh
+        volumes:
+        - ./src/train/:/veld/code/
+        - ./data/docbin/:/veld/input/
+        - ./data/model/:/veld/output/
+        environment:
+          in_train_docbin_file: null
+          in_dev_docbin_file: null
+          in_eval_docbin_file: null
+          out_model_file: null
+          out_train_log_file: null
+          out_eval_log_file: null
+veld_code_9_jupyter_notebook_base__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_9_jupyter_notebook_base/blob/main/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: template veld code repo for a juptyer notebook
+    services:
+      veld:
+        build: .
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        working_dir: /veld/code/
+        volumes:
+        - ./src:/veld/code/
+        - ./volumes/input/:/veld/input/
+        - ./volumes/output/:/veld/output/
+veld_code_10_akp_ner__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_10_akp_ner/blob/main/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: apply NER models on linkedcat data for usage of the inferenced
+          entites in the AKP project
+        topics:
+        - NLP
+        - Machine learning
+        - Named entity recognition
+        inputs:
+        - volume: /veld/input/
+          file_type: spacy model
+          contents:
+          - NLP model
+          - NER model
+        outputs:
+        - volume: /veld/output/
+          file_type: csv
+          environment: out_csv_file
+          description: inferenced NLP / NER data.
+          contents:
+          - inferenced NLP data
+          - NLP data
+          - NER data
+        settings:
+        - environment: solr_core_url
+          description: url pointing to a solr core from where text data should be
+            loaded
+          env_type: url
+    services:
+      veld:
+        build: .
+        command: jupyter notebook --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        working_dir: /veld/code/
+        volumes:
+        - ./src:/veld/code/
+        environment:
+          solr_core_url: null
+          out_csv_file: null
+veld_code_12_fasttext__veld_jupyter_notebook.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_12_fasttext/blob/main/veld_jupyter_notebook.yaml
+  content:
+    x-veld:
+      code:
+        description: a fasttext training and inference jupyter notebook.
+        topics:
+        - NLP
+        - Machine Learning
         - word embeddings
-      settings:
-      - environment: vector_size
-        description: 'hyperparameter: the dimension of the vectors to be trained.'
-        env_type: int
-        default: 200
-      - environment: epochs
-        description: 'hyperparameter: the number of epochs of the training.'
-        env_type: int
-        default: 50
-  services:
-    veld_train:
-      build: .
-      command: /veld/code/train.sh
-      volumes:
-      - ./src/train/:/veld/code/:z
-      - ./data/training_data/:/veld/input/:z
-      - ./data/models/:/veld/output/:z
-      environment:
-        in_train_data_file: null
-        out_model_file: null
-        model_description: null
-        vector_size: 200
-        epochs: 50
-https://github.com/acdh-oeaw/veld_code_13_word2vec/blob/main/veld_jupyter_notebook.yaml:
-  x-veld:
-    code:
-      description: a word2vec jupyter notebook, for quick experiments
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-      inputs:
-      - volume: /veld/input/
-        description: arbitrary storage for word2vec experiments
-        file_type:
-        - word2vec model
-        - training data
-        - NLP training data
-        - raw text
-        contents:
-        - NLP model
-        - word embeddings model
-        - model metadata
-        - NLP training data
-        - word embeddings training data
-        - raw text
-      outputs:
-      - volume: /veld/output/
-        description: arbitrary storage for word2vec experiments
-  services:
-    veld_jupyter_notebook:
-      build: .
-      command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
-      ports:
-      - 8888:8888
-      volumes:
-      - ./src/jupyter_notebook/:/veld/code/:z
-      - ./data/input/:/veld/input/:z
-      - ./data/output/:/veld/output/:z
-https://github.com/acdh-oeaw/veld_code_13_word2vec/blob/main/veld_train.yaml:
-  x-veld:
-    code:
-      description: word2vec training setup
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-      inputs:
-      - volume: /veld/input/
-        environment: in_train_data_file
-        description: training data. Must be one single txt file, one sentence per
-          line.
-        file_type: txt
-        contents:
-        - NLP training data
-        - word embeddings training data
-        - raw text
-      outputs:
-      - volume: /veld/output/
-        environment: out_model_file
-        description: self trained word embeddings word2vec model
-        file_type: word2vec model
-        contents:
-        - NLP model
-        - word embeddings model
-      settings:
-      - environment: train_data_description
-        description: short human description for the kind of training data
-        env_type: string
-        optional: true
-      - environment: model_description
-        description: short human description for the overall model and its purpose
-        env_type: string
-        optional: true
-      - environment: epochs
-        description: 'word2vec hyperparameter: number of training epochs'
-        env_type: int
-        optional: true
-        default: 100
-      - environment: vector_size
-        description: 'word2vec hyperparameter: number of dimensions of the word vectors'
-        env_type: int
-        default: 200
-      - environment: window
-        description: 'word2vec hyperparameter: number of surrounding context words
-          to be used for training.'
-        env_type: int
-        default: 5
-      - environment: min_count
-        description: 'word2vec hyperparameter: minimal number of occurrence for each
-          word to be used for training.'
-        env_type: int
-        default: 5
-  services:
-    veld_train:
-      build: .
-      command: python /veld/code/train.py
-      volumes:
-      - ./src/train/:/veld/code/:z
-      - ./data/training_data/:/veld/input/:z
-      - ./data/models/:/veld/output/:z
-      environment:
-        in_train_data_file: null
-        out_model_file: null
-        model_description: null
-        epochs: 100
-        vector_size: 200
-        window: 5
-        min_count: 5
-https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation.yaml:
-  x-veld:
-    code:
-      description: data visualization of all evaluation data. In a jupyter notebook.
-      topics:
-      - NLP
-      - word embeddings
-      - data visualization
-      inputs:
-      - volume: /veld/
-        environment: in_evaluation_summary_file
-        description: summary of the custom evaluation logic on word embeddings
-        file_type: yaml
-        contents: evaluation data
-      outputs:
-      - volume: /veld/output/
-        environment: out_visualization_html_file
-        description: data visualization of all evaluation data, expressed as interactive
-          html
-        file_type: html
-        contents: data visualization
-      - volume: /veld/output/
-        environment: out_visualization_png_file
-        description: data visualization of all evaluation data, expressed as png
-        file_type: png
-        contents: data visualization
-  services:
-    veld_analyse_evaluation:
-      build:
-        context: .
-        dockerfile: ./build_analyse.dockerfile
-      command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
-      ports:
-      - 8888:8888
-      volumes:
-      - ./src/analyse/:/veld/code/:z
-      environment:
-        in_evaluation_summary_file: null
-        out_visualization_html_file: null
-        out_visualization_png_file: null
-https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml:
-  x-veld:
-    code:
-      description: data visualization of all evaluation data. non-interactive version
-        of the juypter code.
-      topics:
-      - NLP
-      - word embeddings
-      - data visualization
-      inputs:
-      - volume: /veld/
-        environment: in_evaluation_summary_file
-        description: summary of the custom evaluation logic on word embeddings
-        file_type: yaml
-        contents: evaluation data
-      outputs:
-      - volume: /veld/output/
-        environment: out_visualization_html_file
-        description: data visualization of all evaluation data, expressed as interactive
-          html
-        file_type: html
-        contents: data visualization
-      - volume: /veld/output/
-        environment: out_visualization_png_file
-        description: data visualization of all evaluation data, expressed as png
-        file_type: png
-        contents: data visualization
-  services:
-    veld_analyse_evaluation:
-      build:
-        context: .
-        dockerfile: ./build_analyse.dockerfile
-      command: ./analyse.sh
-      volumes:
-      - ./src/analyse/:/veld/code/:z
-      environment:
-        in_evaluation_summary_file: null
-        out_visualization_html_file: null
-        out_visualization_png_file: null
-https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_fasttext.yaml:
-  x-veld:
-    code:
-      description: custom evaluation logic on fasttext word embeddings.
-      topics:
-      - NLP
-      - Machine learning
-      - evaluation
-      inputs:
-      - volume: /veld/input/1/
-        environment: in_1_model_file
-        file_type: fasttext model
-        contents:
-        - NLP model
-        - word embeddings model
-      - volume: /veld/input/1/
-        environment: in_1_model_metadata_file
-        file_type: yaml
-        contents: metadata
-      - volume: /veld/input/2/
-        environment: in_2_eval_gold_data_file
-        file_type: yaml
-        contents: NLP gold data
-      outputs:
-      - volume: /veld/output/1/
-        environment: out_1_eval_summary_file
-        file_type: yaml
+    services:
+      veld_jupyter_notebook:
+        build: .
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        volumes:
+        - ./src/jupyter_notebook/:/veld/code/:z
+        - ./data/:/veld/storage/:z
+veld_code_12_fasttext__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_12_fasttext/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      code:
+        description: a fasttext training and inference jupyter notebook.
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+        inputs:
+        - volume: /veld/input/
+          file_type: txt
+          environment: in_train_data_file
+          description: training data must be expressed as one sentence per line.
+          contents: raw text
+        outputs:
+        - volume: /veld/output/
+          file_type:
+          - bin
+          - fasttext model
+          environment: out_model_file
+          contents:
+          - fasttext model
+          - word embeddings
+        settings:
+        - environment: vector_size
+          description: 'hyperparameter: the dimension of the vectors to be trained.'
+          env_type: int
+          default: 200
+        - environment: epochs
+          description: 'hyperparameter: the number of epochs of the training.'
+          env_type: int
+          default: 50
+    services:
+      veld_train:
+        build: .
+        command: /veld/code/train.sh
+        volumes:
+        - ./src/train/:/veld/code/:z
+        - ./data/training_data/:/veld/input/:z
+        - ./data/models/:/veld/output/:z
+        environment:
+          in_train_data_file: null
+          out_model_file: null
+          model_description: null
+          vector_size: 200
+          epochs: 50
+veld_code_13_word2vec__veld_jupyter_notebook.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_13_word2vec/blob/main/veld_jupyter_notebook.yaml
+  content:
+    x-veld:
+      code:
+        description: a word2vec jupyter notebook, for quick experiments
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+        inputs:
+        - volume: /veld/input/
+          description: arbitrary storage for word2vec experiments
+          file_type:
+          - word2vec model
+          - training data
+          - NLP training data
+          - raw text
+          contents:
+          - NLP model
+          - word embeddings model
+          - model metadata
+          - NLP training data
+          - word embeddings training data
+          - raw text
+        outputs:
+        - volume: /veld/output/
+          description: arbitrary storage for word2vec experiments
+    services:
+      veld_jupyter_notebook:
+        build: .
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        volumes:
+        - ./src/jupyter_notebook/:/veld/code/:z
+        - ./data/input/:/veld/input/:z
+        - ./data/output/:/veld/output/:z
+veld_code_13_word2vec__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_13_word2vec/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      code:
+        description: word2vec training setup
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+        inputs:
+        - volume: /veld/input/
+          environment: in_train_data_file
+          description: training data. Must be one single txt file, one sentence per
+            line.
+          file_type: txt
+          contents:
+          - NLP training data
+          - word embeddings training data
+          - raw text
+        outputs:
+        - volume: /veld/output/
+          environment: out_model_file
+          description: self trained word embeddings word2vec model
+          file_type: word2vec model
+          contents:
+          - NLP model
+          - word embeddings model
+        settings:
+        - environment: train_data_description
+          description: short human description for the kind of training data
+          env_type: string
+          optional: true
+        - environment: model_description
+          description: short human description for the overall model and its purpose
+          env_type: string
+          optional: true
+        - environment: epochs
+          description: 'word2vec hyperparameter: number of training epochs'
+          env_type: int
+          optional: true
+          default: 100
+        - environment: vector_size
+          description: 'word2vec hyperparameter: number of dimensions of the word
+            vectors'
+          env_type: int
+          default: 200
+        - environment: window
+          description: 'word2vec hyperparameter: number of surrounding context words
+            to be used for training.'
+          env_type: int
+          default: 5
+        - environment: min_count
+          description: 'word2vec hyperparameter: minimal number of occurrence for
+            each word to be used for training.'
+          env_type: int
+          default: 5
+    services:
+      veld_train:
+        build: .
+        command: python /veld/code/train.py
+        volumes:
+        - ./src/train/:/veld/code/:z
+        - ./data/training_data/:/veld/input/:z
+        - ./data/models/:/veld/output/:z
+        environment:
+          in_train_data_file: null
+          out_model_file: null
+          model_description: null
+          epochs: 100
+          vector_size: 200
+          window: 5
+          min_count: 5
+veld_code_14_we_evaluation__veld_analyse_evaluation.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation.yaml
+  content:
+    x-veld:
+      code:
+        description: data visualization of all evaluation data. In a jupyter notebook.
+        topics:
+        - NLP
+        - word embeddings
+        - data visualization
+        inputs:
+        - volume: /veld/
+          environment: in_evaluation_summary_file
+          description: summary of the custom evaluation logic on word embeddings
+          file_type: yaml
+          contents: evaluation data
+        outputs:
+        - volume: /veld/output/
+          environment: out_visualization_html_file
+          description: data visualization of all evaluation data, expressed as interactive
+            html
+          file_type: html
+          contents: data visualization
+        - volume: /veld/output/
+          environment: out_visualization_png_file
+          description: data visualization of all evaluation data, expressed as png
+          file_type: png
+          contents: data visualization
+    services:
+      veld_analyse_evaluation:
+        build:
+          context: .
+          dockerfile: ./build_analyse.dockerfile
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        volumes:
+        - ./src/analyse/:/veld/code/:z
+        environment:
+          in_evaluation_summary_file: null
+          out_visualization_html_file: null
+          out_visualization_png_file: null
+veld_code_14_we_evaluation__veld_analyse_evaluation_non_interactive.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml
+  content:
+    x-veld:
+      code:
+        description: data visualization of all evaluation data. non-interactive version
+          of the juypter code.
+        topics:
+        - NLP
+        - word embeddings
+        - data visualization
+        inputs:
+        - volume: /veld/
+          environment: in_evaluation_summary_file
+          description: summary of the custom evaluation logic on word embeddings
+          file_type: yaml
+          contents: evaluation data
+        outputs:
+        - volume: /veld/output/
+          environment: out_visualization_html_file
+          description: data visualization of all evaluation data, expressed as interactive
+            html
+          file_type: html
+          contents: data visualization
+        - volume: /veld/output/
+          environment: out_visualization_png_file
+          description: data visualization of all evaluation data, expressed as png
+          file_type: png
+          contents: data visualization
+    services:
+      veld_analyse_evaluation:
+        build:
+          context: .
+          dockerfile: ./build_analyse.dockerfile
+        command: ./analyse.sh
+        volumes:
+        - ./src/analyse/:/veld/code/:z
+        environment:
+          in_evaluation_summary_file: null
+          out_visualization_html_file: null
+          out_visualization_png_file: null
+veld_code_14_we_evaluation__veld_eval_fasttext.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_fasttext.yaml
+  content:
+    x-veld:
+      code:
+        description: custom evaluation logic on fasttext word embeddings.
+        topics:
+        - NLP
+        - Machine learning
+        - evaluation
+        inputs:
+        - volume: /veld/input/1/
+          environment: in_1_model_file
+          file_type: fasttext model
+          contents:
+          - NLP model
+          - word embeddings model
+        - volume: /veld/input/1/
+          environment: in_1_model_metadata_file
+          file_type: yaml
+          contents: metadata
+        - volume: /veld/input/2/
+          environment: in_2_eval_gold_data_file
+          file_type: yaml
+          contents: NLP gold data
+        outputs:
+        - volume: /veld/output/1/
+          environment: out_1_eval_summary_file
+          file_type: yaml
+          description: ''
+          contents: ''
+        - volume: /veld/output/2/
+          environment: out_2_eval_log_file
+          file_type: txt
+          contents: logs
+    services:
+      veld_eval_fasttext:
+        build:
+          context: .
+          dockerfile: ./build_fasttext.dockerfile
+        command: python eval_fasttext.py
+        volumes:
+        - ./src/:/veld/code/:z
+        environment:
+          in_1_model_file: null
+          in_1_model_metadata_file: null
+          in_2_eval_gold_data_file: null
+          out_1_eval_summary_file: null
+          out_2_eval_log_file: null
+veld_code_14_we_evaluation__veld_eval_glove.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_glove.yaml
+  content:
+    x-veld:
+      code:
+        description: custom evaluation logic on GloVe word embeddings.
+        topics:
+        - NLP
+        - Machine learning
+        - evaluation
+        inputs:
+        - volume: /veld/input/1/
+          environment: in_1_vector_file
+          file_type: GloVe vector model
+          contents:
+          - NLP model
+          - word embeddings model
+        - volume: /veld/input/1/
+          environment: in_1_model_metadata_file
+          file_type: yaml
+          contents: metadata
+        - volume: /veld/input/2/
+          environment: in_2_eval_gold_data_file
+          file_type: yaml
+          contents: NLP gold data
+        outputs:
+        - volume: /veld/output/1/
+          environment: out_1_eval_summary_file
+          file_type: yaml
+          description: ''
+          contents: ''
+        - volume: /veld/output/2/
+          environment: out_2_eval_log_file
+          file_type: txt
+          contents: logs
+        settings:
+        - environment: model_id
+          description: id of the model
+          env_type: str
+    services:
+      veld_eval_glove:
+        build:
+          context: .
+          dockerfile: ./build_glove.dockerfile
+        command: python3 eval_glove.py
+        volumes:
+        - ./src/:/veld/code/:z
+        environment:
+          in_1_vector_file: null
+          model_id: null
+          in_1_model_metadata_file: null
+          in_2_eval_gold_data_file: null
+          out_1_eval_summary_file: null
+          out_2_eval_log_file: null
+veld_code_14_we_evaluation__veld_eval_word2vec.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_word2vec.yaml
+  content:
+    x-veld:
+      code:
+        description: custom evaluation logic on word2vec word embeddings.
+        topics:
+        - NLP
+        - Machine learning
+        - evaluation
+        inputs:
+        - volume: /veld/input/1/
+          environment: in_1_model_file
+          description: word2vec model file to be evaluated
+          file_type: word2vec model
+          contents:
+          - NLP model
+          - word embeddings model
+        - volume: /veld/input/1/
+          environment: in_1_model_metadata_file
+          description: word2vec model metadata
+          file_type: yaml
+          contents: metadata
+        - volume: /veld/input/2/
+          environment: in_2_eval_gold_data_file
+          file_type: yaml
+          contents: NLP gold data
+        outputs:
+        - volume: /veld/output/1/
+          environment: out_1_eval_summary_file
+          file_type: yaml
+          description: ''
+          contents: ''
+        - volume: /veld/output/2/
+          environment: out_2_eval_log_file
+          file_type: txt
+          contents: logs
+    services:
+      veld_eval_word2vec:
+        build:
+          context: .
+          dockerfile: ./build_word2vec.dockerfile
+        command: python eval_word2vec.py
+        volumes:
+        - ./src/:/veld/code/:z
+        - ./data/models/:/veld/input/1/:z
+        - ./data/evaluation_gold_data/:/veld/input/2/:z
+        - ./data/evaluation_results/summary/:/veld/output/1/:z
+        - ./data/evaluation_results/logs/:/veld/output/2/:z
+        environment:
+          in_1_model_file: null
+          in_1_model_metadata_file: null
+          in_2_eval_gold_data_file: null
+          out_1_eval_summary_file: null
+          out_2_eval_log_file: null
+veld_code_17_glove__veld_jupyter_notebook.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_17_glove/blob/main/veld_jupyter_notebook.yaml
+  content:
+    x-veld:
+      code:
+        description: A jupyter notebook that loads GloVe vectors and provides some
+          convenient functions to use them.
+        topics:
+        - NLP
+        - Machine learning
+        - word embeddings
+    services:
+      veld_jupyter_notebook:
+        build: .
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        volumes:
+        - ./src/main/jupyter_notebook/:/veld/code/:z
+        - ./data/:/veld/storage/:z
+veld_code_19_we_preprocessing__veld_preprocess_clean.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_clean.yaml
+  content:
+    x-veld:
+      code:
+        description: Removes lines that don't reach a threshold regarding the ratio
+          of textual content to non-textual (numbers, special characters) content.
+          Splits output into clean and dirty file.
+        topics:
+        - NLP
+        - preprocessing
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          environment: in_file
+          file_type: txt
+          contents: raw text
+        outputs:
+        - volume: /veld/output/
+          environment: out_file_clean
+          description: clean lines, where each line's ratio is above the configured
+            threshold
+          file_type: txt
+          contents: raw text
+        - volume: /veld/output/
+          environment: out_file_dirty
+          description: dirty lines, where each line's ratio is below the configured
+            threshold
+          file_type: txt
+          contents: raw text
+        settings:
+        - environment: min_percentage_char
+          description: threshold above which a line is considered clean. E.g. 80 means
+            80% of character of a line must be textual
+          env_type: int
+        - environment: out_data_description
+          description: automatic data description for generating a data veld yaml
+            file
+          env_type: str
+        - environment: cpu_count
+          description: number of cpu cores allocated to this processing. Defaults
+            to maximum number of available cores
+          env_type: int
+        - environment: buffer_segments
+          description: percentage of segments where processing results are persisted
+            in between. So that processing could continue should it have crashed
+          env_type: int
+          default: 100
+        - environment: sleep_duration
+          description: number of seceonds between each multiprocess invokation, since
+            with big data, a memory race condition can occurr. To work-around this,
+            a small waiting period in between can be set with this variable.
+          env_type: int
+          default: 10
+    services:
+      veld_preprocess_clean:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        command: python3 /veld/code/preprocess_clean.py
+        environment:
+          in_file: null
+          out_file_clean: null
+          out_file_dirty: null
+          out_data_veld_yaml: null
+          min_percentage_char: null
+          out_data_description: null
+          cpu_count: null
+          buffer_segments: 100
+          sleep_duration: 10
+veld_code_19_we_preprocessing__veld_preprocess_lowercase.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_lowercase.yaml
+  content:
+    x-veld:
+      code:
+        description: makes entire text lowercase
+        topics:
+        - NLP
+        - preprocessing
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          environment: in_txt_file
+          file_type: txt
+          contents: raw text
+        outputs:
+        - volume: /veld/output/
+          environment: out_txt_file
+          file_type: txt
+          contents: raw text
+        settings:
+        - environment: out_data_description
+          description: automatic data description for generating a data veld yaml
+            file
+          env_type: str
+    services:
+      veld_preprocess_lowercase:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        command: python3 /veld/code/preprocess_lowercase.py
+        environment:
+          in_txt_file: null
+          out_txt_file: null
+          out_data_description: null
+veld_code_19_we_preprocessing__veld_preprocess_remove_punctuation.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml
+  content:
+    x-veld:
+      code:
+        description: removes punctuation from text with spaCy pretrained models
+        topics:
+        - NLP
+        - preprocessing
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          environment: in_txt_file
+          file_type: txt
+          contents: raw text
+        outputs:
+        - volume: /veld/output/
+          environment: out_txt_file
+          file_type: txt
+          contents: raw text
+        settings:
+        - environment: out_data_description
+          description: automatic data description for generating a data veld yaml
+            file
+          env_type: str
+        - environment: cpu_count
+          description: number of cpu cores allocated to this processing. Defaults
+            to maximum number of available cores
+          env_type: int
+        - environment: buffer_segments
+          description: percentage of segments where processing results are persisted
+            in between. So that processing could continue should it have crashed
+          env_type: int
+          default: 100
+        - environment: sleep_duration
+          description: number of seceonds between each multiprocess invokation, since
+            with big data, a memory race condition can occurr. To work-around this,
+            a small waiting period in between can be set with this variable.
+          env_type: int
+          default: 10
+    services:
+      veld_preprocess_remove_punctuation:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        command: python3 -u /veld/code/preprocess_remove_punctuation.py
+        environment:
+          in_txt_file: null
+          out_txt_file: null
+          cpu_count: null
+          buffer_segments: 100
+          out_data_description: null
+          sleep_duration: 10
+veld_code_19_we_preprocessing__veld_preprocess_sample.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_sample.yaml
+  content:
+    x-veld:
+      code:
+        description: takes a random sample of lines from a txt file. Randomness can
+          be set with a seed too
+        topics:
+        - NLP
+        - preprocessing
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          environment: in_txt_file
+          file_type: txt
+          contents: raw text
+        outputs:
+        - volume: /veld/output/
+          environment: out_txt_file
+          file_type: txt
+          contents: raw text
+        settings:
+        - environment: out_data_description
+          description: automatic data description for generating a data veld yaml
+            file
+          env_type: str
+        - environment: percentage_sample
+          description: percentage of lines to be randomly sampled
+          env_type: int
+        - environment: sample_random_seed
+          description: seed to make randomness stable and reproducible
+          env_type: str
+        - environment: buffer_segments
+          description: percentage of segments where processing results are persisted
+            in between. So that processing could continue should it have crashed
+          env_type: int
+          default: 100
+    services:
+      veld_preprocess_sample:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        command: python3 /veld/code/preprocess_sample.py
+        environment:
+          in_file: null
+          out_file: null
+          out_data_description: null
+          percentage_sample: null
+          sample_random_seed: null
+          buffer_segments: 100
+veld_code_19_we_preprocessing__veld_preprocess_strip.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_strip.yaml
+  content:
+    x-veld:
+      code:
+        description: removes all lines before and after given line numbers
+        topics:
+        - NLP
+        - preprocessing
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          environment: in_file
+          file_type: txt
+          contents: raw text
+        outputs:
+        - volume: /veld/output/
+          environment: out_file
+          file_type: txt
+          contents: raw text
+        settings:
+        - environment: line_start
+          description: line number before which lines will be stripped away. E.g.
+            line_start=50 removes lines from 1-49
+          env_type: int
+        - environment: line_end
+          description: line number after which lines will be stripped away. E.g. line_end=100
+            removes lines from 101-end
+          env_type: int
+    services:
+      veld_preprocess_strip:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        command: /veld/code/preprocess_strip.sh
+        environment:
+          in_file: null
+          out_file: null
+          line_start: null
+          line_end: null
+veld_code_20_wikipedia_nlp_preprocessing__veld_download_and_extract.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml
+  content:
+    x-veld:
+      code:
+        description: downloading wikipedia archive and extracting each article to
+          a json file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+        outputs:
+        - volume: /veld/output/
+          description: a folder containing json files, where each file contains the
+            contents of a wikipedia article
+          file_type: json
+          contents:
+          - NLP training data
+          - raw text
+        settings:
+        - environment: wikipedia_dump_url
+          description: url to a wikipdedia dump download, from https://dumps.wikimedia.org/
+          env_type: url
+        - environment: out_data_description
+          description: short human description for the data and its purpose, will
+            be persisted in a data veld yaml
+          env_type: string
+          optional: true
+    services:
+      veld_download_and_extract:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        - ./data/wikipedia_json/:/veld/output/:z
+        command: /veld/code/download_and_extract.sh
+        environment:
+          wikipedia_dump_url: null
+          out_data_description: null
+veld_code_20_wikipedia_nlp_preprocessing__veld_transform_wiki_json_to_txt.yaml:
+  url: https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml
+  content:
+    x-veld:
+      code:
+        description: transforming wikipedia raw jsons to a single txt file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          description: a folder containing json files, where each file contains the
+            contents of a wikipedia article
+          environment: in_json_folder
+          file_type: json
+          contents:
+          - NLP training data
+          - raw text
+        outputs:
+        - volume: /veld/output/
+          description: single txt file, containing only raw content of wikipedia pagaes,
+            split into sentences or per article with a newline each, possibly being
+            only a sampled subset for testing.
+          environment: out_txt_file
+          file_type: txt
+          contents:
+          - NLP training data
+          - word embeddings training data
+          - raw text
+        settings:
+        - environment: out_data_description
+          description: short human description for the data and its purpose, will
+            be persisted in a data veld yaml
+          env_type: string
+          optional: true
+        - environment: cpu_count
+          description: number of cpu cores to be used for parallel processing
+          env_type: int
+          optional: true
+          default: maximum number of available cpu cores
+        - environment: set_split_sentences
+          description: Should the resulting txt be split by newlines at each sentence
+            boundary? If not, then newlines will be set at the end of each article.
+          env_type: boolean
+          optional: true
+          default: false
+        - environment: sample_size_percentage
+          description: As percentage, can be used to transform only a sample of the
+            data, for testing purpose most likely. The sample is randomly picked,
+            and a random seed can also be set with `sample_random_seed`
+          env_type: float
+          optional: true
+          default: 100
+        - environment: sample_random_seed
+          description: a random seed in case a random sample is drawn and its randomness
+            should be fixed.
+          env_type: str
+          optional: true
+          default: null
+        - environment: buffer_segments
+          description: The interval at which progress should be printed. E.g. 100
+            means to print hundred times during processing.
+          env_type: int
+          optional: true
+          default: 100
+    services:
+      veld_transform_wiki_json_to_txt:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        - ./data/wikipedia_json/:/veld/input/
+        - ./data/wikipedia_txt/:/veld/output/
+        command: python /veld/code/transform_wiki_json_to_txt.py
+        environment:
+          in_json_folder: null
+          out_txt_file: null
+          out_data_description: null
+          cpu_count: null
+          set_split_sentences: false
+          sample_size_percentage: 100
+          sample_random_seed: null
+          buffer_segments: 100
+veld_chain_5_apis_ner_evaluate_old_models__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models/blob/main/veld.yaml
+  content:
+    x-veld:
+      chain:
+        description: hard-coded evaluation of several spaCy 2.2.4 models.
+        topics:
+        - NLP
+        - Machine learning
+        - Named entity recognition
+    services:
+      veld:
+        extends:
+          file: ./veld_code_3_apis_ner_evaluate_old_models/veld.yaml
+          service: veld
+        volumes:
+        - ./spacy-ner/:/veld/input/
+        - ./spacy-ner/:/veld/output/
+        environment:
+          out_eval_result_file: reevaluations_all.md
+veld_chain_6_apis_ner_transform_to_gold__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_6_apis_ner_transform_to_gold/blob/main/veld.yaml
+  content:
+    x-veld:
+      chain:
+        description: Conversion of apis ner model data to harmonized custom json format.
+        topics:
+        - ETL
+        - data cleaning
+    services:
+      veld:
+        extends:
+          file: ./veld_code_4_apis_ner_transform_to_gold/veld.yaml
+          service: veld
+        volumes:
+        - ./spacy-ner/:/veld/input/
+        - ./veld_data_5_apis_oebl__ner_gold/data/:/veld/output/1/
+        - ./:/veld/output/2/
+        environment:
+          out_json_uncleaned_file: apis_oebl__ner__1_uncleaned.json
+          out_json_cleaned_file: apis_oebl__ner__2_cleaned.json
+          out_json_cleaned_simplified_file: apis_oebl__ner__3_cleaned_simplified.json
+          out_log_file: extract_and_clean.log
+veld_chain_7_train__veld_convert.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_convert.yaml
+  content:
+    x-veld:
+      chain:
+        description: cleaning and converting json into spaCy docbin
+        topics:
+        - ETL
+        - NLP
+        - Machine learning
+    services:
+      veld_convert:
+        extends:
+          file: ./veld_code_7_train_spacy_ner/veld_convert.yaml
+          service: veld_convert
+        volumes:
+        - ./veld_data_5_apis_oebl__ner_gold/data/:/veld/input/
+        - ./spacy_docbin/:/veld/output/
+        environment:
+          in_json_file: apis_oebl__ner__3_cleaned_simplified.json
+veld_chain_7_train__veld_publish.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_publish.yaml
+  content:
+    x-veld:
+      chain:
+        description: pushing spacy model to huggingface.
+        topics: NLP
+    services:
+      veld_publish:
+        extends:
+          file: ./veld_code_11_publish_to_hf/veld.yaml
+          service: veld
+        volumes:
+        - ./veld_data_6_apis_ner_models/models/m3/model/:/veld/input/
+        environment:
+          in_model_folder: model-best
+          model_name: APIS_OEBL_NER_trf
+          version: '1.0'
+veld_chain_7_train__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      chain:
+        description: A NER trainig setup, utilizing spaCy 3's config system.
+        topics:
+        - NLP
+        - Machine learning
+        - Named entity recognition
+    services:
+      veld_train:
+        extends:
+          file: ./veld_code_7_train_spacy_ner/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./spacy_docbin/:/veld/input/
+        - ./veld_data_6_apis_ner_models/models/m4/:/veld/output/
+        environment:
+          in_train_docbin_file: train.spacy
+          in_dev_docbin_file: dev.spacy
+          in_eval_docbin_file: eval.spacy
+          out_model_folder: model
+          out_train_log_file: logs/train.log
+          out_eval_log_file: logs/eval.log
+veld_chain_9_akp_ner__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_9_akp_ner/blob/main/veld.yaml
+  content:
+    x-veld:
+      chain:
+        description: This repo uses self-trained spaCy NER models on the linkedcat
+          dataset to extract entities, which are stored in csv files.
+        topics:
+        - NLP
+        - Machine learning
+        - Named entity recognition
+    services:
+      veld:
+        extends:
+          file: ./veld_code_10_akp_ner/veld.yaml
+          service: veld
+        volumes:
+        - ./veld_data_6_apis_ner_models/models/m3/model/model-best/:/veld/input/
+        - ./veld_data_7_akp_ner_linkedcat/:/veld/output/
+        environment:
+          solr_core_url: http://linkedcat-solr.acdh-cluster-2.arz.oeaw.ac.at/solr/linkedcat2
+          out_csv_file: linkedcat2.csv
+veld_chain_11_fasttext__veld_eval.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_eval.yaml
+  content:
+    x-veld:
+      chain:
+        description: custom evaluation logic for word2vec, fasttext and glove models
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+        - evaluation
+    services:
+      veld_eval:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld.yaml
+          service: veld
+        volumes:
+        - ./veld_data_8_fasttext_models/data/m2/:/veld/input/1/
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/:/veld/input/2/
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/
+        environment:
+          in_1_model_file: model.bin
+          in_1_model_metadata_file: metadata.yaml
+          in_2_eval_data_file: eval_data.yaml
+veld_chain_11_fasttext__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      chain:
+        description: a fasttext training and inference jupyter notebook.
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+    services:
+      veld_train:
+        extends:
+          file: ./veld_code_12_fasttext/veld.yaml
+          service: veld
+        volumes:
+        - ./veld_data_9_we_training_data/data/:/veld/input/
+        - ./veld_data_8_fasttext_models/data/:/veld/output/
+        environment:
+          in_train_data_file: de_wiki_cleaned_sentences.txt
+          train_data_description: german wikipedia, subset, txt
+          training_architecture: fasttext_v1
+          model_id: m4
+          vector_size: 200
+          epochs: 50
+veld_chain_12_word2vec__veld_eval.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_eval.yaml
+  content:
+    x-veld:
+      chain:
+        description: evaluate word2vec model
+    services:
+      veld_eval:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld.yaml
+          service: veld
+        volumes:
+        - ./veld_data_11_word2vec_models/:/veld/input/1/
+        - ./veld_data_10_we_evaluation/:/veld/input/2/
+        - ./veld_data_10_we_evaluation/:/veld/output/
+        environment:
+          model_path: /veld/input/1/data/m1/
+          model_metadata_path: /veld/input/1/data/m1/metadata.yaml
+          eval_data_path: /veld/input/2/evaluation_gold_data/eval_data.yaml
+          eval_results_folder: /veld/output/evaluation_results/
+veld_chain_12_word2vec__veld_preprocess.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_preprocess.yaml
+  content:
+    x-veld:
+      chain:
+        description: preprocess wikipedia data
+    services:
+      veld_preprocess:
+        extends:
+          file: ./veld_code_13_word2vec/veld_preprocess.yaml
+          service: veld_preprocess
+        volumes:
+        - ./veld_data_9_we_training_data/:/veld/input/
+        - ./veld_data_9_we_training_data/:/veld/output/
+        environment:
+          unprocessed_file_path: /veld/input/data/de_wiki.csv
+          processed_file_path: /veld/output/data/de_wiki_cleaned_sentences.txt
+veld_chain_12_word2vec__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      chain:
+        description: train word2vec on wikipedia
+    services:
+      veld_train:
+        extends:
+          file: ./veld_code_13_word2vec/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./veld_data_9_we_training_data/:/veld/input/
+        - ./veld_data_11_word2vec_models/:/veld/output/
+        environment:
+          train_data_path: /veld/input/data/de_wiki_cleaned_sentences.txt
+          train_data_description: german wikipedia, subset, txt
+          model_path: /veld/output/data/
+          training_architecture: word2vec_v1
+          model_id: m2
+          vector_size: 500
+          window: 5
+          min_count: 5
+veld_chain_13_udpipe__veld_infer.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_infer.yaml
+  content:
+    x-veld:
+      chain:
+        description: use a udpipe model to infer on raw text
+        topics:
+        - NLP
+        - Machine learning
+        - tokenization
+        - lemmatization
+        - part of speech
+        - dependency parsing
+        - universal dependencies
+        - grammatical annotation
+    services:
+      veld_infer:
+        extends:
+          file: ./veld_code_15_udpipe/veld_infer.yaml
+          service: veld_infer
+        volumes:
+        - ./data/inferences/input/:/veld/input/1/
+        - ./data/models/:/veld/input/2/
+        - ./data/inferences/output/:/veld/output/
+        environment:
+          in_txt_path: /veld/input/1/input.txt
+          in_model_path: /veld/input/2/de_hdt-ud-train-a-1.model
+          out_conllu_path: /veld/output/output.conllu
+veld_chain_13_udpipe__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      chain:
+        description: train a udpipe model
+        topics:
+        - NLP
+        - Machine learning
+        - tokenization
+        - lemmatization
+        - part of speech
+        - dependency parsing
+        - universal dependencies
+        - grammatical annotation
+    services:
+      veld_train:
+        extends:
+          file: ./veld_code_15_udpipe/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/training_data/:/veld/input/
+        - ./data/models/:/veld/output/
+        environment:
+          train_data_path: /veld/input/UD_English-GUM/en_gum-ud-train.conllu
+          model_path: /veld/output/self_trained.model
+veld_chain_14_eltec_udpipe_inference__veld_analyse.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_analyse.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain to analyse the conllu data which was inferenced by udpipe
+          on several ELTeC corpora.
+        topics:
+        - NLP
+        - Machine learning
+        - tokenization
+        - lemmatization
+        - part of speech
+        - dependency parsing
+        - universal dependencies
+        - grammatical annotation
+    services:
+      veld_anayse:
+        extends:
+          file: ./veld_code_19_analyse_conllu/veld.yaml
+          service: veld
+        volumes:
+        - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
+        - ./veld_data_16_eltec_conllu_stats/:/veld/output/
+veld_chain_15_glove__veld_infer.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_infer.yaml
+  content:
+    x-veld:
+      chain:
+        description: A jupyter notebook that loads GloVe vectors and provides some
+          convenient functions to use them.
+        topics:
+        - NLP
+        - Machine learning
+        - word embeddings
+    services:
+      veld_infer:
+        extends:
+          file: ./veld_code_17_glove/veld_infer.yaml
+          service: veld_infer
+        volumes:
+        - ./veld_data_17_glove_models/data/m1/:/veld/input/
+        environment:
+          in_vector_file: vectors.txt
+veld_chain_15_glove__veld_train.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      chain:
+        description: Trainings setup using glove on amc data
+        topics:
+        - NLP
+        - Machine learning
+        - word embeddings
+    services:
+      veld_train:
+        extends:
+          file: ./veld_code_17_glove/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./veld_data_9_we_training_data/data/:/veld/input/
+        - ./veld_data_17_glove_models/data/m1/:/veld/output/
+        environment:
+          in_corpus_file: dewiki.txt
+          out_vocab_file: vocab.txt
+          out_cooccurrence_file: cooccurrence.bin
+          out_cooccurrence_shuf_file: cooccurrence.shuf.bin
+          out_vector_file: vectors
+veld_chain_16_clscorgi__veld.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_16_clscorgi/blob/main/veld.yaml
+  content:
+    x-veld:
+      chain:
+        description: reading in generated conllu files from udpipe and transform them
+          to clscorgi-conforming json files for further ingestion into clscor catalogue
+        topics:
+        - NLP
+        - Machine learning
+        - tokenization
+        - lemmatization
+        - part of speech
+        - dependency parsing
+        - universal dependencies
+        - grammatical annotation
+    services:
+      veld:
+        extends:
+          file: ./veld_code_18_clscorgi/veld.yaml
+          service: veld
+        volumes:
+        - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
+        environment:
+          TOKEN: PLACEHOLDER
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_analyse_evaluation.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_analyse_evaluation.yaml
+  content:
+    x-veld:
+      chain:
         description: ''
-        contents: ''
-      - volume: /veld/output/2/
-        environment: out_2_eval_log_file
-        file_type: txt
-        contents: logs
-  services:
-    veld_eval_fasttext:
-      build:
-        context: .
-        dockerfile: ./build_fasttext.dockerfile
-      command: python eval_fasttext.py
-      volumes:
-      - ./src/:/veld/code/:z
-      environment:
-        in_1_model_file: null
-        in_1_model_metadata_file: null
-        in_2_eval_gold_data_file: null
-        out_1_eval_summary_file: null
-        out_2_eval_log_file: null
-https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_glove.yaml:
-  x-veld:
-    code:
-      description: custom evaluation logic on GloVe word embeddings.
-      topics:
-      - NLP
-      - Machine learning
-      - evaluation
-      inputs:
-      - volume: /veld/input/1/
-        environment: in_1_vector_file
-        file_type: GloVe vector model
-        contents:
-        - NLP model
-        - word embeddings model
-      - volume: /veld/input/1/
-        environment: in_1_model_metadata_file
-        file_type: yaml
-        contents: metadata
-      - volume: /veld/input/2/
-        environment: in_2_eval_gold_data_file
-        file_type: yaml
-        contents: NLP gold data
-      outputs:
-      - volume: /veld/output/1/
-        environment: out_1_eval_summary_file
-        file_type: yaml
-        description: ''
-        contents: ''
-      - volume: /veld/output/2/
-        environment: out_2_eval_log_file
-        file_type: txt
-        contents: logs
-      settings:
-      - environment: model_id
-        description: id of the model
-        env_type: str
-  services:
-    veld_eval_glove:
-      build:
-        context: .
-        dockerfile: ./build_glove.dockerfile
-      command: python3 eval_glove.py
-      volumes:
-      - ./src/:/veld/code/:z
-      environment:
-        in_1_vector_file: null
-        model_id: null
-        in_1_model_metadata_file: null
-        in_2_eval_gold_data_file: null
-        out_1_eval_summary_file: null
-        out_2_eval_log_file: null
-https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_word2vec.yaml:
-  x-veld:
-    code:
-      description: custom evaluation logic on word2vec word embeddings.
-      topics:
-      - NLP
-      - Machine learning
-      - evaluation
-      inputs:
-      - volume: /veld/input/1/
-        environment: in_1_model_file
-        description: word2vec model file to be evaluated
-        file_type: word2vec model
-        contents:
-        - NLP model
-        - word embeddings model
-      - volume: /veld/input/1/
-        environment: in_1_model_metadata_file
-        description: word2vec model metadata
-        file_type: yaml
-        contents: metadata
-      - volume: /veld/input/2/
-        environment: in_2_eval_gold_data_file
-        file_type: yaml
-        contents: NLP gold data
-      outputs:
-      - volume: /veld/output/1/
-        environment: out_1_eval_summary_file
-        file_type: yaml
-        description: ''
-        contents: ''
-      - volume: /veld/output/2/
-        environment: out_2_eval_log_file
-        file_type: txt
-        contents: logs
-  services:
-    veld_eval_word2vec:
-      build:
-        context: .
-        dockerfile: ./build_word2vec.dockerfile
-      command: python eval_word2vec.py
-      volumes:
-      - ./src/:/veld/code/:z
-      - ./data/models/:/veld/input/1/:z
-      - ./data/evaluation_gold_data/:/veld/input/2/:z
-      - ./data/evaluation_results/summary/:/veld/output/1/:z
-      - ./data/evaluation_results/logs/:/veld/output/2/:z
-      environment:
-        in_1_model_file: null
-        in_1_model_metadata_file: null
-        in_2_eval_gold_data_file: null
-        out_1_eval_summary_file: null
-        out_2_eval_log_file: null
-https://github.com/acdh-oeaw/veld_code_17_glove/blob/main/veld_jupyter_notebook.yaml:
-  x-veld:
-    code:
-      description: A jupyter notebook that loads GloVe vectors and provides some convenient
-        functions to use them.
-      topics:
-      - NLP
-      - Machine learning
-      - word embeddings
-  services:
-    veld_jupyter_notebook:
-      build: .
-      command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
-      ports:
-      - 8888:8888
-      volumes:
-      - ./src/main/jupyter_notebook/:/veld/code/:z
-      - ./data/:/veld/storage/:z
-https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_clean.yaml:
-  x-veld:
-    code:
-      description: Removes lines that don't reach a threshold regarding the ratio
-        of textual content to non-textual (numbers, special characters) content. Splits
-        output into clean and dirty file.
-      topics:
-      - NLP
-      - preprocessing
-      - ETL
-      inputs:
-      - volume: /veld/input/
-        environment: in_file
-        file_type: txt
-        contents: raw text
-      outputs:
-      - volume: /veld/output/
-        environment: out_file_clean
-        description: clean lines, where each line's ratio is above the configured
-          threshold
-        file_type: txt
-        contents: raw text
-      - volume: /veld/output/
-        environment: out_file_dirty
-        description: dirty lines, where each line's ratio is below the configured
-          threshold
-        file_type: txt
-        contents: raw text
-      settings:
-      - environment: min_percentage_char
-        description: threshold above which a line is considered clean. E.g. 80 means
-          80% of character of a line must be textual
-        env_type: int
-      - environment: out_data_description
-        description: automatic data description for generating a data veld yaml file
-        env_type: str
-      - environment: cpu_count
-        description: number of cpu cores allocated to this processing. Defaults to
-          maximum number of available cores
-        env_type: int
-      - environment: buffer_segments
-        description: percentage of segments where processing results are persisted
-          in between. So that processing could continue should it have crashed
-        env_type: int
-        default: 100
-      - environment: sleep_duration
-        description: number of seceonds between each multiprocess invokation, since
-          with big data, a memory race condition can occurr. To work-around this,
-          a small waiting period in between can be set with this variable.
-        env_type: int
-        default: 10
-  services:
-    veld_preprocess_clean:
-      build: .
-      volumes:
-      - ./src/:/veld/code/:z
-      command: python3 /veld/code/preprocess_clean.py
-      environment:
-        in_file: null
-        out_file_clean: null
-        out_file_dirty: null
-        out_data_veld_yaml: null
-        min_percentage_char: null
-        out_data_description: null
-        cpu_count: null
-        buffer_segments: 100
-        sleep_duration: 10
-https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_lowercase.yaml:
-  x-veld:
-    code:
-      description: makes entire text lowercase
-      topics:
-      - NLP
-      - preprocessing
-      - ETL
-      inputs:
-      - volume: /veld/input/
-        environment: in_txt_file
-        file_type: txt
-        contents: raw text
-      outputs:
-      - volume: /veld/output/
-        environment: out_txt_file
-        file_type: txt
-        contents: raw text
-      settings:
-      - environment: out_data_description
-        description: automatic data description for generating a data veld yaml file
-        env_type: str
-  services:
-    veld_preprocess_lowercase:
-      build: .
-      volumes:
-      - ./src/:/veld/code/:z
-      command: python3 /veld/code/preprocess_lowercase.py
-      environment:
-        in_txt_file: null
-        out_txt_file: null
-        out_data_description: null
-https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml:
-  x-veld:
-    code:
-      description: removes punctuation from text with spaCy pretrained models
-      topics:
-      - NLP
-      - preprocessing
-      - ETL
-      inputs:
-      - volume: /veld/input/
-        environment: in_txt_file
-        file_type: txt
-        contents: raw text
-      outputs:
-      - volume: /veld/output/
-        environment: out_txt_file
-        file_type: txt
-        contents: raw text
-      settings:
-      - environment: out_data_description
-        description: automatic data description for generating a data veld yaml file
-        env_type: str
-      - environment: cpu_count
-        description: number of cpu cores allocated to this processing. Defaults to
-          maximum number of available cores
-        env_type: int
-      - environment: buffer_segments
-        description: percentage of segments where processing results are persisted
-          in between. So that processing could continue should it have crashed
-        env_type: int
-        default: 100
-      - environment: sleep_duration
-        description: number of seceonds between each multiprocess invokation, since
-          with big data, a memory race condition can occurr. To work-around this,
-          a small waiting period in between can be set with this variable.
-        env_type: int
-        default: 10
-  services:
-    veld_preprocess_remove_punctuation:
-      build: .
-      volumes:
-      - ./src/:/veld/code/:z
-      command: python3 -u /veld/code/preprocess_remove_punctuation.py
-      environment:
-        in_txt_file: null
-        out_txt_file: null
-        cpu_count: null
-        buffer_segments: 100
-        out_data_description: null
-        sleep_duration: 10
-https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_sample.yaml:
-  x-veld:
-    code:
-      description: takes a random sample of lines from a txt file. Randomness can
-        be set with a seed too
-      topics:
-      - NLP
-      - preprocessing
-      - ETL
-      inputs:
-      - volume: /veld/input/
-        environment: in_txt_file
-        file_type: txt
-        contents: raw text
-      outputs:
-      - volume: /veld/output/
-        environment: out_txt_file
-        file_type: txt
-        contents: raw text
-      settings:
-      - environment: out_data_description
-        description: automatic data description for generating a data veld yaml file
-        env_type: str
-      - environment: percentage_sample
-        description: percentage of lines to be randomly sampled
-        env_type: int
-      - environment: sample_random_seed
-        description: seed to make randomness stable and reproducible
-        env_type: str
-      - environment: buffer_segments
-        description: percentage of segments where processing results are persisted
-          in between. So that processing could continue should it have crashed
-        env_type: int
-        default: 100
-  services:
-    veld_preprocess_sample:
-      build: .
-      volumes:
-      - ./src/:/veld/code/:z
-      command: python3 /veld/code/preprocess_sample.py
-      environment:
-        in_file: null
-        out_file: null
-        out_data_description: null
-        percentage_sample: null
-        sample_random_seed: null
-        buffer_segments: 100
-https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_strip.yaml:
-  x-veld:
-    code:
-      description: removes all lines before and after given line numbers
-      topics:
-      - NLP
-      - preprocessing
-      - ETL
-      inputs:
-      - volume: /veld/input/
-        environment: in_file
-        file_type: txt
-        contents: raw text
-      outputs:
-      - volume: /veld/output/
-        environment: out_file
-        file_type: txt
-        contents: raw text
-      settings:
-      - environment: line_start
-        description: line number before which lines will be stripped away. E.g. line_start=50
-          removes lines from 1-49
-        env_type: int
-      - environment: line_end
-        description: line number after which lines will be stripped away. E.g. line_end=100
-          removes lines from 101-end
-        env_type: int
-  services:
-    veld_preprocess_strip:
-      build: .
-      volumes:
-      - ./src/:/veld/code/:z
-      command: /veld/code/preprocess_strip.sh
-      environment:
-        in_file: null
-        out_file: null
-        line_start: null
-        line_end: null
-https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml:
-  x-veld:
-    code:
-      description: downloading wikipedia archive and extracting each article to a
-        json file.
-      topics:
-      - NLP
-      - Machine Learning
-      - ETL
-      outputs:
-      - volume: /veld/output/
-        description: a folder containing json files, where each file contains the
-          contents of a wikipedia article
-        file_type: json
-        contents:
-        - NLP training data
-        - raw text
-      settings:
-      - environment: wikipedia_dump_url
-        description: url to a wikipdedia dump download, from https://dumps.wikimedia.org/
-        env_type: url
-      - environment: out_data_description
-        description: short human description for the data and its purpose, will be
-          persisted in a data veld yaml
-        env_type: string
-        optional: true
-  services:
-    veld_download_and_extract:
-      build: .
-      volumes:
-      - ./src/:/veld/code/:z
-      - ./data/wikipedia_json/:/veld/output/:z
-      command: /veld/code/download_and_extract.sh
-      environment:
-        wikipedia_dump_url: null
-        out_data_description: null
-https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml:
-  x-veld:
-    code:
-      description: transforming wikipedia raw jsons to a single txt file.
-      topics:
-      - NLP
-      - Machine Learning
-      - ETL
-      inputs:
-      - volume: /veld/input/
-        description: a folder containing json files, where each file contains the
-          contents of a wikipedia article
-        environment: in_json_folder
-        file_type: json
-        contents:
-        - NLP training data
-        - raw text
-      outputs:
-      - volume: /veld/output/
-        description: single txt file, containing only raw content of wikipedia pagaes,
-          split into sentences or per article with a newline each, possibly being
-          only a sampled subset for testing.
-        environment: out_txt_file
-        file_type: txt
-        contents:
-        - NLP training data
-        - word embeddings training data
-        - raw text
-      settings:
-      - environment: out_data_description
-        description: short human description for the data and its purpose, will be
-          persisted in a data veld yaml
-        env_type: string
-        optional: true
-      - environment: cpu_count
-        description: number of cpu cores to be used for parallel processing
-        env_type: int
-        optional: true
-        default: maximum number of available cpu cores
-      - environment: set_split_sentences
-        description: Should the resulting txt be split by newlines at each sentence
-          boundary? If not, then newlines will be set at the end of each article.
-        env_type: boolean
-        optional: true
-        default: false
-      - environment: sample_size_percentage
-        description: As percentage, can be used to transform only a sample of the
-          data, for testing purpose most likely. The sample is randomly picked, and
-          a random seed can also be set with `sample_random_seed`
-        env_type: float
-        optional: true
-        default: 100
-      - environment: sample_random_seed
-        description: a random seed in case a random sample is drawn and its randomness
-          should be fixed.
-        env_type: str
-        optional: true
-        default: null
-      - environment: buffer_segments
-        description: The interval at which progress should be printed. E.g. 100 means
-          to print hundred times during processing.
-        env_type: int
-        optional: true
-        default: 100
-  services:
-    veld_transform_wiki_json_to_txt:
-      build: .
-      volumes:
-      - ./src/:/veld/code/:z
-      - ./data/wikipedia_json/:/veld/input/
-      - ./data/wikipedia_txt/:/veld/output/
-      command: python /veld/code/transform_wiki_json_to_txt.py
-      environment:
-        in_json_folder: null
-        out_txt_file: null
-        out_data_description: null
-        cpu_count: null
-        set_split_sentences: false
-        sample_size_percentage: 100
-        sample_random_seed: null
-        buffer_segments: 100
-https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models/blob/main/veld.yaml:
-  x-veld:
-    chain:
-      description: hard-coded evaluation of several spaCy 2.2.4 models.
-      topics:
-      - NLP
-      - Machine learning
-      - Named entity recognition
-  services:
-    veld:
-      extends:
-        file: ./veld_code_3_apis_ner_evaluate_old_models/veld.yaml
-        service: veld
-      volumes:
-      - ./spacy-ner/:/veld/input/
-      - ./spacy-ner/:/veld/output/
-      environment:
-        out_eval_result_file: reevaluations_all.md
-https://github.com/acdh-oeaw/veld_chain_6_apis_ner_transform_to_gold/blob/main/veld.yaml:
-  x-veld:
-    chain:
-      description: Conversion of apis ner model data to harmonized custom json format.
-      topics:
-      - ETL
-      - data cleaning
-  services:
-    veld:
-      extends:
-        file: ./veld_code_4_apis_ner_transform_to_gold/veld.yaml
-        service: veld
-      volumes:
-      - ./spacy-ner/:/veld/input/
-      - ./veld_data_5_apis_oebl__ner_gold/data/:/veld/output/1/
-      - ./:/veld/output/2/
-      environment:
-        out_json_uncleaned_file: apis_oebl__ner__1_uncleaned.json
-        out_json_cleaned_file: apis_oebl__ner__2_cleaned.json
-        out_json_cleaned_simplified_file: apis_oebl__ner__3_cleaned_simplified.json
-        out_log_file: extract_and_clean.log
-https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_convert.yaml:
-  x-veld:
-    chain:
-      description: cleaning and converting json into spaCy docbin
-      topics:
-      - ETL
-      - NLP
-      - Machine learning
-  services:
-    veld_convert:
-      extends:
-        file: ./veld_code_7_train_spacy_ner/veld_convert.yaml
-        service: veld_convert
-      volumes:
-      - ./veld_data_5_apis_oebl__ner_gold/data/:/veld/input/
-      - ./spacy_docbin/:/veld/output/
-      environment:
-        in_json_file: apis_oebl__ner__3_cleaned_simplified.json
-https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_publish.yaml:
-  x-veld:
-    chain:
-      description: pushing spacy model to huggingface.
-      topics: NLP
-  services:
-    veld_publish:
-      extends:
-        file: ./veld_code_11_publish_to_hf/veld.yaml
-        service: veld
-      volumes:
-      - ./veld_data_6_apis_ner_models/models/m3/model/:/veld/input/
-      environment:
-        in_model_folder: model-best
-        model_name: APIS_OEBL_NER_trf
-        version: '1.0'
-https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_train.yaml:
-  x-veld:
-    chain:
-      description: A NER trainig setup, utilizing spaCy 3's config system.
-      topics:
-      - NLP
-      - Machine learning
-      - Named entity recognition
-  services:
-    veld_train:
-      extends:
-        file: ./veld_code_7_train_spacy_ner/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./spacy_docbin/:/veld/input/
-      - ./veld_data_6_apis_ner_models/models/m4/:/veld/output/
-      environment:
-        in_train_docbin_file: train.spacy
-        in_dev_docbin_file: dev.spacy
-        in_eval_docbin_file: eval.spacy
-        out_model_folder: model
-        out_train_log_file: logs/train.log
-        out_eval_log_file: logs/eval.log
-https://github.com/acdh-oeaw/veld_chain_9_akp_ner/blob/main/veld.yaml:
-  x-veld:
-    chain:
-      description: This repo uses self-trained spaCy NER models on the linkedcat dataset
-        to extract entities, which are stored in csv files.
-      topics:
-      - NLP
-      - Machine learning
-      - Named entity recognition
-  services:
-    veld:
-      extends:
-        file: ./veld_code_10_akp_ner/veld.yaml
-        service: veld
-      volumes:
-      - ./veld_data_6_apis_ner_models/models/m3/model/model-best/:/veld/input/
-      - ./veld_data_7_akp_ner_linkedcat/:/veld/output/
-      environment:
-        solr_core_url: http://linkedcat-solr.acdh-cluster-2.arz.oeaw.ac.at/solr/linkedcat2
-        out_csv_file: linkedcat2.csv
-https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_eval.yaml:
-  x-veld:
-    chain:
-      description: custom evaluation logic for word2vec, fasttext and glove models
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-      - evaluation
-  services:
-    veld_eval:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld.yaml
-        service: veld
-      volumes:
-      - ./veld_data_8_fasttext_models/data/m2/:/veld/input/1/
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/:/veld/input/2/
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/
-      environment:
-        in_1_model_file: model.bin
-        in_1_model_metadata_file: metadata.yaml
-        in_2_eval_data_file: eval_data.yaml
-https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_train.yaml:
-  x-veld:
-    chain:
-      description: a fasttext training and inference jupyter notebook.
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-  services:
-    veld_train:
-      extends:
-        file: ./veld_code_12_fasttext/veld.yaml
-        service: veld
-      volumes:
-      - ./veld_data_9_we_training_data/data/:/veld/input/
-      - ./veld_data_8_fasttext_models/data/:/veld/output/
-      environment:
-        in_train_data_file: de_wiki_cleaned_sentences.txt
-        train_data_description: german wikipedia, subset, txt
-        training_architecture: fasttext_v1
-        model_id: m4
-        vector_size: 200
-        epochs: 50
-https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_eval.yaml:
-  x-veld:
-    chain:
-      description: evaluate word2vec model
-  services:
-    veld_eval:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld.yaml
-        service: veld
-      volumes:
-      - ./veld_data_11_word2vec_models/:/veld/input/1/
-      - ./veld_data_10_we_evaluation/:/veld/input/2/
-      - ./veld_data_10_we_evaluation/:/veld/output/
-      environment:
-        model_path: /veld/input/1/data/m1/
-        model_metadata_path: /veld/input/1/data/m1/metadata.yaml
-        eval_data_path: /veld/input/2/evaluation_gold_data/eval_data.yaml
-        eval_results_folder: /veld/output/evaluation_results/
-https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_preprocess.yaml:
-  x-veld:
-    chain:
-      description: preprocess wikipedia data
-  services:
-    veld_preprocess:
-      extends:
-        file: ./veld_code_13_word2vec/veld_preprocess.yaml
-        service: veld_preprocess
-      volumes:
-      - ./veld_data_9_we_training_data/:/veld/input/
-      - ./veld_data_9_we_training_data/:/veld/output/
-      environment:
-        unprocessed_file_path: /veld/input/data/de_wiki.csv
-        processed_file_path: /veld/output/data/de_wiki_cleaned_sentences.txt
-https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_train.yaml:
-  x-veld:
-    chain:
-      description: train word2vec on wikipedia
-  services:
-    veld_train:
-      extends:
-        file: ./veld_code_13_word2vec/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./veld_data_9_we_training_data/:/veld/input/
-      - ./veld_data_11_word2vec_models/:/veld/output/
-      environment:
-        train_data_path: /veld/input/data/de_wiki_cleaned_sentences.txt
-        train_data_description: german wikipedia, subset, txt
-        model_path: /veld/output/data/
-        training_architecture: word2vec_v1
-        model_id: m2
-        vector_size: 500
-        window: 5
-        min_count: 5
-https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_infer.yaml:
-  x-veld:
-    chain:
-      description: use a udpipe model to infer on raw text
-      topics:
-      - NLP
-      - Machine learning
-      - tokenization
-      - lemmatization
-      - part of speech
-      - dependency parsing
-      - universal dependencies
-      - grammatical annotation
-  services:
-    veld_infer:
-      extends:
-        file: ./veld_code_15_udpipe/veld_infer.yaml
-        service: veld_infer
-      volumes:
-      - ./data/inferences/input/:/veld/input/1/
-      - ./data/models/:/veld/input/2/
-      - ./data/inferences/output/:/veld/output/
-      environment:
-        in_txt_path: /veld/input/1/input.txt
-        in_model_path: /veld/input/2/de_hdt-ud-train-a-1.model
-        out_conllu_path: /veld/output/output.conllu
-https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_train.yaml:
-  x-veld:
-    chain:
-      description: train a udpipe model
-      topics:
-      - NLP
-      - Machine learning
-      - tokenization
-      - lemmatization
-      - part of speech
-      - dependency parsing
-      - universal dependencies
-      - grammatical annotation
-  services:
-    veld_train:
-      extends:
-        file: ./veld_code_15_udpipe/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./data/training_data/:/veld/input/
-      - ./data/models/:/veld/output/
-      environment:
-        train_data_path: /veld/input/UD_English-GUM/en_gum-ud-train.conllu
-        model_path: /veld/output/self_trained.model
-https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_analyse.yaml:
-  x-veld:
-    chain:
-      description: chain to analyse the conllu data which was inferenced by udpipe
-        on several ELTeC corpora.
-      topics:
-      - NLP
-      - Machine learning
-      - tokenization
-      - lemmatization
-      - part of speech
-      - dependency parsing
-      - universal dependencies
-      - grammatical annotation
-  services:
-    veld_anayse:
-      extends:
-        file: ./veld_code_19_analyse_conllu/veld.yaml
-        service: veld
-      volumes:
-      - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
-      - ./veld_data_16_eltec_conllu_stats/:/veld/output/
-https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_infer.yaml:
-  x-veld:
-    chain:
-      description: A jupyter notebook that loads GloVe vectors and provides some convenient
-        functions to use them.
-      topics:
-      - NLP
-      - Machine learning
-      - word embeddings
-  services:
-    veld_infer:
-      extends:
-        file: ./veld_code_17_glove/veld_infer.yaml
-        service: veld_infer
-      volumes:
-      - ./veld_data_17_glove_models/data/m1/:/veld/input/
-      environment:
-        in_vector_file: vectors.txt
-https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_train.yaml:
-  x-veld:
-    chain:
-      description: Trainings setup using glove on amc data
-      topics:
-      - NLP
-      - Machine learning
-      - word embeddings
-  services:
-    veld_train:
-      extends:
-        file: ./veld_code_17_glove/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./veld_data_9_we_training_data/data/:/veld/input/
-      - ./veld_data_17_glove_models/data/m1/:/veld/output/
-      environment:
-        in_corpus_file: dewiki.txt
-        out_vocab_file: vocab.txt
-        out_cooccurrence_file: cooccurrence.bin
-        out_cooccurrence_shuf_file: cooccurrence.shuf.bin
-        out_vector_file: vectors
-https://github.com/acdh-oeaw/veld_chain_16_clscorgi/blob/main/veld.yaml:
-  x-veld:
-    chain:
-      description: reading in generated conllu files from udpipe and transform them
-        to clscorgi-conforming json files for further ingestion into clscor catalogue
-      topics:
-      - NLP
-      - Machine learning
-      - tokenization
-      - lemmatization
-      - part of speech
-      - dependency parsing
-      - universal dependencies
-      - grammatical annotation
-  services:
-    veld:
-      extends:
-        file: ./veld_code_18_clscorgi/veld.yaml
-        service: veld
-      volumes:
-      - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
-      environment:
-        TOKEN: PLACEHOLDER
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_analyse_evaluation.yaml
-: x-veld:
-    chain:
-      description: ''
-      topics:
-      - ''
-  services:
-    veld_analyse_evaluation:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_analyse_evaluation.yaml
-        service: veld_analyse_evaluation
-      volumes:
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
-      environment:
-        in_evaluation_summary_file: summary.yaml
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_fasttext.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_jupyter_notebook_fasttext:
-      extends:
-        file: ./veld_code_12_fasttext/veld_jupyter_notebook.yaml
-        service: veld_jupyter_notebook
-      volumes:
-      - ./data_local/training_data/:/veld/storage/training_data/:z
-      - ./data_local/models/fasttext/:/veld/storage/models:z
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_glove.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_jupyter_notebook_glove:
-      extends:
-        file: ./veld_code_17_glove/veld_jupyter_notebook.yaml
-        service: veld_jupyter_notebook
-      volumes:
-      - ./data_local/training_data/:/veld/storage/training_data/:z
-      - ./data_local/models/glove/:/veld/storage/models/:z
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_word2vec.yaml
-: x-veld:
-    chain:
-      description: a word2vec jupyter notebook, for quick experiments
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-  services:
-    veld_jupyter_notebook_word2vec:
-      extends:
-        file: ./veld_code_13_word2vec/veld_jupyter_notebook.yaml
-        service: veld_jupyter_notebook
-      volumes:
-      - ./data_local/training_data/:/veld/storage/train_data/:z
-      - ./data_local/models/word2vec/:/veld/storage/models/:z
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_download_and_extract:
-      extends:
-        file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_download_and_extract.yaml
-        service: veld_download_and_extract
-      volumes:
-      - ./data_local/training_data/extracted/:/veld/output/:z
-      environment:
-        wikipedia_dump_url: https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
-    veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
-      extends:
-        file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
-        service: veld_transform_wiki_json_to_txt
-      volumes:
-      - ./data_local/training_data/extracted/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
-      environment:
-        in_json_folder: data
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, transformed from json files into one
-          txt file, each json file's content is split into sentences and persisted
-          per line. Best for fastText and word2vec.
-        sample_size_percentage: 10
-        set_split_sentences: true
-        cpu_count: 14
-        sample_random_seed: 42
-        info_interval: 100
-      depends_on:
-        veld_preprocess_download_and_extract:
-          condition: service_completed_successfully
-    veld_preprocess_transform_wiki_json_to_txt_glove:
-      extends:
-        file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
-        service: veld_transform_wiki_json_to_txt
-      volumes:
-      - ./data_local/training_data/extracted/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_article_per_line/:/veld/output/:z
-      environment:
-        in_json_folder: data
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, transformed from json files into one
-          txt file, each json file's content is persisted per line. Best for GloVe.
-        sample_size_percentage: 10
-        set_split_sentences: false
-        cpu_count: 14
-        sample_random_seed: 42
-        info_interval: 100
-      depends_on:
-        veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
-          condition: service_completed_successfully
-    veld_preprocess_lowercase_fasttext-word2vec:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
-        service: veld_preprocess_lowercase
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one sentence per line,
-          lowercased,
-      depends_on:
-        veld_preprocess_transform_wiki_json_to_txt_glove:
-          condition: service_completed_successfully
-    veld_preprocess_lowercase_glove:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
-        service: veld_preprocess_lowercase
-      volumes:
-      - ./data_local/training_data/extracted__txt_article_per_line/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one article per line,
-          lowercased
-      depends_on:
-        veld_preprocess_lowercase_fasttext-word2vec:
-          condition: service_completed_successfully
-    veld_preprocess_remove_punctuation_fasttext-word2vec:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
-        service: veld_preprocess_remove_punctuation
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one sentence per line,
-          lowercased, removed punctuation
-        cpu_count: 14
-        info_interval: 100
-      depends_on:
-        veld_preprocess_lowercase_glove:
-          condition: service_completed_successfully
-    veld_preprocess_remove_punctuation_glove:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
-        service: veld_preprocess_remove_punctuation
-      volumes:
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one article per line,
-          lowercased, removed punctuation
-        cpu_count: 14
-        info_interval: 100
-      depends_on:
-        veld_preprocess_remove_punctuation_fasttext-word2vec:
-          condition: service_completed_successfully
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess_train_eval.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
-      extends:
-        file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
-        service: veld_transform_wiki_json_to_txt
-      volumes:
-      - ./data_local/training_data/extracted/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
-      environment:
-        in_json_folder: data
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, transformed from json files into one
-          txt file, each json file's content is split into sentences and persisted
-          per line. Best for fastText and word2vec.
-        sample_size_percentage: 10
-        set_split_sentences: true
-        cpu_count: 14
-        sample_random_seed: 42
-        info_interval: 100
-    veld_preprocess_transform_wiki_json_to_txt_glove:
-      extends:
-        file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
-        service: veld_transform_wiki_json_to_txt
-      volumes:
-      - ./data_local/training_data/extracted/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_article_per_line/:/veld/output/:z
-      environment:
-        in_json_folder: data
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, transformed from json files into one
-          txt file, each json file's content is persisted per line. Best for GloVe.
-        sample_size_percentage: 10
-        set_split_sentences: false
-        cpu_count: 14
-        sample_random_seed: 42
-        info_interval: 100
-      depends_on:
-        veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
-          condition: service_completed_successfully
-    veld_preprocess_lowercase_fasttext-word2vec:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
-        service: veld_preprocess_lowercase
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one sentence per line,
-          lowercased,
-      depends_on:
-        veld_preprocess_transform_wiki_json_to_txt_glove:
-          condition: service_completed_successfully
-    veld_preprocess_lowercase_glove:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
-        service: veld_preprocess_lowercase
-      volumes:
-      - ./data_local/training_data/extracted__txt_article_per_line/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one article per line,
-          lowercased
-      depends_on:
-        veld_preprocess_lowercase_fasttext-word2vec:
-          condition: service_completed_successfully
-    veld_preprocess_remove_punctuation_fasttext-word2vec:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
-        service: veld_preprocess_remove_punctuation
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one sentence per line,
-          lowercased, removed punctuation
-        cpu_count: 14
-        info_interval: 100
-      depends_on:
-        veld_preprocess_lowercase_glove:
-          condition: service_completed_successfully
-    veld_preprocess_remove_punctuation_glove:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
-        service: veld_preprocess_remove_punctuation
-      volumes:
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, one article per line,
-          lowercased, removed punctuation
-        cpu_count: 14
-        info_interval: 100
-      depends_on:
-        veld_preprocess_remove_punctuation_fasttext-word2vec:
-          condition: service_completed_successfully
-    veld_train_fasttext:
-      extends:
-        file: ./veld_code_12_fasttext/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
-      - ./data_local/models/fasttext/m1/:/veld/output/:z
-      environment:
-        in_train_data_file: de_wiki_sample.txt
-        model_id: m1
-        model_description: fasttext test model
-        vector_size: 200
-        epochs: 10
-      depends_on:
-        veld_preprocess_remove_punctuation_glove:
-          condition: service_completed_successfully
-    veld_train_word2vec:
-      extends:
-        file: ./veld_code_13_word2vec/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
-      - ./data_local/models/word2vec/m1/:/veld/output/:z
-      environment:
-        in_train_data_file: de_wiki_sample.txt
-        model_id: m1
-        model_description: word2vec test model
-        epochs: 10
-        vector_size: 200
-        window: 5
-        min_count: 5
-      depends_on:
-        veld_train_fasttext:
-          condition: service_completed_successfully
-    veld_train_glove:
-      extends:
-        file: ./veld_code_17_glove/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/input/:z
-      - ./data_local/models/glove/m1/:/veld/output/:z
-      environment:
-        in_corpus_file: de_wiki_sample.txt
-        out_vocab_file: m1_vocab.txt
-        out_cooccurrence_file: m1_cooccurrence.bin
-        out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
-        out_vector_file: m1_vector
-        model_id: m1
-        model_description: glove test model
-        verbose: 2
-        memory: 4.0
-        vocab_min_count: 5
-        vector_size: 200
-        max_iter: 10
-        window_size: 15
-        binary: 2
-        num_threads: 14
-        x_max: 10
-      depends_on:
-        veld_train_word2vec:
-          condition: service_completed_successfully
-    veld_eval_fasttext:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_fasttext.yaml
-        service: veld_eval_fasttext
-      volumes:
-      - ./data_local/models/fasttext/m1/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/fasttext/:/veld/output/2:z
-      environment:
-        in_model_file: m1.bin
-        in_model_metadata_file: veld.yaml
-        in_eval_gold_data_file: eval_data_lowercase.yaml
-        out_eval_summary_file: summary.yaml
-        out_eval_log_file: m1.txt
-      depends_on:
-        veld_train_glove:
-          condition: service_completed_successfully
-    veld_eval_word2vec:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_word2vec.yaml
-        service: veld_eval_word2vec
-      volumes:
-      - ./data_local/models/word2vec/m1/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/word2vec/:/veld/output/2:z
-      environment:
-        in_model_file: m1.bin
-        in_model_metadata_file: veld.yaml
-        in_eval_gold_data_file: eval_data_lowercase.yaml
-        out_eval_summary_file: summary.yaml
-        out_eval_log_file: m1.txt
-      depends_on:
-        veld_eval_fasttext:
-          condition: service_completed_successfully
-    veld_eval_glove:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_glove.yaml
-        service: veld_eval_glove
-      volumes:
-      - ./data_local/models/glove/m1/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/glove/:/veld/output/2/:z
-      environment:
-        in_vector_file: m1_vector.txt
-        model_id: m1
-        in_model_metadata_file: veld.yaml
-        in_eval_gold_data_file: eval_data_lowercase.yaml
-        out_eval_summary_file: summary.yaml
-        out_eval_log_file: m1.txt
-      depends_on:
-        veld_eval_word2vec:
-          condition: service_completed_successfully
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_clean.yaml
-: x-veld:
-    code: null
-  services:
-    veld_preprocess_clean:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_clean.yaml
-        service: veld_preprocess_clean
-      volumes:
-      - ./veld_data_18_amc_we_training_data__test/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/data/:/veld/input/:z
-      - ./veld_data_18_amc_we_training_data__test/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/data/:/veld/output/:z
-      environment:
-        in_file: data.txt
-        out_file_clean: data.txt
-        out_file_dirty: data_removed.txt
-        min_percentage_char: 80
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_download_and_extract.yaml
-: x-veld:
-    chain:
-      description: downloading wikipedia archive and extracting each article to a
-        json file.
-      topics:
-      - NLP
-      - Machine Learning
-      - ETL
-  services:
-    veld_preprocess_download_and_extract:
-      extends:
-        file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_download_and_extract.yaml
-        service: veld_download_and_extract
-      volumes:
-      - ./data_local/training_data/extracted/:/veld/output/:z
-      environment:
-        wikipedia_dump_url: https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_lowercase.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_lowercase:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
-        service: veld_preprocess_lowercase
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, lowercased
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_remove_punctuation.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_remove_punctuation:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
-        service: veld_preprocess_remove_punctuation
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/:z
-      environment:
-        in_txt_file: de_wiki_sample.txt
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, single txt, removed punctuation
-        cpu_count: 14
-        info_interval: 10
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_sample.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_sample:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_sample.yaml
-        service: veld_preprocess_sample
-      volumes:
-      - ./data_local/training_data__test/extracted__txt_sentence_per_line__sampled/:/veld/input/:z
-      - ./data_local/training_data__test/extracted__txt_sentence_per_line__sampled__sampled/:/veld/output/:z
-      environment:
-        in_file: de_wiki_sample.txt
-        out_file: de_wiki_sample.txt
-        percentage_sample: 10
-        buffer_segments: 10
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml
-: x-veld:
-    chain:
-      description: transforming wikipedia raw jsons to a single txt file.
-      topics:
-      - NLP
-      - Machine Learning
-      - ETL
-  services:
-    veld_preprocess_transform_wiki_json_to_txt:
-      extends:
-        file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
-        service: veld_transform_wiki_json_to_txt
-      volumes:
-      - ./data_local/training_data/extracted/:/veld/input/:z
-      - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
-      environment:
-        in_json_folder: data
-        out_txt_file: de_wiki_sample.txt
-        out_data_description: sample wikipedia, transformed from json files into one
-          txt file, each json file's content persisted in a single line.
-        sample_size_percentage: 100
-        set_split_sentences: true
-        cpu_count: 14
-        sample_random_seed: 42
-        buffer_segments: 10
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_fasttext.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_train_fasttext:
-      extends:
-        file: ./veld_code_12_fasttext/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
-      - ./data_local/models/fasttext/m1/:/veld/output/:z
-      environment:
-        in_train_data_file: de_wiki_sample.txt
-        out_model_file: m1.bin
-        model_description: test training
-        vector_size: 200
-        epochs: 50
-    veld_eval_fasttext:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_fasttext.yaml
-        service: veld_eval_fasttext
-      volumes:
-      - ./data_local/models/fasttext/m1/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/fasttext/:/veld/output/2:z
-      environment:
-        in_1_model_file: m1.bin
-        in_1_model_metadata_file: veld.yaml
-        in_2_eval_gold_data_file: eval_data_lowercase.yaml
-        out_1_eval_summary_file: summary.yaml
-        out_2_eval_log_file: m1.txt
-      depends_on:
-        veld_train_fasttext:
-          condition: service_completed_successfully
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_glove.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_train_glove:
-      extends:
-        file: ./veld_code_17_glove/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/input/:z
-      - ./data_local/models/glove/m1/:/veld/output/:z
-      environment:
-        in_corpus_file: de_wiki_sample.txt
-        out_vocab_file: m1_vocab.txt
-        out_cooccurrence_file: m1_cooccurrence.bin
-        out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
-        out_vector_file: m1_vector
-        model_id: m1
-        model_description: glove test model
-        verbose: 2
-        memory: 4.0
-        vocab_min_count: 5
-        vector_size: 200
-        max_iter: 50
-        window_size: 15
-        binary: 2
-        num_threads: 14
-        x_max: 10
-    veld_eval_glove:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_glove.yaml
-        service: veld_eval_glove
-      volumes:
-      - ./data_local/models/glove/m1/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/glove/:/veld/output/2/:z
-      environment:
-        in_1_vector_file: m1_vector.txt
-        model_id: m1
-        in_1_model_metadata_file: veld.yaml
-        in_2_eval_gold_data_file: eval_data_lowercase.yaml
-        out_1_eval_summary_file: summary.yaml
-        out_2_eval_log_file: m1.txt
-      depends_on:
-        veld_train_glove:
-          condition: service_completed_successfully
-? https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_word2vec.yaml
-: x-veld:
-    chain:
-      description: a multi-chain, doing training and evaluation of a word2vec model
-      topics:
-      - NLP
-      - Machine Learning
-      - word embeddings
-      - model evaluation
-  services:
-    veld_train_word2vec:
-      extends:
-        file: ./veld_code_13_word2vec/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
-      - ./data_local/models/word2vec/m1/:/veld/output/:z
-      environment:
-        in_train_data_file: de_wiki_sample.txt
-        out_model_file: m1.bin
-        model_description: word2vec test model
-        epochs: 100
-        vector_size: 200
-    veld_eval_word2vec:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_word2vec.yaml
-        service: veld_eval_word2vec
-      volumes:
-      - ./data_local/models/word2vec/m1/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/word2vec/:/veld/output/2:z
-      environment:
-        in_1_model_file: m1.bin
-        in_1_model_metadata_file: veld.yaml
-        in_2_eval_gold_data_file: eval_data_lowercase.yaml
-        out_1_eval_summary_file: summary.yaml
-        out_2_eval_log_file: m1.txt
-      depends_on:
-        veld_train_word2vec:
-          condition: service_completed_successfully
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_analyse_evaluation:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_analyse_evaluation.yaml
-        service: veld_analyse_evaluation
-      volumes:
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/:z
-      environment:
-        in_evaluation_summary_file: summary.yaml
-        out_visualization_html_file: summary_visualized.html
-        out_visualization_png_file: summary_visualized.png
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_analyse_evaluation_non_interactive:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_analyse_evaluation_non_interactive.yaml
-        service: veld_analyse_evaluation
-      volumes:
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/:z
-      environment:
-        in_evaluation_summary_file: summary.yaml
-        out_visualization_html_file: summary_visualized.html
-        out_visualization_png_file: summary_visualized.png
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_eval_glove:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_glove.yaml
-        service: veld_eval_glove
-      volumes:
-      - ./veld_data_17_glove_models/data/m3/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/glove/:/veld/output/2/:z
-      environment:
-        in_1_vector_file: m3_vector.txt
-        model_id: m3
-        in_1_model_metadata_file: veld.yaml
-        in_2_eval_gold_data_file: eval_data_lowercase.yaml
-        out_1_eval_summary_file: summary.yaml
-        out_2_eval_log_file: m3.txt
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_eval_word2vec:
-      extends:
-        file: ./veld_code_14_we_evaluation/veld_eval_word2vec.yaml
-        service: veld_eval_word2vec
-      volumes:
-      - ./veld_data_11_word2vec_models/data/m6/:/veld/input/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
-      - ./veld_data_10_we_evaluation/evaluation_results/logs/word2vec/:/veld/output/2:z
-      environment:
-        in_1_model_file: m6.bin
-        in_1_model_metadata_file: veld.yaml
-        in_2_eval_gold_data_file: eval_data_lowercase.yaml
-        out_1_eval_summary_file: summary.yaml
-        out_2_eval_log_file: m6.txt
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml
-: x-veld:
-    code: null
-  services:
-    veld_preprocess_clean:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_clean.yaml
-        service: veld_preprocess_clean
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/:/veld/input/:z
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/:/veld/output/1/:z
-      - ./tmp_clean/:/veld/output/2/clean/:z
-      - ./tmp_dirty/:/veld/output/2/dirty/:z
-      environment:
-        in_file: data.txt
-        out_file_clean: data.txt
-        out_file_dirty: data_dirty.txt
-        min_percentage_char: 80
-        out_data_description: 'AMC data: stripped from non-alphanumeric lines, 10%
-          sampled, lowercased, punctuation removed, cleaned from lines not having
-          enough text'
-        cpu_count: 15
-        buffer_segments: 100
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_lowercase:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
-        service: veld_preprocess_lowercase
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/:/veld/input/:z
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/:/veld/output/:z
-      environment:
-        in_txt_file: data.txt
-        out_txt_file: data.txt
-        out_data_description: 'AMC data: stripped from non-alphanumeric lines, 10%
-          sampled, lowercased.'
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_remove_punctuation:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
-        service: veld_preprocess_remove_punctuation
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased/:/veld/input/:z
-      - ./tmp/:/veld/output/2/:z
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/:/veld/output/1/:z
-      environment:
-        in_txt_file: data.txt
-        out_txt_file: data.txt
-        out_data_description: 'AMC data: stripped from non-alphanumeric lines, lowercased,
-          punctuation removed.'
-        cpu_count: 14
-        buffer_segments: 1000
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_sample:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_sample.yaml
-        service: veld_preprocess_sample
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped/:/veld/input/:z
-      - ./exp_bert_tmp/:/veld/output/:z
-      environment:
-        in_file: data.txt
-        out_file: data.txt
-        out_data_description: 10% of AMC
-        percentage_sample: 0.01
-        sample_random_seed: 42
-        buffer_segments: 100
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_preprocess_strip:
-      extends:
-        file: ./veld_code_19_we_preprocessing/veld_preprocess_strip.yaml
-        service: veld_preprocess_strip
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq/:/veld/input/:z
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped/:/veld/output/:z
-      environment:
-        in_file: data.txt
-        out_file: data.txt
-        line_start: 54993
-        line_end: 521781020
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_train_fasttext:
-      extends:
-        file: ./veld_code_12_fasttext/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/:/veld/input/:z
-      - ./veld_data_8_fasttext_models/data/m7/:/veld/output/:z
-      environment:
-        in_train_data_file: data.txt
-        out_model_file: m7.bin
-        model_description: 100% AMC model
-        vector_size: 200
-        epochs: 10
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_train_glove:
-      extends:
-        file: ./veld_code_17_glove/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/:/veld/input/:z
-      - ./veld_data_17_glove_models/data/m4/:/veld/output/:z
-      environment:
-        in_corpus_file: data.txt
-        out_vocab_file: m4_vocab.txt
-        out_cooccurrence_file: m4_cooccurrence.bin
-        out_cooccurrence_shuf_file: m4_cooccurrence_shuf.bin
-        out_vector_file: m4_vector
-        model_id: m4
-        model_description: 10% AMC model
-        verbose: 2
-        memory: 4.0
-        vocab_min_count: 5
-        vector_size: 200
-        max_iter: 10
-        window_size: 15
-        binary: 2
-        num_threads: 14
-        x_max: 10
-? https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml
-: x-veld:
-    chain: null
-  services:
-    veld_train_word2vec:
-      extends:
-        file: ./veld_code_13_word2vec/veld_train.yaml
-        service: veld_train
-      volumes:
-      - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/:/veld/input/:z
-      - ./veld_data_11_word2vec_models/data/m7/:/veld/output/:z
-      environment:
-        in_train_data_file: data.txt
-        out_model_file: m7.bin
-        model_description: 100% AMC model
-        epochs: 10
-        vector_size: 200
+        topics:
+        - ''
+    services:
+      veld_analyse_evaluation:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_analyse_evaluation.yaml
+          service: veld_analyse_evaluation
+        volumes:
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
+        environment:
+          in_evaluation_summary_file: summary.yaml
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupyter_notebook_fasttext.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_fasttext.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_jupyter_notebook_fasttext:
+        extends:
+          file: ./veld_code_12_fasttext/veld_jupyter_notebook.yaml
+          service: veld_jupyter_notebook
+        volumes:
+        - ./data_local/training_data/:/veld/storage/training_data/:z
+        - ./data_local/models/fasttext/:/veld/storage/models:z
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupyter_notebook_glove.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_glove.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_jupyter_notebook_glove:
+        extends:
+          file: ./veld_code_17_glove/veld_jupyter_notebook.yaml
+          service: veld_jupyter_notebook
+        volumes:
+        - ./data_local/training_data/:/veld/storage/training_data/:z
+        - ./data_local/models/glove/:/veld/storage/models/:z
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupyter_notebook_word2vec.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_word2vec.yaml
+  content:
+    x-veld:
+      chain:
+        description: a word2vec jupyter notebook, for quick experiments
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+    services:
+      veld_jupyter_notebook_word2vec:
+        extends:
+          file: ./veld_code_13_word2vec/veld_jupyter_notebook.yaml
+          service: veld_jupyter_notebook
+        volumes:
+        - ./data_local/training_data/:/veld/storage/train_data/:z
+        - ./data_local/models/word2vec/:/veld/storage/models/:z
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_multi_chain__preprocess.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_download_and_extract:
+        extends:
+          file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_download_and_extract.yaml
+          service: veld_download_and_extract
+        volumes:
+        - ./data_local/training_data/extracted/:/veld/output/:z
+        environment:
+          wikipedia_dump_url: https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
+      veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
+        extends:
+          file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
+          service: veld_transform_wiki_json_to_txt
+        volumes:
+        - ./data_local/training_data/extracted/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
+        environment:
+          in_json_folder: data
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, transformed from json files into
+            one txt file, each json file's content is split into sentences and persisted
+            per line. Best for fastText and word2vec.
+          sample_size_percentage: 10
+          set_split_sentences: true
+          cpu_count: 14
+          sample_random_seed: 42
+          info_interval: 100
+        depends_on:
+          veld_preprocess_download_and_extract:
+            condition: service_completed_successfully
+      veld_preprocess_transform_wiki_json_to_txt_glove:
+        extends:
+          file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
+          service: veld_transform_wiki_json_to_txt
+        volumes:
+        - ./data_local/training_data/extracted/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_article_per_line/:/veld/output/:z
+        environment:
+          in_json_folder: data
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, transformed from json files into
+            one txt file, each json file's content is persisted per line. Best for
+            GloVe.
+          sample_size_percentage: 10
+          set_split_sentences: false
+          cpu_count: 14
+          sample_random_seed: 42
+          info_interval: 100
+        depends_on:
+          veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
+            condition: service_completed_successfully
+      veld_preprocess_lowercase_fasttext-word2vec:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one sentence per line,
+            lowercased,
+        depends_on:
+          veld_preprocess_transform_wiki_json_to_txt_glove:
+            condition: service_completed_successfully
+      veld_preprocess_lowercase_glove:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data_local/training_data/extracted__txt_article_per_line/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one article per line,
+            lowercased
+        depends_on:
+          veld_preprocess_lowercase_fasttext-word2vec:
+            condition: service_completed_successfully
+      veld_preprocess_remove_punctuation_fasttext-word2vec:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one sentence per line,
+            lowercased, removed punctuation
+          cpu_count: 14
+          info_interval: 100
+        depends_on:
+          veld_preprocess_lowercase_glove:
+            condition: service_completed_successfully
+      veld_preprocess_remove_punctuation_glove:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one article per line,
+            lowercased, removed punctuation
+          cpu_count: 14
+          info_interval: 100
+        depends_on:
+          veld_preprocess_remove_punctuation_fasttext-word2vec:
+            condition: service_completed_successfully
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_multi_chain__preprocess_train_eval.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess_train_eval.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
+        extends:
+          file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
+          service: veld_transform_wiki_json_to_txt
+        volumes:
+        - ./data_local/training_data/extracted/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
+        environment:
+          in_json_folder: data
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, transformed from json files into
+            one txt file, each json file's content is split into sentences and persisted
+            per line. Best for fastText and word2vec.
+          sample_size_percentage: 10
+          set_split_sentences: true
+          cpu_count: 14
+          sample_random_seed: 42
+          info_interval: 100
+      veld_preprocess_transform_wiki_json_to_txt_glove:
+        extends:
+          file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
+          service: veld_transform_wiki_json_to_txt
+        volumes:
+        - ./data_local/training_data/extracted/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_article_per_line/:/veld/output/:z
+        environment:
+          in_json_folder: data
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, transformed from json files into
+            one txt file, each json file's content is persisted per line. Best for
+            GloVe.
+          sample_size_percentage: 10
+          set_split_sentences: false
+          cpu_count: 14
+          sample_random_seed: 42
+          info_interval: 100
+        depends_on:
+          veld_preprocess_transform_wiki_json_to_txt_fasttext-word2vec:
+            condition: service_completed_successfully
+      veld_preprocess_lowercase_fasttext-word2vec:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one sentence per line,
+            lowercased,
+        depends_on:
+          veld_preprocess_transform_wiki_json_to_txt_glove:
+            condition: service_completed_successfully
+      veld_preprocess_lowercase_glove:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data_local/training_data/extracted__txt_article_per_line/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one article per line,
+            lowercased
+        depends_on:
+          veld_preprocess_lowercase_fasttext-word2vec:
+            condition: service_completed_successfully
+      veld_preprocess_remove_punctuation_fasttext-word2vec:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one sentence per line,
+            lowercased, removed punctuation
+          cpu_count: 14
+          info_interval: 100
+        depends_on:
+          veld_preprocess_lowercase_glove:
+            condition: service_completed_successfully
+      veld_preprocess_remove_punctuation_glove:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, one article per line,
+            lowercased, removed punctuation
+          cpu_count: 14
+          info_interval: 100
+        depends_on:
+          veld_preprocess_remove_punctuation_fasttext-word2vec:
+            condition: service_completed_successfully
+      veld_train_fasttext:
+        extends:
+          file: ./veld_code_12_fasttext/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data_local/models/fasttext/m1/:/veld/output/:z
+        environment:
+          in_train_data_file: de_wiki_sample.txt
+          model_id: m1
+          model_description: fasttext test model
+          vector_size: 200
+          epochs: 10
+        depends_on:
+          veld_preprocess_remove_punctuation_glove:
+            condition: service_completed_successfully
+      veld_train_word2vec:
+        extends:
+          file: ./veld_code_13_word2vec/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data_local/models/word2vec/m1/:/veld/output/:z
+        environment:
+          in_train_data_file: de_wiki_sample.txt
+          model_id: m1
+          model_description: word2vec test model
+          epochs: 10
+          vector_size: 200
+          window: 5
+          min_count: 5
+        depends_on:
+          veld_train_fasttext:
+            condition: service_completed_successfully
+      veld_train_glove:
+        extends:
+          file: ./veld_code_17_glove/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data_local/models/glove/m1/:/veld/output/:z
+        environment:
+          in_corpus_file: de_wiki_sample.txt
+          out_vocab_file: m1_vocab.txt
+          out_cooccurrence_file: m1_cooccurrence.bin
+          out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
+          out_vector_file: m1_vector
+          model_id: m1
+          model_description: glove test model
+          verbose: 2
+          memory: 4.0
+          vocab_min_count: 5
+          vector_size: 200
+          max_iter: 10
+          window_size: 15
+          binary: 2
+          num_threads: 14
+          x_max: 10
+        depends_on:
+          veld_train_word2vec:
+            condition: service_completed_successfully
+      veld_eval_fasttext:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_fasttext.yaml
+          service: veld_eval_fasttext
+        volumes:
+        - ./data_local/models/fasttext/m1/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/fasttext/:/veld/output/2:z
+        environment:
+          in_model_file: m1.bin
+          in_model_metadata_file: veld.yaml
+          in_eval_gold_data_file: eval_data_lowercase.yaml
+          out_eval_summary_file: summary.yaml
+          out_eval_log_file: m1.txt
+        depends_on:
+          veld_train_glove:
+            condition: service_completed_successfully
+      veld_eval_word2vec:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_word2vec.yaml
+          service: veld_eval_word2vec
+        volumes:
+        - ./data_local/models/word2vec/m1/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/word2vec/:/veld/output/2:z
+        environment:
+          in_model_file: m1.bin
+          in_model_metadata_file: veld.yaml
+          in_eval_gold_data_file: eval_data_lowercase.yaml
+          out_eval_summary_file: summary.yaml
+          out_eval_log_file: m1.txt
+        depends_on:
+          veld_eval_fasttext:
+            condition: service_completed_successfully
+      veld_eval_glove:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_glove.yaml
+          service: veld_eval_glove
+        volumes:
+        - ./data_local/models/glove/m1/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/glove/:/veld/output/2/:z
+        environment:
+          in_vector_file: m1_vector.txt
+          model_id: m1
+          in_model_metadata_file: veld.yaml
+          in_eval_gold_data_file: eval_data_lowercase.yaml
+          out_eval_summary_file: summary.yaml
+          out_eval_log_file: m1.txt
+        depends_on:
+          veld_eval_word2vec:
+            condition: service_completed_successfully
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_clean.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_clean.yaml
+  content:
+    x-veld:
+      code: null
+    services:
+      veld_preprocess_clean:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_clean.yaml
+          service: veld_preprocess_clean
+        volumes:
+        - ./veld_data_18_amc_we_training_data__test/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/data/:/veld/input/:z
+        - ./veld_data_18_amc_we_training_data__test/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/data/:/veld/output/:z
+        environment:
+          in_file: data.txt
+          out_file_clean: data.txt
+          out_file_dirty: data_removed.txt
+          min_percentage_char: 80
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_download_and_extract.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_download_and_extract.yaml
+  content:
+    x-veld:
+      chain:
+        description: downloading wikipedia archive and extracting each article to
+          a json file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+    services:
+      veld_preprocess_download_and_extract:
+        extends:
+          file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_download_and_extract.yaml
+          service: veld_download_and_extract
+        volumes:
+        - ./data_local/training_data/extracted/:/veld/output/:z
+        environment:
+          wikipedia_dump_url: https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_lowercase.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_lowercase.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_lowercase:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, lowercased
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_remove_punctuation.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_remove_punctuation.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_remove_punctuation:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/:z
+        environment:
+          in_txt_file: de_wiki_sample.txt
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, single txt, removed punctuation
+          cpu_count: 14
+          info_interval: 10
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_sample.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_sample.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_sample:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_sample.yaml
+          service: veld_preprocess_sample
+        volumes:
+        - ./data_local/training_data__test/extracted__txt_sentence_per_line__sampled/:/veld/input/:z
+        - ./data_local/training_data__test/extracted__txt_sentence_per_line__sampled__sampled/:/veld/output/:z
+        environment:
+          in_file: de_wiki_sample.txt
+          out_file: de_wiki_sample.txt
+          percentage_sample: 10
+          buffer_segments: 10
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_transform_wiki_json_to_txt.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml
+  content:
+    x-veld:
+      chain:
+        description: transforming wikipedia raw jsons to a single txt file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+    services:
+      veld_preprocess_transform_wiki_json_to_txt:
+        extends:
+          file: ./veld_code_20_wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
+          service: veld_transform_wiki_json_to_txt
+        volumes:
+        - ./data_local/training_data/extracted/:/veld/input/:z
+        - ./data_local/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
+        environment:
+          in_json_folder: data
+          out_txt_file: de_wiki_sample.txt
+          out_data_description: sample wikipedia, transformed from json files into
+            one txt file, each json file's content persisted in a single line.
+          sample_size_percentage: 100
+          set_split_sentences: true
+          cpu_count: 14
+          sample_random_seed: 42
+          buffer_segments: 10
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_train_eval_fasttext.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_fasttext.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_train_fasttext:
+        extends:
+          file: ./veld_code_12_fasttext/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data_local/models/fasttext/m1/:/veld/output/:z
+        environment:
+          in_train_data_file: de_wiki_sample.txt
+          out_model_file: m1.bin
+          model_description: test training
+          vector_size: 200
+          epochs: 50
+      veld_eval_fasttext:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_fasttext.yaml
+          service: veld_eval_fasttext
+        volumes:
+        - ./data_local/models/fasttext/m1/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/fasttext/:/veld/output/2:z
+        environment:
+          in_1_model_file: m1.bin
+          in_1_model_metadata_file: veld.yaml
+          in_2_eval_gold_data_file: eval_data_lowercase.yaml
+          out_1_eval_summary_file: summary.yaml
+          out_2_eval_log_file: m1.txt
+        depends_on:
+          veld_train_fasttext:
+            condition: service_completed_successfully
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_train_eval_glove.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_glove.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_train_glove:
+        extends:
+          file: ./veld_code_17_glove/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data_local/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data_local/models/glove/m1/:/veld/output/:z
+        environment:
+          in_corpus_file: de_wiki_sample.txt
+          out_vocab_file: m1_vocab.txt
+          out_cooccurrence_file: m1_cooccurrence.bin
+          out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
+          out_vector_file: m1_vector
+          model_id: m1
+          model_description: glove test model
+          verbose: 2
+          memory: 4.0
+          vocab_min_count: 5
+          vector_size: 200
+          max_iter: 50
+          window_size: 15
+          binary: 2
+          num_threads: 14
+          x_max: 10
+      veld_eval_glove:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_glove.yaml
+          service: veld_eval_glove
+        volumes:
+        - ./data_local/models/glove/m1/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/glove/:/veld/output/2/:z
+        environment:
+          in_1_vector_file: m1_vector.txt
+          model_id: m1
+          in_1_model_metadata_file: veld.yaml
+          in_2_eval_gold_data_file: eval_data_lowercase.yaml
+          out_1_eval_summary_file: summary.yaml
+          out_2_eval_log_file: m1.txt
+        depends_on:
+          veld_train_glove:
+            condition: service_completed_successfully
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_train_eval_word2vec.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_word2vec.yaml
+  content:
+    x-veld:
+      chain:
+        description: a multi-chain, doing training and evaluation of a word2vec model
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+        - model evaluation
+    services:
+      veld_train_word2vec:
+        extends:
+          file: ./veld_code_13_word2vec/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data_local/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data_local/models/word2vec/m1/:/veld/output/:z
+        environment:
+          in_train_data_file: de_wiki_sample.txt
+          out_model_file: m1.bin
+          model_description: word2vec test model
+          epochs: 100
+          vector_size: 200
+      veld_eval_word2vec:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_word2vec.yaml
+          service: veld_eval_word2vec
+        volumes:
+        - ./data_local/models/word2vec/m1/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/word2vec/:/veld/output/2:z
+        environment:
+          in_1_model_file: m1.bin
+          in_1_model_metadata_file: veld.yaml
+          in_2_eval_gold_data_file: eval_data_lowercase.yaml
+          out_1_eval_summary_file: summary.yaml
+          out_2_eval_log_file: m1.txt
+        depends_on:
+          veld_train_word2vec:
+            condition: service_completed_successfully
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_analyse_evaluation.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_analyse_evaluation:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_analyse_evaluation.yaml
+          service: veld_analyse_evaluation
+        volumes:
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/:z
+        environment:
+          in_evaluation_summary_file: summary.yaml
+          out_visualization_html_file: summary_visualized.html
+          out_visualization_png_file: summary_visualized.png
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_analyse_evaluation_non_interactive.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_analyse_evaluation_non_interactive:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_analyse_evaluation_non_interactive.yaml
+          service: veld_analyse_evaluation
+        volumes:
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/:z
+        environment:
+          in_evaluation_summary_file: summary.yaml
+          out_visualization_html_file: summary_visualized.html
+          out_visualization_png_file: summary_visualized.png
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_eval_glove.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_eval_glove:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_glove.yaml
+          service: veld_eval_glove
+        volumes:
+        - ./veld_data_17_glove_models/data/m3/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/glove/:/veld/output/2/:z
+        environment:
+          in_1_vector_file: m3_vector.txt
+          model_id: m3
+          in_1_model_metadata_file: veld.yaml
+          in_2_eval_gold_data_file: eval_data_lowercase.yaml
+          out_1_eval_summary_file: summary.yaml
+          out_2_eval_log_file: m3.txt
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_eval_word2vec.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_eval_word2vec:
+        extends:
+          file: ./veld_code_14_we_evaluation/veld_eval_word2vec.yaml
+          service: veld_eval_word2vec
+        volumes:
+        - ./veld_data_11_word2vec_models/data/m6/:/veld/input/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_gold_data/lowercase/:/veld/input/2/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/:/veld/output/1/:z
+        - ./veld_data_10_we_evaluation/evaluation_results/logs/word2vec/:/veld/output/2:z
+        environment:
+          in_1_model_file: m6.bin
+          in_1_model_metadata_file: veld.yaml
+          in_2_eval_gold_data_file: eval_data_lowercase.yaml
+          out_1_eval_summary_file: summary.yaml
+          out_2_eval_log_file: m6.txt
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_clean.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml
+  content:
+    x-veld:
+      code: null
+    services:
+      veld_preprocess_clean:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_clean.yaml
+          service: veld_preprocess_clean
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/:/veld/input/:z
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/:/veld/output/1/:z
+        - ./tmp_clean/:/veld/output/2/clean/:z
+        - ./tmp_dirty/:/veld/output/2/dirty/:z
+        environment:
+          in_file: data.txt
+          out_file_clean: data.txt
+          out_file_dirty: data_dirty.txt
+          min_percentage_char: 80
+          out_data_description: 'AMC data: stripped from non-alphanumeric lines, 10%
+            sampled, lowercased, punctuation removed, cleaned from lines not having
+            enough text'
+          cpu_count: 15
+          buffer_segments: 100
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_lowercase.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_lowercase:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/:/veld/input/:z
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: data.txt
+          out_txt_file: data.txt
+          out_data_description: 'AMC data: stripped from non-alphanumeric lines, 10%
+            sampled, lowercased.'
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_remove_punctuation.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_remove_punctuation:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased/:/veld/input/:z
+        - ./tmp/:/veld/output/2/:z
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/:/veld/output/1/:z
+        environment:
+          in_txt_file: data.txt
+          out_txt_file: data.txt
+          out_data_description: 'AMC data: stripped from non-alphanumeric lines, lowercased,
+            punctuation removed.'
+          cpu_count: 14
+          buffer_segments: 1000
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_sample.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_sample:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_sample.yaml
+          service: veld_preprocess_sample
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped/:/veld/input/:z
+        - ./exp_bert_tmp/:/veld/output/:z
+        environment:
+          in_file: data.txt
+          out_file: data.txt
+          out_data_description: 10% of AMC
+          percentage_sample: 0.01
+          sample_random_seed: 42
+          buffer_segments: 100
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_strip.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_strip:
+        extends:
+          file: ./veld_code_19_we_preprocessing/veld_preprocess_strip.yaml
+          service: veld_preprocess_strip
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq/:/veld/input/:z
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped/:/veld/output/:z
+        environment:
+          in_file: data.txt
+          out_file: data.txt
+          line_start: 54993
+          line_end: 521781020
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train_fasttext.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_train_fasttext:
+        extends:
+          file: ./veld_code_12_fasttext/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/:/veld/input/:z
+        - ./veld_data_8_fasttext_models/data/m7/:/veld/output/:z
+        environment:
+          in_train_data_file: data.txt
+          out_model_file: m7.bin
+          model_description: 100% AMC model
+          vector_size: 200
+          epochs: 10
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train_glove.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_train_glove:
+        extends:
+          file: ./veld_code_17_glove/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/:/veld/input/:z
+        - ./veld_data_17_glove_models/data/m4/:/veld/output/:z
+        environment:
+          in_corpus_file: data.txt
+          out_vocab_file: m4_vocab.txt
+          out_cooccurrence_file: m4_cooccurrence.bin
+          out_cooccurrence_shuf_file: m4_cooccurrence_shuf.bin
+          out_vector_file: m4_vector
+          model_id: m4
+          model_description: 10% AMC model
+          verbose: 2
+          memory: 4.0
+          vocab_min_count: 5
+          vector_size: 200
+          max_iter: 10
+          window_size: 15
+          binary: 2
+          num_threads: 14
+          x_max: 10
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train_word2vec.yaml:
+  url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_train_word2vec:
+        extends:
+          file: ./veld_code_13_word2vec/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./veld_data_18_amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/:/veld/input/:z
+        - ./veld_data_11_word2vec_models/data/m7/:/veld/output/:z
+        environment:
+          in_train_data_file: data.txt
+          out_model_file: m7.bin
+          model_description: 100% AMC model
+          epochs: 10
+          vector_size: 200

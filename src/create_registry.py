@@ -169,7 +169,7 @@ def generate_list(link_txt_path, all_velds):
                     validate_message = "False, " + veld["validation_result"][1]
                 content += f"    - valid: {validate_message}\n"
                 if veld["validation_result"][0]:
-                    all_velds[veld_url] = veld["metadata"]
+                    all_velds[out_veld_id] = {"url": veld_url, "content": veld["metadata"]}
                     content_md = handle_metadata(veld, 4)
                     if content_md != "":
                         content += f"    - metadata:\n"
