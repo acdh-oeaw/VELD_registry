@@ -92,7 +92,7 @@ def _get_topic(v):
     else:
         if type(topics) is str and topics != "":
             result = [topics]
-        if topics != [] and topics is not None:
+        if type(topics) is list and topics != [] and topics is not None:
             result = topics
     return result
 
@@ -149,6 +149,7 @@ def get_code_input_file_type():
 
 def get_integrated_code_veld_id():
     result = {}
+    code_veld_instances = get_code_veld_uris()
     for k, v in VELD_DATA_ALL.items():
         code_veld_url = None
         try:
@@ -160,11 +161,10 @@ def get_integrated_code_veld_id():
         else:
             code_veld_url_list = []
             for code_veld_file in code_veld_file_list:
-                code_veld_id = code_veld_file[2:].replace("/", "__")
-                code_veld_instances = get_code_veld_uris()
+                code_veld_id = code_veld_file[2:].replace("/", "___")
                 code_veld_url = code_veld_instances.get(code_veld_id)
                 if code_veld_url is not None:
-                    code_veld_url_list.append(code_veld_url)
+                    code_veld_url_list.extend(code_veld_url)
             if code_veld_url_list != []:
                 result[k] = code_veld_url_list
     return result
@@ -208,6 +208,7 @@ def main():
     from data.clscor_conversion.mapping import mappings
     
     for m_id, m in mappings.items():
+        print(m_id)
         m_instantiated = {}
         for k, v in m.items():
             if type(v) is types.FunctionType:
