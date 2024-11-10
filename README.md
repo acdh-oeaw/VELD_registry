@@ -58,6 +58,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner
   - [veld.yaml](https://gitlab.oeaw.ac.at/acdh-ch/apis/spacy-ner/blob/main/veld.yaml)
     - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+- https://gitlab.oeaw.ac.at/acdh-ch/nlp/bert_amc_embeddings_db
 
 ## code velds
 - https://github.com/acdh-oeaw/veld_code_3_apis_ner_evaluate_old_models
@@ -429,6 +430,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
           - description: single txt file, containing only raw content of wikipedia pagaes, split into sentences or per article with a newline each, possibly being only a sampled subset for testing.
           - file_type: txt
           - contents: NLP training data, word embeddings training data, raw text
+- https://github.com/acdh-oeaw/bert_embeddings
 
 ## chain velds
 - https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models
