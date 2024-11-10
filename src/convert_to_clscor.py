@@ -8,8 +8,8 @@ IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
 
 with open(IN_VELD_DATA_PATH, "r") as f:
     VELD_DATA_ALL = yaml.safe_load(f)
-
-
+    
+    
 def _get_veld_uri_by_type(veld_type):
     result = {}
     for k, v in VELD_DATA_ALL.items():
@@ -28,22 +28,48 @@ def get_data_veld_uris():
     return result
 
 
-def get_data_veld_uris__as_chain_input():
+def _get_data_veld_uris__as_chain_input_or_output(direction):
     result = {}
-    i = 1
     for k, v in VELD_DATA_ALL.items():
         try:
             _ = v["content"]["x-veld"]["chain"]
             services = v["content"]["services"]
             volumes_list = []
             for s in services.values():
-                for v in s.get("volumes"):
-                    volumes_list.append(v)
+                for vol in s.get("volumes"):
+                    volumes_list.append(vol)
         except:
             continue
         else:
-            result[k] = [f"clscor:/code_reification_to_topic_{i}"]
-            i += 1
+            chain_data_uris = []
+            data_veld_uris = get_data_veld_uris()
+            for vol in volumes_list:
+                vol = vol.split(":")
+                if direction in vol[1]:
+                    chain_data_path = vol[0][2:]
+                    chain_data_path = chain_data_path.split("/")
+                    match_count_max = 0
+                    for data_id, data_uri in data_veld_uris.items():
+                        data_id = data_id.split("___")
+                        match_count_tmp = 0
+                        for i in range(min(len(chain_data_path), len(data_id))):
+                            if chain_data_path[i] == data_id[i]:
+                                match_count_tmp += 1
+                        if match_count_tmp > match_count_max:
+                            match_count_max = match_count_tmp
+                            if match_count_max > 0:
+                                chain_data_uris.extend(data_uri)
+            result[k] = chain_data_uris
+    return result
+
+
+def get_data_veld_uris__as_chain_input():
+    result = _get_data_veld_uris__as_chain_input_or_output("input")
+    return result
+
+
+def get_data_veld_uris__as_chain_output():
+    result = _get_data_veld_uris__as_chain_input_or_output("output")
     return result
 
 
@@ -54,6 +80,20 @@ def get_code_veld_uris():
 
 def get_chain_veld_uris():
     result = _get_veld_uri_by_type("chain")
+    return result
+
+
+def _get_topic(v):
+    result = []
+    try:
+        topics = list(v["content"]["x-veld"].values())[0]["topics"]
+    except:
+        pass
+    else:
+        if type(topics) is str and topics != "":
+            result = [topics]
+        if topics != [] and topics is not None:
+            result = topics
     return result
 
 
@@ -75,25 +115,18 @@ def get_code_reification_to_topic():
 
 def get_topic_of_code_reification_to_topic():
     result = {}
-    i = 1
     for k, v in VELD_DATA_ALL.items():
         try:
             _ = v["content"]["x-veld"]["code"]
-            topics = v["content"]["x-veld"]["code"]["topics"]
         except:
             continue
         else:
-            if type(topics) is str and topics != "":
-                topics = [topics]
-            if topics != [] and topics is not None:
-                result[k] = topics
-                i += 1
+            result[k] = _get_topic(v)
     return result
 
 
 def get_code_input_file_type():
     result = {}
-    i = 1
     for k, v in VELD_DATA_ALL.items():
         try:
             _ = v["content"]["x-veld"]["code"]
@@ -111,13 +144,11 @@ def get_code_input_file_type():
                     inputs.append(input_group_file_type)
             if inputs != [] and inputs is not None:
                 result[k] = inputs
-                i += 1
     return result
 
 
 def get_integrated_code_veld_id():
     result = {}
-    i = 1
     for k, v in VELD_DATA_ALL.items():
         code_veld_url = None
         try:
@@ -136,7 +167,30 @@ def get_integrated_code_veld_id():
                     code_veld_url_list.append(code_veld_url)
             if code_veld_url_list != []:
                 result[k] = code_veld_url_list
-                i += 1
+    return result
+
+
+def get_chain_topic_as_x6():
+    result = {}
+    for k, v in VELD_DATA_ALL.items():
+        try:
+            _ = v["content"]["x-veld"]["chain"]
+        except:
+            continue
+        else:
+            result[k] = _get_topic(v)
+    return result
+
+
+def get_code_topic_as_x6():
+    result = {}
+    for k, v in VELD_DATA_ALL.items():
+        try:
+            _ = v["content"]["x-veld"]["code"]
+        except:
+            continue
+        else:
+            result[k] = _get_topic(v)
     return result
 
 

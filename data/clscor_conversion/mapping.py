@@ -27,25 +27,24 @@ mappings = {
         "p": "crmcls:Y7_uses",
         "o": get_integrated_code_veld_id,
     },
-    "chain_uri hadInput data_uri (PE19)": {
+    "chain_uri hadInput data_uri": {
         "s": get_chain_veld_uris,
         "p": "<hadInput>",
         "o": get_data_veld_uris__as_chain_input,
     },
-    
-    "code__to__reification_code_to_topic": {
-        "s": get_code_veld_uris,
-        "p": "<code__code_reification_to_topic>",
-        "o": get_code_reification_to_topic,
+    "chain_uri generatedOutput data_uri": {
+        "s": get_chain_veld_uris,
+        "p": "<generatedOutput>",
+        "o": get_data_veld_uris__as_chain_output,
     },
-    "reification_code_to_topic__to__topic": {
-        "s": get_code_reification_to_topic,
-        "p": "<code_reification_to_topic__topic>",
-        "o": get_topic_of_code_reification_to_topic,
+    "chain_uri type X6": {
+        "s": get_chain_veld_uris,
+        "p": "<type>",
+        "o": get_chain_topic_as_x6,
     },
-    "code__code_to_input_file_type": {
+    "code_uri crmcls:Y8_implements X6": {
         "s": get_code_veld_uris,
-        "p": "<code_takes_input_file_type>",
-        "o": get_code_input_file_type,
+        "p": "crmcls:Y8_implements",
+        "o": get_code_topic_as_x6,
     },
 }
