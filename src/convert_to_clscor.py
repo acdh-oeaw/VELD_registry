@@ -10,31 +10,50 @@ with open(IN_VELD_DATA_PATH, "r") as f:
     VELD_DATA_ALL = yaml.safe_load(f)
 
 
-def _get_veld_by_type(veld_type):
+def _get_veld_uri_by_type(veld_type):
     result = {}
     for k, v in VELD_DATA_ALL.items():
         try:
             _ = v["content"]["x-veld"][veld_type]
-            url = v["url"]
+            _ = v["url"]
         except KeyError:
-            pass
+            continue
         else:
-            result[k] = [url]
+            result[k] = [v["url"]]
     return result
 
 
-def get_data_veld_instances():
-    result = _get_veld_by_type("data")
+def get_data_veld_uris():
+    result = _get_veld_uri_by_type("data")
     return result
 
 
-def get_code_veld_instances():
-    result = _get_veld_by_type("code")
+def get_data_veld_uris__as_chain_input():
+    result = {}
+    i = 1
+    for k, v in VELD_DATA_ALL.items():
+        try:
+            _ = v["content"]["x-veld"]["chain"]
+            services = v["content"]["services"]
+            volumes_list = []
+            for s in services.values():
+                for v in s.get("volumes"):
+                    volumes_list.append(v)
+        except:
+            continue
+        else:
+            result[k] = [f"clscor:/code_reification_to_topic_{i}"]
+            i += 1
     return result
 
 
-def get_chain_veld_instances():
-    result = _get_veld_by_type("chain")
+def get_code_veld_uris():
+    result = _get_veld_uri_by_type("code")
+    return result
+
+
+def get_chain_veld_uris():
+    result = _get_veld_uri_by_type("chain")
     return result
 
 
@@ -45,14 +64,12 @@ def get_code_reification_to_topic():
         try:
             _ = v["content"]["x-veld"]["code"]
             topics = v["content"]["x-veld"]["code"]["topics"]
-            url = v["url"]
-            if topics == "" or topics == [] or topics is None:
-                raise Exception
         except:
-            pass
+            continue
         else:
-            result[k] = [f"clscor:/code_reification_to_topic_{i}"]
-            i += 1
+            if topics != "" and topics != [] and topics is not None:
+                result[k] = [f"clscor:/code_reification_to_topic_{i}"]
+                i += 1
     return result
 
 
@@ -63,16 +80,14 @@ def get_topic_of_code_reification_to_topic():
         try:
             _ = v["content"]["x-veld"]["code"]
             topics = v["content"]["x-veld"]["code"]["topics"]
-            url = v["url"]
-            if topics == "" or topics == [] or topics is None:
-                raise Exception
-            if type(topics) is str:
-                topics = [topics]
         except:
-            pass
+            continue
         else:
-            result[k] = topics
-            i += 1
+            if type(topics) is str and topics != "":
+                topics = [topics]
+            if topics != [] and topics is not None:
+                result[k] = topics
+                i += 1
     return result
 
 
@@ -83,6 +98,9 @@ def get_code_input_file_type():
         try:
             _ = v["content"]["x-veld"]["code"]
             input_group_list = v["content"]["x-veld"]["code"]["inputs"]
+        except:
+            continue
+        else:
             inputs = []
             for input_group in input_group_list:
                 input_group_file_type = input_group["file_type"]
@@ -91,13 +109,9 @@ def get_code_input_file_type():
                         inputs.append(ft)
                 elif type(input_group_file_type) is str:
                     inputs.append(input_group_file_type)
-            if inputs == [] or inputs is None:
-                raise Exception
-        except:
-            pass
-        else:
-            result[k] = inputs
-            i += 1
+            if inputs != [] and inputs is not None:
+                result[k] = inputs
+                i += 1
     return result
 
 
@@ -108,16 +122,20 @@ def get_integrated_code_veld_id():
         code_veld_url = None
         try:
             _ = v["content"]["x-veld"]["chain"]
-            for s in v["content"]["services"].values():
-                code_veld_file = s["extends"]["file"]
-                code_veld_id = code_veld_file[2:].replace("/", "__")
-                code_veld_instances = get_code_veld_instances()
-                code_veld_url = code_veld_instances[code_veld_id]
+            services = v["content"]["services"]
+            code_veld_file_list = [s["extends"]["file"] for s in services.values()]
         except:
-            pass
+            continue
         else:
-            if code_veld_url is not None:
-                result[k] = code_veld_url
+            code_veld_url_list = []
+            for code_veld_file in code_veld_file_list:
+                code_veld_id = code_veld_file[2:].replace("/", "__")
+                code_veld_instances = get_code_veld_uris()
+                code_veld_url = code_veld_instances.get(code_veld_id)
+                if code_veld_url is not None:
+                    code_veld_url_list.append(code_veld_url)
+            if code_veld_url_list != []:
+                result[k] = code_veld_url_list
                 i += 1
     return result
 
