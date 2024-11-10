@@ -158,7 +158,7 @@ def generate_list(link_txt_path, all_velds):
                 test_count_gl += 1
             print(veld_list)
             for veld in veld_list:
-                out_veld_id = repo_url.split("/")[-1] + "__" + veld["path"].replace("/", "__")
+                out_veld_id = repo_url.split("/")[-1] + "___" + veld["path"].replace("/", "___")
                 with open(OUT_VELD_INDIVIDUAL_FOLDER + out_veld_id, "w") as f_out:
                     f_out.write(veld["item_content"])
                 veld_url = repo_url + "/blob/main/" + veld["path"]

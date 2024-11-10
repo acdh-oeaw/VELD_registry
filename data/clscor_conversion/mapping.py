@@ -2,38 +2,49 @@ from src.convert_to_clscor import *
 
 
 mappings = {
-    "data_instances": {
-        "s": get_data_veld_instances,
-        "p": "<rdf:type>",
-        "o": "clscor:data_veld",
+    "data_uri a PE19": {
+        "s": get_data_veld_uris,
+        "p": "rdf:type",
+        "o": "pem:PE19_Persistent_Digital_Object",
     },
-    "code_instances": {
-        "s": get_code_veld_instances,
-        "p": "<rdf:type>",
-        "o": "clscor:code_veld",
+    "code_uri a PE23": {
+        "s": get_code_veld_uris,
+        "p": "rdf:type",
+        "o": "pem:PE23_Volatile_Software",
     },
-    "chain_instances": {
-        "s": get_chain_veld_instances,
-        "p": "<rdf:type>",
-        "o": "clscor:chain_veld",
+    "chain_uri a X5": {
+        "s": get_chain_veld_uris,
+        "p": "rdf:type",
+        "o": "crmcls:X5_Research_Activity",
     },
-    "chain_instances__code": {
-        "s": get_chain_veld_instances,
-        "p": "<chain_to_code>",
+    "chain_uri a PE23": {
+        "s": get_chain_veld_uris,
+        "p": "rdf:type",
+        "o": "pem:PE23_Volatile_Software",
+    },
+    "chain_uri crmcls:Y7_uses code_uri": {
+        "s": get_chain_veld_uris,
+        "p": "crmcls:Y7_uses",
         "o": get_integrated_code_veld_id,
     },
-    "code__code_reification_to_topic": {
-        "s": get_code_veld_instances,
+    "chain_uri hadInput data_uri (PE19)": {
+        "s": get_chain_veld_uris,
+        "p": "<hadInput>",
+        "o": get_data_veld_uris__as_chain_input,
+    },
+    
+    "code__to__reification_code_to_topic": {
+        "s": get_code_veld_uris,
         "p": "<code__code_reification_to_topic>",
         "o": get_code_reification_to_topic,
     },
-    "code_reification_to_topic__topic": {
+    "reification_code_to_topic__to__topic": {
         "s": get_code_reification_to_topic,
         "p": "<code_reification_to_topic__topic>",
         "o": get_topic_of_code_reification_to_topic,
     },
     "code__code_to_input_file_type": {
-        "s": get_code_veld_instances,
+        "s": get_code_veld_uris,
         "p": "<code_takes_input_file_type>",
         "o": get_code_input_file_type,
     },

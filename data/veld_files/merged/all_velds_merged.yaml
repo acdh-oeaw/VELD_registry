@@ -1,4 +1,4 @@
-veld_data_5_apis_oebl__ner_gold__veld.yaml:
+veld_data_5_apis_oebl__ner_gold___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_data_5_apis_oebl__ner_gold/blob/main/veld.yaml
   content:
     x-veld:
@@ -18,7 +18,7 @@ veld_data_5_apis_oebl__ner_gold__veld.yaml:
         - gold data
         - NLP gold data
         - NER gold data
-veld_data_7_akp_ner_linkedcat__linkedcat__veld.yaml:
+veld_data_7_akp_ner_linkedcat___linkedcat___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat/veld.yaml
   content:
     x-veld:
@@ -35,7 +35,7 @@ veld_data_7_akp_ner_linkedcat__linkedcat__veld.yaml:
         contents:
         - NER data
         - inferenced NLP data
-veld_data_7_akp_ner_linkedcat__linkedcat2__veld.yaml:
+veld_data_7_akp_ner_linkedcat___linkedcat2___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_data_7_akp_ner_linkedcat/blob/main/linkedcat2/veld.yaml
   content:
     x-veld:
@@ -52,7 +52,7 @@ veld_data_7_akp_ner_linkedcat__linkedcat2__veld.yaml:
         contents:
         - NER data
         - inferenced NLP data
-veld_data_19_mara_models__veld.yaml:
+veld_data_19_mara_models___veld.yaml:
   url: https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_19_mara_models/blob/main/veld.yaml
   content:
     x-veld:
@@ -65,7 +65,7 @@ veld_data_19_mara_models__veld.yaml:
         contents:
         - spacy model
         - spacy textcat model
-veld_code_4_apis_ner_transform_to_gold__veld.yaml:
+veld_code_4_apis_ner_transform_to_gold___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_code_4_apis_ner_transform_to_gold/blob/main/veld.yaml
   content:
     x-veld:
@@ -115,7 +115,7 @@ veld_code_4_apis_ner_transform_to_gold__veld.yaml:
           out_json_cleaned_file: null
           out_json_cleaned_simplified_file: null
           out_log_file: null
-veld_code_5_simple_docker_test__veld.yaml:
+veld_code_5_simple_docker_test___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_code_5_simple_docker_test/blob/main/veld.yaml
   content:
     x-veld:
@@ -129,7 +129,7 @@ veld_code_5_simple_docker_test__veld.yaml:
         command: python /veld/code/test.py
         volumes:
         - ./test.py:/veld/code/test.py
-veld_code_7_train_spacy_ner__veld_convert.yaml:
+veld_code_7_train_spacy_ner___veld_convert.yaml:
   url: https://github.com/acdh-oeaw/veld_code_7_train_spacy_ner/blob/main/veld_convert.yaml
   content:
     x-veld:
@@ -186,7 +186,7 @@ veld_code_7_train_spacy_ner__veld_convert.yaml:
           percentage_dev: 10
           percentage_eval: 10
           seed: 42
-veld_code_7_train_spacy_ner__veld_train.yaml:
+veld_code_7_train_spacy_ner___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_code_7_train_spacy_ner/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -241,7 +241,7 @@ veld_code_7_train_spacy_ner__veld_train.yaml:
           out_model_file: null
           out_train_log_file: null
           out_eval_log_file: null
-veld_code_9_jupyter_notebook_base__veld.yaml:
+veld_code_9_jupyter_notebook_base___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_code_9_jupyter_notebook_base/blob/main/veld.yaml
   content:
     x-veld:
@@ -258,7 +258,7 @@ veld_code_9_jupyter_notebook_base__veld.yaml:
         - ./src:/veld/code/
         - ./volumes/input/:/veld/input/
         - ./volumes/output/:/veld/output/
-veld_code_10_akp_ner__veld.yaml:
+veld_code_10_akp_ner___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_code_10_akp_ner/blob/main/veld.yaml
   content:
     x-veld:
@@ -301,7 +301,7 @@ veld_code_10_akp_ner__veld.yaml:
         environment:
           solr_core_url: null
           out_csv_file: null
-veld_code_12_fasttext__veld_jupyter_notebook.yaml:
+veld_code_12_fasttext___veld_jupyter_notebook.yaml:
   url: https://github.com/acdh-oeaw/veld_code_12_fasttext/blob/main/veld_jupyter_notebook.yaml
   content:
     x-veld:
@@ -320,7 +320,7 @@ veld_code_12_fasttext__veld_jupyter_notebook.yaml:
         volumes:
         - ./src/jupyter_notebook/:/veld/code/:z
         - ./data/:/veld/storage/:z
-veld_code_12_fasttext__veld_train.yaml:
+veld_code_12_fasttext___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_code_12_fasttext/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -368,7 +368,7 @@ veld_code_12_fasttext__veld_train.yaml:
           model_description: null
           vector_size: 200
           epochs: 50
-veld_code_13_word2vec__veld_jupyter_notebook.yaml:
+veld_code_13_word2vec___veld_jupyter_notebook.yaml:
   url: https://github.com/acdh-oeaw/veld_code_13_word2vec/blob/main/veld_jupyter_notebook.yaml
   content:
     x-veld:
@@ -406,7 +406,7 @@ veld_code_13_word2vec__veld_jupyter_notebook.yaml:
         - ./src/jupyter_notebook/:/veld/code/:z
         - ./data/input/:/veld/input/:z
         - ./data/output/:/veld/output/:z
-veld_code_13_word2vec__veld_train.yaml:
+veld_code_13_word2vec___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_code_13_word2vec/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -479,7 +479,7 @@ veld_code_13_word2vec__veld_train.yaml:
           vector_size: 200
           window: 5
           min_count: 5
-veld_code_14_we_evaluation__veld_analyse_evaluation.yaml:
+veld_code_14_we_evaluation___veld_analyse_evaluation.yaml:
   url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation.yaml
   content:
     x-veld:
@@ -521,7 +521,7 @@ veld_code_14_we_evaluation__veld_analyse_evaluation.yaml:
           in_evaluation_summary_file: null
           out_visualization_html_file: null
           out_visualization_png_file: null
-veld_code_14_we_evaluation__veld_analyse_evaluation_non_interactive.yaml:
+veld_code_14_we_evaluation___veld_analyse_evaluation_non_interactive.yaml:
   url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml
   content:
     x-veld:
@@ -562,7 +562,7 @@ veld_code_14_we_evaluation__veld_analyse_evaluation_non_interactive.yaml:
           in_evaluation_summary_file: null
           out_visualization_html_file: null
           out_visualization_png_file: null
-veld_code_14_we_evaluation__veld_eval_fasttext.yaml:
+veld_code_14_we_evaluation___veld_eval_fasttext.yaml:
   url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_fasttext.yaml
   content:
     x-veld:
@@ -611,7 +611,7 @@ veld_code_14_we_evaluation__veld_eval_fasttext.yaml:
           in_2_eval_gold_data_file: null
           out_1_eval_summary_file: null
           out_2_eval_log_file: null
-veld_code_14_we_evaluation__veld_eval_glove.yaml:
+veld_code_14_we_evaluation___veld_eval_glove.yaml:
   url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_glove.yaml
   content:
     x-veld:
@@ -665,7 +665,7 @@ veld_code_14_we_evaluation__veld_eval_glove.yaml:
           in_2_eval_gold_data_file: null
           out_1_eval_summary_file: null
           out_2_eval_log_file: null
-veld_code_14_we_evaluation__veld_eval_word2vec.yaml:
+veld_code_14_we_evaluation___veld_eval_word2vec.yaml:
   url: https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_eval_word2vec.yaml
   content:
     x-veld:
@@ -720,7 +720,7 @@ veld_code_14_we_evaluation__veld_eval_word2vec.yaml:
           in_2_eval_gold_data_file: null
           out_1_eval_summary_file: null
           out_2_eval_log_file: null
-veld_code_17_glove__veld_jupyter_notebook.yaml:
+veld_code_17_glove___veld_jupyter_notebook.yaml:
   url: https://github.com/acdh-oeaw/veld_code_17_glove/blob/main/veld_jupyter_notebook.yaml
   content:
     x-veld:
@@ -740,7 +740,7 @@ veld_code_17_glove__veld_jupyter_notebook.yaml:
         volumes:
         - ./src/main/jupyter_notebook/:/veld/code/:z
         - ./data/:/veld/storage/:z
-veld_code_19_we_preprocessing__veld_preprocess_clean.yaml:
+veld_code_19_we_preprocessing___veld_preprocess_clean.yaml:
   url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_clean.yaml
   content:
     x-veld:
@@ -810,7 +810,7 @@ veld_code_19_we_preprocessing__veld_preprocess_clean.yaml:
           cpu_count: null
           buffer_segments: 100
           sleep_duration: 10
-veld_code_19_we_preprocessing__veld_preprocess_lowercase.yaml:
+veld_code_19_we_preprocessing___veld_preprocess_lowercase.yaml:
   url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_lowercase.yaml
   content:
     x-veld:
@@ -845,7 +845,7 @@ veld_code_19_we_preprocessing__veld_preprocess_lowercase.yaml:
           in_txt_file: null
           out_txt_file: null
           out_data_description: null
-veld_code_19_we_preprocessing__veld_preprocess_remove_punctuation.yaml:
+veld_code_19_we_preprocessing___veld_preprocess_remove_punctuation.yaml:
   url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml
   content:
     x-veld:
@@ -898,7 +898,7 @@ veld_code_19_we_preprocessing__veld_preprocess_remove_punctuation.yaml:
           buffer_segments: 100
           out_data_description: null
           sleep_duration: 10
-veld_code_19_we_preprocessing__veld_preprocess_sample.yaml:
+veld_code_19_we_preprocessing___veld_preprocess_sample.yaml:
   url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_sample.yaml
   content:
     x-veld:
@@ -948,7 +948,7 @@ veld_code_19_we_preprocessing__veld_preprocess_sample.yaml:
           percentage_sample: null
           sample_random_seed: null
           buffer_segments: 100
-veld_code_19_we_preprocessing__veld_preprocess_strip.yaml:
+veld_code_19_we_preprocessing___veld_preprocess_strip.yaml:
   url: https://github.com/acdh-oeaw/veld_code_19_we_preprocessing/blob/main/veld_preprocess_strip.yaml
   content:
     x-veld:
@@ -988,7 +988,7 @@ veld_code_19_we_preprocessing__veld_preprocess_strip.yaml:
           out_file: null
           line_start: null
           line_end: null
-veld_code_20_wikipedia_nlp_preprocessing__veld_download_and_extract.yaml:
+veld_code_20_wikipedia_nlp_preprocessing___veld_download_and_extract.yaml:
   url: https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml
   content:
     x-veld:
@@ -1026,7 +1026,7 @@ veld_code_20_wikipedia_nlp_preprocessing__veld_download_and_extract.yaml:
         environment:
           wikipedia_dump_url: null
           out_data_description: null
-veld_code_20_wikipedia_nlp_preprocessing__veld_transform_wiki_json_to_txt.yaml:
+veld_code_20_wikipedia_nlp_preprocessing___veld_transform_wiki_json_to_txt.yaml:
   url: https://github.com/acdh-oeaw/veld_code_20_wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml
   content:
     x-veld:
@@ -1109,7 +1109,7 @@ veld_code_20_wikipedia_nlp_preprocessing__veld_transform_wiki_json_to_txt.yaml:
           sample_size_percentage: 100
           sample_random_seed: null
           buffer_segments: 100
-veld_chain_5_apis_ner_evaluate_old_models__veld.yaml:
+veld_chain_5_apis_ner_evaluate_old_models___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_5_apis_ner_evaluate_old_models/blob/main/veld.yaml
   content:
     x-veld:
@@ -1129,7 +1129,7 @@ veld_chain_5_apis_ner_evaluate_old_models__veld.yaml:
         - ./spacy-ner/:/veld/output/
         environment:
           out_eval_result_file: reevaluations_all.md
-veld_chain_6_apis_ner_transform_to_gold__veld.yaml:
+veld_chain_6_apis_ner_transform_to_gold___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_6_apis_ner_transform_to_gold/blob/main/veld.yaml
   content:
     x-veld:
@@ -1152,7 +1152,7 @@ veld_chain_6_apis_ner_transform_to_gold__veld.yaml:
           out_json_cleaned_file: apis_oebl__ner__2_cleaned.json
           out_json_cleaned_simplified_file: apis_oebl__ner__3_cleaned_simplified.json
           out_log_file: extract_and_clean.log
-veld_chain_7_train__veld_convert.yaml:
+veld_chain_7_train___veld_convert.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_convert.yaml
   content:
     x-veld:
@@ -1172,7 +1172,7 @@ veld_chain_7_train__veld_convert.yaml:
         - ./spacy_docbin/:/veld/output/
         environment:
           in_json_file: apis_oebl__ner__3_cleaned_simplified.json
-veld_chain_7_train__veld_publish.yaml:
+veld_chain_7_train___veld_publish.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_publish.yaml
   content:
     x-veld:
@@ -1190,7 +1190,7 @@ veld_chain_7_train__veld_publish.yaml:
           in_model_folder: model-best
           model_name: APIS_OEBL_NER_trf
           version: '1.0'
-veld_chain_7_train__veld_train.yaml:
+veld_chain_7_train___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_7_train/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -1215,7 +1215,7 @@ veld_chain_7_train__veld_train.yaml:
           out_model_folder: model
           out_train_log_file: logs/train.log
           out_eval_log_file: logs/eval.log
-veld_chain_9_akp_ner__veld.yaml:
+veld_chain_9_akp_ner___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_9_akp_ner/blob/main/veld.yaml
   content:
     x-veld:
@@ -1237,7 +1237,7 @@ veld_chain_9_akp_ner__veld.yaml:
         environment:
           solr_core_url: http://linkedcat-solr.acdh-cluster-2.arz.oeaw.ac.at/solr/linkedcat2
           out_csv_file: linkedcat2.csv
-veld_chain_11_fasttext__veld_eval.yaml:
+veld_chain_11_fasttext___veld_eval.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_eval.yaml
   content:
     x-veld:
@@ -1261,7 +1261,7 @@ veld_chain_11_fasttext__veld_eval.yaml:
           in_1_model_file: model.bin
           in_1_model_metadata_file: metadata.yaml
           in_2_eval_data_file: eval_data.yaml
-veld_chain_11_fasttext__veld_train.yaml:
+veld_chain_11_fasttext___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_11_fasttext/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -1286,7 +1286,7 @@ veld_chain_11_fasttext__veld_train.yaml:
           model_id: m4
           vector_size: 200
           epochs: 50
-veld_chain_12_word2vec__veld_eval.yaml:
+veld_chain_12_word2vec___veld_eval.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_eval.yaml
   content:
     x-veld:
@@ -1306,7 +1306,7 @@ veld_chain_12_word2vec__veld_eval.yaml:
           model_metadata_path: /veld/input/1/data/m1/metadata.yaml
           eval_data_path: /veld/input/2/evaluation_gold_data/eval_data.yaml
           eval_results_folder: /veld/output/evaluation_results/
-veld_chain_12_word2vec__veld_preprocess.yaml:
+veld_chain_12_word2vec___veld_preprocess.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_preprocess.yaml
   content:
     x-veld:
@@ -1323,7 +1323,7 @@ veld_chain_12_word2vec__veld_preprocess.yaml:
         environment:
           unprocessed_file_path: /veld/input/data/de_wiki.csv
           processed_file_path: /veld/output/data/de_wiki_cleaned_sentences.txt
-veld_chain_12_word2vec__veld_train.yaml:
+veld_chain_12_word2vec___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_12_word2vec/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -1346,7 +1346,7 @@ veld_chain_12_word2vec__veld_train.yaml:
           vector_size: 500
           window: 5
           min_count: 5
-veld_chain_13_udpipe__veld_infer.yaml:
+veld_chain_13_udpipe___veld_infer.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_infer.yaml
   content:
     x-veld:
@@ -1374,7 +1374,7 @@ veld_chain_13_udpipe__veld_infer.yaml:
           in_txt_path: /veld/input/1/input.txt
           in_model_path: /veld/input/2/de_hdt-ud-train-a-1.model
           out_conllu_path: /veld/output/output.conllu
-veld_chain_13_udpipe__veld_train.yaml:
+veld_chain_13_udpipe___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -1400,7 +1400,7 @@ veld_chain_13_udpipe__veld_train.yaml:
         environment:
           train_data_path: /veld/input/UD_English-GUM/en_gum-ud-train.conllu
           model_path: /veld/output/self_trained.model
-veld_chain_14_eltec_udpipe_inference__veld_analyse.yaml:
+veld_chain_14_eltec_udpipe_inference___veld_analyse.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_14_eltec_udpipe_inference/blob/main/veld_analyse.yaml
   content:
     x-veld:
@@ -1424,7 +1424,7 @@ veld_chain_14_eltec_udpipe_inference__veld_analyse.yaml:
         volumes:
         - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
         - ./veld_data_16_eltec_conllu_stats/:/veld/output/
-veld_chain_15_glove__veld_infer.yaml:
+veld_chain_15_glove___veld_infer.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_infer.yaml
   content:
     x-veld:
@@ -1444,7 +1444,7 @@ veld_chain_15_glove__veld_infer.yaml:
         - ./veld_data_17_glove_models/data/m1/:/veld/input/
         environment:
           in_vector_file: vectors.txt
-veld_chain_15_glove__veld_train.yaml:
+veld_chain_15_glove___veld_train.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_15_glove/blob/main/veld_train.yaml
   content:
     x-veld:
@@ -1468,7 +1468,7 @@ veld_chain_15_glove__veld_train.yaml:
           out_cooccurrence_file: cooccurrence.bin
           out_cooccurrence_shuf_file: cooccurrence.shuf.bin
           out_vector_file: vectors
-veld_chain_16_clscorgi__veld.yaml:
+veld_chain_16_clscorgi___veld.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_16_clscorgi/blob/main/veld.yaml
   content:
     x-veld:
@@ -1493,7 +1493,7 @@ veld_chain_16_clscorgi__veld.yaml:
         - ./veld_data_15_eltec_udpipe_conllu/:/veld/input/
         environment:
           TOKEN: PLACEHOLDER
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_analyse_evaluation.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_analyse_evaluation.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_analyse_evaluation.yaml
   content:
     x-veld:
@@ -1510,7 +1510,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_anal
         - ./veld_data_10_we_evaluation/evaluation_results/:/veld/input/:z
         environment:
           in_evaluation_summary_file: summary.yaml
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupyter_notebook_fasttext.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_jupyter_notebook_fasttext.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_fasttext.yaml
   content:
     x-veld:
@@ -1523,7 +1523,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupy
         volumes:
         - ./data_local/training_data/:/veld/storage/training_data/:z
         - ./data_local/models/fasttext/:/veld/storage/models:z
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupyter_notebook_glove.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_jupyter_notebook_glove.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_glove.yaml
   content:
     x-veld:
@@ -1536,7 +1536,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupy
         volumes:
         - ./data_local/training_data/:/veld/storage/training_data/:z
         - ./data_local/models/glove/:/veld/storage/models/:z
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupyter_notebook_word2vec.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_jupyter_notebook_word2vec.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_word2vec.yaml
   content:
     x-veld:
@@ -1554,7 +1554,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_jupy
         volumes:
         - ./data_local/training_data/:/veld/storage/train_data/:z
         - ./data_local/models/word2vec/:/veld/storage/models/:z
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_multi_chain__preprocess.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_multi_chain__preprocess.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess.yaml
   content:
     x-veld:
@@ -1674,7 +1674,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_mult
         depends_on:
           veld_preprocess_remove_punctuation_fasttext-word2vec:
             condition: service_completed_successfully
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_multi_chain__preprocess_train_eval.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_multi_chain__preprocess_train_eval.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_multi_chain__preprocess_train_eval.yaml
   content:
     x-veld:
@@ -1899,7 +1899,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_mult
         depends_on:
           veld_eval_word2vec:
             condition: service_completed_successfully
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_clean.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_preprocess_clean.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_clean.yaml
   content:
     x-veld:
@@ -1917,7 +1917,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_prep
           out_file_clean: data.txt
           out_file_dirty: data_removed.txt
           min_percentage_char: 80
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_download_and_extract.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_preprocess_download_and_extract.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_download_and_extract.yaml
   content:
     x-veld:
@@ -1937,7 +1937,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_prep
         - ./data_local/training_data/extracted/:/veld/output/:z
         environment:
           wikipedia_dump_url: https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_lowercase.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_preprocess_lowercase.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_lowercase.yaml
   content:
     x-veld:
@@ -1954,7 +1954,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_prep
           in_txt_file: de_wiki_sample.txt
           out_txt_file: de_wiki_sample.txt
           out_data_description: sample wikipedia, single txt, lowercased
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_remove_punctuation.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_preprocess_remove_punctuation.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_remove_punctuation.yaml
   content:
     x-veld:
@@ -1973,7 +1973,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_prep
           out_data_description: sample wikipedia, single txt, removed punctuation
           cpu_count: 14
           info_interval: 10
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_sample.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_preprocess_sample.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_sample.yaml
   content:
     x-veld:
@@ -1991,7 +1991,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_prep
           out_file: de_wiki_sample.txt
           percentage_sample: 10
           buffer_segments: 10
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_preprocess_transform_wiki_json_to_txt.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_preprocess_transform_wiki_json_to_txt.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml
   content:
     x-veld:
@@ -2019,7 +2019,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_prep
           cpu_count: 14
           sample_random_seed: 42
           buffer_segments: 10
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_train_eval_fasttext.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_train_eval_fasttext.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_fasttext.yaml
   content:
     x-veld:
@@ -2056,7 +2056,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_trai
         depends_on:
           veld_train_fasttext:
             condition: service_completed_successfully
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_train_eval_glove.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_train_eval_glove.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_glove.yaml
   content:
     x-veld:
@@ -2105,7 +2105,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_trai
         depends_on:
           veld_train_glove:
             condition: service_completed_successfully
-veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_train_eval_word2vec.yaml:
+veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki___veld_train_eval_word2vec.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_train_eval_word2vec.yaml
   content:
     x-veld:
@@ -2148,7 +2148,7 @@ veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki__veld_trai
         depends_on:
           veld_train_word2vec:
             condition: service_completed_successfully
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_analyse_evaluation.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_analyse_evaluation.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml
   content:
     x-veld:
@@ -2165,7 +2165,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_analy
           in_evaluation_summary_file: summary.yaml
           out_visualization_html_file: summary_visualized.html
           out_visualization_png_file: summary_visualized.png
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_analyse_evaluation_non_interactive.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_analyse_evaluation_non_interactive.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml
   content:
     x-veld:
@@ -2182,7 +2182,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_analy
           in_evaluation_summary_file: summary.yaml
           out_visualization_html_file: summary_visualized.html
           out_visualization_png_file: summary_visualized.png
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_eval_glove.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_eval_glove.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml
   content:
     x-veld:
@@ -2204,7 +2204,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_eval_
           in_2_eval_gold_data_file: eval_data_lowercase.yaml
           out_1_eval_summary_file: summary.yaml
           out_2_eval_log_file: m3.txt
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_eval_word2vec.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_eval_word2vec.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml
   content:
     x-veld:
@@ -2225,7 +2225,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_eval_
           in_2_eval_gold_data_file: eval_data_lowercase.yaml
           out_1_eval_summary_file: summary.yaml
           out_2_eval_log_file: m6.txt
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_clean.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_preprocess_clean.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml
   content:
     x-veld:
@@ -2250,7 +2250,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_prepr
             enough text'
           cpu_count: 15
           buffer_segments: 100
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_lowercase.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_preprocess_lowercase.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml
   content:
     x-veld:
@@ -2268,7 +2268,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_prepr
           out_txt_file: data.txt
           out_data_description: 'AMC data: stripped from non-alphanumeric lines, 10%
             sampled, lowercased.'
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_remove_punctuation.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_preprocess_remove_punctuation.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml
   content:
     x-veld:
@@ -2289,7 +2289,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_prepr
             punctuation removed.'
           cpu_count: 14
           buffer_segments: 1000
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_sample.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_preprocess_sample.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml
   content:
     x-veld:
@@ -2309,7 +2309,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_prepr
           percentage_sample: 0.01
           sample_random_seed: 42
           buffer_segments: 100
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_preprocess_strip.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_preprocess_strip.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml
   content:
     x-veld:
@@ -2327,7 +2327,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_prepr
           out_file: data.txt
           line_start: 54993
           line_end: 521781020
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train_fasttext.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_train_fasttext.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml
   content:
     x-veld:
@@ -2346,7 +2346,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train
           model_description: 100% AMC model
           vector_size: 200
           epochs: 10
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train_glove.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_train_glove.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml
   content:
     x-veld:
@@ -2376,7 +2376,7 @@ veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train
           binary: 2
           num_threads: 14
           x_max: 10
-veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc__veld_train_word2vec.yaml:
+veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc___veld_train_word2vec.yaml:
   url: https://github.com/acdh-oeaw/veld_chain_19_train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml
   content:
     x-veld:
