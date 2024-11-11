@@ -318,9 +318,34 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
           - contents: logs
 - https://github.com/acdh-oeaw/veld_code_15_udpipe
   - [veld_infer.yaml](https://github.com/acdh-oeaw/veld_code_15_udpipe/blob/main/veld_infer.yaml)
-    - valid: False, elements not matching anything at: /x-veld/code/settings/0/type
+    - valid: True
+    - metadata:
+      - description: udpipe inference setup
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+      - inputs:
+        - 1:
+          - file_type: txt
+          - contents: natural text
+        - 2:
+          - file_type: udpipe model
+          - contents: NLP model, tokenizer, lemmatizer
+      - outputs:
+        - 1:
+          - file_type: conllu, tsv
+          - contents: inferenced NLP data, tokenized text, lemmatized text, part of speech of text, universal dependencies of text, grammatically annotated text, linguistic data
   - [veld_train.yaml](https://github.com/acdh-oeaw/veld_code_15_udpipe/blob/main/veld_train.yaml)
-    - valid: False, broken yaml
+    - valid: True
+    - metadata:
+      - description: udpipe training setup
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+      - inputs:
+        - 1:
+          - file_type: conllu
+          - contents: tokenized text, enriched text, linguistic data
+      - outputs:
+        - 1:
+          - file_type: udpipe model
+          - contents: NLP model, tokenizer, lemmatizer
 - https://github.com/acdh-oeaw/veld_code_16_xml_xslt_transformer
   - [veld.yaml](https://github.com/acdh-oeaw/veld_code_16_xml_xslt_transformer/blob/main/veld.yaml)
     - valid: False, elements not matching anything at: /x-veld/code/inputs/0/optional
