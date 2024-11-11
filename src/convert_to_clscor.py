@@ -1,15 +1,17 @@
 import types
 
 import yaml
+from rdflib import Graph, URIRef, Literal, Namespace
+from rdflib.namespace import RDF, RDFS
 
 
 IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
-
-
 with open(IN_VELD_DATA_PATH, "r") as f:
     VELD_DATA_ALL = yaml.safe_load(f)
-VELD_DATA_CURRENT = None
+OUT_TTL_DATA_PATH = "/app/data/clscor_conversion/output.ttl"
     
+CRMCLS = Namespace("https://clscor.io/ontologies/CRMcls/")
+
     
 def _get_veld_uri_by_type(veld_data, veld_type):
     result = []
@@ -19,7 +21,7 @@ def _get_veld_uri_by_type(veld_data, veld_type):
     except KeyError:
         pass
     else:
-        result = [veld_data["url"]]
+        result = [URIRef(veld_data["url"])]
     return result
 
 
@@ -63,7 +65,7 @@ def _get_data_veld_uris__as_chain_input_or_output(veld_data, direction):
                     if match_count_tmp > match_count_max:
                         match_count_max = match_count_tmp
                         if match_count_max > 0:
-                            result.append(data_uri)
+                            result.append(URIRef(data_uri))
     return result
 
 
@@ -95,9 +97,10 @@ def _get_topic(veld_data):
         pass
     else:
         if type(topics) is str and topics != "":
-            result = [topics]
+            topics = [topics]
         if type(topics) is list and topics != [] and topics is not None:
-            result = topics
+            for t in topics:
+                result.append(CRMCLS["X6_METHOD/" + t.replace(" ", "_")])
     return result
 
 
@@ -190,7 +193,11 @@ def get_code_topic_as_x6(veld_data):
 
 
 def main():
-    from data.clscor_conversion.mapping import mappings
+    from data.clscor_conversion.mapping import mappings, CRMCLS, PEM
+    
+    g = Graph()
+    g.bind("crmcls", CRMCLS)
+    g.bind("pem", PEM)
     
     for veld_key, veld_data in VELD_DATA_ALL.items():
         print("# VELD: ", veld_key)
@@ -205,8 +212,12 @@ def main():
             for s in m_instantiated["s"]:
                 for p in m_instantiated["p"]:
                     for o in m_instantiated["o"]:
-                        print(s, p, o)
+                        print(f"<{s}> <{p}> <{o}> .")
+                        g.add((s, p, o))
         print()
+    
+    with open(OUT_TTL_DATA_PATH, "w") as f:
+        f.write(g.serialize(format="turtle"))
                                     
 
 if __name__ == "__main__":
