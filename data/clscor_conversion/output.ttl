@@ -26,6 +26,7 @@
 
 <https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_infer.yaml> a pem:PE23_Volatile_Software,
         crmcls:X5_Research_Activity ;
+    crmcls:Y7_uses <https://github.com/acdh-oeaw/veld_code_15_udpipe/blob/main/veld_infer.yaml> ;
     crmcls:type <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_learning>,
         <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
         <https://clscor.io/ontologies/CRMcls/X6_METHOD/dependency_parsing>,
@@ -37,6 +38,7 @@
 
 <https://github.com/acdh-oeaw/veld_chain_13_udpipe/blob/main/veld_train.yaml> a pem:PE23_Volatile_Software,
         crmcls:X5_Research_Activity ;
+    crmcls:Y7_uses <https://github.com/acdh-oeaw/veld_code_15_udpipe/blob/main/veld_train.yaml> ;
     crmcls:type <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_learning>,
         <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
         <https://clscor.io/ontologies/CRMcls/X6_METHOD/dependency_parsing>,
@@ -82,8 +84,7 @@
 
 <https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_analyse_evaluation.yaml> a pem:PE23_Volatile_Software,
         crmcls:X5_Research_Activity ;
-    crmcls:Y7_uses <https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation.yaml> ;
-    crmcls:type <https://clscor.io/ontologies/CRMcls/X6_METHOD/> .
+    crmcls:Y7_uses <https://github.com/acdh-oeaw/veld_code_14_we_evaluation/blob/main/veld_analyse_evaluation.yaml> .
 
 <https://github.com/acdh-oeaw/veld_chain_17_train_infer_wordembeddings_multiple_architectures__wiki/blob/main/veld_jupyter_notebook_fasttext.yaml> a pem:PE23_Volatile_Software,
         crmcls:X5_Research_Activity ;
@@ -282,6 +283,26 @@
     crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
         <https://clscor.io/ontologies/CRMcls/X6_METHOD/data_visualization>,
         <https://clscor.io/ontologies/CRMcls/X6_METHOD/word_embeddings> .
+
+<https://github.com/acdh-oeaw/veld_code_15_udpipe/blob/main/veld_infer.yaml> a pem:PE23_Volatile_Software ;
+    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_learning>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/dependency_parsing>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/grammatical_annotation>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/lemmatization>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/part_of_speech>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/tokenization>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/universal_dependencies> .
+
+<https://github.com/acdh-oeaw/veld_code_15_udpipe/blob/main/veld_train.yaml> a pem:PE23_Volatile_Software ;
+    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_learning>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/dependency_parsing>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/grammatical_annotation>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/lemmatization>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/part_of_speech>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/tokenization>,
+        <https://clscor.io/ontologies/CRMcls/X6_METHOD/universal_dependencies> .
 
 <https://github.com/acdh-oeaw/veld_code_17_glove/blob/main/veld_jupyter_notebook.yaml> a pem:PE23_Volatile_Software ;
     crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_learning>,

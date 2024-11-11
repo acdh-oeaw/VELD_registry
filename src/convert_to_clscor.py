@@ -96,11 +96,12 @@ def _get_topic(veld_data):
     except:
         pass
     else:
-        if type(topics) is str and topics != "":
+        if type(topics) is str:
             topics = [topics]
         if type(topics) is list and topics != [] and topics is not None:
             for t in topics:
-                result.append(CRMCLS["X6_METHOD/" + t.replace(" ", "_")])
+                if t != "":
+                    result.append(CRMCLS["X6_METHOD/" + t.replace(" ", "_")])
     return result
 
 
