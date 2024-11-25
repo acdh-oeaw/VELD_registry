@@ -19,15 +19,25 @@ mappings = {
         "p": RDF.type,
         "o": PEM["PE23_Volatile_Software"],
     },
+    "code_uri a X12": {
+        "s": get_code_veld_uris,
+        "p": RDF.type,
+        "o": CRMCLS["X12_Tool"],
+    },
     "chain_uri a X5": {
         "s": get_chain_veld_uris,
         "p": RDF.type,
-        "o": CRMCLS["X5_Research_Activity"],
+        "o": CRMCLS["X5_Research_Activity"],  # questionable
     },
     "chain_uri a PE23": {
         "s": get_chain_veld_uris,
         "p": RDF.type,
         "o": PEM["PE23_Volatile_Software"],
+    },
+    "code_uri a X12": {
+        "s": get_code_veld_uris,
+        "p": RDF.type,
+        "o": CRMCLS["X12_Tool"],
     },
     "chain_uri crmcls:Y7_uses code_uri": {
         "s": get_chain_veld_uris,
