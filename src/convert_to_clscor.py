@@ -1,8 +1,8 @@
 import types
 
 import yaml
-from rdflib import Graph, URIRef, Literal, Namespace
-from rdflib.namespace import RDF, RDFS
+
+from data.clscor_conversion.rdf_modules_namespaces import *
 
 
 IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
@@ -10,9 +10,7 @@ with open(IN_VELD_DATA_PATH, "r") as f:
     VELD_DATA_ALL = yaml.safe_load(f)
 OUT_TTL_DATA_PATH = "/app/data/clscor_conversion/output.ttl"
     
-CRMCLS = Namespace("https://clscor.io/ontologies/CRMcls/")
 
-    
 def _get_veld_uri_by_type(veld_data, veld_type):
     result = []
     try:
@@ -231,8 +229,8 @@ def get_x5_uri_from_chain(veld_data):
 
 
 def main():
-    from data.clscor_conversion.mapping import mappings, CRMCLS, PEM
-    
+    from data.clscor_conversion.mapping import mappings
+
     g = Graph()
     g.bind("crmcls", CRMCLS)
     g.bind("pem", PEM)
