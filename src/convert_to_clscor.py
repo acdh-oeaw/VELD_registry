@@ -30,7 +30,7 @@ def get_data_veld_uris(veld_data):
     return result
 
 
-def _get_data_veld_uris__as_chain_input_or_output(veld_data, direction):
+def _get_data_veld_uris__as_chain_io(veld_data, io):
     result = []
     try:
         _ = veld_data["content"]["x-veld"]["chain"]
@@ -52,7 +52,7 @@ def _get_data_veld_uris__as_chain_input_or_output(veld_data, direction):
                 data_veld_uris[data_veld_id] = data_veld_data["url"]
         for vol in volumes_list:
             vol = vol.split(":")
-            if direction in vol[1]:
+            if io in vol[1]:
                 chain_data_path = vol[0][2:]
                 chain_data_path = chain_data_path.split("/")
                 match_count_max = 0
@@ -70,12 +70,12 @@ def _get_data_veld_uris__as_chain_input_or_output(veld_data, direction):
 
 
 def get_data_veld_uris__as_chain_input(veld_data):
-    result = _get_data_veld_uris__as_chain_input_or_output(veld_data, "input")
+    result = _get_data_veld_uris__as_chain_io(veld_data, "input")
     return result
 
 
 def get_data_veld_uris__as_chain_output(veld_data):
-    result = _get_data_veld_uris__as_chain_input_or_output(veld_data, "output")
+    result = _get_data_veld_uris__as_chain_io(veld_data, "output")
     return result
 
 
@@ -105,6 +105,7 @@ def _get_topic(veld_data):
     return result
 
 
+# TODO: maybe remove?
 def get_code_reification_to_topic(veld_data):
     result = []
     i = 1 # TODO: solve problem with global index
@@ -120,6 +121,7 @@ def get_code_reification_to_topic(veld_data):
     return result
 
 
+# TODO: maybe remove?
 def get_topic_of_code_reification_to_topic(veld_data):
     result = []
     try:
@@ -131,25 +133,47 @@ def get_topic_of_code_reification_to_topic(veld_data):
     return result
 
 
-def get_code_input_file_type(veld_data):
+def _transform_file_type(file_type_data):
+    if type(file_type_data) is str:
+        file_type_data = [file_type_data]
+    return [
+        URIRef("https://clscor.io/entity/type/format/" + ft.replace(" ", "_"))
+        for ft in file_type_data
+    ]
+
+
+def get_data_veld_file_type(veld_data):
     result = []
     try:
-        _ = veld_data["content"]["x-veld"]["code"]
-        input_group_list = veld_data["content"]["x-veld"]["code"]["inputs"]
+        _ = veld_data["content"]["x-veld"]["data"]
+        file_type = veld_data["content"]["x-veld"]["data"]["file_type"]
     except:
         pass
     else:
-        inputs = []
-        for input_group in input_group_list:
-            input_group_file_type = input_group["file_type"]
-            if type(input_group_file_type) is list:
-                for ft in input_group_file_type:
-                    inputs.append(ft)
-            elif type(input_group_file_type) is str:
-                inputs.append(input_group_file_type)
-        if inputs != [] and inputs is not None:
-            result = inputs
+        result = _transform_file_type(file_type)
     return result
+
+
+def _get_code_ved__file_type__of_io(veld_data, io):
+    result = []
+    try:
+        _ = veld_data["content"]["x-veld"]["code"]
+        io_dict_list = veld_data["content"]["x-veld"]["code"][io]
+    except:
+        pass
+    else:
+        for io_dict in io_dict_list:
+            if ft := io_dict.get("file_type"):
+                result.extend(_transform_file_type(ft))
+    return result
+
+
+def get_code_ved__file_type_inputs(veld_data):
+    return _get_code_ved__file_type__of_io(veld_data, "inputs")
+
+
+def get_code_ved__file_type_outputs(veld_data):
+    return _get_code_ved__file_type__of_io(veld_data, "outputs")
 
 
 def get_integrated_code_veld_id(veld_data):
@@ -171,6 +195,7 @@ def get_integrated_code_veld_id(veld_data):
     return result
 
 
+# TODO: maybe remove?
 def get_chain_topic_as_x6(veld_data):
     result = {}
     try:
@@ -190,6 +215,18 @@ def get_code_topic_as_x6(veld_data):
         pass
     else:
         result = _get_topic(veld_data)
+    return result
+
+
+def get_x5_uri_from_chain(veld_data):
+    result = []
+    try:
+        _ = veld_data["content"]["x-veld"]["chain"]
+    except:
+        pass
+    else:
+        chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
+        result = [URIRef(chain_repo_url)]
     return result
 
 
