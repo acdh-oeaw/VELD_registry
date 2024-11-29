@@ -3,6 +3,7 @@ import types
 import yaml
 
 from data.clscor_conversion.rdf_modules_namespaces import *
+from data.clscor_conversion import mapping
 
 
 IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
@@ -229,15 +230,13 @@ def get_x5_uri_from_chain(veld_data):
 
 
 def main():
-    from data.clscor_conversion.mapping import mappings
-
     g = Graph()
     g.bind("crmcls", CRMCLS)
     g.bind("pem", PEM)
     
     for veld_key, veld_data in VELD_DATA_ALL.items():
         print("# VELD: ", veld_key)
-        for m_id, m in mappings.items():
+        for m_id, m in mapping.mappings.items():
             print("## mapping: ", m_id)
             m_instantiated = {}
             for k, v in m.items():
