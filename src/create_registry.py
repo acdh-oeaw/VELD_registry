@@ -178,6 +178,17 @@ def generate_list(link_txt_path, all_velds):
 
 
 def main():
+    
+    # delete all veld output
+    if os.path.exists(OUT_README_PATH):
+        os.remove(OUT_README_PATH)
+    if os.path.exists(OUT_VELD_MERGED_PATH):
+        os.remove(OUT_VELD_MERGED_PATH)
+    if os.path.exists(OUT_VELD_INDIVIDUAL_FOLDER):
+        for f in os.listdir(OUT_VELD_INDIVIDUAL_FOLDER):
+            os.remove(OUT_VELD_INDIVIDUAL_FOLDER + "/" + f)
+            
+    # crawl over all links
     all_velds = {}
     content = (
         "# VELD registry\n\n"
@@ -194,6 +205,8 @@ def main():
     content += "\n## chain velds\n"
     content_tmp, all_velds = generate_list(IN_LINKS_CHAIN_PATH, all_velds)
     content += content_tmp
+    
+    # write
     with open(OUT_README_PATH, "w") as f:
         f.write(content)
     with open(OUT_VELD_MERGED_PATH, "w", encoding="utf-8") as f_out:

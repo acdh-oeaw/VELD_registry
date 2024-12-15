@@ -1,0 +1,12 @@
+x-veld:
+  data:
+    about: 
+      description: "This repo holds trained word embeddings"
+      topics: 
+        - "NLP"
+        - "word embeddings"
+    file_formats: "word2vec"
+    contents:
+      - "NLP model"
+      - "word embeddings model"
+

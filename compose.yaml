@@ -1,11 +1,21 @@
 
 services:
-  veld_registry:
+
+  base_service:
     build: .
-    command: python -u /app/src/create_registry.py
     working_dir: /app/
     volumes:
       - ./:/app/
     environment:
       - github_token
       - gitlab_token
+
+  create_registry:
+    extends:
+      service: base_service
+    command: python -u /app/src/create_registry.py
+
+  convert_to_clscor:
+    extends:
+      service: base_service
+    command: python -u /app/src/convert_to_clscor.py
