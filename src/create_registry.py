@@ -36,8 +36,9 @@ def crawl_repo_github(repo_api_url, path, veld_list):
         url=repo_api_url + "/" + path,
         headers={"Authorization": f"token {GITHUB_TOKEN}"}
     )
-    response_dict_list = response.json()
-    for item_dict in response_dict_list:
+    if response.status_code != 200:
+        raise Exception("Not 200 status: " + str(response.content))
+    for item_dict in response.json():
         item_type = item_dict["type"]
         item_path = item_dict["path"]
         if item_type == "file":
@@ -70,9 +71,10 @@ def crawl_repo_gitlab(repo_api_url, path, veld_list):
             headers={"PRIVATE-TOKEN": GITLAB_TOKEN},
             params={"path": path, "page": page}
         )
+        if response.status_code != 200:
+            raise Exception("Not 200 status: " + str(response.content))
         page = response.headers.get("X-Next-Page")
-        response_dict_list = response.json()
-        for item_dict in response_dict_list:
+        for item_dict in response.json():
             item_type = item_dict["type"]
             item_path = item_dict["path"]
             if item_type == "blob":
@@ -138,10 +140,9 @@ def crawl_all(link_txt_path, all_velds):
     test_count_gl = 0
     limit = math.inf
     with open(link_txt_path, "r") as f:
-        for line in f:
-            content += "- " + line
-            repo_url = line[:-1]
-            print(repo_url)
+        for repo_url in f.read().splitlines():
+            content += "- " + repo_url + "\n"
+            print("crawling repo url:", repo_url)
             veld_list = []
             if "github.com" in repo_url and test_count_gh < limit:
                 repo_api_url = repo_url.replace(
@@ -156,12 +157,12 @@ def crawl_all(link_txt_path, all_velds):
                 repo_api_url = "https://gitlab.oeaw.ac.at/api/v4/projects/" + repo_api_url + "/repository"
                 veld_list = crawl_repo_gitlab(repo_api_url, "", [])
                 test_count_gl += 1
-            print(veld_list)
             for veld in veld_list:
                 out_veld_id = repo_url.split("/")[-1] + "___" + veld["path"].replace("/", "___")
                 with open(OUT_VELD_INDIVIDUAL_FOLDER + out_veld_id, "w") as f_out:
                     f_out.write(veld["item_content"])
                 veld_url = repo_url + "/blob/main/" + veld["path"]
+                print("found veld url:", veld_url)
                 content += f"  - [{veld['path']}]({veld_url})\n"
                 if veld["validation_result"][0]:
                     validate_message = "True"
