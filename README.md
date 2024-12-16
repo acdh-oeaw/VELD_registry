@@ -192,7 +192,13 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: True
 - https://github.com/veldhub/veld_code__downloader
   - [veld.yaml](https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml)
-    - valid: False, is not list, but <class 'dict'>, at: /x-veld/code/settings/
+    - valid: True
+    - metadata:
+      - description: A very simple curl call. Since many veld chains need to download data, it makes sense to encapsulate the download functionality into a dedicated downloader veld code
+      - topics: ETL
+      - outputs:
+        - 1:
+          - description: environment var is optional. If unset, this script will fetch the file name from the resource.
 - https://github.com/veldhub/veld_code__fasttext
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml)
     - valid: True

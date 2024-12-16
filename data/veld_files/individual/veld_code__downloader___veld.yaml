@@ -11,9 +11,9 @@ x-veld:
           from the resource."
 
     settings:
-      environment: url
-      env_type: str
-      description: "The url where some resource is located and should be downloaded from."
+      - environment: url
+        env_type: str
+        description: "The url where some resource is located and should be downloaded from."
 
 services:
   veld_downloader:
