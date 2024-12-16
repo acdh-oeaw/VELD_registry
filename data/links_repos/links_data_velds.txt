@@ -5,11 +5,10 @@ https://github.com/veldhub/veld_data__apis_spacy_ner_models
 https://github.com/veldhub/veld_data__bert_amc_embeddings_db
 https://github.com/veldhub/veld_data__demo_inference_input_ts-vienna-2024
 https://github.com/veldhub/veld_data__demo_train_data_ts-vienna-2024
-https://github.com/veldhub/veld_data__demo_we_training_data
-https://github.com/veldhub/veld_data__demo_word2vec_model
 https://github.com/veldhub/veld_data__eltec_conllu_stats
 https://github.com/veldhub/veld_data__eltec_original_selection
 https://github.com/veldhub/veld_data__fasttext_models
 https://github.com/veldhub/veld_data__glove_models
 https://github.com/veldhub/veld_data__word2vec_models
 https://github.com/veldhub/veld_data__wordembeddings_evaluation
+https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_apis_spacy_ner_models

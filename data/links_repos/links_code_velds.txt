@@ -2,7 +2,6 @@ https://github.com/veldhub/veld_code__analyse_conllu
 https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models
 https://github.com/veldhub/veld_code__apis_ner_transform_to_gold
 https://github.com/veldhub/veld_code__bert_embeddings
-https://github.com/veldhub/veld_code__demo_download_preprocess
 https://github.com/veldhub/veld_code__downloader
 https://github.com/veldhub/veld_code__fasttext
 https://github.com/veldhub/veld_code__glove
