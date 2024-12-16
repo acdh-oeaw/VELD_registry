@@ -1,11 +1,10 @@
 x-veld:
   chain:
-    about:
-      description: "A demonstration of a VELD chain inferencing on a txt with a self-trained udpipe
-        model"
-      topcis:
-      - NLP
-      - universal dependencies
+    description: "A demonstration of a VELD chain inferencing on a txt with a self-trained udpipe
+      model"
+    topcis:
+    - NLP
+    - universal dependencies
 
 services:
   veld_infer:

@@ -5,7 +5,7 @@ x-veld:
     topics:
       - "NLP"
       - "word embeddings"
-    file_formats: "yaml"
+    file_type: "yaml"
     contents:
       - "evaluation data"
       - "NLP gold data"

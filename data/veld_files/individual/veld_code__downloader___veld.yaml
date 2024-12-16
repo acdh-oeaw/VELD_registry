@@ -7,8 +7,8 @@ x-veld:
     outputs:
       - volume: /veld/output/
         environment: out_file
-        description: "optional. If unset, this script will fetch the file name from the resource."
-        optional: true
+        description: "environment var is optional. If unset, this script will fetch the file name
+          from the resource."
 
     settings:
       environment: url

@@ -24,7 +24,7 @@ services:
       cpu_count: 14
       buffer_segments: 10
 
-  veld_preprocess_transform_wiki_json_to_txt_entences:
+  veld_preprocess_transform_wiki_json_to_txt_sentences:
     extends:
       file: ./code/veld_code__wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
       service: veld_transform_wiki_json_to_txt

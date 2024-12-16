@@ -42,31 +42,31 @@ x-veld:
 
     settings:
       - environment: verbose
-        type: "int"
+        env_type: "int"
         default: 2
       - environment: memory
-        type: "float"
+        env_type: "float"
         default: 4.0
       - environment: vocab_min_count
-        type: "int"
+        env_type: "int"
         default: 5
       - environment: vector_size
-        type: "int"
+        env_type: "int"
         default: 50
       - environment: max_iter
-        type: "int"
+        env_type: "int"
         default: 15
       - environment: window_size
-        type: "int"
+        env_type: "int"
         default: 15
       - environment: binary
-        type: "int"
+        env_type: "int"
         default: 2
       - environment: num_threads
-        type: "int"
+        env_type: "int"
         default: 8
       - environment: x_max
-        type: "int"
+        env_type: "int"
         default: 10
 
 services:

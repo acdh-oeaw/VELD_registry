@@ -70,6 +70,104 @@ veld_data__eltec_original_selection___veld.yaml:
         contents:
         - TEI
         - annotated literature
+veld_data__wordembeddings_evaluation___evaluation_gold_data___capitalized___veld.yaml:
+  url: https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/capitalized/veld.yaml
+  content:
+    x-veld:
+      data:
+        description: custom evaluation data for evaluating word embeddings models.
+          Words are capitalized.
+        topics:
+        - NLP
+        - word embeddings
+        file_type: yaml
+        contents:
+        - evaluation data
+        - NLP gold data
+veld_data__wordembeddings_evaluation___evaluation_gold_data___lowercase___veld.yaml:
+  url: https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/lowercase/veld.yaml
+  content:
+    x-veld:
+      data:
+        description: custom evaluation data for evaluating word embeddings models.
+          Words are all lowercase.
+        topics:
+        - NLP
+        - word embeddings
+        file_type: yaml
+        contents:
+        - evaluation data
+        - NLP gold data
+veld_code__analyse_conllu___veld.yaml:
+  url: https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: ''
+        topics:
+        - NLP
+        - Machine learning
+        - tokenization
+        - lemmatization
+        - part of speech
+        - dependency parsing
+        - universal dependencies
+        - grammatical annotation
+        inputs:
+        - volume: /veld/input/
+          file_type: conllu
+        outputs:
+        - volume: /veld/output/
+          file_type: json
+          contents:
+          - statistics
+          - NLP statistics
+    services:
+      veld:
+        build: .
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        working_dir: /veld/code/
+        volumes:
+        - ./src:/veld/code/
+veld_code__apis_ner_evaluate_old_models___veld_evaluate.yaml:
+  url: https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml
+  content:
+    x-veld:
+      code:
+        description: hard-coded evaluation of several spaCy2.2.4 models.
+        topics:
+        - NLP
+        - Machine learning
+        - Named entity recognition
+        inputs:
+        - volume: /veld/input/
+          description: This input is hard-wired to the apis spacy-ner repo and not
+            made for generic usage.
+          file_type:
+          - pickle
+          - txt
+          - json
+          - spacy model
+          contents:
+          - NER gold data
+          - Machine learning model
+          - NLP model
+        outputs:
+        - volume: /veld/output/
+          environment: out_eval_result
+          description: evaluation report of the models from the apis spacy-ner repo.
+          file_type: md
+          contents: evaluation report
+    services:
+      veld_evaluate:
+        build: .
+        command: python /veld/code/reevaluate_all_models.py
+        volumes:
+        - ./src/:/veld/code/
+        environment:
+          out_eval_result_file: null
 veld_code__apis_ner_transform_to_gold___veld.yaml:
   url: https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml
   content:
@@ -223,6 +321,100 @@ veld_code__glove___veld_jupyter_notebook.yaml:
         volumes:
         - ./src/main/jupyter_notebook/:/veld/code/:z
         - ./data/:/veld/storage/:z
+veld_code__glove___veld_train.yaml:
+  url: https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      code:
+        description: This code repo encapsulates the original code from https://github.com/stanfordnlp/GloVe/tree/master
+        topics:
+        - NLP
+        - Machine learning
+        - word embeddings
+        inputs:
+        - volume: /veld/input/
+          environment: in_corpus_file
+          description: In the txt file, each line must be one sentence
+          file_type: txt
+          contents: natural text
+        outputs:
+        - volume: /veld/output/
+          environment: out_vocab_file
+          file_type: bin
+          contents:
+          - GloVe global word cooccurrence matrix
+          - GloVe vectors
+        - volume: /veld/output/
+          environment: out_cooccurrence_file
+          file_type: bin
+          contents:
+          - GloVe global word cooccurrence matrix
+          - GloVe vectors
+        - volume: /veld/output/
+          environment: out_cooccurrence_shuf_file
+          file_type: bin
+          contents:
+          - GloVe global word cooccurrence matrix
+          - GloVe vectors
+        - volume: /veld/output/
+          environment: out_vector_file
+          file_type: bin
+          contents:
+          - GloVe global word cooccurrence matrix
+          - GloVe vectors
+        settings:
+        - environment: verbose
+          env_type: int
+          default: 2
+        - environment: memory
+          env_type: float
+          default: 4.0
+        - environment: vocab_min_count
+          env_type: int
+          default: 5
+        - environment: vector_size
+          env_type: int
+          default: 50
+        - environment: max_iter
+          env_type: int
+          default: 15
+        - environment: window_size
+          env_type: int
+          default: 15
+        - environment: binary
+          env_type: int
+          default: 2
+        - environment: num_threads
+          env_type: int
+          default: 8
+        - environment: x_max
+          env_type: int
+          default: 10
+    services:
+      veld_train:
+        build: .
+        volumes:
+        - ./src/main/train/:/veld/code/:z
+        - ./data/training_data/:/veld/input/:z
+        - ./data/models/:/veld/output/:z
+        command: /veld/code/train.sh
+        environment:
+          in_corpus_file: null
+          out_vocab_file: null
+          out_cooccurrence_file: null
+          out_cooccurrence_shuf_file: null
+          out_vector_file: null
+          model_id: null
+          model_description: null
+          verbose: 2
+          memory: 4.0
+          vocab_min_count: 5
+          vector_size: 50
+          max_iter: 15
+          window_size: 15
+          binary: 2
+          num_threads: 8
+          x_max: 10
 veld_code__jupyter_notebook_base___veld.yaml:
   url: https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml
   content:
@@ -469,6 +661,54 @@ veld_code__spacy___veld_create_config.yaml:
           optimize_accuracy: null
           gpu: false
           pretraining: false
+veld_code__spacy___veld_publish_to_hf.yaml:
+  url: https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml
+  content:
+    x-veld:
+      code:
+        description: 'simple service to push spacy models to huggingface. IMPORTANT:
+          Only works from spacy v3.* onwards!'
+        topics:
+        - NLP
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          file_type: spacy model
+          contents: NLP model
+        settings:
+        - environment: model_name
+          description: 'name of the model, to be used for huggingface metadata. IMPORTANT:
+            do not put double underscores into the model name, as this crashes spacy
+            while publishing.'
+          env_type: str
+          optional: true
+        - environment: version
+          description: 'version of the model, to be used for huggingface metadata.
+            IMPORTANT: spacy crashes when the version tag contains the character `v`
+            in front of numeric+dot version identifiers: E.g. `v1.1` crashes, while
+            `1.1` works.'
+          env_type: str
+          optional: true
+        - environment: hf_token
+          description: 'huggingface authentication token. IMPORTANT: It is advised
+            to not hardcode that directly into the yaml file but rather define the
+            environment variable yourself, before calling this docker compose service.
+            On linux and mac, this can be done with `export hf_token=<TOKEN>` before
+            launching a docker compose service, or persist it in a `.env` (with the
+            content simply being `hf_token=<TOKEN>`) file next to the chain veld yaml
+            file, where docker compose would load it from (take care to not commit
+            that to git! Best to add the `.env` to `.gitignore`).'
+          env_type: str
+    services:
+      veld_publish_to_hf:
+        build: .
+        command: bash /veld/code/publish_to_hf.sh
+        volumes:
+        - ./src/:/veld/code/
+        environment:
+          model_name: null
+          version: null
+          hf_token: $hf_token
 veld_code__spacy___veld_train.yaml:
   url: https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml
   content:
@@ -2317,6 +2557,39 @@ veld_chain__demo_wordembeddings_multiarch___veld_jupyter_word2vec.yaml:
           service: veld_jupyter_notebook
         volumes:
         - ./data/models/word2vec/:/veld/input/:z
+veld_chain__demo_wordembeddings_multiarch___veld_preprocess.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_preprocess.yaml
+  content:
+    x-veld:
+      chain:
+        description: Download and preprocessing of the bible
+        topics:
+        - ETL
+        - NLP
+        - bible studies
+    services:
+      veld_downloader:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/training_data/:/veld/output/
+        environment:
+          url: https://raw.githubusercontent.com/mxw/grmr/master/src/finaltests/bible.txt
+          out_file: bible.txt
+      veld_bible_preprocess:
+        build: ./code/bible_preprocess/
+        command: python /veld/code/bible_preprocess.py
+        volumes:
+        - ./code/bible_preprocess/bible_preprocess.py:/veld/code/bible_preprocess.py
+        - ./data/training_data/:/veld/input/
+        - ./data/training_data/:/veld/output/
+        environment:
+          in_file: bible.txt
+          out_file: bible.txt
+        depends_on:
+          veld_downloader:
+            condition: service_completed_successfully
 veld_chain__demo_wordembeddings_multiarch___veld_train_word2vec.yaml:
   url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_word2vec.yaml
   content:
@@ -2469,6 +2742,24 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_prepro
             enough text'
           cpu_count: 15
           buffer_segments: 100
+veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_preprocess_lowercase.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_preprocess_lowercase:
+        extends:
+          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data/veld_data__amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/:/veld/input/:z
+        - ./data/veld_data__amc_we_training_data/data/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: data.txt
+          out_txt_file: data.txt
+          out_data_description: 'AMC data: stripped from non-alphanumeric lines, 10%
+            sampled, lowercased.'
 veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_preprocess_remove_punctuation.yaml:
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml
   content:
@@ -2528,6 +2819,26 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_prepro
           out_file: data.txt
           line_start: 54993
           line_end: 521781020
+veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_train_fasttext.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_train_fasttext:
+        extends:
+          file: ./code/veld_code__fasttext/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./veld_data_amc_we_training_data/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/:/veld/input/:z
+        - ./veld_data_fasttext_models/m9/:/veld/output/:z
+        environment:
+          in_train_data_file: data.txt
+          out_model_file: m9.bin
+          model_description: 100% AMC model
+          vector_size: 300
+          epochs: 10
+          window_size: 10
 veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_train_glove.yaml:
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml
   content:
@@ -2578,46 +2889,265 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_train_
           epochs: 10
           vector_size: 300
           window: 10
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_analyse_evaluation.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_analyse_evaluation.yaml
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_playground_jupyter_notebook_fasttext.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_fasttext.yaml
   content:
     x-veld:
       chain:
-        description: chain of analysing and evaluating models trained on wikipedia
+        description: jupyter notebook for playing with fasttext models
         topics: NLP
     services:
-      veld_analyse_evaluation:
+      veld_jupyter_notebook_fasttext:
         extends:
-          file: ./code/veld_code__wordembeddings_evaluation/veld_analyse_evaluation.yaml
-          service: veld_analyse_evaluation
+          file: ./code/veld_code__fasttext/veld_jupyter_notebook.yaml
+          service: veld_jupyter_notebook
         volumes:
-        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/input/:z
-        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/output/:z
-        environment:
-          in_evaluation_summary_file: summary.yaml
-          out_visualization_html_file: summary_visualized.html
-          out_visualization_png_file: summary_visualized.png
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_analyse_evaluation_non_interactive.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_analyse_evaluation_non_interactive.yaml
+        - ./data/training_data/:/veld/storage/training_data/:z
+        - ./data/models/fasttext/:/veld/storage/models/:z
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_playground_jupyter_notebook_glove.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_glove.yaml
   content:
     x-veld:
       chain:
-        description: chain of analysing and evaluating models trained on wikipedia
+        description: jupyter notebook for playing with glove models
         topics: NLP
     services:
-      veld_analyse_evaluation_non_interactive:
+      veld_jupyter_notebook_glove:
         extends:
-          file: ./code/veld_code__wordembeddings_evaluation/veld_analyse_evaluation_non_interactive.yaml
-          service: veld_analyse_evaluation
+          file: ./code/veld_code__glove/veld_jupyter_notebook.yaml
+          service: veld_jupyter_notebook
         volumes:
-        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/input/:z
-        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/output/:z
+        - ./data/training_data/:/veld/storage/training_data/:z
+        - ./data/models/glove/:/veld/storage/models/:z
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_playground_jupyter_notebook_word2vec.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_word2vec.yaml
+  content:
+    x-veld:
+      chain:
+        description: jupyter notebook for playing with word2vec models
+        topics: NLP
+    services:
+      veld_jupyter_notebook_word2vec:
+        extends:
+          file: ./code/veld_code__word2vec/veld_jupyter_notebook.yaml
+          service: veld_jupyter_notebook
+        volumes:
+        - ./data/training_data/:/veld/storage/training_data/:z
+        - ./data/models/word2vec/:/veld/storage/models/:z
+? veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_01_preprocess_download_and_extract.yaml
+: url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_01_preprocess_download_and_extract.yaml
+  content:
+    x-veld:
+      chain:
+        description: downloading wikipedia archive and extracting each article to
+          a json file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+    services:
+      veld_preprocess_download_and_extract:
+        extends:
+          file: ./code/veld_code__wikipedia_nlp_preprocessing/veld_download_and_extract.yaml
+          service: veld_download_and_extract
+        volumes:
+        - ./data/training_data/extracted/:/veld/output/:z
         environment:
-          in_evaluation_summary_file: summary.yaml
-          out_visualization_html_file: summary_visualized.html
-          out_visualization_png_file: summary_visualized.png
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_eval_fasttext.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_eval_fasttext.yaml
+          wikipedia_dump_url: https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
+? veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_02_preprocess_transform_wiki_json_to_txt.yaml
+: url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_02_preprocess_transform_wiki_json_to_txt.yaml
+  content:
+    x-veld:
+      chain:
+        description: transforming wikipedia jsons to a single txt file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+    services:
+      veld_preprocess_transform_wiki_json_to_txt_articles:
+        extends:
+          file: ./code/veld_code__wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
+          service: veld_transform_wiki_json_to_txt
+        volumes:
+        - ./data/training_data/extracted/data/:/veld/input/:z
+        - ./data/training_data/extracted__txt_article_per_line/:/veld/output/:z
+        environment:
+          out_txt_file: data.txt
+          out_data_description: 10% german wikipedia, transformed from json files
+            into one txt file, each json file's content persisted with each each article
+            in a single line.
+          set_split_sentences: false
+          sample_size_percentage: 10
+          cpu_count: 14
+          buffer_segments: 10
+      veld_preprocess_transform_wiki_json_to_txt_sentences:
+        extends:
+          file: ./code/veld_code__wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
+          service: veld_transform_wiki_json_to_txt
+        volumes:
+        - ./data/training_data/extracted/data/:/veld/input/:z
+        - ./data/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
+        environment:
+          out_txt_file: data.txt
+          out_data_description: 10% german wikipedia, transformed from json files
+            into one txt file, each json file's content persisted with each sentence
+            in a single line.
+          set_split_sentences: true
+          sample_size_percentage: 10
+          cpu_count: 14
+          buffer_segments: 10
+        depends_on:
+          veld_preprocess_transform_wiki_json_to_txt_articles:
+            condition: service_completed_successfully
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_03_preprocess_lowercase.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_03_preprocess_lowercase.yaml
+  content:
+    x-veld:
+      chain:
+        description: preprocessing by making the entire text lowercase.
+        topics: NLP
+    services:
+      veld_preprocess_lowercase_articles:
+        extends:
+          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data/training_data/extracted__txt_article_per_line/:/veld/input/:z
+        - ./data/training_data/extracted__txt_article_per_line__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: data.txt
+          out_txt_file: data.txt
+          out_data_description: all data lowercased
+      veld_preprocess_lowercase_sentences:
+        extends:
+          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_lowercase.yaml
+          service: veld_preprocess_lowercase
+        volumes:
+        - ./data/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
+        - ./data/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
+        environment:
+          in_txt_file: data.txt
+          out_txt_file: data.txt
+          out_data_description: all data lowercased
+        depends_on:
+          veld_preprocess_lowercase_articles:
+            condition: service_completed_successfully
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_04_preprocess_remove_punctuation.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_04_preprocess_remove_punctuation.yaml
+  content:
+    x-veld:
+      chain:
+        description: preprocessing by removing punctuation of the entire text.
+        topics: NLP
+    services:
+      veld_preprocess_remove_punctuation_articles:
+        extends:
+          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./data/training_data/extracted__txt_article_per_line__lowercased/:/veld/input/:z
+        - ./data/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/output/txt/:z
+        environment:
+          in_txt_file: data.txt
+          out_txt_file: data.txt
+          out_data_description: all data lowercased, punctuation removed
+          cpu_count: 14
+          buffer_segments: 100
+      veld_preprocess_remove_punctuation_sentences:
+        extends:
+          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_remove_punctuation.yaml
+          service: veld_preprocess_remove_punctuation
+        volumes:
+        - ./data/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
+        - ./data/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/txt/:z
+        environment:
+          in_txt_file: data.txt
+          out_txt_file: data.txt
+          out_data_description: all data lowercased, punctuation removed
+          cpu_count: 14
+          buffer_segments: 100
+        depends_on:
+          veld_preprocess_remove_punctuation_articles:
+            condition: service_completed_successfully
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_05_train_fasttext.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_05_train_fasttext.yaml
+  content:
+    x-veld:
+      chain:
+        description: training a fasttext model on wikipediaa
+        topics: NLP
+    services:
+      veld_train_fasttext:
+        extends:
+          file: ./code/veld_code__fasttext/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data/models/fasttext/m1/:/veld/output/:z
+        environment:
+          in_train_data_file: data.txt
+          out_model_file: m1.bin
+          model_description: 10% wikipedia test model
+          vector_size: 200
+          epochs: 5
+          window_size: 5
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_06_train_word2vec.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_06_train_word2vec.yaml
+  content:
+    x-veld:
+      chain:
+        description: training a word2vec model on wikipediaa
+        topics: NLP
+    services:
+      veld_train_word2vec:
+        extends:
+          file: ./code/veld_code__word2vec/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data/models/word2vec/m1/:/veld/output/:z
+        environment:
+          in_train_data_file: data.txt
+          out_model_file: m1.bin
+          model_description: 10% wikipedia test model
+          epochs: 5
+          vector_size: 200
+          window: 5
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_07_train_glove.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_07_train_glove.yaml
+  content:
+    x-veld:
+      chain:
+        description: training a glove model on wikipediaa
+        topics: NLP
+    services:
+      veld_train_glove:
+        extends:
+          file: ./code/veld_code__glove/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/input/:z
+        - ./data/models/glove/m1/:/veld/output/:z
+        environment:
+          in_corpus_file: data.txt
+          out_vocab_file: m1_vocab.txt
+          out_cooccurrence_file: m1_cooccurrence.bin
+          out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
+          out_vector_file: m1_vector
+          model_id: m1
+          model_description: 10% wikipedia test model
+          verbose: 2
+          memory: 1.0
+          vocab_min_count: 5
+          vector_size: 200
+          max_iter: 5
+          window_size: 5
+          binary: 2
+          num_threads: 11
+          x_max: 10
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_08_eval_fasttext.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_08_eval_fasttext.yaml
   content:
     x-veld:
       chain:
@@ -2639,8 +3169,31 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
           in_eval_gold_data_file: eval_data_lowercase.yaml
           out_eval_summary_file: summary.yaml
           out_eval_log_file: m1.txt
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_eval_glove.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_eval_glove.yaml
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_09_eval_word2vec.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_09_eval_word2vec.yaml
+  content:
+    x-veld:
+      chain:
+        description: evaluate word2vec model against evaluation gold data
+        topics: NLP
+    services:
+      veld_eval_word2vec:
+        extends:
+          file: ./code/veld_code__wordembeddings_evaluation/veld_eval_word2vec.yaml
+          service: veld_eval_word2vec
+        volumes:
+        - ./data/models/word2vec/m1/:/veld/input/model/:z
+        - ./data/veld_data__wordembeddings_evaluation/evaluation_gold_data/lowercase/:/veld/input/eval_data/:z
+        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/output/summary/:z
+        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/logs/word2vec/:/veld/output/log/:z
+        environment:
+          in_model_file: m1.bin
+          in_model_metadata_file: veld.yaml
+          in_eval_gold_data_file: eval_data_lowercase.yaml
+          out_eval_summary_file: summary.yaml
+          out_eval_log_file: m1.txt
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_10_eval_glove.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_10_eval_glove.yaml
   content:
     x-veld:
       chain:
@@ -2663,76 +3216,27 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
           in_eval_gold_data_file: eval_data_lowercase.yaml
           out_eval_summary_file: summary.yaml
           out_eval_log_file: m1.txt
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_eval_word2vec.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_eval_word2vec.yaml
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_11_analyse_evaluation.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_11_analyse_evaluation.yaml
   content:
     x-veld:
       chain:
-        description: evaluate word2vec model against evaluation gold data
+        description: chain of analysing and evaluating models trained on wikipedia
         topics: NLP
     services:
-      veld_eval_word2vec:
+      veld_analyse_evaluation:
         extends:
-          file: ./code/veld_code__wordembeddings_evaluation/veld_eval_word2vec.yaml
-          service: veld_eval_word2vec
+          file: ./code/veld_code__wordembeddings_evaluation/veld_analyse_evaluation.yaml
+          service: veld_analyse_evaluation
         volumes:
-        - ./data/models/word2vec/m1/:/veld/input/model/:z
-        - ./data/veld_data__wordembeddings_evaluation/evaluation_gold_data/lowercase/:/veld/input/eval_data/:z
-        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/output/summary/:z
-        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/logs/word2vec/:/veld/output/log/:z
+        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/input/:z
+        - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/output/:z
         environment:
-          in_model_file: m1.bin
-          in_model_metadata_file: veld.yaml
-          in_eval_gold_data_file: eval_data_lowercase.yaml
-          out_eval_summary_file: summary.yaml
-          out_eval_log_file: m1.txt
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_jupyter_notebook_fasttext.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_jupyter_notebook_fasttext.yaml
-  content:
-    x-veld:
-      chain:
-        description: jupyter notebook for playing with fasttext models
-        topics: NLP
-    services:
-      veld_jupyter_notebook_fasttext:
-        extends:
-          file: ./code/veld_code__fasttext/veld_jupyter_notebook.yaml
-          service: veld_jupyter_notebook
-        volumes:
-        - ./data/training_data/:/veld/storage/training_data/:z
-        - ./data/models/fasttext/:/veld/storage/models/:z
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_jupyter_notebook_glove.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_jupyter_notebook_glove.yaml
-  content:
-    x-veld:
-      chain:
-        description: jupyter notebook for playing with glove models
-        topics: NLP
-    services:
-      veld_jupyter_notebook_glove:
-        extends:
-          file: ./code/veld_code__glove/veld_jupyter_notebook.yaml
-          service: veld_jupyter_notebook
-        volumes:
-        - ./data/training_data/:/veld/storage/training_data/:z
-        - ./data/models/glove/:/veld/storage/models/:z
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_jupyter_notebook_word2vec.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_jupyter_notebook_word2vec.yaml
-  content:
-    x-veld:
-      chain:
-        description: jupyter notebook for playing with word2vec models
-        topics: NLP
-    services:
-      veld_jupyter_notebook_word2vec:
-        extends:
-          file: ./code/veld_code__word2vec/veld_jupyter_notebook.yaml
-          service: veld_jupyter_notebook
-        volumes:
-        - ./data/training_data/:/veld/storage/training_data/:z
-        - ./data/models/word2vec/:/veld/storage/models/:z
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_multi_chain__preprocess_train_eval.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_multi_chain__preprocess_train_eval.yaml
+          in_evaluation_summary_file: summary.yaml
+          out_visualization_html_file: summary_visualized.html
+          out_visualization_png_file: summary_visualized.png
+veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_step_all_multi_chain.yaml:
+  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_all_multi_chain.yaml
   content:
     x-veld:
       chain:
@@ -2960,196 +3464,6 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
         depends_on:
           veld_eval_word2vec:
             condition: service_completed_successfully
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_preprocess_download_and_extract.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_download_and_extract.yaml
-  content:
-    x-veld:
-      chain:
-        description: downloading wikipedia archive and extracting each article to
-          a json file.
-        topics:
-        - NLP
-        - Machine Learning
-        - ETL
-    services:
-      veld_preprocess_download_and_extract:
-        extends:
-          file: ./code/veld_code__wikipedia_nlp_preprocessing/veld_download_and_extract.yaml
-          service: veld_download_and_extract
-        volumes:
-        - ./data/training_data/extracted/:/veld/output/:z
-        environment:
-          wikipedia_dump_url: https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_preprocess_lowercase.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_lowercase.yaml
-  content:
-    x-veld:
-      chain:
-        description: preprocessing by making the entire text lowercase.
-        topics: NLP
-    services:
-      veld_preprocess_lowercase_articles:
-        extends:
-          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_lowercase.yaml
-          service: veld_preprocess_lowercase
-        volumes:
-        - ./data/training_data/extracted__txt_article_per_line/:/veld/input/:z
-        - ./data/training_data/extracted__txt_article_per_line__lowercased/:/veld/output/:z
-        environment:
-          in_txt_file: data.txt
-          out_txt_file: data.txt
-          out_data_description: all data lowercased
-      veld_preprocess_lowercase_sentences:
-        extends:
-          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_lowercase.yaml
-          service: veld_preprocess_lowercase
-        volumes:
-        - ./data/training_data/extracted__txt_sentence_per_line/:/veld/input/:z
-        - ./data/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/output/:z
-        environment:
-          in_txt_file: data.txt
-          out_txt_file: data.txt
-          out_data_description: all data lowercased
-        depends_on:
-          veld_preprocess_lowercase_articles:
-            condition: service_completed_successfully
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_preprocess_remove_punctuation.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_remove_punctuation.yaml
-  content:
-    x-veld:
-      chain:
-        description: preprocessing by removing punctuation of the entire text.
-        topics: NLP
-    services:
-      veld_preprocess_remove_punctuation_articles:
-        extends:
-          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_remove_punctuation.yaml
-          service: veld_preprocess_remove_punctuation
-        volumes:
-        - ./data/training_data/extracted__txt_article_per_line__lowercased/:/veld/input/:z
-        - ./data/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/output/txt/:z
-        environment:
-          in_txt_file: data.txt
-          out_txt_file: data.txt
-          out_data_description: all data lowercased, punctuation removed
-          cpu_count: 14
-          buffer_segments: 100
-      veld_preprocess_remove_punctuation_sentences:
-        extends:
-          file: ./code/veld_code__wordembeddings_preprocessing/veld_preprocess_remove_punctuation.yaml
-          service: veld_preprocess_remove_punctuation
-        volumes:
-        - ./data/training_data/extracted__txt_sentence_per_line__lowercased/:/veld/input/:z
-        - ./data/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/output/txt/:z
-        environment:
-          in_txt_file: data.txt
-          out_txt_file: data.txt
-          out_data_description: all data lowercased, punctuation removed
-          cpu_count: 14
-          buffer_segments: 100
-        depends_on:
-          veld_preprocess_remove_punctuation_articles:
-            condition: service_completed_successfully
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_preprocess_transform_wiki_json_to_txt.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml
-  content:
-    x-veld:
-      chain:
-        description: transforming wikipedia jsons to a single txt file.
-        topics:
-        - NLP
-        - Machine Learning
-        - ETL
-    services:
-      veld_preprocess_transform_wiki_json_to_txt_articles:
-        extends:
-          file: ./code/veld_code__wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
-          service: veld_transform_wiki_json_to_txt
-        volumes:
-        - ./data/training_data/extracted/data/:/veld/input/:z
-        - ./data/training_data/extracted__txt_article_per_line/:/veld/output/:z
-        environment:
-          out_txt_file: data.txt
-          out_data_description: 10% german wikipedia, transformed from json files
-            into one txt file, each json file's content persisted with each each article
-            in a single line.
-          set_split_sentences: false
-          sample_size_percentage: 10
-          cpu_count: 14
-          buffer_segments: 10
-      veld_preprocess_transform_wiki_json_to_txt_entences:
-        extends:
-          file: ./code/veld_code__wikipedia_nlp_preprocessing/veld_transform_wiki_json_to_txt.yaml
-          service: veld_transform_wiki_json_to_txt
-        volumes:
-        - ./data/training_data/extracted/data/:/veld/input/:z
-        - ./data/training_data/extracted__txt_sentence_per_line/:/veld/output/:z
-        environment:
-          out_txt_file: data.txt
-          out_data_description: 10% german wikipedia, transformed from json files
-            into one txt file, each json file's content persisted with each sentence
-            in a single line.
-          set_split_sentences: true
-          sample_size_percentage: 10
-          cpu_count: 14
-          buffer_segments: 10
-        depends_on:
-          veld_preprocess_transform_wiki_json_to_txt_articles:
-            condition: service_completed_successfully
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_train_glove.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_train_glove.yaml
-  content:
-    x-veld:
-      chain:
-        description: training a glove model on wikipediaa
-        topics: NLP
-    services:
-      veld_train_glove:
-        extends:
-          file: ./code/veld_code__glove/veld_train.yaml
-          service: veld_train
-        volumes:
-        - ./data/training_data/extracted__txt_article_per_line__lowercased__removed_punctuation/:/veld/input/:z
-        - ./data/models/glove/m1/:/veld/output/:z
-        environment:
-          in_corpus_file: data.txt
-          out_vocab_file: m1_vocab.txt
-          out_cooccurrence_file: m1_cooccurrence.bin
-          out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
-          out_vector_file: m1_vector
-          model_id: m1
-          model_description: 10% wikipedia test model
-          verbose: 2
-          memory: 1.0
-          vocab_min_count: 5
-          vector_size: 200
-          max_iter: 5
-          window_size: 5
-          binary: 2
-          num_threads: 11
-          x_max: 10
-veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_train_word2vec.yaml:
-  url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_train_word2vec.yaml
-  content:
-    x-veld:
-      chain:
-        description: training a word2vec model on wikipediaa
-        topics: NLP
-    services:
-      veld_train_word2vec:
-        extends:
-          file: ./code/veld_code__word2vec/veld_train.yaml
-          service: veld_train
-        volumes:
-        - ./data/training_data/extracted__txt_sentence_per_line__lowercased__removed_punctuation/:/veld/input/:z
-        - ./data/models/word2vec/m1/:/veld/output/:z
-        environment:
-          in_train_data_file: data.txt
-          out_model_file: m1.bin
-          model_description: 10% wikipedia test model
-          epochs: 5
-          vector_size: 200
-          window: 5
 veld_chain__train_spacy_apis_ner___veld_analysis.yaml:
   url: https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_analysis.yaml
   content:

@@ -1,10 +1,9 @@
 x-veld:
   chain:
-    about:
-      description: "A demonstration of a VELD chain training a udpipe model from scratch"
-      topcis:
-      - NLP
-      - universal dependencies
+    description: "A demonstration of a VELD chain training a udpipe model from scratch"
+    topcis:
+    - NLP
+    - universal dependencies
 
 services:
   veld_train:

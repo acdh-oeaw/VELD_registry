@@ -1,16 +1,15 @@
 x-veld:
   code:
-    about:
-      description: ""
-      topics:
-        - "NLP"
-        - "Machine learning"
-        - "tokenization"
-        - "lemmatization"
-        - "part of speech"
-        - "dependency parsing"
-        - "universal dependencies"
-        - "grammatical annotation"
+    description: ""
+    topics:
+      - "NLP"
+      - "Machine learning"
+      - "tokenization"
+      - "lemmatization"
+      - "part of speech"
+      - "dependency parsing"
+      - "universal dependencies"
+      - "grammatical annotation"
 
     inputs:
       - volume: "/veld/input/"

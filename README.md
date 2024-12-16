@@ -71,12 +71,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topics: NLP, universal dependencies
       - file_type: conllu
       - contents: linguistically enriched text, tokenized text, lemmatized text
-- https://github.com/veldhub/veld_data__demo_we_training_data
-  - [veld.yaml](https://github.com/veldhub/veld_data__demo_we_training_data/blob/main/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
-- https://github.com/veldhub/veld_data__demo_word2vec_model
-  - [veld.yaml](https://github.com/veldhub/veld_data__demo_word2vec_model/blob/main/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
 - https://github.com/veldhub/veld_data__eltec_conllu_stats
 - https://github.com/veldhub/veld_data__eltec_original_selection
   - [veld.yaml](https://github.com/veldhub/veld_data__eltec_original_selection/blob/main/veld.yaml)
@@ -124,17 +118,49 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
 - https://github.com/veldhub/veld_data__wordembeddings_evaluation
   - [evaluation_gold_data/capitalized/veld.yaml](https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/capitalized/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: True
+    - metadata:
+      - description: custom evaluation data for evaluating word embeddings models. Words are capitalized.
+      - topics: NLP, word embeddings
+      - file_type: yaml
+      - contents: evaluation data, NLP gold data
   - [evaluation_gold_data/lowercase/veld.yaml](https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/lowercase/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: True
+    - metadata:
+      - description: custom evaluation data for evaluating word embeddings models. Words are all lowercase.
+      - topics: NLP, word embeddings
+      - file_type: yaml
+      - contents: evaluation data, NLP gold data
 
 ## code velds
 - https://github.com/veldhub/veld_code__analyse_conllu
   - [veld.yaml](https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml)
-    - valid: False, elements not matching anything at: /x-veld/code/about
+    - valid: True
+    - metadata:
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+      - inputs:
+        - 1:
+          - file_type: conllu
+      - outputs:
+        - 1:
+          - file_type: json
+          - contents: statistics, NLP statistics
 - https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models
   - [veld_evaluate.yaml](https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml)
-    - valid: False, is not list, but <class 'dict'>, at: /x-veld/code/outputs/
+    - valid: True
+    - metadata:
+      - description: hard-coded evaluation of several spaCy2.2.4 models.
+      - topics: NLP, Machine learning, Named entity recognition
+      - inputs:
+        - 1:
+          - description: This input is hard-wired to the apis spacy-ner repo and not made for generic usage.
+          - file_type: pickle, txt, json, spacy model
+          - contents: NER gold data, Machine learning model, NLP model
+      - outputs:
+        - 1:
+          - description: evaluation report of the models from the apis spacy-ner repo.
+          - file_type: md
+          - contents: evaluation report
 - https://github.com/veldhub/veld_code__apis_ner_transform_to_gold
   - [veld.yaml](https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml)
     - valid: True
@@ -164,12 +190,9 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - https://github.com/veldhub/veld_code__bert_embeddings
   - [veld_infer_and_create_index.yaml](https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml)
     - valid: True
-- https://github.com/veldhub/veld_code__demo_download_preprocess
-  - [veld.yaml](https://github.com/veldhub/veld_code__demo_download_preprocess/blob/main/veld.yaml)
-    - valid: False, is not list, but <class 'dict'>, at: /x-veld/code/outputs/
 - https://github.com/veldhub/veld_code__downloader
   - [veld.yaml](https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml)
-    - valid: False, elements not matching anything at: /x-veld/code/outputs/0/optional
+    - valid: False, is not list, but <class 'dict'>, at: /x-veld/code/settings/
 - https://github.com/veldhub/veld_code__fasttext
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml)
     - valid: True
@@ -197,7 +220,28 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - description: A jupyter notebook that loads GloVe vectors and provides some convenient functions to use them.
       - topics: NLP, Machine learning, word embeddings
   - [veld_train.yaml](https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml)
-    - valid: False, elements not matching anything at: /x-veld/code/settings/0/type
+    - valid: True
+    - metadata:
+      - description: This code repo encapsulates the original code from https://github.com/stanfordnlp/GloVe/tree/master
+      - topics: NLP, Machine learning, word embeddings
+      - inputs:
+        - 1:
+          - description: In the txt file, each line must be one sentence
+          - file_type: txt
+          - contents: natural text
+      - outputs:
+        - 1:
+          - file_type: bin
+          - contents: GloVe global word cooccurrence matrix, GloVe vectors
+        - 2:
+          - file_type: bin
+          - contents: GloVe global word cooccurrence matrix, GloVe vectors
+        - 3:
+          - file_type: bin
+          - contents: GloVe global word cooccurrence matrix, GloVe vectors
+        - 4:
+          - file_type: bin
+          - contents: GloVe global word cooccurrence matrix, GloVe vectors
 - https://github.com/veldhub/veld_code__jupyter_notebook_base
   - [veld.yaml](https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml)
     - valid: True
@@ -240,7 +284,14 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
           - file_type: cfg
           - contents: spacy training config
   - [veld_publish_to_hf.yaml](https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml)
-    - valid: False, elements not matching anything at: /x-veld/code/settings/0/type
+    - valid: True
+    - metadata:
+      - description: simple service to push spacy models to huggingface. IMPORTANT: Only works from spacy v3.* onwards!
+      - topics: NLP, ETL
+      - inputs:
+        - 1:
+          - file_type: spacy model
+          - contents: NLP model
   - [veld_train.yaml](https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml)
     - valid: True
     - metadata:
@@ -682,9 +733,9 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topics: NLP, ETL, tokenization, universal dependencies
 - https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024
   - [veld_infer.yaml](https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_infer.yaml)
-    - valid: False, elements not matching anything at: /x-veld/chain/about
+    - valid: False, elements not matching anything at: /x-veld/chain/topcis
   - [veld_train.yaml](https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_train.yaml)
-    - valid: False, elements not matching anything at: /x-veld/chain/about
+    - valid: False, elements not matching anything at: /x-veld/chain/topcis
 - https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch
   - [veld_jupyter_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_word2vec.yaml)
     - valid: True
@@ -692,7 +743,10 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - description: demo word2vec jupyter notebook
       - topics: NLP, Machine Learning, word embeddings
   - [veld_preprocess.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_preprocess.yaml)
-    - valid: False, elements not matching anything at: /x-veld/chain/about
+    - valid: True
+    - metadata:
+      - description: Download and preprocessing of the bible
+      - topics: ETL, NLP, bible studies
   - [veld_train_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_word2vec.yaml)
     - valid: True
     - metadata:
@@ -731,7 +785,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [veld_preprocess_clean.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml)
     - valid: True
   - [veld_preprocess_lowercase.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml)
-    - valid: False, root node x-veld missing
+    - valid: True
   - [veld_preprocess_remove_punctuation.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml)
     - valid: True
   - [veld_preprocess_sample.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml)
@@ -739,88 +793,86 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [veld_preprocess_strip.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml)
     - valid: True
   - [veld_train_fasttext.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml)
-    - valid: False, root node x-veld missing
+    - valid: True
   - [veld_train_glove.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml)
     - valid: True
   - [veld_train_word2vec.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml)
     - valid: True
 - https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia
-  - [veld_analyse_evaluation.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_analyse_evaluation.yaml)
-    - valid: True
-    - metadata:
-      - description: chain of analysing and evaluating models trained on wikipedia
-      - topics: NLP
-  - [veld_analyse_evaluation_non_interactive.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_analyse_evaluation_non_interactive.yaml)
-    - valid: True
-    - metadata:
-      - description: chain of analysing and evaluating models trained on wikipedia
-      - topics: NLP
-  - [veld_eval_fasttext.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_eval_fasttext.yaml)
-    - valid: True
-    - metadata:
-      - description: evaluate fasttext model against evaluation gold data
-      - topics: NLP
-  - [veld_eval_glove.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_eval_glove.yaml)
-    - valid: True
-    - metadata:
-      - description: evaluate glove model against evaluation gold data
-      - topics: NLP
-  - [veld_eval_word2vec.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_eval_word2vec.yaml)
-    - valid: True
-    - metadata:
-      - description: evaluate word2vec model against evaluation gold data
-      - topics: NLP
-  - [veld_jupyter_notebook_fasttext.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_jupyter_notebook_fasttext.yaml)
+  - [veld_playground_jupyter_notebook_fasttext.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_fasttext.yaml)
     - valid: True
     - metadata:
       - description: jupyter notebook for playing with fasttext models
       - topics: NLP
-  - [veld_jupyter_notebook_glove.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_jupyter_notebook_glove.yaml)
+  - [veld_playground_jupyter_notebook_glove.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_glove.yaml)
     - valid: True
     - metadata:
       - description: jupyter notebook for playing with glove models
       - topics: NLP
-  - [veld_jupyter_notebook_word2vec.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_jupyter_notebook_word2vec.yaml)
+  - [veld_playground_jupyter_notebook_word2vec.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_word2vec.yaml)
     - valid: True
     - metadata:
       - description: jupyter notebook for playing with word2vec models
       - topics: NLP
-  - [veld_multi_chain__preprocess_train_eval.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_multi_chain__preprocess_train_eval.yaml)
-    - valid: True
-    - metadata:
-      - description: An entire multi chain, going through everything (fetching, preprocessing, training, evaluation in one service. This chain is composed of the other chains and is rather meant as a demonstration of the entire setup
-      - topics: NLP
-  - [veld_preprocess_download_and_extract.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_download_and_extract.yaml)
+  - [veld_step_01_preprocess_download_and_extract.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_01_preprocess_download_and_extract.yaml)
     - valid: True
     - metadata:
       - description: downloading wikipedia archive and extracting each article to a json file.
       - topics: NLP, Machine Learning, ETL
-  - [veld_preprocess_lowercase.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_lowercase.yaml)
-    - valid: True
-    - metadata:
-      - description: preprocessing by making the entire text lowercase.
-      - topics: NLP
-  - [veld_preprocess_remove_punctuation.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_remove_punctuation.yaml)
-    - valid: True
-    - metadata:
-      - description: preprocessing by removing punctuation of the entire text.
-      - topics: NLP
-  - [veld_preprocess_transform_wiki_json_to_txt.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_preprocess_transform_wiki_json_to_txt.yaml)
+  - [veld_step_02_preprocess_transform_wiki_json_to_txt.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_02_preprocess_transform_wiki_json_to_txt.yaml)
     - valid: True
     - metadata:
       - description: transforming wikipedia jsons to a single txt file.
       - topics: NLP, Machine Learning, ETL
-  - [veld_train_fasttext.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_train_fasttext.yaml)
-    - valid: False, root node x-veld missing
-  - [veld_train_glove.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_train_glove.yaml)
+  - [veld_step_03_preprocess_lowercase.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_03_preprocess_lowercase.yaml)
+    - valid: True
+    - metadata:
+      - description: preprocessing by making the entire text lowercase.
+      - topics: NLP
+  - [veld_step_04_preprocess_remove_punctuation.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_04_preprocess_remove_punctuation.yaml)
+    - valid: True
+    - metadata:
+      - description: preprocessing by removing punctuation of the entire text.
+      - topics: NLP
+  - [veld_step_05_train_fasttext.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_05_train_fasttext.yaml)
+    - valid: True
+    - metadata:
+      - description: training a fasttext model on wikipediaa
+      - topics: NLP
+  - [veld_step_06_train_word2vec.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_06_train_word2vec.yaml)
+    - valid: True
+    - metadata:
+      - description: training a word2vec model on wikipediaa
+      - topics: NLP
+  - [veld_step_07_train_glove.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_07_train_glove.yaml)
     - valid: True
     - metadata:
       - description: training a glove model on wikipediaa
       - topics: NLP
-  - [veld_train_word2vec.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_train_word2vec.yaml)
+  - [veld_step_08_eval_fasttext.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_08_eval_fasttext.yaml)
     - valid: True
     - metadata:
-      - description: training a word2vec model on wikipediaa
+      - description: evaluate fasttext model against evaluation gold data
+      - topics: NLP
+  - [veld_step_09_eval_word2vec.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_09_eval_word2vec.yaml)
+    - valid: True
+    - metadata:
+      - description: evaluate word2vec model against evaluation gold data
+      - topics: NLP
+  - [veld_step_10_eval_glove.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_10_eval_glove.yaml)
+    - valid: True
+    - metadata:
+      - description: evaluate glove model against evaluation gold data
+      - topics: NLP
+  - [veld_step_11_analyse_evaluation.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_11_analyse_evaluation.yaml)
+    - valid: True
+    - metadata:
+      - description: chain of analysing and evaluating models trained on wikipedia
+      - topics: NLP
+  - [veld_step_all_multi_chain.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_all_multi_chain.yaml)
+    - valid: True
+    - metadata:
+      - description: An entire multi chain, going through everything (fetching, preprocessing, training, evaluation in one service. This chain is composed of the other chains and is rather meant as a demonstration of the entire setup
       - topics: NLP
 - https://github.com/veldhub/veld_chain__train_spacy_apis_ner
   - [veld_analysis.yaml](https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_analysis.yaml)
