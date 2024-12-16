@@ -1,7 +1,7 @@
 x-veld:
   data:
     description: 1% AMC model
-    file_types:
+    file_type:
     - bin
     - txt
     contents:

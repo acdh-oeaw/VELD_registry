@@ -2568,6 +2568,52 @@ veld_chain__demo_teitok-tools___veld_xmltokenize.yaml:
           textnode: body
           tok: xyz
           enumerate: true
+veld_chain__demo_udipe_ts-vienna-2024___veld_infer.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_infer.yaml
+  content:
+    x-veld:
+      chain:
+        description: A demonstration of a VELD chain inferencing on a txt with a self-trained
+          udpipe model
+        topics:
+        - NLP
+        - universal dependencies
+    services:
+      veld_infer:
+        extends:
+          file: ./code/veld_code__udpipe/veld_infer.yaml
+          service: veld_infer
+        volumes:
+        - ./data/veld_data__demo_inference_input_ts-vienna-2024/:/veld/input/txt/
+        - ./data/veld_data__demo_updipe_models_ts-vienna-2024/:/veld/input/model/
+        - ./data/veld_data__demo_inference_output_ts-vienna-2024/:/veld/output/
+        environment:
+          in_txt_file: rumpelstiltskin.txt
+          in_model_file: en_ewt-ud.udpipe
+veld_chain__demo_udipe_ts-vienna-2024___veld_train.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      chain:
+        description: A demonstration of a VELD chain training a udpipe model from
+          scratch
+        topics:
+        - NLP
+        - universal dependencies
+    services:
+      veld_train:
+        extends:
+          file: ./code/veld_code__udpipe/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/veld_data__demo_train_data_ts-vienna-2024/:/veld/input/
+        - ./data/veld_data__demo_updipe_models_ts-vienna-2024/:/veld/output/
+        environment:
+          train_data_path: en_ewt-ud.conllu
+          model_path: en_ewt-ud.udpipe
+          tokenizer_epochs: 2
+          tagger_iterations: 2
+          parser_iterations: 2
 veld_chain__demo_wordembeddings_multiarch___veld_jupyter_word2vec.yaml:
   url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_word2vec.yaml
   content:

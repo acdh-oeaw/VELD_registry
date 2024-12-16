@@ -1,7 +1,7 @@
 x-veld:
   data:
     description: 10% AMC model
-    file_types: bin
+    file_type: bin
     topics:
     - NLP
     - word embeddings

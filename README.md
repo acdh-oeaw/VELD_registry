@@ -81,41 +81,41 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - contents: TEI, annotated literature
 - https://github.com/veldhub/veld_data__fasttext_models
   - [m1/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m1/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m3/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m3/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m4/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m4/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m5/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m5/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m6/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m6/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m7/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m7/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m8/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m8/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m9/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m9/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
 - https://github.com/veldhub/veld_data__glove_models
   - [m1/veld.yaml](https://github.com/veldhub/veld_data__glove_models/blob/main/m1/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'list'>, at: /x-veld/data/file_type/
   - [m3/veld.yaml](https://github.com/veldhub/veld_data__glove_models/blob/main/m3/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'list'>, at: /x-veld/data/file_type/
 - https://github.com/veldhub/veld_data__word2vec_models
   - [m3/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m3/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m4/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m4/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m5/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m5/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m6/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m6/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m7/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m7/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m8/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m8/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
   - [m9/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m9/veld.yaml)
-    - valid: False, non-optional key missing: 'file_type', at: /x-veld/data/
+    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
 - https://github.com/veldhub/veld_data__wordembeddings_evaluation
   - [evaluation_gold_data/capitalized/veld.yaml](https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/capitalized/veld.yaml)
     - valid: True
@@ -739,9 +739,15 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topics: NLP, ETL, tokenization, universal dependencies
 - https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024
   - [veld_infer.yaml](https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_infer.yaml)
-    - valid: False, elements not matching anything at: /x-veld/chain/topcis
+    - valid: True
+    - metadata:
+      - description: A demonstration of a VELD chain inferencing on a txt with a self-trained udpipe model
+      - topics: NLP, universal dependencies
   - [veld_train.yaml](https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_train.yaml)
-    - valid: False, elements not matching anything at: /x-veld/chain/topcis
+    - valid: True
+    - metadata:
+      - description: A demonstration of a VELD chain training a udpipe model from scratch
+      - topics: NLP, universal dependencies
 - https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch
   - [veld_jupyter_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_word2vec.yaml)
     - valid: True

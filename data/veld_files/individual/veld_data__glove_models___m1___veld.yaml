@@ -1,7 +1,7 @@
 x-veld:
   data:
     description: glove test model
-    file_types:
+    file_type:
     - bin
     - txt
     contents:
