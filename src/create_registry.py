@@ -96,18 +96,18 @@ def crawl_repo_gitlab(repo_api_url, path, veld_list):
     return veld_list
 
 
+def create_md_string(k, v, level):
+    s = ""
+    if k != "":
+        k = k + ": "
+    if type(v) is list:
+        v = ", ".join(v)
+    if v != "" and not v.isspace():
+        s = " " * level + "- " + k + v + "\n"
+    return s
+
+
 def handle_metadata(veld, level):
-    
-    def create_md_string(k, v, level):
-        s = ""
-        if k != "":
-            k = k + ": "
-        if type(v) is list:
-            v = ", ".join(v)
-        if v != "" and not v.isspace():
-            s = " " * level + "- " + k + v + "\n"
-        return s
-    
     content = ""
     md = veld.get("metadata")
     md = md.get("x-veld")
@@ -132,7 +132,7 @@ def handle_metadata(veld, level):
     return content
 
 
-def generate_list(link_txt_path, all_velds):
+def crawl_all(link_txt_path, all_velds):
     content = ""
     test_count_gh = 0
     test_count_gl = 0
@@ -197,13 +197,13 @@ def main():
         "https://zenodo.org/records/13318651\n\n"
     )
     content += "\n## data velds\n"
-    content_tmp, all_velds = generate_list(IN_LINKS_DATA_PATH, all_velds)
+    content_tmp, all_velds = crawl_all(IN_LINKS_DATA_PATH, all_velds)
     content += content_tmp
     content += "\n## code velds\n"
-    content_tmp, all_velds = generate_list(IN_LINKS_CODE_PATH, all_velds)
+    content_tmp, all_velds = crawl_all(IN_LINKS_CODE_PATH, all_velds)
     content += content_tmp
     content += "\n## chain velds\n"
-    content_tmp, all_velds = generate_list(IN_LINKS_CHAIN_PATH, all_velds)
+    content_tmp, all_velds = crawl_all(IN_LINKS_CHAIN_PATH, all_velds)
     content += content_tmp
     
     # write
