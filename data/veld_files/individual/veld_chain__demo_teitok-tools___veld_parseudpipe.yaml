@@ -18,7 +18,7 @@ services:
       - ./data/parseudpipe/in/:/veld/input/
       - ./data/parseudpipe/out/:/veld/output/
     environment:
-      in_xml_file: DEU001.xml
+      in_xml_file: DEU001_tokenized.xml
       out_xml_file: DEU001.xml
       model: german-hdt-ud-2.6-200830
       sent: p

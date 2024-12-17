@@ -11,4 +11,3 @@ https://github.com/veldhub/veld_data__fasttext_models
 https://github.com/veldhub/veld_data__glove_models
 https://github.com/veldhub/veld_data__word2vec_models
 https://github.com/veldhub/veld_data__wordembeddings_evaluation
-https://gitlab.oeaw.ac.at/acdh-ch/nlp/veld_data_apis_spacy_ner_models
