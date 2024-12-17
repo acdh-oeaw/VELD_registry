@@ -38,7 +38,8 @@ def crawl_repo_github(repo_api_url, path, veld_list):
     )
     if response.status_code != 200:
         raise Exception("Not 200 status: " + str(response.content))
-    for item_dict in response.json():
+    response = response.json()
+    for item_dict in response:
         item_type = item_dict["type"]
         item_path = item_dict["path"]
         if item_type == "file":
@@ -74,7 +75,8 @@ def crawl_repo_gitlab(repo_api_url, path, veld_list):
         if response.status_code != 200:
             raise Exception("Not 200 status: " + str(response.content))
         page = response.headers.get("X-Next-Page")
-        for item_dict in response.json():
+        response = response.json()
+        for item_dict in response:
             item_type = item_dict["type"]
             item_path = item_dict["path"]
             if item_type == "blob":
