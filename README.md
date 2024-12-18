@@ -425,7 +425,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - output:
         - 1:
           - description: path to folder where spacy docbin files will be stored with file names `train.spacy, dev.spacy, eval.spacy`
-          - file_type: spacy docbin
+          - file_type: spaCy docbin
           - content: NER gold data
         - 2:
           - description: log file of conversion
@@ -1158,7 +1158,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - png
 - spaCy docbin
 - spaCy model
-- spacy docbin
 - tsv
 - txt
 - udpipe model
