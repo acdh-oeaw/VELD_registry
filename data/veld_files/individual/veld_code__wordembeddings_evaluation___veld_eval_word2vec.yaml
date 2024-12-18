@@ -31,7 +31,7 @@ x-veld:
       - volume: /veld/output/log/
         environment_var: out_eval_log_file
         file_type: "txt"
-        content: "logs"
+        content: "log"
 
 services:
   veld_eval_word2vec:

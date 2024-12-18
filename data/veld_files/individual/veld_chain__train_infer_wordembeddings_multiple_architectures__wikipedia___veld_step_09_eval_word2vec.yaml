@@ -1,7 +1,9 @@
 x-veld:
   chain:
     description: "evaluate word2vec model against evaluation gold data"
-    topic: "NLP"
+    topic: 
+      - "NLP"
+      - "evaluation"
 
 services:
   veld_eval_word2vec:

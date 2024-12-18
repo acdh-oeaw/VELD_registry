@@ -1,7 +1,9 @@
 x-veld:
   chain:
     description: "preprocessing by making the entire text lowercase."
-    topic: "NLP"
+    topic:
+      - "NLP"
+      - "ETL"
 
 services:
 

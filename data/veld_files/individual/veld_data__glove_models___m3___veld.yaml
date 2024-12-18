@@ -1,12 +1,13 @@
 x-veld:
   data:
     description: 1% AMC model
-    file_type:
-    - bin
-    - txt
-    content:
-    - word embeddings model
-    - glove model
+    file_type: 
+      - GloVe model
+      - bin
+      - txt
+    topic:
+      - NLP
+      - word embeddings
     additional:
       model_id: m3
       train_data_description: 1% of AMC

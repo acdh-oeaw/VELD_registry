@@ -1,7 +1,9 @@
 x-veld:
   chain:
     description: "chain of analysing and evaluating models trained on wikipedia"
-    topic: "NLP"
+    topic: 
+      - "NLP"
+      - "evaluation"
 
 services:
   veld_analyse_evaluation:

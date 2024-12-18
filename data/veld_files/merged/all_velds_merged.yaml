@@ -554,10 +554,10 @@ veld_data__fasttext_models___m1___veld.yaml:
     x-veld:
       data:
         description: test training
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m1
           train_data_description: sample wikipedia, single txt, one sentence per line,
@@ -576,10 +576,10 @@ veld_data__fasttext_models___m3___veld.yaml:
     x-veld:
       data:
         description: 10% AMC model
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m3
           train_data_description: 'AMC data: stripped from non-alphanumeric lines,
@@ -599,10 +599,10 @@ veld_data__fasttext_models___m4___veld.yaml:
     x-veld:
       data:
         description: 10% AMC model
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m4
           train_data_description: 'AMC data: stripped from non-alphanumeric lines,
@@ -622,10 +622,10 @@ veld_data__fasttext_models___m5___veld.yaml:
     x-veld:
       data:
         description: 10% AMC model
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m5
           train_data_description: 'AMC data: stripped from non-alphanumeric lines,
@@ -645,10 +645,10 @@ veld_data__fasttext_models___m6___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m6
           train_data_description: null
@@ -666,10 +666,10 @@ veld_data__fasttext_models___m7___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m7
           train_data_description: null
@@ -687,10 +687,10 @@ veld_data__fasttext_models___m8___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m8
           train_data_description: null
@@ -708,10 +708,10 @@ veld_data__fasttext_models___m9___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
-        content:
-        - word embeddings model
-        - fasttext model
+        file_type: fastText model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m9
           train_data_description: 'Entire AMC: unique sentences, stripped from non-alphanumeric
@@ -732,11 +732,12 @@ veld_data__glove_models___m1___veld.yaml:
       data:
         description: glove test model
         file_type:
+        - GloVe model
         - bin
         - txt
-        content:
-        - word embeddings model
-        - glove model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m1
           train_data_description: sample wikipedia, single txt, one article per line,
@@ -762,11 +763,12 @@ veld_data__glove_models___m3___veld.yaml:
       data:
         description: 1% AMC model
         file_type:
+        - GloVe model
         - bin
         - txt
-        content:
-        - word embeddings model
-        - glove model
+        topic:
+        - NLP
+        - word embeddings
         additional:
           model_id: m3
           train_data_description: 1% of AMC
@@ -790,13 +792,10 @@ veld_data__word2vec_models___m3___veld.yaml:
     x-veld:
       data:
         description: 10% AMC model
-        file_type: bin
+        file_type: word2vec model
         topic:
         - NLP
         - word embeddings
-        content:
-        - word embeddings model
-        - word2vec model
         additional:
           model_id: m3
           training_architecture: word2vec
@@ -817,13 +816,10 @@ veld_data__word2vec_models___m4___veld.yaml:
     x-veld:
       data:
         description: 10% AMC model
-        file_type: bin
+        file_type: word2vec model
         topic:
         - NLP
         - word embeddings
-        content:
-        - word embeddings model
-        - word2vec model
         additional:
           model_id: m4
           training_architecture: word2vec
@@ -844,13 +840,10 @@ veld_data__word2vec_models___m5___veld.yaml:
     x-veld:
       data:
         description: 10% AMC model
-        file_type: bin
+        file_type: word2vec model
         topic:
         - NLP
         - word embeddings
-        content:
-        - word embeddings model
-        - word2vec model
         additional:
           model_id: m5
           training_architecture: word2vec
@@ -871,13 +864,10 @@ veld_data__word2vec_models___m6___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
+        file_type: word2vec model
         topic:
         - NLP
         - word embeddings
-        content:
-        - word embeddings model
-        - word2vec model
         additional:
           model_id: m6
           training_architecture: word2vec
@@ -896,13 +886,10 @@ veld_data__word2vec_models___m7___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
+        file_type: word2vec model
         topic:
         - NLP
         - word embeddings
-        content:
-        - word embeddings model
-        - word2vec model
         additional:
           model_id: m7
           training_architecture: word2vec
@@ -921,13 +908,10 @@ veld_data__word2vec_models___m8___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
+        file_type: word2vec model
         topic:
         - NLP
         - word embeddings
-        content:
-        - word embeddings model
-        - word2vec model
         additional:
           model_id: m8
           training_architecture: word2vec
@@ -946,13 +930,10 @@ veld_data__word2vec_models___m9___veld.yaml:
     x-veld:
       data:
         description: 100% AMC model
-        file_type: bin
+        file_type: word2vec model
         topic:
         - NLP
         - word embeddings
-        content:
-        - word embeddings model
-        - word2vec model
         additional:
           model_id: m9
           training_architecture: word2vec
@@ -1138,8 +1119,8 @@ veld_code__downloader___veld.yaml:
         output:
         - volume: /veld/output/
           environment_var: out_file
-          description: optional. If unset, this script will fetch the file name from
-            the resource.
+          description: optional. If `out_file` is unset, this script will fetch the
+            file name from the resource.
           optional: true
         config:
           environment_var: url
@@ -1192,13 +1173,11 @@ veld_code__fasttext___veld_train.yaml:
           content: raw text
         output:
         - volume: /veld/output/
-          file_type:
-          - bin
-          - fasttext model
+          file_type: fastText model
           environment_var: out_model_file
           content:
-          - fasttext model
-          - word embeddings
+          - NLP model
+          - word embeddings model
         config:
         - environment_var: vector_size
           description: 'hyperparameter: the dimension of the vectors to be trained.'
@@ -1266,28 +1245,28 @@ veld_code__glove___veld_train.yaml:
         output:
         - volume: /veld/output/
           environment_var: out_vocab_file
-          file_type: bin
+          file_type: GloVe model
           content:
-          - GloVe global word cooccurrence matrix
-          - GloVe vectors
+          - NLP model
+          - word embeddings model
         - volume: /veld/output/
           environment_var: out_cooccurrence_file
-          file_type: bin
+          file_type: GloVe model
           content:
-          - GloVe global word cooccurrence matrix
-          - GloVe vectors
+          - NLP model
+          - word embeddings model
         - volume: /veld/output/
           environment_var: out_cooccurrence_shuf_file
-          file_type: bin
+          file_type: GloVe model
           content:
-          - GloVe global word cooccurrence matrix
-          - GloVe vectors
+          - NLP model
+          - word embeddings model
         - volume: /veld/output/
           environment_var: out_vector_file
-          file_type: bin
+          file_type: GloVe model
           content:
-          - GloVe global word cooccurrence matrix
-          - GloVe vectors
+          - NLP model
+          - word embeddings model
         config:
         - environment_var: verbose
           var_type: int
@@ -1401,8 +1380,8 @@ veld_code__spacy___veld_convert.yaml:
         - volume: /veld/output/log/
           environment_var: out_log_file
           description: log file of conversion
-          file_type: spacy docbin
-          content: NER gold data
+          file_type: txt
+          content: log
         config:
         - environment_var: model_base
           description: spacy model to be used for conversion.
@@ -1599,7 +1578,7 @@ veld_code__spacy___veld_publish_to_hf.yaml:
         - ETL
         input:
         - volume: /veld/input/
-          file_type: spacy model
+          file_type: spaCy model
           content: NLP model
         config:
         - environment_var: model_name
@@ -1673,20 +1652,18 @@ veld_code__spacy___veld_train.yaml:
           description: See https://spacy.io/usage/training/#config
         output:
         - volume: /veld/output/
-          file_type: spacy model
-          content:
-          - NLP model
-          - spacy model
+          file_type: spaCy model
+          content: NLP model
         - volume: /veld/output/
           file_type: txt
           environment_var: out_train_log_file
-          description: path to the train log file
-          content: logs
+          description: training log file
+          content: log
         - volume: /veld/output/
           file_type: txt
           environment_var: out_eval_log_file
-          description: path to the eval log file
-          content: logs
+          description: evaluation log file
+          content: log
         config:
         - environment_var: model_base
           description: spacy model to be used for downstream training.
@@ -2674,7 +2651,7 @@ veld_code__wordembeddings_evaluation___veld_eval_fasttext.yaml:
         - volume: /veld/output/log/
           environment_var: out_eval_log_file
           file_type: txt
-          content: logs
+          content: log
     services:
       veld_eval_fasttext:
         build:
@@ -2722,7 +2699,7 @@ veld_code__wordembeddings_evaluation___veld_eval_glove.yaml:
         - volume: /veld/output/log/
           environment_var: out_eval_log_file
           file_type: txt
-          content: logs
+          content: log
         config:
         - environment_var: model_id
           description: id of the model
@@ -2776,7 +2753,7 @@ veld_code__wordembeddings_evaluation___veld_eval_word2vec.yaml:
         - volume: /veld/output/log/
           environment_var: out_eval_log_file
           file_type: txt
-          content: logs
+          content: log
     services:
       veld_eval_word2vec:
         build:
@@ -4207,7 +4184,6 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
           a json file.
         topic:
         - NLP
-        - Machine Learning
         - ETL
     services:
       veld_preprocess_download_and_extract:
@@ -4226,7 +4202,6 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
         description: transforming wikipedia jsons to a single txt file.
         topic:
         - NLP
-        - Machine Learning
         - ETL
     services:
       veld_preprocess_transform_wiki_json_to_txt_articles:
@@ -4270,7 +4245,9 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
     x-veld:
       chain:
         description: preprocessing by making the entire text lowercase.
-        topic: NLP
+        topic:
+        - NLP
+        - ETL
     services:
       veld_preprocess_lowercase_articles:
         extends:
@@ -4303,7 +4280,9 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
     x-veld:
       chain:
         description: preprocessing by removing punctuation of the entire text.
-        topic: NLP
+        topic:
+        - NLP
+        - ETL
     services:
       veld_preprocess_remove_punctuation_articles:
         extends:
@@ -4416,7 +4395,9 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
     x-veld:
       chain:
         description: evaluate fasttext model against evaluation gold data
-        topic: NLP
+        topic:
+        - NLP
+        - evaluation
     services:
       veld_eval_fasttext:
         extends:
@@ -4439,7 +4420,9 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
     x-veld:
       chain:
         description: evaluate word2vec model against evaluation gold data
-        topic: NLP
+        topic:
+        - NLP
+        - evaluation
     services:
       veld_eval_word2vec:
         extends:
@@ -4462,7 +4445,9 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
     x-veld:
       chain:
         description: evaluate glove model against evaluation gold data
-        topic: NLP
+        topic:
+        - NLP
+        - evaluation
     services:
       veld_eval_glove:
         extends:
@@ -4486,7 +4471,9 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
     x-veld:
       chain:
         description: chain of analysing and evaluating models trained on wikipedia
-        topic: NLP
+        topic:
+        - NLP
+        - evaluation
     services:
       veld_analyse_evaluation:
         extends:

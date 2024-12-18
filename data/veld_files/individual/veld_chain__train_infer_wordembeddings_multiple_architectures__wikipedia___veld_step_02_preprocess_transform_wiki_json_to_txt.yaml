@@ -3,7 +3,6 @@ x-veld:
     description: "transforming wikipedia jsons to a single txt file."
     topic:
       - "NLP"
-      - "Machine Learning"
       - "ETL"
 
 services:

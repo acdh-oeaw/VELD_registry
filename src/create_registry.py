@@ -17,6 +17,11 @@ OUT_VELD_INDIVIDUAL_FOLDER = "/app/data/veld_files/individual/"
 OUT_VELD_MERGED_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
 
 
+set_topic = set()
+set_file_type = set()
+set_content = set()
+
+
 def validate_metadata(veld_metadata_str):
     try:
         veld_metadata = yaml.safe_load(veld_metadata_str)
@@ -123,6 +128,22 @@ def transform_dict(k, v, level):
     return s
 
 
+def add_to_set(k, v):
+    
+    def add_to_specific_set(v, s):
+        if type(v) is not list:
+            v = [v]
+        for v2 in v:
+            s.add(v2)
+    
+    if k == "topic":
+        add_to_specific_set(v, set_topic)
+    elif k == "content":
+        add_to_specific_set(v, set_content)
+    elif k == "file_type":
+        add_to_specific_set(v, set_file_type)
+
+
 def handle_metadata(veld, level):
     content = ""
     md = veld.get("metadata")
@@ -133,6 +154,7 @@ def handle_metadata(veld, level):
             for k in ["description", "topic", "file_type", "content"]:
                 v = md.get(k)
                 if v is not None:
+                    add_to_set(k, v)
                     content += transform_dict(k, v, level + 2)
             for k in ["input", "output"]:
                 v = md.get(k)
@@ -144,6 +166,7 @@ def handle_metadata(veld, level):
                         for k2 in ["description", "file_type", "content"]:
                             v2 = d.get(k2)
                             if v2 is not None:
+                                add_to_set(k2, v2)
                                 content += create_md_string(k2, v2, level + 6)
     return content
 
@@ -204,14 +227,23 @@ def main():
         for f in os.listdir(OUT_VELD_INDIVIDUAL_FOLDER):
             os.remove(OUT_VELD_INDIVIDUAL_FOLDER + "/" + f)
             
-    # crawl over all links
-    all_velds = {}
+    # README header
     content = (
         "# VELD registry\n\n"
         "This is a living collection of VELD repositories and their contained velds.\n\n"
         "The technical concept for the VELD design can be found here: "
         "https://zenodo.org/records/13318651\n\n"
+        "#### sections in this README:\n"
+        "[data velds](#data-velds)\n"
+        "[code velds](#code-velds)\n"
+        "[chain velds](#chain-velds)\n"
+        "[topic vocab](#topic-vocab)\n"
+        "[content vocab](#content-vocab)\n"
+        "[file_type vocab](#file_type-vocab)\n"
     )
+    
+    # crawl over all links
+    all_velds = {}
     content += "\n## data velds\n"
     content_tmp, all_velds = crawl_all(IN_LINKS_DATA_PATH, all_velds)
     content += content_tmp
@@ -221,6 +253,23 @@ def main():
     content += "\n## chain velds\n"
     content_tmp, all_velds = crawl_all(IN_LINKS_CHAIN_PATH, all_velds)
     content += content_tmp
+    
+    # sets
+    content += "\n## topic vocab\n"
+    list_vocab = list(set_topic)
+    list_vocab = sorted(list_vocab)
+    for s in list_vocab:
+        content += "- " + s + "\n"
+    content += "\n## content vocab\n"
+    list_vocab = list(set_content)
+    list_vocab = sorted(list_vocab)
+    for s in list_vocab:
+        content += "- " + s + "\n"
+    content += "\n## file_type vocab\n"
+    list_vocab = list(set_file_type)
+    list_vocab = sorted(list_vocab)
+    for s in list_vocab:
+        content += "- " + s + "\n"
     
     # write
     with open(OUT_README_PATH, "w") as f:

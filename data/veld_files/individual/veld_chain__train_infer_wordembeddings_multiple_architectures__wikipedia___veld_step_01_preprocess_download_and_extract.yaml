@@ -3,7 +3,6 @@ x-veld:
     description: "downloading wikipedia archive and extracting each article to a json file."
     topic:
       - "NLP"
-      - "Machine Learning"
       - "ETL"
 
 services:

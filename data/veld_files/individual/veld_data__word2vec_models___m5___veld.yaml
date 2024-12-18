@@ -1,13 +1,10 @@
 x-veld:
   data:
     description: 10% AMC model
-    file_type: bin
+    file_type: word2vec model
     topic:
     - NLP
     - word embeddings
-    content:
-    - word embeddings model
-    - word2vec model
     additional:
       model_id: m5
       training_architecture: word2vec

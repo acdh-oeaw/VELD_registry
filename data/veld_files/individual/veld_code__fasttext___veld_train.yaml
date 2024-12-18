@@ -15,13 +15,11 @@ x-veld:
 
     output:
       - volume: /veld/output/
-        file_type:
-          - "bin"
-          - "fasttext model"
+        file_type: "fastText model"
         environment_var: out_model_file
         content:
-          - "fasttext model"
-          - "word embeddings"
+          - "NLP model"
+          - "word embeddings model"
 
     config:
       - environment_var: vector_size
