@@ -1874,6 +1874,577 @@ veld_code__teitok-tools___veld_xmltokenize.yaml:
           exclude: null
           enumerate: false
           segment: null
+veld_code__udpipe___veld_infer.yaml:
+  url: https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml
+  content:
+    x-veld:
+      code:
+        description: udpipe inference setup
+        topics:
+        - NLP
+        - Machine learning
+        - tokenization
+        - lemmatization
+        - part of speech
+        - dependency parsing
+        - universal dependencies
+        - grammatical annotation
+        inputs:
+        - volume: /veld/input/txt/
+          environment: in_txt_file
+          description: txt files to be inferenced on. Note that the environment var
+            `in_txt_file` is optional, and if it is not present, the entire input
+            folder will be processed recursively
+          file_type: txt
+          contents: raw text
+        - volume: /veld/input/model/
+          environment: in_model_file
+          file_type: udpipe model
+          contents:
+          - NLP model
+          - tokenizer
+          - lemmatizer
+        outputs:
+        - volume: /veld/output/
+          description: The file name of the output conllu is created by the corresponding
+            input txt file, since recursive processing requires such automatic logic
+          file_type:
+          - conllu
+          - tsv
+          contents:
+          - inferenced NLP data
+          - tokenized text
+          - lemmatized text
+          - part of speech of text
+          - universal dependencies of text
+          - grammatically annotated text
+          - linguistic data
+        settings:
+        - environment: tokenizer
+          description: if tokenizer config should be read or not
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tokenizer_normalized_spaces
+          description: 'by default, UDPipe uses custom MISC fields to exactly encode
+            spaces in the original document (as described below). If true, only the
+            standard CoNLL-U v2 markup (SpaceAfter=No and # newpar) is used.'
+          env_type: bool
+          optional: true
+          default: false
+        - environment: tokenizer_presegmented
+          description: the input file is assumed to be already segmented, with each
+            sentence on a separate line, and is only tokenized (respecting sentence
+            breaks)
+          env_type: bool
+          optional: true
+          default: false
+        - environment: tokenizer_ranges
+          description: for each token, a range in the original document is stored
+            in the format described below.
+          env_type: bool
+          optional: true
+          default: false
+        - environment: tokenizer_joint_with_parsing
+          description: "an experimental mode performing sentence segmentation jointly\
+            \ using the tokenizer and the parser (see Milan Straka and Jana Strakov\xE1\
+            : Tokenizing, POS Tagging, Lemmatizing and Parsing UD 2.0 with UDPipe\
+            \ paper for details)."
+          env_type: bool
+          optional: true
+          default: false
+        - environment: tokenizer_joint_change_boundary_logprob
+          description: for every sentence boundary not returned by the tokenizer (i.e.,
+            either 0, 1 or 2 times). The joint sentence segmentation chooses such
+            a segmentation, where every sentence has length at most joint_max_sentence_len
+            and the sum of logprobs of all sentences is as large as possible.
+          env_type: bool
+          optional: true
+          default: false
+        - environment: tagger
+          description: if tagger config should be read or not
+          env_type: bool
+          optional: true
+          default: true
+        - environment: parser
+          description: if parser config should be read or not
+          env_type: bool
+          optional: true
+          default: true
+    services:
+      veld_infer:
+        build: .
+        command: /veld/code/infer.sh
+        volumes:
+        - ./data/inference/input/txt/:/veld/input/txt/
+        - ./data/inference/input/model/:/veld/input/model/
+        - ./data/inference/output/:/veld/output/
+        - ./src/main/:/veld/code/
+        environment:
+          in_txt_file: null
+          in_model_file: null
+          tokenizer: true
+          tokenizer_normalized_spaces: false
+          tokenizer_presegmented: false
+          tokenizer_ranges: false
+          tokenizer_joint_with_parsing: false
+          tokenizer_joint_change_boundary_logprob: false
+          tagger: true
+          parser: true
+veld_code__udpipe___veld_train.yaml:
+  url: https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      code:
+        description: udpipe training setup
+        topics:
+        - NLP
+        - Machine learning
+        - tokenization
+        - lemmatization
+        - part of speech
+        - dependency parsing
+        - universal dependencies
+        - grammatical annotation
+        inputs:
+        - volume: /veld/input/
+          environment: train_data_path
+          file_type: conllu
+          contents:
+          - tokenized text
+          - enriched text
+          - linguistic data
+        outputs:
+        - volume: /veld/output/
+          environment: model_path
+          file_type: udpipe model
+          contents:
+          - NLP model
+          - tokenizer
+          - lemmatizer
+        settings:
+        - environment: tokenizer
+          description: if tokenizer config should be read or not
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tokenizer_tokenize_url
+          description: tokenize URLs and emails using a manually implemented recognizer
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tokenizer_allow_spaces
+          description: allow tokens to contain spaces
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tokenizer_dimension
+          description: dimension of character embeddings and of the per-character
+            bidirectional GRU. Note that inference time is quadratic in this parameter.
+            Supported values are only 16, 24 and 64, with 64 needed for languages
+            with complicated tokenization like Japanese, Chinese or Vietnamese or
+            complicated segmentation.
+          env_type: int
+          optional: true
+          default: 24
+        - environment: tokenizer_segment_size
+          description: length of character segment used to predict token and sentence
+            breaks. Larger values like 200 are needed for languges with complicated
+            segmentation
+          env_type: int
+          optional: true
+          default: 50
+        - environment: tokenizer_epochs
+          description: the number of epochs to train the tokenizer for
+          env_type: int
+          optional: true
+          default: 100
+        - environment: tokenizer_batch_size
+          description: batch size (number of segments) used during tokenizer training
+          env_type: int
+          optional: true
+          default: 50
+        - environment: tokenizer_learning_rate
+          description: the learning rate used during tokenizer training
+          env_type: float
+          optional: true
+          default: 0.005
+        - environment: tokenizer_learning_rate_final
+          description: if not zero, use exponential learning rate decay so that last
+            epoch uses this learning rate
+          env_type: float
+          optional: true
+          default: 0
+        - environment: tokenizer_dropout
+          description: dropout used during tokenizer training
+          env_type: float
+          optional: true
+          default: 0.1
+        - environment: tokenizer_early_stopping
+          description: perform early stopping, choosing training iteration maximizing
+            sentences F1 score plus tokens F1 score on heldout data
+          env_type: bool
+          optional: true
+          default: 1
+        - environment: tagger
+          description: if tagger config should be read or not
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tagger_use_lemma
+          description: use the lemma field internally to perform disambiguation; the
+            lemma may be not outputted
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tagger_provide_lemma
+          description: produce the disambiguated lemma on output
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tagger_use_xpostag
+          description: use the XPOS tags internally to perform disambiguation; it
+            may not be outputted
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tagger_provide_xpostag
+          description: produce the disambiguated XPOS tag on output
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tagger_use_feats
+          description: use the Feats internally to perform disambiguation; it may
+            not be outputted
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tagger_provide_feats
+          description: produce the disambiguated Feats field on output
+          env_type: bool
+          optional: true
+          default: true
+        - environment: tagger_dictionary_max_form_analyses
+          description: the maximum number of (most frequent) form analyses from UD
+            training data that are to be kept in the morphological dictionary
+          env_type: int
+          optional: true
+          default: 0
+        - environment: tagger_dictionary_file
+          description: use a given custom morphological dictionary, where each line
+            contains 5 tab-separated fields FORM, LEMMA, UPOSTAG, XPOSTAG and FEATS.
+            Note that this dictionary data is appended to the dictionary created from
+            the UD training data, not replacing it.
+          env_type: str
+          optional: true
+          default: null
+        - environment: tagger_guesser_suffix_rules
+          description: number of rules generated for every suffix
+          env_type: int
+          optional: true
+          default: 8
+        - environment: tagger_guesser_prefixes_max
+          description: maximum number of form-generating prefixes to use in the guesser
+          env_type: int
+          optional: true
+          default: 4
+        - environment: tagger_guesser_prefix_min_count
+          description: minimum number of occurrences of form-generating prefix to
+            consider using it in the guesser
+          env_type: int
+          optional: true
+          default: 10
+        - environment: tagger_guesser_enrich_dictionary
+          description: number of rules generated for forms present in training data
+            (assuming that the analyses from the training data may not be all)
+          env_type: int
+          optional: true
+          default: 6
+        - environment: tagger_iterations
+          description: number of training iterations to perform
+          env_type: int
+          optional: true
+          default: 20
+        - environment: tagger_early_stopping
+          description: perform early stopping, choosing training iteration maximizing
+            tagging accuracy on the heldout data
+          env_type: bool
+          optional: true
+          default: 0
+        - environment: tagger_templates
+          description: MorphoDiTa feature templates to use, either lemmatizer which
+            focuses more on lemmas, or tagger which focuses more on UPOS/XPOS/FEATS
+          env_type: str
+          optional: true
+          default: null
+        - environment: parser
+          description: if parser config should be read or not
+          env_type: bool
+          optional: true
+          default: true
+        - environment: parser_use_gold_tags
+          description: if false and a tagger exists, the Lemmas/UPOS/XPOS/FEATS for
+            both the training and heldout data are generated by the tagger, otherwise
+            they are taken from the gold data
+          env_type: bool
+          optional: true
+          default: false
+        - environment: parser_embedding_upostag
+          description: the dimension of the UPos embedding used in the parser
+          env_type: int
+          optional: true
+          default: 20
+        - environment: parser_embedding_feats
+          description: the dimension of the Feats embedding used in the parser
+          env_type: int
+          optional: true
+          default: 20
+        - environment: parser_embedding_xpostag
+          description: the dimension of the XPos embedding used in the parser
+          env_type: int
+          optional: true
+          default: 0
+        - environment: parser_embedding_form
+          description: the dimension of the Form embedding used in the parser
+          env_type: int
+          optional: true
+          default: 50
+        - environment: parser_embedding_lemma
+          description: the dimension of the Lemma embedding used in the parser
+          env_type: int
+          optional: true
+          default: 0
+        - environment: parser_embedding_deprel
+          description: the dimension of the Deprel embedding used in the parser
+          env_type: int
+          optional: true
+          default: 20
+        - environment: parser_embedding_form_mincount
+          description: for forms not present in the pre-trained embeddings, generate
+            random embeddings if the form appears at least this number of times in
+            the trainig data (forms not present in the pre-trained embeddings and
+            appearing less number of times are considered OOV)
+          env_type: int
+          optional: true
+          default: 2
+        - environment: parser_embedding_lemma_mincount
+          description: for lemmas not present in the pre-trained embeddings, generate
+            random embeddings if the lemma appears at least this number of times in
+            the trainig data (lemmas not present in the pre-trained embeddings and
+            appearing less number of times are considered OOV)
+          env_type: int
+          optional: true
+          default: 2
+        - environment: parser_iterations
+          description: number of training iterations to use
+          env_type: int
+          optional: true
+          default: 10
+        - environment: parser_hidden_layer
+          description: the size of the hidden layer
+          env_type: int
+          optional: true
+          default: 200
+        - environment: parser_batch_size
+          description: batch size used during neural-network training
+          env_type: int
+          optional: true
+          default: 10
+        - environment: parser_learning_rate
+          description: the learning rate used during neural-network training
+          env_type: float
+          optional: true
+          default: 0.02
+        - environment: parser_learning_rate_final
+          description: the final learning rate used during neural-network training
+          env_type: float
+          optional: true
+          default: 0.001
+        - environment: parser_l2
+          description: the L2 regularization used during neural-network training
+          env_type: float
+          optional: true
+          default: 0.5
+        - environment: parser_early_stopping
+          description: perform early stopping, choosing training iteration maximizing
+            LAS on heldout data
+          env_type: bool
+          optional: true
+          default: false
+    services:
+      veld_train:
+        build: .
+        command: /veld/code/train.sh
+        volumes:
+        - ./data/training/input/:/veld/input/
+        - ./data/training/output/:/veld/output/
+        - ./src/main/:/veld/code/
+        environment:
+          train_data_path: null
+          model_path: null
+          tokenizer: true
+          tokenizer_tokenize_url: true
+          tokenizer_allow_spaces: null
+          tokenizer_dimension: 24
+          tokenizer_segment_size: 50
+          tokenizer_epochs: 100
+          tokenizer_batch_size: 50
+          tokenizer_learning_rate: 0.005
+          tokenizer_learning_rate_final: 0
+          tokenizer_dropout: 0.1
+          tokenizer_early_stopping: 1
+          tagger: true
+          tagger_use_lemma: true
+          tagger_provide_lemma: null
+          tagger_use_xpostag: null
+          tagger_provide_xpostag: null
+          tagger_use_feats: null
+          tagger_provide_feats: null
+          tagger_dictionary_max_form_analyses: 0
+          tagger_dictionary_file: null
+          tagger_guesser_suffix_rules: 8
+          tagger_guesser_prefixes_max: 4
+          tagger_guesser_prefix_min_count: 10
+          tagger_guesser_enrich_dictionary: 6
+          tagger_iterations: 20
+          tagger_early_stopping: 0
+          tagger_templates: null
+          parser: true
+          parser_use_gold_tags: null
+          parser_embedding_upostag: 20
+          parser_embedding_feats: 20
+          parser_embedding_xpostag: 0
+          parser_embedding_form: 50
+          parser_embedding_lemma: 0
+          parser_embedding_deprel: 20
+          parser_embedding_form_mincount: 2
+          parser_embedding_lemma_mincount: 2
+          parser_iterations: 10
+          parser_hidden_layer: 200
+          parser_batch_size: 10
+          parser_learning_rate: 0.02
+          parser_learning_rate_final: 0.001
+          parser_l2: 0.5
+          parser_early_stopping: null
+veld_code__wikipedia_nlp_preprocessing___veld_download_and_extract.yaml:
+  url: https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml
+  content:
+    x-veld:
+      code:
+        description: downloading wikipedia archive and extracting each article to
+          a json file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+        outputs:
+        - volume: /veld/output/
+          description: a folder containing json files, where each file contains the
+            contents of a wikipedia article
+          file_type: json
+          contents:
+          - NLP training data
+          - raw text
+        settings:
+        - environment: wikipedia_dump_url
+          description: url to a wikipdedia dump download, from https://dumps.wikimedia.org/
+          env_type: str
+        - environment: out_data_description
+          description: short human description for the data and its purpose, will
+            be persisted in a data veld yaml
+          env_type: str
+          optional: true
+    services:
+      veld_download_and_extract:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        - ./data/wikipedia_json/:/veld/output/:z
+        command: /veld/code/download_and_extract.sh
+        environment:
+          wikipedia_dump_url: null
+          out_data_description: null
+veld_code__wikipedia_nlp_preprocessing___veld_transform_wiki_json_to_txt.yaml:
+  url: https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml
+  content:
+    x-veld:
+      code:
+        description: transforming wikipedia raw jsons to a single txt file.
+        topics:
+        - NLP
+        - Machine Learning
+        - ETL
+        inputs:
+        - volume: /veld/input/
+          description: a folder containing json files, where each file contains the
+            contents of a wikipedia article
+          file_type: json
+          contents:
+          - NLP training data
+          - raw text
+        outputs:
+        - volume: /veld/output/
+          description: single txt file, containing only raw content of wikipedia pagaes,
+            split into sentences or per article with a newline each, possibly being
+            only a sampled subset for testing.
+          environment: out_txt_file
+          file_type: txt
+          contents:
+          - NLP training data
+          - word embeddings training data
+          - raw text
+        settings:
+        - environment: out_data_description
+          description: short human description for the data and its purpose, will
+            be persisted in a data veld yaml
+          env_type: str
+          optional: true
+        - environment: cpu_count
+          description: number of cpu cores to be used for parallel processing
+          env_type: int
+          optional: true
+          default: maximum number of available cpu cores
+        - environment: set_split_sentences
+          description: Should the resulting txt be split by newlines at each sentence
+            boundary? If not, then newlines will be set at the end of each article.
+          env_type: bool
+          optional: true
+          default: false
+        - environment: sample_size_percentage
+          description: As percentage, can be used to transform only a sample of the
+            data, for testing purpose most likely. The sample is randomly picked,
+            and a random seed can also be set with `sample_random_seed`
+          env_type: float
+          optional: true
+          default: 100
+        - environment: sample_random_seed
+          description: a random seed in case a random sample is drawn and its randomness
+            should be fixed.
+          env_type: str
+          optional: true
+          default: null
+        - environment: buffer_segments
+          description: The interval at which progress should be printed. E.g. 100
+            means to print hundred times during processing.
+          env_type: int
+          optional: true
+          default: 100
+    services:
+      veld_transform_wiki_json_to_txt:
+        build: .
+        volumes:
+        - ./src/:/veld/code/:z
+        - ./data/wikipedia_json/:/veld/input/
+        - ./data/wikipedia_txt/:/veld/output/
+        command: python /veld/code/transform_wiki_json_to_txt.py
+        environment:
+          out_txt_file: null
+          out_data_description: null
+          cpu_count: null
+          set_split_sentences: false
+          sample_size_percentage: 100
+          sample_random_seed: null
+          buffer_segments: 100
 veld_code__word2vec___veld_jupyter_notebook.yaml:
   url: https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml
   content:
@@ -1912,6 +2483,79 @@ veld_code__word2vec___veld_jupyter_notebook.yaml:
         - ./src/jupyter_notebook/:/veld/code/:z
         - ./data/input/:/veld/input/:z
         - ./data/output/:/veld/output/:z
+veld_code__word2vec___veld_train.yaml:
+  url: https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      code:
+        description: word2vec training setup
+        topics:
+        - NLP
+        - Machine Learning
+        - word embeddings
+        inputs:
+        - volume: /veld/input/
+          environment: in_train_data_file
+          description: training data. Must be one single txt file, one sentence per
+            line.
+          file_type: txt
+          contents:
+          - NLP training data
+          - word embeddings training data
+          - raw text
+        outputs:
+        - volume: /veld/output/
+          environment: out_model_file
+          description: self trained word embeddings word2vec model
+          file_type: word2vec model
+          contents:
+          - NLP model
+          - word embeddings model
+        settings:
+        - environment: train_data_description
+          description: short human description for the kind of training data
+          env_type: str
+          optional: true
+        - environment: model_description
+          description: short human description for the overall model and its purpose
+          env_type: str
+          optional: true
+        - environment: epochs
+          description: 'word2vec hyperparameter: number of training epochs'
+          env_type: int
+          optional: true
+          default: 50
+        - environment: vector_size
+          description: 'word2vec hyperparameter: number of dimensions of the word
+            vectors'
+          env_type: int
+          default: 200
+        - environment: window
+          description: 'word2vec hyperparameter: number of surrounding context words
+            to be used for training.'
+          env_type: int
+          default: 3
+        - environment: min_count
+          description: 'word2vec hyperparameter: minimal number of occurrence for
+            each word to be used for training.'
+          env_type: int
+          default: 5
+    services:
+      veld_train:
+        build: .
+        command: python /veld/code/train.py
+        volumes:
+        - ./src/train/:/veld/code/:z
+        - ./data/training_data/:/veld/input/:z
+        - ./data/models/:/veld/output/:z
+        environment:
+          in_train_data_file: null
+          out_model_file: null
+          model_description: null
+          epochs: 50
+          vector_size: 200
+          window: 3
+          min_count: 5
 veld_code__wordembeddings_evaluation___veld_analyse_evaluation.yaml:
   url: https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml
   content:

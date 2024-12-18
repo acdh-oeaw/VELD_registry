@@ -513,14 +513,62 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
           - file_type: xml
 - https://github.com/veldhub/veld_code__udpipe
   - [veld_infer.yaml](https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml)
-    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: boolean, at: /x-veld/code/settings/0/env_type/)
+    - valid: True
+    - metadata:
+      - description: udpipe inference setup
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+      - inputs:
+        - 1:
+          - description: txt files to be inferenced on. Note that the environment var `in_txt_file` is optional, and if it is not present, the entire input folder will be processed recursively
+          - file_type: txt
+          - contents: raw text
+        - 2:
+          - file_type: udpipe model
+          - contents: NLP model, tokenizer, lemmatizer
+      - outputs:
+        - 1:
+          - description: The file name of the output conllu is created by the corresponding input txt file, since recursive processing requires such automatic logic
+          - file_type: conllu, tsv
+          - contents: inferenced NLP data, tokenized text, lemmatized text, part of speech of text, universal dependencies of text, grammatically annotated text, linguistic data
   - [veld_train.yaml](https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml)
-    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: boolean, at: /x-veld/code/settings/0/env_type/)
+    - valid: True
+    - metadata:
+      - description: udpipe training setup
+      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
+      - inputs:
+        - 1:
+          - file_type: conllu
+          - contents: tokenized text, enriched text, linguistic data
+      - outputs:
+        - 1:
+          - file_type: udpipe model
+          - contents: NLP model, tokenizer, lemmatizer
 - https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing
   - [veld_download_and_extract.yaml](https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml)
-    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: url, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: url, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: url, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: url, at: /x-veld/code/settings/0/env_type/)
+    - valid: True
+    - metadata:
+      - description: downloading wikipedia archive and extracting each article to a json file.
+      - topics: NLP, Machine Learning, ETL
+      - outputs:
+        - 1:
+          - description: a folder containing json files, where each file contains the contents of a wikipedia article
+          - file_type: json
+          - contents: NLP training data, raw text
   - [veld_transform_wiki_json_to_txt.yaml](https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml)
-    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: string, at: /x-veld/code/settings/0/env_type/)
+    - valid: True
+    - metadata:
+      - description: transforming wikipedia raw jsons to a single txt file.
+      - topics: NLP, Machine Learning, ETL
+      - inputs:
+        - 1:
+          - description: a folder containing json files, where each file contains the contents of a wikipedia article
+          - file_type: json
+          - contents: NLP training data, raw text
+      - outputs:
+        - 1:
+          - description: single txt file, containing only raw content of wikipedia pagaes, split into sentences or per article with a newline each, possibly being only a sampled subset for testing.
+          - file_type: txt
+          - contents: NLP training data, word embeddings training data, raw text
 - https://github.com/veldhub/veld_code__word2vec
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml)
     - valid: True
@@ -536,7 +584,20 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
         - 1:
           - description: arbitrary storage for word2vec experiments
   - [veld_train.yaml](https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml)
-    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: string, at: /x-veld/code/settings/0/env_type/)
+    - valid: True
+    - metadata:
+      - description: word2vec training setup
+      - topics: NLP, Machine Learning, word embeddings
+      - inputs:
+        - 1:
+          - description: training data. Must be one single txt file, one sentence per line.
+          - file_type: txt
+          - contents: NLP training data, word embeddings training data, raw text
+      - outputs:
+        - 1:
+          - description: self trained word embeddings word2vec model
+          - file_type: word2vec model
+          - contents: NLP model, word embeddings model
 - https://github.com/veldhub/veld_code__wordembeddings_evaluation
   - [veld_analyse_evaluation.yaml](https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml)
     - valid: True
