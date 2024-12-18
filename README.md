@@ -23,37 +23,108 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - contents: NER data, inferenced NLP data
 - https://github.com/veldhub/veld_data__amc_we_training_data
   - [203_vert_rftt_inhalt_nodup/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Entire AMC: no metadata, only text, one sentence per line; Created by Hannes Pirker.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Entire AMC: no metadata, only text, one sentence per line, each sentence made unique by ordering AMC sentences alphabetically and removing dupcliates; Created by Hannes Pirker.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Entire AMC: unique sentence data, cleaned from non-alphanumeric junk before 'A' (anything before line number 54,993) and after 'Z' (anything after line number 521,781,020)
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Entire AMC: unique sentences, stripped from non-alphanumeric lines, lowercased.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Entire AMC: unique sentences, stripped from non-alphanumeric lines, lowercased, punctuation removed.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Entire AMC: unique sentences, stripped from non-alphanumeric lines, lowercased, punctuation removed, removed sentences with too many non-alphanumeric characters.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC: stripped from non-alphanumeric lines, 10% sampled.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC: stripped from non-alphanumeric lines, 10% sampled, lowercased.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC: stripped from non-alphanumeric lines, 10% sampled, lowercased, punctuation removed.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
   - [203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/veld.yaml](https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC: stripped from non-alphanumeric lines, 10% sampled, lowercased, punctuation removed, removed sentences with too many non-alphanumeric characters.
+      - topics: NLP
+      - file_type: txt
+      - contents: raw text, newspaper texts
 - https://github.com/veldhub/veld_data__apis_oebl__ner_gold
   - [data_cleaned/veld.yaml](https://github.com/veldhub/veld_data__apis_oebl__ner_gold/blob/main/data_cleaned/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Overlapping entities are removed, index offsets corrected, and duplicates removed. Also texts without any entities are removed too, since it's not known if they don't contain any entities (which often is not true; quite a few of them contain entities) or if the annotators simply didn't go through them (which is more likely, hence they were removed). In the original uncleaned data, some entity types are suffixed with numbers (e.g. `PER-1337`). These were used for identifying entities in a project context, but are probably of less use for NER NLP training. This dataset keeps the identifiers.
+      - topics: NLP, Named entity recognition
+      - file_type: json
+      - contents: gold data, NER gold data, NLP gold data
   - [data_cleaned_simplified/veld.yaml](https://github.com/veldhub/veld_data__apis_oebl__ner_gold/blob/main/data_cleaned_simplified/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: Same as the cleaned data, but with simplified entities (e.g. `PER` instead of `PER-1337`). Probably it's best to use this data set for NER training.
+      - topics: NLP, Named entity recognition
+      - file_type: json
+      - contents: gold data, NER gold data, NLP gold data
   - [data_uncleaned/veld.yaml](https://github.com/veldhub/veld_data__apis_oebl__ner_gold/blob/main/data_uncleaned/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: The original, but united, data coming from APIS / ÖBL.
+      - topics: NLP, Named entity recognition
+      - file_type: json
+      - contents: gold data, NER gold data, NLP gold data
 - https://github.com/veldhub/veld_data__apis_spacy_ner_models
   - [m1/model-best/veld.yaml](https://github.com/veldhub/veld_data__apis_spacy_ner_models/blob/main/m1/model-best/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - file_type: spacy model
+      - contents: spacy model, NLP model
   - [m2/model-best/veld.yaml](https://github.com/veldhub/veld_data__apis_spacy_ner_models/blob/main/m2/model-best/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - file_type: spacy model
+      - contents: spacy model, NLP model
 - https://github.com/veldhub/veld_data__bert_amc_embeddings_db
 - https://github.com/veldhub/veld_data__demo_inference_input_ts-vienna-2024
   - [veld.yaml](https://github.com/veldhub/veld_data__demo_inference_input_ts-vienna-2024/blob/main/veld.yaml)
@@ -81,41 +152,116 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - contents: TEI, annotated literature
 - https://github.com/veldhub/veld_data__fasttext_models
   - [m1/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m1/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: test training
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
   - [m3/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m3/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC model
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
   - [m4/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m4/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC model
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
   - [m5/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m5/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC model
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
   - [m6/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m6/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
   - [m7/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m7/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
   - [m8/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m8/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
   - [m9/veld.yaml](https://github.com/veldhub/veld_data__fasttext_models/blob/main/m9/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - file_type: bin
+      - contents: word embeddings model, fasttext model
 - https://github.com/veldhub/veld_data__glove_models
   - [m1/veld.yaml](https://github.com/veldhub/veld_data__glove_models/blob/main/m1/veld.yaml)
-    - valid: False, is not primitive type, but <class 'list'>, at: /x-veld/data/file_type/
+    - valid: True
+    - metadata:
+      - description: glove test model
+      - file_type: bin, txt
+      - contents: word embeddings model, glove model
   - [m3/veld.yaml](https://github.com/veldhub/veld_data__glove_models/blob/main/m3/veld.yaml)
-    - valid: False, is not primitive type, but <class 'list'>, at: /x-veld/data/file_type/
+    - valid: True
+    - metadata:
+      - description: 1% AMC model
+      - file_type: bin, txt
+      - contents: word embeddings model, glove model
 - https://github.com/veldhub/veld_data__word2vec_models
   - [m3/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m3/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC model
+      - topics: NLP, word embeddings
+      - file_type: bin
+      - contents: word embeddings model, word2vec model
   - [m4/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m4/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC model
+      - topics: NLP, word embeddings
+      - file_type: bin
+      - contents: word embeddings model, word2vec model
   - [m5/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m5/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 10% AMC model
+      - topics: NLP, word embeddings
+      - file_type: bin
+      - contents: word embeddings model, word2vec model
   - [m6/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m6/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - topics: NLP, word embeddings
+      - file_type: bin
+      - contents: word embeddings model, word2vec model
   - [m7/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m7/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - topics: NLP, word embeddings
+      - file_type: bin
+      - contents: word embeddings model, word2vec model
   - [m8/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m8/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - topics: NLP, word embeddings
+      - file_type: bin
+      - contents: word embeddings model, word2vec model
   - [m9/veld.yaml](https://github.com/veldhub/veld_data__word2vec_models/blob/main/m9/veld.yaml)
-    - valid: False, is not primitive type, but <class 'dict'>, at: /x-veld/data/additional/
+    - valid: True
+    - metadata:
+      - description: 100% AMC model
+      - topics: NLP, word embeddings
+      - file_type: bin
+      - contents: word embeddings model, word2vec model
 - https://github.com/veldhub/veld_data__wordembeddings_evaluation
   - [evaluation_gold_data/capitalized/veld.yaml](https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/capitalized/veld.yaml)
     - valid: True
@@ -367,62 +513,14 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
           - file_type: xml
 - https://github.com/veldhub/veld_code__udpipe
   - [veld_infer.yaml](https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml)
-    - valid: True
-    - metadata:
-      - description: udpipe inference setup
-      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
-      - inputs:
-        - 1:
-          - description: txt files to be inferenced on. Note that the environment var `in_txt_file` is optional, and if it is not present, the entire input folder will be processed recursively
-          - file_type: txt
-          - contents: raw text
-        - 2:
-          - file_type: udpipe model
-          - contents: NLP model, tokenizer, lemmatizer
-      - outputs:
-        - 1:
-          - description: The file name of the output conllu is created by the corresponding input txt file, since recursive processing requires such automatic logic
-          - file_type: conllu, tsv
-          - contents: inferenced NLP data, tokenized text, lemmatized text, part of speech of text, universal dependencies of text, grammatically annotated text, linguistic data
+    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: boolean, at: /x-veld/code/settings/0/env_type/)
   - [veld_train.yaml](https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml)
-    - valid: True
-    - metadata:
-      - description: udpipe training setup
-      - topics: NLP, Machine learning, tokenization, lemmatization, part of speech, dependency parsing, universal dependencies, grammatical annotation
-      - inputs:
-        - 1:
-          - file_type: conllu
-          - contents: tokenized text, enriched text, linguistic data
-      - outputs:
-        - 1:
-          - file_type: udpipe model
-          - contents: NLP model, tokenizer, lemmatizer
+    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: boolean, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: boolean, at: /x-veld/code/settings/0/env_type/)
 - https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing
   - [veld_download_and_extract.yaml](https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml)
-    - valid: True
-    - metadata:
-      - description: downloading wikipedia archive and extracting each article to a json file.
-      - topics: NLP, Machine Learning, ETL
-      - outputs:
-        - 1:
-          - description: a folder containing json files, where each file contains the contents of a wikipedia article
-          - file_type: json
-          - contents: NLP training data, raw text
+    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: url, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: url, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: url, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: url, at: /x-veld/code/settings/0/env_type/)
   - [veld_transform_wiki_json_to_txt.yaml](https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml)
-    - valid: True
-    - metadata:
-      - description: transforming wikipedia raw jsons to a single txt file.
-      - topics: NLP, Machine Learning, ETL
-      - inputs:
-        - 1:
-          - description: a folder containing json files, where each file contains the contents of a wikipedia article
-          - file_type: json
-          - contents: NLP training data, raw text
-      - outputs:
-        - 1:
-          - description: single txt file, containing only raw content of wikipedia pagaes, split into sentences or per article with a newline each, possibly being only a sampled subset for testing.
-          - file_type: txt
-          - contents: NLP training data, word embeddings training data, raw text
+    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: string, at: /x-veld/code/settings/0/env_type/)
 - https://github.com/veldhub/veld_code__word2vec
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml)
     - valid: True
@@ -438,20 +536,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
         - 1:
           - description: arbitrary storage for word2vec experiments
   - [veld_train.yaml](https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml)
-    - valid: True
-    - metadata:
-      - description: word2vec training setup
-      - topics: NLP, Machine Learning, word embeddings
-      - inputs:
-        - 1:
-          - description: training data. Must be one single txt file, one sentence per line.
-          - file_type: txt
-          - contents: NLP training data, word embeddings training data, raw text
-      - outputs:
-        - 1:
-          - description: self trained word embeddings word2vec model
-          - file_type: word2vec model
-          - contents: NLP model, word embeddings model
+    - valid: False, all possible options are invalid: (single content mismatch: expected: 'str', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'bool', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'int', found: string, at: /x-veld/code/settings/0/env_type/; single content mismatch: expected: 'float', found: string, at: /x-veld/code/settings/0/env_type/)
 - https://github.com/veldhub/veld_code__wordembeddings_evaluation
   - [veld_analyse_evaluation.yaml](https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml)
     - valid: True
