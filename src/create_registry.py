@@ -106,8 +106,20 @@ def create_md_string(k, v, level):
         k = k + ": "
     if type(v) is list:
         v = ", ".join(v)
+    v = str(v)
     if v != "" and not v.isspace():
         s = " " * level + "- " + k + v + "\n"
+    return s
+
+
+def transform_dict(k, v, level):
+    s = ""
+    if type(v) is not dict:
+        s += create_md_string(k, v, level)
+    else:
+        s += create_md_string("", k + ":", level)
+        for k2, v2 in v.items():
+            s += transform_dict(k2, v2, level + 2)
     return s
 
 
@@ -118,18 +130,18 @@ def handle_metadata(veld, level):
     if md is not None:
         md = list(md.values())[0]
         if md is not None:
-            for k in ["description", "topics", "file_type", "contents"]:
+            for k in ["description", "topic", "file_type", "content"]:
                 v = md.get(k)
                 if v is not None:
-                    content += create_md_string(k, v, level + 2)
-            for k in ["inputs", "outputs"]:
+                    content += transform_dict(k, v, level + 2)
+            for k in ["input", "output"]:
                 v = md.get(k)
                 if type(v) is list:
                     for i, d in enumerate(v):
                         if i == 0:
                             content += create_md_string("", k + ":", level + 2)
                         content += create_md_string("", str(i + 1) + ":", level + 4)
-                        for k2 in ["description", "file_type", "contents"]:
+                        for k2 in ["description", "file_type", "content"]:
                             v2 = d.get(k2)
                             if v2 is not None:
                                 content += create_md_string(k2, v2, level + 6)
