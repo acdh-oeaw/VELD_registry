@@ -9,7 +9,7 @@ x-veld:
     input:
       - volume: /veld/input/model/
         environment_var: in_vector_file
-        file_type: "GloVe vector model"
+        file_type: "GloVe model"
         content:
           - "NLP model"
           - "word embeddings model"

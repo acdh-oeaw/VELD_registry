@@ -1,6 +1,6 @@
 x-veld:
   data:
-    file_type: spacy model
+    file_type: spaCy model
     content:
     - spacy model
     - NLP model

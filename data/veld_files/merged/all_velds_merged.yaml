@@ -457,7 +457,7 @@ veld_data__apis_spacy_ner_models___m1___model-best___veld.yaml:
   content:
     x-veld:
       data:
-        file_type: spacy model
+        file_type: spaCy model
         content:
         - spacy model
         - NLP model
@@ -486,7 +486,7 @@ veld_data__apis_spacy_ner_models___m2___model-best___veld.yaml:
   content:
     x-veld:
       data:
-        file_type: spacy model
+        file_type: spaCy model
         content:
         - spacy model
         - NLP model
@@ -1027,7 +1027,7 @@ veld_code__apis_ner_evaluate_old_models___veld_evaluate.yaml:
           - pickle
           - txt
           - json
-          - spacy model
+          - spaCy model
           content:
           - NER gold data
           - Machine learning model
@@ -1625,21 +1625,21 @@ veld_code__spacy___veld_train.yaml:
         - Machine learning
         input:
         - volume: /veld/input/docbin/
-          file_type: spacy docbin
+          file_type: spaCy docbin
           environment_var: in_train_docbin_file
           content:
           - NLP gold data
           - ML gold data
           - gold data
         - volume: /veld/input/docbin/
-          file_type: spacy docbin
+          file_type: spaCy docbin
           environment_var: in_dev_docbin_file
           content:
           - NLP gold data
           - ML gold data
           - gold data
         - volume: /veld/input/docbin/
-          file_type: spacy docbin
+          file_type: spaCy docbin
           environment_var: in_eval_docbin_file
           content:
           - NLP gold data
@@ -2439,9 +2439,7 @@ veld_code__word2vec___veld_jupyter_notebook.yaml:
           description: arbitrary storage for word2vec experiments
           file_type:
           - word2vec model
-          - training data
-          - NLP training data
-          - raw text
+          - txt
           content:
           - NLP model
           - word embeddings model
@@ -2452,6 +2450,16 @@ veld_code__word2vec___veld_jupyter_notebook.yaml:
         output:
         - volume: /veld/output/
           description: arbitrary storage for word2vec experiments
+          file_type:
+          - word2vec model
+          - txt
+          content:
+          - NLP model
+          - word embeddings model
+          - model metadata
+          - NLP training data
+          - word embeddings training data
+          - raw text
     services:
       veld_jupyter_notebook:
         build: .
@@ -2631,7 +2639,7 @@ veld_code__wordembeddings_evaluation___veld_eval_fasttext.yaml:
         input:
         - volume: /veld/input/model/
           environment_var: in_model_file
-          file_type: fasttext model
+          file_type: fastText model
           content:
           - NLP model
           - word embeddings model
@@ -2679,7 +2687,7 @@ veld_code__wordembeddings_evaluation___veld_eval_glove.yaml:
         input:
         - volume: /veld/input/model/
           environment_var: in_vector_file
-          file_type: GloVe vector model
+          file_type: GloVe model
           content:
           - NLP model
           - word embeddings model

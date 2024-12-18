@@ -9,7 +9,7 @@ x-veld:
     input:
       - volume: /veld/input/model/
         environment_var: in_model_file
-        file_type: "fasttext model"
+        file_type: "fastText model"
         content:
           - "NLP model"
           - "word embeddings model"

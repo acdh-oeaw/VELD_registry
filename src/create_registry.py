@@ -234,12 +234,12 @@ def main():
         "The technical concept for the VELD design can be found here: "
         "https://zenodo.org/records/13318651\n\n"
         "#### sections in this README:\n"
-        "[data velds](#data-velds)\n"
-        "[code velds](#code-velds)\n"
-        "[chain velds](#chain-velds)\n"
-        "[topic vocab](#topic-vocab)\n"
-        "[content vocab](#content-vocab)\n"
-        "[file_type vocab](#file_type-vocab)\n"
+        "[data velds](#data-velds)\n\n"
+        "[code velds](#code-velds)\n\n"
+        "[chain velds](#chain-velds)\n\n"
+        "[topic vocab](#topic-vocab)\n\n"
+        "[content vocab](#content-vocab)\n\n"
+        "[file_type vocab](#file_type-vocab)\n\n"
     )
     
     # crawl over all links

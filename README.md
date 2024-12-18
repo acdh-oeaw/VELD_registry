@@ -6,11 +6,17 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 
 #### sections in this README:
 [data velds](#data-velds)
+
 [code velds](#code-velds)
+
 [chain velds](#chain-velds)
+
 [topic vocab](#topic-vocab)
+
 [content vocab](#content-vocab)
+
 [file_type vocab](#file_type-vocab)
+
 
 ## data velds
 - https://github.com/veldhub/veld_data__akp_ner_linkedcat
@@ -125,12 +131,12 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [m1/model-best/veld.yaml](https://github.com/veldhub/veld_data__apis_spacy_ner_models/blob/main/m1/model-best/veld.yaml)
     - valid: True
     - metadata:
-      - file_type: spacy model
+      - file_type: spaCy model
       - content: spacy model, NLP model
   - [m2/model-best/veld.yaml](https://github.com/veldhub/veld_data__apis_spacy_ner_models/blob/main/m2/model-best/veld.yaml)
     - valid: True
     - metadata:
-      - file_type: spacy model
+      - file_type: spaCy model
       - content: spacy model, NLP model
 - https://github.com/veldhub/veld_data__bert_amc_embeddings_db
 - https://github.com/veldhub/veld_data__demo_inference_input_ts-vienna-2024
@@ -300,7 +306,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - input:
         - 1:
           - description: This input is hard-wired to the apis spacy-ner repo and not made for generic usage.
-          - file_type: pickle, txt, json, spacy model
+          - file_type: pickle, txt, json, spaCy model
           - content: NER gold data, Machine learning model, NLP model
       - output:
         - 1:
@@ -451,13 +457,13 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topic: NLP, Machine learning
       - input:
         - 1:
-          - file_type: spacy docbin
+          - file_type: spaCy docbin
           - content: NLP gold data, ML gold data, gold data
         - 2:
-          - file_type: spacy docbin
+          - file_type: spaCy docbin
           - content: NLP gold data, ML gold data, gold data
         - 3:
-          - file_type: spacy docbin
+          - file_type: spaCy docbin
           - content: NLP gold data, ML gold data, gold data
         - 4:
           - description: See https://spacy.io/usage/training/#config
@@ -578,11 +584,13 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - input:
         - 1:
           - description: arbitrary storage for word2vec experiments
-          - file_type: word2vec model, training data, NLP training data, raw text
+          - file_type: word2vec model, txt
           - content: NLP model, word embeddings model, model metadata, NLP training data, word embeddings training data, raw text
       - output:
         - 1:
           - description: arbitrary storage for word2vec experiments
+          - file_type: word2vec model, txt
+          - content: NLP model, word embeddings model, model metadata, NLP training data, word embeddings training data, raw text
   - [veld_train.yaml](https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml)
     - valid: True
     - metadata:
@@ -644,7 +652,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topic: NLP, Machine learning, evaluation
       - input:
         - 1:
-          - file_type: fasttext model
+          - file_type: fastText model
           - content: NLP model, word embeddings model
         - 2:
           - file_type: yaml
@@ -665,7 +673,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topic: NLP, Machine learning, evaluation
       - input:
         - 1:
-          - file_type: GloVe vector model
+          - file_type: GloVe model
           - content: NLP model, word embeddings model
         - 2:
           - file_type: yaml
@@ -1137,25 +1145,20 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 
 ## file_type vocab
 - GloVe model
-- GloVe vector model
-- NLP training data
 - bin
 - cfg
 - conllu
 - csv
 - fastText model
-- fasttext model
 - html
 - ini
 - json
 - md
 - pickle
 - png
-- raw text
+- spaCy docbin
 - spaCy model
 - spacy docbin
-- spacy model
-- training data
 - tsv
 - txt
 - udpipe model
