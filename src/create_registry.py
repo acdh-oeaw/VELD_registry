@@ -165,6 +165,7 @@ def crawl_all(link_txt_path, all_velds):
                     f_out.write(veld["item_content"])
                 veld_url = repo_url + "/blob/main/" + veld["path"]
                 print("found veld url:", veld_url)
+                print(f"valid: {veld['validation_result'][0]}")
                 content += f"  - [{veld['path']}]({veld_url})\n"
                 if veld["validation_result"][0]:
                     validate_message = "True"
