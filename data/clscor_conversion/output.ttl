@@ -81,21 +81,21 @@
 
 <https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Dependency_Parsing>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Grammatical_Annotation>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Lemmatization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Part_Of_Speech>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Tokenization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Universal_Dependencies> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Dependency_Parsing>,
+        <https://clscor.io/entity/type/method/Grammatical_Annotation>,
+        <https://clscor.io/entity/type/method/Lemmatization>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Part_Of_Speech>,
+        <https://clscor.io/entity/type/method/Tokenization>,
+        <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu> .
 
 <https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/md> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Named_Entity_Recognition> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Named_Entity_Recognition> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/pickle>,
         <https://clscor.io/entity/type/format/spaCy_model>,
@@ -104,8 +104,8 @@
 <https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Data_Cleaning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Data_Cleaning>,
+        <https://clscor.io/entity/type/method/ETL> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/pickle>,
         <https://clscor.io/entity/type/format/txt> .
@@ -113,232 +113,232 @@
 <https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> a crmcls:X12_Tool .
 
 <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL> .
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL> .
 
 <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> a crmcls:X12_Tool ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> .
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> .
 
 <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/fastText_model> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> a crmcls:X12_Tool ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> .
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> .
 
 <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/GloVe_model> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml> a crmcls:X12_Tool .
 
 <https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Testing> .
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Testing> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/spaCy_docbin>,
         <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/cfg> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> .
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml> a crmcls:X12_Tool ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/spaCy_model> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/spaCy_model>,
         <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/cfg>,
         <https://clscor.io/entity/type/format/spaCy_docbin> .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_parseudpipe.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Tokenization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Universal_Dependencies> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Tokenization>,
+        <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Tokenization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Universal_Dependencies> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Tokenization>,
+        <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Tokenization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Universal_Dependencies> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Tokenization>,
+        <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/conllu>,
         <https://clscor.io/entity/type/format/tsv> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Dependency_Parsing>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Grammatical_Annotation>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Lemmatization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Part_Of_Speech>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Tokenization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Universal_Dependencies> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Dependency_Parsing>,
+        <https://clscor.io/entity/type/method/Grammatical_Annotation>,
+        <https://clscor.io/entity/type/method/Lemmatization>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Part_Of_Speech>,
+        <https://clscor.io/entity/type/method/Tokenization>,
+        <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/udpipe_model> .
 
 <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/udpipe_model> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Dependency_Parsing>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Grammatical_Annotation>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Lemmatization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Part_Of_Speech>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Tokenization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Universal_Dependencies> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Dependency_Parsing>,
+        <https://clscor.io/entity/type/method/Grammatical_Annotation>,
+        <https://clscor.io/entity/type/method/Lemmatization>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Part_Of_Speech>,
+        <https://clscor.io/entity/type/method/Tokenization>,
+        <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu> .
 
 <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> .
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> .
 
 <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json> .
 
 <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/word2vec_model> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/word2vec_model> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/html>,
         <https://clscor.io/entity/type/format/png> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Data_Visualization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Data_Visualization>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/html>,
         <https://clscor.io/entity/type/format/png> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Data_Visualization>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Word_Embeddings> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Data_Visualization>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Word_Embeddings> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Evaluation>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Evaluation>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/fastText_model>,
         <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Evaluation>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Evaluation>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/GloVe_model>,
         <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/Evaluation>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Machine_Learning>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Evaluation>,
+        <https://clscor.io/entity/type/method/Machine_Learning>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/word2vec_model>,
         <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_clean.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Preprocessing> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Preprocessing> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Preprocessing> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Preprocessing> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Preprocessing> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Preprocessing> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_sample.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Preprocessing> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Preprocessing> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_strip.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Preprocessing> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP>,
+        <https://clscor.io/entity/type/method/Preprocessing> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/Preprocessing> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/Preprocessing> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml>,
         <https://clscor.io/entity/type/format/xslt> .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu>,
         <https://clscor.io/entity/type/format/ini>,
         <https://clscor.io/entity/type/format/tsv>,
@@ -346,29 +346,29 @@
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/conllu>,
         <https://clscor.io/entity/type/format/tsv> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/ontologies/CRMcls/X6_METHOD/ETL>,
-        <https://clscor.io/ontologies/CRMcls/X6_METHOD/NLP> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/ETL>,
+        <https://clscor.io/entity/type/method/NLP> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/ini>,
         <https://clscor.io/entity/type/format/xml> .
 

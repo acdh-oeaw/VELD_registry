@@ -100,7 +100,7 @@ def _get_topic(veld_data):
         if type(topics) is list and topics != [] and topics is not None:
             for t in topics:
                 if t != "":
-                    result.append(CRMCLS["X6_METHOD/" + t.replace(" ", "_")])
+                    result.append(CRM_METHOD[t.replace(" ", "_")])
     return result
 
 
@@ -136,7 +136,7 @@ def _transform_file_type(file_type_data):
     if type(file_type_data) is str:
         file_type_data = [file_type_data]
     return [
-        URIRef("https://clscor.io/entity/type/format/" + ft.replace(" ", "_"))
+        CRM_FORMAT[ft.replace(" ", "_")]
         for ft in file_type_data
     ]
 
