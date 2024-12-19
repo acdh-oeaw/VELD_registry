@@ -3,7 +3,7 @@ x-veld:
     description: "evaluate glove model against evaluation gold data"
     topic: 
       - "NLP"
-      - "evaluation"
+      - "Evaluation"
 
 services:
   veld_eval_glove:

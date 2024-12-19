@@ -4,7 +4,7 @@ x-veld:
     description: "A single conllu file, used to train a updipe model as a demonstration"
     topic:
       - NLP
-      - universal dependencies
+      - Universal Dependencies
     content:
       - linguistically enriched text
       - tokenized text

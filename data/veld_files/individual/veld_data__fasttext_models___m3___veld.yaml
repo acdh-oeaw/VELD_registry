@@ -4,7 +4,7 @@ x-veld:
     file_type: fastText model
     topic:
       - NLP
-      - word embeddings
+      - Word Embeddings
     additional:
       model_id: m3
       train_data_description: 'AMC data: stripped from non-alphanumeric lines, 10%

@@ -3,8 +3,8 @@ x-veld:
     description: "custom evaluation logic on word2vec word embeddings."
     topic:
       - "NLP"
-      - "Machine learning"
-      - "evaluation"
+      - "Machine Learning"
+      - "Evaluation"
 
     input:
       - volume: /veld/input/model/

@@ -3,13 +3,13 @@ x-veld:
     description: "udpipe inference setup"
     topic: 
       - "NLP"
-      - "Machine learning"
-      - "tokenization"
-      - "lemmatization"
-      - "part of speech"
-      - "dependency parsing"
-      - "universal dependencies"
-      - "grammatical annotation"
+      - "Machine Learning"
+      - "Tokenization"
+      - "Lemmatization"
+      - "Part Of Speech"
+      - "Dependency Parsing"
+      - "Universal Dependencies"
+      - "Grammatical Annotation"
 
     input:
       - volume: /veld/input/txt/
@@ -38,8 +38,8 @@ x-veld:
           - "inferenced NLP data"
           - "tokenized text"
           - "lemmatized text"
-          - "part of speech of text"
-          - "universal dependencies of text"
+          - "Part Of Speech of text"
+          - "Universal Dependencies of text"
           - "grammatically annotated text"
           - "linguistic data"
 

@@ -3,13 +3,13 @@ x-veld:
     description: "udpipe training setup"
     topic:
       - "NLP"
-      - "Machine learning"
-      - "tokenization"
-      - "lemmatization"
-      - "part of speech"
-      - "dependency parsing"
-      - "universal dependencies"
-      - "grammatical annotation"
+      - "Machine Learning"
+      - "Tokenization"
+      - "Lemmatization"
+      - "Part Of Speech"
+      - "Dependency Parsing"
+      - "Universal Dependencies"
+      - "Grammatical Annotation"
 
     input:
       - volume: /veld/input/

@@ -3,8 +3,8 @@ x-veld:
     description: "A NER trainig setup, utilizing spaCy 3's config system."
     topic:
       - "NLP"
-      - "Machine learning"
-      - "Named entity recognition"
+      - "Machine Learning"
+      - "Named Entity Recognition"
 
 services:
   veld_train:

@@ -4,13 +4,13 @@ x-veld:
       corpora."
     topic:
       - "NLP"
-      - "Machine learning"
-      - "tokenization"
-      - "lemmatization"
-      - "part of speech"
-      - "dependency parsing"
-      - "universal dependencies"
-      - "grammatical annotation"
+      - "Machine Learning"
+      - "Tokenization"
+      - "Lemmatization"
+      - "Part Of Speech"
+      - "Dependency Parsing"
+      - "Universal Dependencies"
+      - "Grammatical Annotation"
 
 services:
   veld_analyse:

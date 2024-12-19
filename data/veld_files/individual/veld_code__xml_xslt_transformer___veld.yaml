@@ -3,7 +3,7 @@ x-veld:
     description: "generic xml / xslt transformation setup."
     topic: 
       - "ETL"
-      - "preprocessing"
+      - "Preprocessing"
 
     input:
       - volume: /veld/input/xml/

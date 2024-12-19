@@ -4,8 +4,8 @@ x-veld:
       functions to use them."
     topic:
       - "NLP"
-      - "Machine learning"
-      - "word embeddings"
+      - "Machine Learning"
+      - "Word Embeddings"
 
 services:
   veld_jupyter_notebook:

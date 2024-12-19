@@ -3,7 +3,7 @@ x-veld:
     description: "chain of analysing and evaluating models trained on wikipedia"
     topic: 
       - "NLP"
-      - "evaluation"
+      - "Evaluation"
 
 services:
   veld_analyse_evaluation:

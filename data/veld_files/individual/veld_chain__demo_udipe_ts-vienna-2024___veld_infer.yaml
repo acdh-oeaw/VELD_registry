@@ -4,7 +4,7 @@ x-veld:
       model"
     topic:
     - NLP
-    - universal dependencies
+    - Universal Dependencies
 
 services:
   veld_infer:

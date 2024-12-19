@@ -3,7 +3,7 @@ x-veld:
     description: "evaluate word2vec model against evaluation gold data"
     topic: 
       - "NLP"
-      - "evaluation"
+      - "Evaluation"
 
 services:
   veld_eval_word2vec:

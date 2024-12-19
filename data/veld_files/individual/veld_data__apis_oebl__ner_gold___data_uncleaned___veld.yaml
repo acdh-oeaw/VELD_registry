@@ -8,7 +8,7 @@ x-veld:
     - NLP gold data
     topic:
     - NLP
-    - Named entity recognition
+    - Named Entity Recognition
     additional:
       total count of entities: 27729
       individual count of entities:

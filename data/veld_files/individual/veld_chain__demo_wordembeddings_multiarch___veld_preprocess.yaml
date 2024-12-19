@@ -4,7 +4,7 @@ x-veld:
     topic:
       - "ETL"
       - "NLP"
-      - "bible studies"
+      - "Bible Studies"
 
 services:
   veld_downloader:

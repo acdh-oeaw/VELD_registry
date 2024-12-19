@@ -4,7 +4,7 @@ x-veld:
     file_type: word2vec model
     topic:
     - NLP
-    - word embeddings
+    - Word Embeddings
     additional:
       model_id: m7
       training_architecture: word2vec

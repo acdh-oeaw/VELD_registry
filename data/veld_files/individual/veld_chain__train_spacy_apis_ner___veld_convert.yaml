@@ -4,7 +4,7 @@ x-veld:
     topic:
       - "ETL"
       - "NLP"
-      - "Machine learning"
+      - "Machine Learning"
 
 services:
   veld_convert:

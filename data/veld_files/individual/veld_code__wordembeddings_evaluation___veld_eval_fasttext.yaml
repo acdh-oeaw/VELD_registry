@@ -3,8 +3,8 @@ x-veld:
     description: "custom evaluation logic on fasttext word embeddings."
     topic:
       - "NLP"
-      - "Machine learning"
-      - "evaluation"
+      - "Machine Learning"
+      - "Evaluation"
 
     input:
       - volume: /veld/input/model/
@@ -12,7 +12,7 @@ x-veld:
         file_type: "fastText model"
         content:
           - "NLP model"
-          - "word embeddings model"
+          - "Word Embeddings model"
       - volume: /veld/input/model/
         environment_var: in_model_metadata_file
         file_type: "yaml"

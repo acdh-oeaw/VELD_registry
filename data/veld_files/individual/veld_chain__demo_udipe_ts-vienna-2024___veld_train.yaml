@@ -3,7 +3,7 @@ x-veld:
     description: "A demonstration of a VELD chain training a udpipe model from scratch"
     topic:
     - NLP
-    - universal dependencies
+    - Universal Dependencies
 
 services:
   veld_train:

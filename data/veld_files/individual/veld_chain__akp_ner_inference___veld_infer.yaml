@@ -4,8 +4,8 @@ x-veld:
       entities, which are stored in csv files."
     topic:
       - "NLP"
-      - "Machine learning"
-      - "Named entity recognition"
+      - "Machine Learning"
+      - "Named Entity Recognition"
 
 services:
   veld_infer:

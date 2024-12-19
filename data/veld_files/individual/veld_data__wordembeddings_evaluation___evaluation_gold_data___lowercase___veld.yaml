@@ -4,7 +4,7 @@ x-veld:
       lowercase."
     topic:
       - "NLP"
-      - "word embeddings"
+      - "Word Embeddings"
     file_type: "yaml"
     content:
       - "evaluation data"

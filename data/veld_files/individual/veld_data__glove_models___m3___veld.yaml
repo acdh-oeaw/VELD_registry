@@ -7,7 +7,7 @@ x-veld:
       - txt
     topic:
       - NLP
-      - word embeddings
+      - Word Embeddings
     additional:
       model_id: m3
       train_data_description: 1% of AMC

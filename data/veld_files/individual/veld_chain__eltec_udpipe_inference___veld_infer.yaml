@@ -3,13 +3,13 @@ x-veld:
     description: "udpipe inference setup, reading in preprocessed ELTeC data"
     topic:
       - "NLP"
-      - "Machine learning"
-      - "tokenization"
-      - "lemmatization"
-      - "part of speech"
-      - "dependency parsing"
-      - "universal dependencies"
-      - "grammatical annotation"
+      - "Machine Learning"
+      - "Tokenization"
+      - "Lemmatization"
+      - "Part Of Speech"
+      - "Dependency Parsing"
+      - "Universal Dependencies"
+      - "Grammatical Annotation"
 
 # define some variables here once, so that following services can reuse it
 x-vars: 

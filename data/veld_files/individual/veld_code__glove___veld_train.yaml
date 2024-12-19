@@ -4,8 +4,8 @@ x-veld:
       https://github.com/stanfordnlp/GloVe/tree/master"
     topic:
       - "NLP"
-      - "Machine learning"
-      - "word embeddings"
+      - "Machine Learning"
+      - "Word Embeddings"
 
     input:
       - volume: /veld/input/
@@ -20,25 +20,25 @@ x-veld:
         file_type: "GloVe model"
         content:
           - "NLP model"
-          - "word embeddings model"
+          - "Word Embeddings model"
       - volume: /veld/output/
         environment_var: out_cooccurrence_file
         file_type: "GloVe model"
         content:
           - "NLP model"
-          - "word embeddings model"
+          - "Word Embeddings model"
       - volume: /veld/output/
         environment_var: out_cooccurrence_shuf_file
         file_type: "GloVe model"
         content:
           - "NLP model"
-          - "word embeddings model"
+          - "Word Embeddings model"
       - volume: /veld/output/
         environment_var: out_vector_file
         file_type: "GloVe model"
         content:
           - "NLP model"
-          - "word embeddings model"
+          - "Word Embeddings model"
 
     config:
       - environment_var: verbose

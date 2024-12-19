@@ -213,7 +213,7 @@ veld_data__apis_oebl__ner_gold___data_cleaned___veld.yaml:
         - NLP gold data
         topic:
         - NLP
-        - Named entity recognition
+        - Named Entity Recognition
         additional:
           total count of entities: 26364
           individual count of entities:
@@ -330,7 +330,7 @@ veld_data__apis_oebl__ner_gold___data_cleaned_simplified___veld.yaml:
         - NLP gold data
         topic:
         - NLP
-        - Named entity recognition
+        - Named Entity Recognition
         additional:
           total count of entities: 14313
           individual count of entities:
@@ -350,7 +350,7 @@ veld_data__apis_oebl__ner_gold___data_uncleaned___veld.yaml:
         - NLP gold data
         topic:
         - NLP
-        - Named entity recognition
+        - Named Entity Recognition
         additional:
           total count of entities: 27729
           individual count of entities:
@@ -520,7 +520,7 @@ veld_data__demo_inference_input_ts-vienna-2024___veld.yaml:
           updipe model as a demonstration
         topic:
         - NLP
-        - universal dependencies
+        - Universal Dependencies
         content:
         - raw text
 veld_data__demo_train_data_ts-vienna-2024___veld.yaml:
@@ -532,7 +532,7 @@ veld_data__demo_train_data_ts-vienna-2024___veld.yaml:
         description: A single conllu file, used to train a updipe model as a demonstration
         topic:
         - NLP
-        - universal dependencies
+        - Universal Dependencies
         content:
         - linguistically enriched text
         - tokenized text
@@ -557,7 +557,7 @@ veld_data__fasttext_models___m1___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m1
           train_data_description: sample wikipedia, single txt, one sentence per line,
@@ -579,7 +579,7 @@ veld_data__fasttext_models___m3___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m3
           train_data_description: 'AMC data: stripped from non-alphanumeric lines,
@@ -602,7 +602,7 @@ veld_data__fasttext_models___m4___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m4
           train_data_description: 'AMC data: stripped from non-alphanumeric lines,
@@ -625,7 +625,7 @@ veld_data__fasttext_models___m5___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m5
           train_data_description: 'AMC data: stripped from non-alphanumeric lines,
@@ -648,7 +648,7 @@ veld_data__fasttext_models___m6___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m6
           train_data_description: null
@@ -669,7 +669,7 @@ veld_data__fasttext_models___m7___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m7
           train_data_description: null
@@ -690,7 +690,7 @@ veld_data__fasttext_models___m8___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m8
           train_data_description: null
@@ -711,7 +711,7 @@ veld_data__fasttext_models___m9___veld.yaml:
         file_type: fastText model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m9
           train_data_description: 'Entire AMC: unique sentences, stripped from non-alphanumeric
@@ -737,7 +737,7 @@ veld_data__glove_models___m1___veld.yaml:
         - txt
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m1
           train_data_description: sample wikipedia, single txt, one article per line,
@@ -768,7 +768,7 @@ veld_data__glove_models___m3___veld.yaml:
         - txt
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m3
           train_data_description: 1% of AMC
@@ -795,7 +795,7 @@ veld_data__word2vec_models___m3___veld.yaml:
         file_type: word2vec model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m3
           training_architecture: word2vec
@@ -819,7 +819,7 @@ veld_data__word2vec_models___m4___veld.yaml:
         file_type: word2vec model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m4
           training_architecture: word2vec
@@ -843,7 +843,7 @@ veld_data__word2vec_models___m5___veld.yaml:
         file_type: word2vec model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m5
           training_architecture: word2vec
@@ -867,7 +867,7 @@ veld_data__word2vec_models___m6___veld.yaml:
         file_type: word2vec model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m6
           training_architecture: word2vec
@@ -889,7 +889,7 @@ veld_data__word2vec_models___m7___veld.yaml:
         file_type: word2vec model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m7
           training_architecture: word2vec
@@ -911,7 +911,7 @@ veld_data__word2vec_models___m8___veld.yaml:
         file_type: word2vec model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m8
           training_architecture: word2vec
@@ -933,7 +933,7 @@ veld_data__word2vec_models___m9___veld.yaml:
         file_type: word2vec model
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         additional:
           model_id: m9
           training_architecture: word2vec
@@ -957,7 +957,7 @@ veld_data__wordembeddings_evaluation___evaluation_gold_data___capitalized___veld
           Words are capitalized.
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         file_type: yaml
         content:
         - evaluation data
@@ -971,7 +971,7 @@ veld_data__wordembeddings_evaluation___evaluation_gold_data___lowercase___veld.y
           Words are all lowercase.
         topic:
         - NLP
-        - word embeddings
+        - Word Embeddings
         file_type: yaml
         content:
         - evaluation data
@@ -984,13 +984,13 @@ veld_code__analyse_conllu___veld.yaml:
         description: ''
         topic:
         - NLP
-        - Machine learning
-        - tokenization
-        - lemmatization
-        - part of speech
-        - dependency parsing
-        - universal dependencies
-        - grammatical annotation
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part of speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
         input:
         - volume: /veld/input/
           file_type: conllu
@@ -1017,8 +1017,8 @@ veld_code__apis_ner_evaluate_old_models___veld_evaluate.yaml:
         description: hard-coded evaluation of several spaCy2.2.4 models.
         topic:
         - NLP
-        - Machine learning
-        - Named entity recognition
+        - Machine Learning
+        - Named Entity Recognition
         input:
         - volume: /veld/input/
           description: This input is hard-wired to the apis spacy-ner repo and not
@@ -1030,7 +1030,7 @@ veld_code__apis_ner_evaluate_old_models___veld_evaluate.yaml:
           - spaCy model
           content:
           - NER gold data
-          - Machine learning model
+          - Machine Learning model
           - NLP model
         output:
         - volume: /veld/output/
@@ -1054,7 +1054,7 @@ veld_code__apis_ner_transform_to_gold___veld.yaml:
         description: hard-coded conversion of apis ner models to custom json format.
         topic:
         - ETL
-        - data cleaning
+        - Data Cleaning
         input:
         - volume: /veld/input/
           description: This input is hard-wired to the apis spacy-ner repo and not
@@ -1145,7 +1145,7 @@ veld_code__fasttext___veld_jupyter_notebook.yaml:
         topic:
         - NLP
         - Machine Learning
-        - word embeddings
+        - Word Embeddings
     services:
       veld_jupyter_notebook:
         build: .
@@ -1164,7 +1164,7 @@ veld_code__fasttext___veld_train.yaml:
         topic:
         - NLP
         - Machine Learning
-        - word embeddings
+        - Word Embeddings
         input:
         - volume: /veld/input/
           file_type: txt
@@ -1175,9 +1175,7 @@ veld_code__fasttext___veld_train.yaml:
         - volume: /veld/output/
           file_type: fastText model
           environment_var: out_model_file
-          content:
-          - NLP model
-          - word embeddings model
+          content: Word Embeddings
         config:
         - environment_var: vector_size
           description: 'hyperparameter: the dimension of the vectors to be trained.'
@@ -1215,8 +1213,8 @@ veld_code__glove___veld_jupyter_notebook.yaml:
           convenient functions to use them.
         topic:
         - NLP
-        - Machine learning
-        - word embeddings
+        - Machine Learning
+        - Word Embeddings
     services:
       veld_jupyter_notebook:
         build: .
@@ -1234,8 +1232,8 @@ veld_code__glove___veld_train.yaml:
         description: This code repo encapsulates the original code from https://github.com/stanfordnlp/GloVe/tree/master
         topic:
         - NLP
-        - Machine learning
-        - word embeddings
+        - Machine Learning
+        - Word Embeddings
         input:
         - volume: /veld/input/
           environment_var: in_corpus_file
@@ -1248,25 +1246,25 @@ veld_code__glove___veld_train.yaml:
           file_type: GloVe model
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
         - volume: /veld/output/
           environment_var: out_cooccurrence_file
           file_type: GloVe model
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
         - volume: /veld/output/
           environment_var: out_cooccurrence_shuf_file
           file_type: GloVe model
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
         - volume: /veld/output/
           environment_var: out_vector_file
           file_type: GloVe model
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
         config:
         - environment_var: verbose
           var_type: int
@@ -1364,7 +1362,7 @@ veld_code__spacy___veld_convert.yaml:
         topic:
         - ETL
         - NLP
-        - Machine learning
+        - Machine Learning
         input:
         - volume: /veld/input/
           file_type: json
@@ -1430,7 +1428,7 @@ veld_code__spacy___veld_create_config.yaml:
           The output is ai config file used for training; see more here: https://spacy.io/usage/training/#config'
         topic:
         - NLP
-        - Machine learning
+        - Machine Learning
         output:
         - volume: /veld/output/
           file_type: cfg
@@ -1622,7 +1620,7 @@ veld_code__spacy___veld_train.yaml:
         description: A spacy trainig setup, utilizing spacy v3's config system.
         topic:
         - NLP
-        - Machine learning
+        - Machine Learning
         input:
         - volume: /veld/input/docbin/
           file_type: spaCy docbin
@@ -1697,8 +1695,8 @@ veld_code__teitok-tools___veld_parseudpipe.yaml:
         topic:
         - NLP
         - ETL
-        - tokenization
-        - universal dependencies
+        - Tokenization
+        - Universal Dependencies
         input:
         - volume: /veld/input/
           file_type: xml
@@ -1763,8 +1761,8 @@ veld_code__teitok-tools___veld_udpipe2teitok.yaml:
         topic:
         - NLP
         - ETL
-        - tokenization
-        - universal dependencies
+        - Tokenization
+        - Universal Dependencies
         input:
         - volume: /veld/input/
           file_type: txt
@@ -1809,8 +1807,8 @@ veld_code__teitok-tools___veld_xmltokenize.yaml:
         topic:
         - NLP
         - ETL
-        - tokenization
-        - universal dependencies
+        - Tokenization
+        - Universal Dependencies
         input:
         - volume: /veld/input/
           file_type: xml
@@ -1860,13 +1858,13 @@ veld_code__udpipe___veld_infer.yaml:
         description: udpipe inference setup
         topic:
         - NLP
-        - Machine learning
-        - tokenization
-        - lemmatization
-        - part of speech
-        - dependency parsing
-        - universal dependencies
-        - grammatical annotation
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
         input:
         - volume: /veld/input/txt/
           environment_var: in_txt_file
@@ -1894,8 +1892,8 @@ veld_code__udpipe___veld_infer.yaml:
           - inferenced NLP data
           - tokenized text
           - lemmatized text
-          - part of speech of text
-          - universal dependencies of text
+          - Part Of Speech of text
+          - Universal Dependencies of text
           - grammatically annotated text
           - linguistic data
         config:
@@ -1978,13 +1976,13 @@ veld_code__udpipe___veld_train.yaml:
         description: udpipe training setup
         topic:
         - NLP
-        - Machine learning
-        - tokenization
-        - lemmatization
-        - part of speech
-        - dependency parsing
-        - universal dependencies
-        - grammatical annotation
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
         input:
         - volume: /veld/input/
           environment_var: train_data_path
@@ -2356,7 +2354,7 @@ veld_code__wikipedia_nlp_preprocessing___veld_transform_wiki_json_to_txt.yaml:
         input:
         - volume: /veld/input/
           description: a folder containing json files, where each file contains the
-            content of a wikipedia article
+            contents of a wikipedia article
           file_type: json
           content:
           - NLP training data
@@ -2370,7 +2368,7 @@ veld_code__wikipedia_nlp_preprocessing___veld_transform_wiki_json_to_txt.yaml:
           file_type: txt
           content:
           - NLP training data
-          - word embeddings training data
+          - Word Embeddings training data
           - raw text
         config:
         - environment_var: out_data_description
@@ -2433,7 +2431,7 @@ veld_code__word2vec___veld_jupyter_notebook.yaml:
         topic:
         - NLP
         - Machine Learning
-        - word embeddings
+        - Word Embeddings
         input:
         - volume: /veld/input/
           description: arbitrary storage for word2vec experiments
@@ -2442,10 +2440,10 @@ veld_code__word2vec___veld_jupyter_notebook.yaml:
           - txt
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
           - model metadata
           - NLP training data
-          - word embeddings training data
+          - Word Embeddings training data
           - raw text
         output:
         - volume: /veld/output/
@@ -2455,10 +2453,10 @@ veld_code__word2vec___veld_jupyter_notebook.yaml:
           - txt
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
           - model metadata
           - NLP training data
-          - word embeddings training data
+          - Word Embeddings training data
           - raw text
     services:
       veld_jupyter_notebook:
@@ -2479,7 +2477,7 @@ veld_code__word2vec___veld_train.yaml:
         topic:
         - NLP
         - Machine Learning
-        - word embeddings
+        - Word Embeddings
         input:
         - volume: /veld/input/
           environment_var: in_train_data_file
@@ -2488,16 +2486,16 @@ veld_code__word2vec___veld_train.yaml:
           file_type: txt
           content:
           - NLP training data
-          - word embeddings training data
+          - Word Embeddings training data
           - raw text
         output:
         - volume: /veld/output/
           environment_var: out_model_file
-          description: self trained word embeddings word2vec model
+          description: self trained Word Embeddings word2vec model
           file_type: word2vec model
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
         config:
         - environment_var: train_data_description
           description: short human description for the kind of training data
@@ -2551,14 +2549,14 @@ veld_code__wordembeddings_evaluation___veld_analyse_evaluation.yaml:
         description: data visualization of all evaluation data. In a jupyter notebook.
         topic:
         - NLP
-        - word embeddings
-        - data visualization
+        - Word Embeddings
+        - Data Visualization
         input:
         - volume: /veld/
           environment_var: in_evaluation_summary_file
           description: summary of the custom evaluation logic on word embeddings
           file_type: yaml
-          content: evaluation data
+          content: Evaluation data
         output:
         - volume: /veld/output/
           environment_var: out_visualization_html_file
@@ -2634,15 +2632,15 @@ veld_code__wordembeddings_evaluation___veld_eval_fasttext.yaml:
         description: custom evaluation logic on fasttext word embeddings.
         topic:
         - NLP
-        - Machine learning
-        - evaluation
+        - Machine Learning
+        - Evaluation
         input:
         - volume: /veld/input/model/
           environment_var: in_model_file
           file_type: fastText model
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
         - volume: /veld/input/model/
           environment_var: in_model_metadata_file
           file_type: yaml
@@ -2682,15 +2680,15 @@ veld_code__wordembeddings_evaluation___veld_eval_glove.yaml:
         description: custom evaluation logic on GloVe word embeddings.
         topic:
         - NLP
-        - Machine learning
-        - evaluation
+        - Machine Learning
+        - Evaluation
         input:
         - volume: /veld/input/model/
           environment_var: in_vector_file
           file_type: GloVe model
           content:
           - NLP model
-          - word embeddings model
+          - Word Embeddings model
         - volume: /veld/input/model/
           environment_var: in_model_metadata_file
           file_type: yaml
@@ -2735,8 +2733,8 @@ veld_code__wordembeddings_evaluation___veld_eval_word2vec.yaml:
         description: custom evaluation logic on word2vec word embeddings.
         topic:
         - NLP
-        - Machine learning
-        - evaluation
+        - Machine Learning
+        - Evaluation
         input:
         - volume: /veld/input/model/
           environment_var: in_model_file
@@ -2790,7 +2788,7 @@ veld_code__wordembeddings_preprocessing___veld_preprocess_clean.yaml:
           Splits output into clean and dirty file.
         topic:
         - NLP
-        - preprocessing
+        - Preprocessing
         - ETL
         input:
         - volume: /veld/input/
@@ -2858,7 +2856,7 @@ veld_code__wordembeddings_preprocessing___veld_preprocess_lowercase.yaml:
         description: makes entire text lowercase
         topic:
         - NLP
-        - preprocessing
+        - Preprocessing
         - ETL
         input:
         - volume: /veld/input/
@@ -2893,7 +2891,7 @@ veld_code__wordembeddings_preprocessing___veld_preprocess_remove_punctuation.yam
         description: removes punctuation from text with spaCy pretrained models
         topic:
         - NLP
-        - preprocessing
+        - Preprocessing
         - ETL
         input:
         - volume: /veld/input/
@@ -2950,7 +2948,7 @@ veld_code__wordembeddings_preprocessing___veld_preprocess_sample.yaml:
           be set with a seed too
         topic:
         - NLP
-        - preprocessing
+        - Preprocessing
         - ETL
         input:
         - volume: /veld/input/
@@ -2999,7 +2997,7 @@ veld_code__wordembeddings_preprocessing___veld_preprocess_strip.yaml:
         description: removes all lines before and after given line numbers
         topic:
         - NLP
-        - preprocessing
+        - Preprocessing
         - ETL
         input:
         - volume: /veld/input/
@@ -3314,7 +3312,7 @@ veld_code__xml_xslt_transformer___veld.yaml:
         description: generic xml / xslt transformation setup.
         topic:
         - ETL
-        - preprocessing
+        - Preprocessing
         input:
         - volume: /veld/input/xml/
           environment_var: in_xml_file
@@ -3358,8 +3356,8 @@ veld_chain__akp_ner_inference___veld_infer.yaml:
           dataset to extract entities, which are stored in csv files.
         topic:
         - NLP
-        - Machine learning
-        - Named entity recognition
+        - Machine Learning
+        - Named Entity Recognition
     services:
       veld_infer:
         extends:
@@ -3379,8 +3377,8 @@ veld_chain__apis_ner_evaluate_old_models___veld_evaluate.yaml:
         description: hard-coded evaluation of several spaCy 2.2.4 models.
         topic:
         - NLP
-        - Machine learning
-        - Named entity recognition
+        - Machine Learning
+        - Named Entity Recognition
     services:
       veld_evaluate:
         extends:
@@ -3399,7 +3397,7 @@ veld_chain__apis_ner_transform_to_gold___veld.yaml:
         description: Conversion of apis ner model data to harmonized custom json format.
         topic:
         - ETL
-        - data cleaning
+        - Data Cleaning
     services:
       veld:
         extends:
@@ -3426,8 +3424,8 @@ veld_chain__demo_teitok-tools___veld_parseudpipe.yaml:
         topic:
         - NLP
         - ETL
-        - tokenization
-        - universal dependencies
+        - Tokenization
+        - Universal Dependencies
     services:
       veld_parseudpipe:
         extends:
@@ -3451,8 +3449,8 @@ veld_chain__demo_teitok-tools___veld_udpipe2teitok.yaml:
         topic:
         - NLP
         - ETL
-        - tokenization
-        - universal dependencies
+        - Tokenization
+        - Universal Dependencies
     services:
       veld_udpipe2teitok:
         extends:
@@ -3475,8 +3473,8 @@ veld_chain__demo_teitok-tools___veld_xmltokenize.yaml:
         topic:
         - NLP
         - ETL
-        - tokenization
-        - universal dependencies
+        - Tokenization
+        - Universal Dependencies
     services:
       veld_xmltokenize:
         extends:
@@ -3500,7 +3498,7 @@ veld_chain__demo_udipe_ts-vienna-2024___veld_infer.yaml:
           udpipe model
         topic:
         - NLP
-        - universal dependencies
+        - Universal Dependencies
     services:
       veld_infer:
         extends:
@@ -3522,7 +3520,7 @@ veld_chain__demo_udipe_ts-vienna-2024___veld_train.yaml:
           scratch
         topic:
         - NLP
-        - universal dependencies
+        - Universal Dependencies
     services:
       veld_train:
         extends:
@@ -3546,7 +3544,7 @@ veld_chain__demo_wordembeddings_multiarch___veld_jupyter_word2vec.yaml:
         topic:
         - NLP
         - Machine Learning
-        - word embeddings
+        - Word Embeddings
     services:
       veld_jupyter_notebook:
         extends:
@@ -3563,7 +3561,7 @@ veld_chain__demo_wordembeddings_multiarch___veld_preprocess.yaml:
         topic:
         - ETL
         - NLP
-        - bible studies
+        - Bible Studies
     services:
       veld_downloader:
         extends:
@@ -3596,7 +3594,7 @@ veld_chain__demo_wordembeddings_multiarch___veld_train_word2vec.yaml:
         topic:
         - NLP
         - Machine Learning
-        - word embeddings
+        - Word Embeddings
     services:
       veld_train:
         extends:
@@ -3622,13 +3620,13 @@ veld_chain__eltec_udpipe_inference___veld_analyse.yaml:
           on several ELTeC corpora.
         topic:
         - NLP
-        - Machine learning
-        - tokenization
-        - lemmatization
-        - part of speech
-        - dependency parsing
-        - universal dependencies
-        - grammatical annotation
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
     services:
       veld_analyse:
         extends:
@@ -3645,13 +3643,13 @@ veld_chain__eltec_udpipe_inference___veld_infer.yaml:
         description: udpipe inference setup, reading in preprocessed ELTeC data
         topic:
         - NLP
-        - Machine learning
-        - tokenization
-        - lemmatization
-        - part of speech
-        - dependency parsing
-        - universal dependencies
-        - grammatical annotation
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
     x-vars:
     - &id002
       file: ./code/veld_code__udpipe/veld_infer.yaml
@@ -3755,13 +3753,13 @@ veld_chain__eltec_udpipe_inference___veld_preprocess.yaml:
         description: xml / xslt transformation of ELTeC data
         topic:
         - NLP
-        - Machine learning
-        - tokenization
-        - lemmatization
-        - part of speech
-        - dependency parsing
-        - universal dependencies
-        - grammatical annotation
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
     x-vars:
     - &id003
       file: ./code/veld_code__xml_xslt_transformer/veld.yaml
@@ -4405,7 +4403,7 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
         description: evaluate fasttext model against evaluation gold data
         topic:
         - NLP
-        - evaluation
+        - Evaluation
     services:
       veld_eval_fasttext:
         extends:
@@ -4430,7 +4428,7 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
         description: evaluate word2vec model against evaluation gold data
         topic:
         - NLP
-        - evaluation
+        - Evaluation
     services:
       veld_eval_word2vec:
         extends:
@@ -4455,7 +4453,7 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
         description: evaluate glove model against evaluation gold data
         topic:
         - NLP
-        - evaluation
+        - Evaluation
     services:
       veld_eval_glove:
         extends:
@@ -4481,7 +4479,7 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia___veld_
         description: chain of analysing and evaluating models trained on wikipedia
         topic:
         - NLP
-        - evaluation
+        - Evaluation
     services:
       veld_analyse_evaluation:
         extends:
@@ -4744,7 +4742,7 @@ veld_chain__train_spacy_apis_ner___veld_convert.yaml:
         topic:
         - ETL
         - NLP
-        - Machine learning
+        - Machine Learning
     services:
       veld_convert:
         extends:
@@ -4801,8 +4799,8 @@ veld_chain__train_spacy_apis_ner___veld_train.yaml:
         description: A NER trainig setup, utilizing spaCy 3's config system.
         topic:
         - NLP
-        - Machine learning
-        - Named entity recognition
+        - Machine Learning
+        - Named Entity Recognition
     services:
       veld_train:
         extends:
