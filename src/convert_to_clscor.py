@@ -91,7 +91,7 @@ def get_chain_veld_uris(veld_data):
 def _get_topic(veld_data):
     result = []
     try:
-        topics = list(veld_data["content"]["x-veld"].values())[0]["topics"]
+        topics = list(veld_data["content"]["x-veld"].values())[0]["topic"]
     except:
         pass
     else:
@@ -110,7 +110,7 @@ def get_code_reification_to_topic(veld_data):
     i = 1 # TODO: solve problem with global index
     try:
         _ = veld_data["content"]["x-veld"]["code"]
-        topics = veld_data["content"]["x-veld"]["code"]["topics"]
+        topics = veld_data["content"]["x-veld"]["code"]["topic"]
     except:
         pass
     else:
@@ -168,11 +168,11 @@ def _get_code_ved__file_type__of_io(veld_data, io):
 
 
 def get_code_ved__file_type_inputs(veld_data):
-    return _get_code_ved__file_type__of_io(veld_data, "inputs")
+    return _get_code_ved__file_type__of_io(veld_data, "input")
 
 
 def get_code_ved__file_type_outputs(veld_data):
-    return _get_code_ved__file_type__of_io(veld_data, "outputs")
+    return _get_code_ved__file_type__of_io(veld_data, "output")
 
 
 def get_integrated_code_veld_id(veld_data):
