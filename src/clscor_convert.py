@@ -192,6 +192,7 @@ def get_integrated_code_veld_id(veld_data):
         pass
     else:
         for code_veld_file in code_veld_file_list:
+            code_veld_file = code_veld_file.replace("./code/", "./")
             code_veld_id = code_veld_file[2:].replace("/", "___")
             code_veld_data = VELD_DATA_ALL.get(code_veld_id)
             if code_veld_data is not None:
