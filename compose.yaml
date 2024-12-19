@@ -15,7 +15,7 @@ services:
       service: base_service
     command: python -u ./src/create_registry.py
 
-  convert_to_clscor:
+  clscor_convert:
     extends:
       service: base_service
-    command: python -u ./src/convert_to_clscor.py
+    command: python -u ./src/clscor_convert.py

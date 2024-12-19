@@ -1,5 +1,5 @@
 from data.clscor_conversion.rdf_modules_namespaces import *
-from src.convert_to_clscor import *
+from src.clscor_convert import *
 
 
 mappings = {
