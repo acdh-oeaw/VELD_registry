@@ -100,7 +100,14 @@ def _get_topic(veld_data):
         if type(topics) is list and topics != [] and topics is not None:
             for t in topics:
                 if t != "":
-                    result.append(CRM_METHOD[t.replace(" ", "_")])
+                    clscor_mapped = mapping.vocab_mapping.get(t)
+                    if clscor_mapped is not None:
+                        if type(clscor_mapped) is not list:
+                            clscor_mapped = [clscor_mapped]
+                        for cm in clscor_mapped:
+                            result.append(URIRef(cm))
+                    else:
+                        result.append(CRM_METHOD[t.replace(" ", "_")])
     return result
 
 

@@ -1,17 +1,4 @@
 https://clscor.io/entity/type/method/Bible_Studies
-https://clscor.io/entity/type/method/Data_Cleaning
 https://clscor.io/entity/type/method/Data_Visualization
-https://clscor.io/entity/type/method/Dependency_Parsing
-https://clscor.io/entity/type/method/ETL
-https://clscor.io/entity/type/method/Evaluation
-https://clscor.io/entity/type/method/Grammatical_Annotation
-https://clscor.io/entity/type/method/Lemmatization
-https://clscor.io/entity/type/method/Machine_Learning
-https://clscor.io/entity/type/method/NLP
-https://clscor.io/entity/type/method/Named_Entity_Recognition
-https://clscor.io/entity/type/method/Part_Of_Speech
-https://clscor.io/entity/type/method/Preprocessing
 https://clscor.io/entity/type/method/Testing
-https://clscor.io/entity/type/method/Tokenization
 https://clscor.io/entity/type/method/Universal_Dependencies
-https://clscor.io/entity/type/method/Word_Embeddings

@@ -74,3 +74,24 @@ mappings = {
         "o": get_chain_topic_as_x6,
     },
 }
+
+
+vocab_mapping = {
+    "NLP": "https://clscor.io/entity/type/method/applying_nlp_methods",
+    "Data Cleaning": "https://clscor.io/entity/type/method/information_extraction",
+    "Dependency Parsing": "https://clscor.io/entity/type/method/text_parsing",
+    "ETL": "https://clscor.io/entity/type/method/information_extraction",
+    "Evaluation": "https://clscor.io/entity/type/method/quantitative_analysis",
+    "Grammatical Annotation": [
+        "https://clscor.io/entity/type/method/annotating",
+        "https://clscor.io/entity/type/method/semi_automatical_token_annotation",
+        "https://clscor.io/entity/type/method/automatic_annotation",
+    ],
+    "Lemmatization": "https://clscor.io/entity/type/method/lemmatization",
+    "Machine Learning": "https://clscor.io/entity/type/method/machine_learning",
+    "Named Entity Recognition": "https://clscor.io/entity/type/method/named_entity_recognition",
+    "Part Of Speech": "https://clscor.io/entity/type/method/part_of_speech_tagging",
+    "Preprocessing": "https://clscor.io/entity/type/method/information_extraction",
+    "Tokenization": "https://clscor.io/entity/type/method/tokenization",
+    "Word Embeddings": "https://clscor.io/entity/type/method/word_embedding",
+}
