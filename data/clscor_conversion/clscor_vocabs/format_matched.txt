@@ -1,0 +1,6 @@
+https://clscor.io/entity/type/format/csv
+https://clscor.io/entity/type/format/html
+https://clscor.io/entity/type/format/json
+https://clscor.io/entity/type/format/tsv
+https://clscor.io/entity/type/format/txt
+https://clscor.io/entity/type/format/xml

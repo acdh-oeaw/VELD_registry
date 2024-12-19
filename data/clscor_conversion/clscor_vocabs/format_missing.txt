@@ -1,0 +1,15 @@
+https://clscor.io/entity/type/format/GloVe_model
+https://clscor.io/entity/type/format/bin
+https://clscor.io/entity/type/format/cfg
+https://clscor.io/entity/type/format/conllu
+https://clscor.io/entity/type/format/fastText_model
+https://clscor.io/entity/type/format/ini
+https://clscor.io/entity/type/format/md
+https://clscor.io/entity/type/format/pickle
+https://clscor.io/entity/type/format/png
+https://clscor.io/entity/type/format/spaCy_docbin
+https://clscor.io/entity/type/format/spaCy_model
+https://clscor.io/entity/type/format/udpipe_model
+https://clscor.io/entity/type/format/word2vec_model
+https://clscor.io/entity/type/format/xslt
+https://clscor.io/entity/type/format/yaml

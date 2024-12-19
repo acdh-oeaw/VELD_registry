@@ -19,3 +19,8 @@ services:
     extends:
       service: base_service
     command: python -u ./src/clscor_convert.py
+
+  clscor_match_vocabs:
+    extends:
+      service: base_service
+    command: python -u ./src/clscor_convert.py
