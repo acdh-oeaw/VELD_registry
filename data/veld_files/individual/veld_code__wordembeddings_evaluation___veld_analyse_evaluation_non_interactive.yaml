@@ -4,8 +4,8 @@ x-veld:
       code."
     topic:
       - "NLP"
-      - "word embeddings"
-      - "data visualization"
+      - "Word Embeddings"
+      - "Data Visualization"
 
     input:
       - volume: /veld/input/

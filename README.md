@@ -289,7 +289,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [veld.yaml](https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml)
     - valid: True
     - metadata:
-      - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part of speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
+      - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
       - input:
         - 1:
           - file_type: conllu
@@ -410,7 +410,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: True
     - metadata:
       - description: prints information about the python intepreter within the docker container.
-      - topic: testing
+      - topic: Testing
 - https://github.com/veldhub/veld_code__spacy
   - [veld_convert.yaml](https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml)
     - valid: True
@@ -630,7 +630,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: True
     - metadata:
       - description: data visualization of all evaluation data. non-interactive version of the juypter code.
-      - topic: NLP, word embeddings, data visualization
+      - topic: NLP, Word Embeddings, Data Visualization
       - input:
         - 1:
           - description: summary of the custom evaluation logic on word embeddings
@@ -1097,14 +1097,11 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - NLP
 - Named Entity Recognition
 - Part Of Speech
-- Part of speech
 - Preprocessing
+- Testing
 - Tokenization
 - Universal Dependencies
 - Word Embeddings
-- data visualization
-- testing
-- word embeddings
 
 ## content vocab
 - Evaluation data

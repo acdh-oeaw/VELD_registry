@@ -987,7 +987,7 @@ veld_code__analyse_conllu___veld.yaml:
         - Machine Learning
         - Tokenization
         - Lemmatization
-        - Part of speech
+        - Part Of Speech
         - Dependency Parsing
         - Universal Dependencies
         - Grammatical Annotation
@@ -1342,7 +1342,7 @@ veld_code__simple_docker_test___veld.yaml:
       code:
         description: prints information about the python intepreter within the docker
           container.
-        topic: testing
+        topic: Testing
     services:
       veld:
         build: .
@@ -2592,8 +2592,8 @@ veld_code__wordembeddings_evaluation___veld_analyse_evaluation_non_interactive.y
           of the juypter code.
         topic:
         - NLP
-        - word embeddings
-        - data visualization
+        - Word Embeddings
+        - Data Visualization
         input:
         - volume: /veld/input/
           environment_var: in_evaluation_summary_file
