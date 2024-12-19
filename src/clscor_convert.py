@@ -194,7 +194,6 @@ def get_integrated_code_veld_id(veld_data):
     return result
 
 
-# TODO: maybe remove?
 def get_chain_topic_as_x6(veld_data):
     result = {}
     try:

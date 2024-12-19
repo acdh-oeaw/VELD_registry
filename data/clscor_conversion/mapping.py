@@ -68,4 +68,9 @@ mappings = {
         "p": CRMCLS["Y8_implements"],
         "o": get_code_topic_as_x6,
     },
+    "chain_uri crmcls:Y8_implements X6": {
+        "s": get_chain_veld_uris,
+        "p": CRMCLS["Y8_implements"],
+        "o": get_chain_topic_as_x6,
+    },
 }
