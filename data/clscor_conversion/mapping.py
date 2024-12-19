@@ -76,7 +76,7 @@ mappings = {
 }
 
 
-vocab_mapping = {
+vocab_mapping_method = {
     "NLP": "https://clscor.io/entity/type/method/applying_nlp_methods",
     "Data Cleaning": "https://clscor.io/entity/type/method/information_extraction",
     "Dependency Parsing": "https://clscor.io/entity/type/method/text_parsing",

@@ -23,4 +23,4 @@ services:
   clscor_match_vocabs:
     extends:
       service: base_service
-    command: python -u ./src/clscor_convert.py
+    command: python -u ./src/clscor_match_vocabs.py
