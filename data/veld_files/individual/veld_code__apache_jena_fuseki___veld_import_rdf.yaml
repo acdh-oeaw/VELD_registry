@@ -1,0 +1,60 @@
+x-veld:
+  code:
+    description: "Import script to batch import rdf data from a folder into an apache fuseki 
+      triplestore. Note that if this service should connect to a triplestore running in another 
+      docker compose service, the relevant `networks` section might be necessary to set 
+      accordingly."
+    topic:
+      - ETL
+      - RDF
+      - triplestore
+      - database
+
+    input:
+      volume: /veld/input/
+      environment_var: in_rdf_file
+      file_type: xml
+      description: "A folder containing RDF/XML files. If var `in_rdf_file` is set, that file is 
+        imported; if not, the folder is recursively searched."
+      content: RDF/XML
+      
+    config:
+      - environment_var: fuseki_server_url
+        var_type: str
+        description: "URL under which a triplestore is connected to."
+      - environment_var: fuseki_server_port
+        var_type: int
+        description: "port under which a triplestore is connected to."
+      - environment_var: fuseki_dataset_name
+        var_type: str
+        description: "Name of the dataset, into which the rdf data is imported to. If it doesn't 
+          exist, it is created."
+      - environment_var: fuseki_dataset_type
+        var_type: str
+        description: "If the dataset is created, then this var sets its type. See 
+          https://jena.apache.org/documentation/fuseki2/fuseki-configuration.html#Datasets for more 
+          information."
+      - environment_var: fuseki_graph_uri
+        var_type: str
+        description: "Graph URI under which the data is imported to."
+
+services:
+  veld_import_rdf:
+    build: .
+    command: bash /veld/code/scripts/import_rdf.sh
+    volumes:
+      - ./scripts/:/veld/code/scripts/
+      - ./data/input/:/veld/input/
+    networks:
+      - veld_fuseki
+    environment:
+      in_rdf_file: null
+      fuseki_server_url: http://veld_run_server
+      fuseki_server_port: 3030
+      fuseki_dataset_name: null
+      fuseki_dataset_type: tdb2
+      fuseki_graph_uri: "default"
+
+networks:
+  veld_fuseki:
+

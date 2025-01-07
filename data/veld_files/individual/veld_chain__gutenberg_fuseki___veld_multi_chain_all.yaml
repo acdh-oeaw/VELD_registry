@@ -1,0 +1,29 @@
+x-veld:
+  chain:
+
+services:
+
+  veld_download_gutenberg_metadata:
+    extends:
+      file: ./veld_download_gutenberg_metadata.yaml
+      service: veld_download_gutenberg_metadata
+
+  veld_run_server:
+    extends:
+      file: ./veld_run_server.yaml
+      service: veld_run_server
+    depends_on:
+      veld_download_gutenberg_metadata:
+        condition: service_completed_successfully
+
+  veld_import_rdf:
+    extends:
+      file: ./veld_import_rdf.yaml
+      service: veld_import_rdf
+    depends_on:
+      veld_run_server:
+        condition: service_healthy
+
+networks:
+  veld_fuseki:
+

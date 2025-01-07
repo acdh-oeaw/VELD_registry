@@ -1,0 +1,29 @@
+x-veld:
+  chain:
+
+services:
+  veld_train_glove:
+    extends:
+      file: ./code/veld_code__glove/veld_train.yaml
+      service: veld_train 
+    volumes:
+      - ./data/training_data/:/veld/input/
+      - ./data/models/glove/m1/:/veld/output/
+    environment:
+      in_corpus_file: "bible.txt"
+      out_vocab_file: "m1_vocab.txt"
+      out_cooccurrence_file: "m1_cooccurrence.bin"
+      out_cooccurrence_shuf_file: "m1_cooccurrence_shuf.bin"
+      out_vector_file: "m1_vector"
+      model_id: "m1"
+      model_description: "test glove model"
+      verbose: 2
+      memory: 4.0
+      vocab_min_count: 5
+      vector_size: 100
+      max_iter: 5
+      window_size: 5
+      binary: 2
+      num_threads: 14
+      x_max: 10
+

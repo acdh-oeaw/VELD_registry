@@ -1,0 +1,20 @@
+x-veld:
+  chain:
+
+services:
+  veld_export:
+    extends:
+      file: ./code/veld_code__apache_jena_fuseki/veld_export.yaml
+      service: veld_export
+    volumes:
+      - ./data/queries/:/veld/input/
+      - ./data/fuseki_export/:/veld/output/
+    environment:
+      in_query_file: sample_query__authors_with_name_containing_substring.rq
+      out_file: sample_query__authors_with_name_containing_substring.json
+      out_format: json
+      fuseki_dataset_name: gutenberg
+
+networks:
+  veld_fuseki:
+

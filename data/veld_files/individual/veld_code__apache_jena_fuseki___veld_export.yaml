@@ -1,0 +1,65 @@
+x-veld:
+  code:
+    description: "Exports data from an Apache Fuseki triplestore given a rq query file, into 
+      several serialization formats."
+    topic:
+      - ETL
+      - RDF
+      - triplestore
+
+    input:
+      volume: /veld/input/
+      environment_var: in_query_file
+      description: "Contains the sparql query that is ran at the triplestore"
+      file_type: rq
+      content: sparql query
+
+    output:
+      volume: /veld/output/
+      environment_var: out_file
+      description: "Output file where the query results should be writte into."
+      file_type:
+        - csv
+        - json
+        - tsv
+        - xml
+
+    config:
+      - environment_var: out_format
+        var_type: str
+        description: "sets the output format. Can only be one of `csv`, `json`, `tsv`, `xml`"
+      - environment_var: fuseki_server_url
+        var_type: str
+        optional: true
+        default: http://veld_run_server
+        description: "The url of the Fuseki triplestore"
+      - environment_var: fuseki_server_port
+        var_type: int
+        default: 3030
+        optional: true
+        description: "The port of the Fuseki triplestore"
+      - environment_var: fuseki_dataset_name
+        var_type: str
+        description: "The dataset name of the Fuseki triplestore"
+
+services:
+  veld_export:
+    build: .
+    command: bash /veld/code/scripts/export.sh
+    volumes:
+      - ./scripts/:/veld/code/scripts/
+      - ./data/queries/:/veld/input/
+      - ./data/export/:/veld/output/
+    networks:
+      - veld_fuseki
+    environment:
+      in_query_file: null
+      out_file: null
+      out_format: null
+      fuseki_server_url: http://veld_run_server
+      fuseki_server_port: 3030
+      fuseki_dataset_name: null
+
+networks:
+  veld_fuseki:
+

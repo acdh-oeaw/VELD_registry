@@ -1009,6 +1009,127 @@ veld_code__analyse_conllu___veld.yaml:
         working_dir: /veld/code/
         volumes:
         - ./src:/veld/code/
+veld_code__apache_jena_fuseki___veld_export.yaml:
+  url: https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml
+  content:
+    x-veld:
+      code:
+        description: Exports data from an Apache Fuseki triplestore given a rq query
+          file, into several serialization formats.
+        topic:
+        - ETL
+        - RDF
+        - triplestore
+        input:
+          volume: /veld/input/
+          environment_var: in_query_file
+          description: Contains the sparql query that is ran at the triplestore
+          file_type: rq
+          content: sparql query
+        output:
+          volume: /veld/output/
+          environment_var: out_file
+          description: Output file where the query results should be writte into.
+          file_type:
+          - csv
+          - json
+          - tsv
+          - xml
+        config:
+        - environment_var: out_format
+          var_type: str
+          description: sets the output format. Can only be one of `csv`, `json`, `tsv`,
+            `xml`
+        - environment_var: fuseki_server_url
+          var_type: str
+          optional: true
+          default: http://veld_run_server
+          description: The url of the Fuseki triplestore
+        - environment_var: fuseki_server_port
+          var_type: int
+          default: 3030
+          optional: true
+          description: The port of the Fuseki triplestore
+        - environment_var: fuseki_dataset_name
+          var_type: str
+          description: The dataset name of the Fuseki triplestore
+    services:
+      veld_export:
+        build: .
+        command: bash /veld/code/scripts/export.sh
+        volumes:
+        - ./scripts/:/veld/code/scripts/
+        - ./data/queries/:/veld/input/
+        - ./data/export/:/veld/output/
+        networks:
+        - veld_fuseki
+        environment:
+          in_query_file: null
+          out_file: null
+          out_format: null
+          fuseki_server_url: http://veld_run_server
+          fuseki_server_port: 3030
+          fuseki_dataset_name: null
+    networks:
+      veld_fuseki: null
+veld_code__apache_jena_fuseki___veld_import_rdf.yaml:
+  url: https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml
+  content:
+    x-veld:
+      code:
+        description: Import script to batch import rdf data from a folder into an
+          apache fuseki triplestore. Note that if this service should connect to a
+          triplestore running in another docker compose service, the relevant `networks`
+          section might be necessary to set accordingly.
+        topic:
+        - ETL
+        - RDF
+        - triplestore
+        - database
+        input:
+          volume: /veld/input/
+          environment_var: in_rdf_file
+          file_type: xml
+          description: A folder containing RDF/XML files. If var `in_rdf_file` is
+            set, that file is imported; if not, the folder is recursively searched.
+          content: RDF/XML
+        config:
+        - environment_var: fuseki_server_url
+          var_type: str
+          description: URL under which a triplestore is connected to.
+        - environment_var: fuseki_server_port
+          var_type: int
+          description: port under which a triplestore is connected to.
+        - environment_var: fuseki_dataset_name
+          var_type: str
+          description: Name of the dataset, into which the rdf data is imported to.
+            If it doesn't exist, it is created.
+        - environment_var: fuseki_dataset_type
+          var_type: str
+          description: If the dataset is created, then this var sets its type. See
+            https://jena.apache.org/documentation/fuseki2/fuseki-configuration.html#Datasets
+            for more information.
+        - environment_var: fuseki_graph_uri
+          var_type: str
+          description: Graph URI under which the data is imported to.
+    services:
+      veld_import_rdf:
+        build: .
+        command: bash /veld/code/scripts/import_rdf.sh
+        volumes:
+        - ./scripts/:/veld/code/scripts/
+        - ./data/input/:/veld/input/
+        networks:
+        - veld_fuseki
+        environment:
+          in_rdf_file: null
+          fuseki_server_url: http://veld_run_server
+          fuseki_server_port: 3030
+          fuseki_dataset_name: null
+          fuseki_dataset_type: tdb2
+          fuseki_graph_uri: default
+    networks:
+      veld_fuseki: null
 veld_code__apis_ner_evaluate_old_models___veld_evaluate.yaml:
   url: https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml
   content:
@@ -1116,26 +1237,53 @@ veld_code__downloader___veld.yaml:
           data, it makes sense to encapsulate the download functionality into a dedicated
           downloader veld code
         topic: ETL
+        input:
+          volume: /veld/input/
+          file_type: csv
+          content: download urls and target file names
+          environment_var: in_csv_file
+          description: The downloader may also process a csv file for batch downloading.
+            The first column must be the url, and the optional second column a designated
+            file name. Column names are ignored by default (by var `csv_has_headers`
+            being set to `true`). Note that the var `in_csv_file` can not be set at
+            the same time as `url`, since the former designates batch processing while
+            the latter designates a single download.
         output:
-        - volume: /veld/output/
+          volume: /veld/output/
           environment_var: out_file
           description: optional. If `out_file` is unset, this script will fetch the
             file name from the resource.
           optional: true
         config:
-          environment_var: url
+        - environment_var: url
           var_type: str
           description: The url where some resource is located and should be downloaded
             from.
+        - environment_var: do_extract
+          var_type: bool
+          default: false
+          description: If set to `true`, the generic extraction tool `dtrx` will be
+            used on the downloaded file to extract its data.
+        - environment_var: csv_has_headers
+          var_type: bool
+          default: true
+          description: Designates if the csv file has headers or not. Set to `true`
+            by default and headers are ignored by the script. Must be set to `false`
+            when no headers are present, because otherwise the first data row is assumed
+            to be headers and thus ignored.
     services:
       veld_downloader:
         build: .
         command: sh /veld/code/downloader.sh
         volumes:
         - ./downloader.sh:/veld/code/downloader.sh
+        - ./data/output/:/veld/output/
         environment:
+          in_csv_file: null
           url: null
           out_file: null
+          do_extract: false
+          csv_has_headers: true
 veld_code__fasttext___veld_jupyter_notebook.yaml:
   url: https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml
   content:
@@ -1760,14 +1908,17 @@ veld_code__teitok-tools___veld_udpipe2teitok.yaml:
           on its usage and config, see: https://github.com/ufal/teitok-tools?tab=readme-ov-file#udpipe2teitok'
         topic:
         - NLP
-        - ETL
-        - Tokenization
+        - Grammatical Annotation
         - Universal Dependencies
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
         input:
-        - volume: /veld/input/
+          volume: /veld/input/
           file_type: txt
         output:
-        - volume: /veld/output/
+          volume: /veld/output/
           file_type: xml
         config:
         - environment_var: model
@@ -3414,6 +3565,177 @@ veld_chain__apis_ner_transform_to_gold___veld.yaml:
           out_json_cleaned_file: cleaned.json
           out_json_cleaned_simplified_file: cleaned_simplified.json
           out_log_file: extract_and_clean.log
+veld_chain__automatic_tei-ification_of_gutenberg___veld_multichain_all.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_step1_download_gutenberg_metadata:
+        extends:
+          file: ./veld_step1_download_gutenberg_metadata.yaml
+          service: veld_step1_download_gutenberg_metadata
+      veld_step2_run_server:
+        extends:
+          file: ./veld_step2_run_server.yaml
+          service: veld_step2_run_server
+        depends_on:
+          veld_step1_download_gutenberg_metadata:
+            condition: service_completed_successfully
+      veld_step3_import_rdf:
+        extends:
+          file: ./veld_step3_import_rdf.yaml
+          service: veld_step3_import_rdf
+        depends_on:
+          veld_step2_run_server:
+            condition: service_healthy
+      veld_step4_query_books_urls:
+        extends:
+          file: ./veld_step4_query_books_urls.yaml
+          service: veld_step4_query_books_urls
+        depends_on:
+          veld_step3_import_rdf:
+            condition: service_completed_successfully
+      veld_step5_download_gutenberg_books:
+        extends:
+          file: ./veld_step5_download_gutenberg_books.yaml
+          service: veld_step5_download_gutenberg_books
+        depends_on:
+          veld_step4_query_books_urls:
+            condition: service_completed_successfully
+    networks:
+      veld_fuseki: null
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step1_download_gutenberg_metadata.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step1_download_gutenberg_metadata.yaml
+  content:
+    x-veld:
+      chain:
+        description: Downloads and extracts the project gutenberg metadata.
+        topic: ETL
+    services:
+      veld_step1_download_gutenberg_metadata:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/gutenberg_rdf/:/veld/output/
+        environment:
+          url: https://gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2
+          out_file: rdf-files.tar.bz2
+          do_extract: true
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step2_run_server.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step2_run_server.yaml
+  content:
+    x-veld:
+      chain:
+        description: An Apache Fuseki instance storing the entire gutenberg metadata.
+        topic:
+        - RDF
+        - triplestore
+        - database
+    services:
+      veld_step2_run_server:
+        extends:
+          file: ./code/veld_code__apache_jena_fuseki/veld_run_server.yaml
+          service: veld_run_server
+        volumes:
+        - ./data/fuseki_data/:/veld/storage/
+        - ./data/fuseki_config/:/veld/input/config/
+    networks:
+      veld_fuseki: null
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step3_import_rdf.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step3_import_rdf.yaml
+  content:
+    x-veld:
+      chain:
+        description: imports the gutenberg metadata into the Fuseki triplestore.
+        topic:
+        - ETL
+        - RDF
+        - triplestore
+    services:
+      veld_step3_import_rdf:
+        extends:
+          file: ./code/veld_code__apache_jena_fuseki/veld_import_rdf.yaml
+          service: veld_import_rdf
+        volumes:
+        - ./data/gutenberg_rdf/rdf-files/cache/epub/:/veld/input/
+        environment:
+          fuseki_server_url: http://veld_step2_run_server
+          fuseki_dataset_name: gutenberg
+    networks:
+      veld_fuseki: null
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step4_query_books_urls.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step4_query_books_urls.yaml
+  content:
+    x-veld:
+      chain:
+        description: Exports a csv file containing download links and file names of
+          all german books that have no TEI files, but a txt, which will be used for
+          automatic TEI generation further downstream.
+        topic:
+        - ETL
+        - RDF
+        - triplestore
+    services:
+      veld_step4_query_books_urls:
+        extends:
+          file: ./code/veld_code__apache_jena_fuseki/veld_export.yaml
+          service: veld_export
+        volumes:
+        - ./data/queries/:/veld/input/
+        - ./data/fuseki_export/:/veld/output/
+        environment:
+          in_query_file: german_books_txt_no_tei.rq
+          out_file: german_books_txt_no_tei.csv
+          out_format: csv
+          fuseki_server_url: http://veld_step2_run_server
+          fuseki_dataset_name: gutenberg
+    networks:
+      veld_fuseki: null
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step5_download_gutenberg_books.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step5_download_gutenberg_books.yaml
+  content:
+    x-veld:
+      chain:
+        description: Downlaods all german books without TEI, as designated by the
+          previously generated csv.
+        topic: ETL
+    services:
+      veld_step5_download_gutenberg_books:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/fuseki_export/:/veld/input/
+        - ./data/gutenberg_books/:/veld/output/
+        environment:
+          in_csv_file: german_books_txt_no_tei.csv
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step6_convert_books_to_teitok.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step6_convert_books_to_teitok.yaml
+  content:
+    x-veld:
+      chain:
+        description: Automatic creation of tokenized TEI files of downloaded txt books
+        topic:
+        - NLP
+        - Grammatical Annotation
+        - Universal Dependencies
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+    services:
+      veld_step6_convert_books_to_teitok:
+        extends:
+          file: ./code/veld_code__teitok-tools/veld_udpipe2teitok.yaml
+          service: veld_udpipe2teitok
+        volumes:
+        - ./data/gutenberg_books/:/veld/input/
+        - ./data/gutenberg_teitok:/veld/output/
+        environment:
+          lang: de
+          model: german-hdt-ud-2.6-200830
 veld_chain__demo_teitok-tools___veld_parseudpipe.yaml:
   url: https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml
   content:
@@ -3535,6 +3857,23 @@ veld_chain__demo_udipe_ts-vienna-2024___veld_train.yaml:
           tokenizer_epochs: 2
           tagger_iterations: 2
           parser_iterations: 2
+veld_chain__demo_wordembeddings_multiarch___veld_jupyter_glove.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_glove.yaml
+  content:
+    x-veld:
+      chain:
+        description: demo word2vec jupyter notebook
+        topic:
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+    services:
+      veld_jupyter_glove:
+        extends:
+          file: ./code/veld_code__glove/veld_jupyter_notebook.yaml
+          service: veld_jupyter_notebook
+        volumes:
+        - ./data/models/glove/:/veld/input/:z
 veld_chain__demo_wordembeddings_multiarch___veld_jupyter_word2vec.yaml:
   url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_word2vec.yaml
   content:
@@ -3546,7 +3885,7 @@ veld_chain__demo_wordembeddings_multiarch___veld_jupyter_word2vec.yaml:
         - Machine Learning
         - Word Embeddings
     services:
-      veld_jupyter_notebook:
+      veld_jupyter_word2vec:
         extends:
           file: ./code/veld_code__word2vec/veld_jupyter_notebook.yaml
           service: veld_jupyter_notebook
@@ -3585,6 +3924,36 @@ veld_chain__demo_wordembeddings_multiarch___veld_preprocess.yaml:
         depends_on:
           veld_downloader:
             condition: service_completed_successfully
+veld_chain__demo_wordembeddings_multiarch___veld_train_glove.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_glove.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_train_glove:
+        extends:
+          file: ./code/veld_code__glove/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/training_data/:/veld/input/
+        - ./data/models/glove/m1/:/veld/output/
+        environment:
+          in_corpus_file: bible.txt
+          out_vocab_file: m1_vocab.txt
+          out_cooccurrence_file: m1_cooccurrence.bin
+          out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
+          out_vector_file: m1_vector
+          model_id: m1
+          model_description: test glove model
+          verbose: 2
+          memory: 4.0
+          vocab_min_count: 5
+          vector_size: 100
+          max_iter: 5
+          window_size: 5
+          binary: 2
+          num_threads: 14
+          x_max: 10
 veld_chain__demo_wordembeddings_multiarch___veld_train_word2vec.yaml:
   url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_word2vec.yaml
   content:
@@ -3802,6 +4171,99 @@ veld_chain__eltec_udpipe_inference___veld_preprocess.yaml:
         - ./data/xsl/:/veld/input/xsl/
         - ./data/data_tmp_txt_transformed/ELTeC-spa/level1/:/veld/output/
         environment: *id004
+veld_chain__gutenberg_fuseki___veld_download_gutenberg_metadata.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_download_gutenberg_metadata:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/gutenberg_rdf/:/veld/output/
+        environment:
+          url: https://gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2
+          out_file: rdf-files.tar.bz2
+          do_extract: true
+veld_chain__gutenberg_fuseki___veld_export.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_export:
+        extends:
+          file: ./code/veld_code__apache_jena_fuseki/veld_export.yaml
+          service: veld_export
+        volumes:
+        - ./data/queries/:/veld/input/
+        - ./data/fuseki_export/:/veld/output/
+        environment:
+          in_query_file: sample_query__authors_with_name_containing_substring.rq
+          out_file: sample_query__authors_with_name_containing_substring.json
+          out_format: json
+          fuseki_dataset_name: gutenberg
+    networks:
+      veld_fuseki: null
+veld_chain__gutenberg_fuseki___veld_import_rdf.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_import_rdf:
+        extends:
+          file: ./code/veld_code__apache_jena_fuseki/veld_import_rdf.yaml
+          service: veld_import_rdf
+        volumes:
+        - ./data/gutenberg_rdf/rdf-files/cache/epub/:/veld/input/
+        environment:
+          fuseki_dataset_name: gutenberg
+    networks:
+      veld_fuseki: null
+veld_chain__gutenberg_fuseki___veld_multi_chain_all.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_multi_chain_all.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_download_gutenberg_metadata:
+        extends:
+          file: ./veld_download_gutenberg_metadata.yaml
+          service: veld_download_gutenberg_metadata
+      veld_run_server:
+        extends:
+          file: ./veld_run_server.yaml
+          service: veld_run_server
+        depends_on:
+          veld_download_gutenberg_metadata:
+            condition: service_completed_successfully
+      veld_import_rdf:
+        extends:
+          file: ./veld_import_rdf.yaml
+          service: veld_import_rdf
+        depends_on:
+          veld_run_server:
+            condition: service_healthy
+    networks:
+      veld_fuseki: null
+veld_chain__gutenberg_fuseki___veld_run_server.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_run_server:
+        extends:
+          file: ./code/veld_code__apache_jena_fuseki/veld_run_server.yaml
+          service: veld_run_server
+        volumes:
+        - ./data/fuseki_data/:/veld/storage/
+        - ./data/fuseki_config/:/veld/input/config/
+    networks:
+      veld_fuseki: null
 veld_chain__mara_load_and_publish_models___veld_publish_to_hf.yaml:
   url: https://github.com/veldhub/veld_chain__mara_load_and_publish_models/blob/main/veld_publish_to_hf.yaml
   content:

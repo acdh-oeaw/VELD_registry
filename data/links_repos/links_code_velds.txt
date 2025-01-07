@@ -1,4 +1,5 @@
 https://github.com/veldhub/veld_code__analyse_conllu
+https://github.com/veldhub/veld_code__apache_jena_fuseki
 https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models
 https://github.com/veldhub/veld_code__apis_ner_transform_to_gold
 https://github.com/veldhub/veld_code__bert_embeddings

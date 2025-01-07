@@ -1,0 +1,42 @@
+x-veld:
+  code:
+    description: "An Apache Fuseki triplestore instance. Note that, changing the port is 
+      recommended to be done via the compose' file `ports` section (if present, then best in the 
+      inhereting chain veld). And other docker services needing to connect to this server must be 
+      added to a docker network `veld_fuseki`."
+    topic:
+      - RDF
+      - triplestore
+      - database
+
+    input:
+      volume: /veld/input/config/
+      description: "The shiro.ini file for configuring the triplestore instance. A working default 
+        is provided with this code veld. See https://shiro.apache.org/ for more information."
+      optional: true
+
+    storage:
+      volume: /veld/storage/
+      file_type: "apache fuseki triplestore data"
+      content: 
+        - "triplestore data"
+        - "rdf data"
+      description: "storage place for the entire data of a apache fuseki triplestore instance."
+
+services:
+  veld_run_server:
+    build: .
+    entrypoint: bash /veld/code/scripts/copy_config.sh
+    command: /veld/code/fuseki-server
+    volumes:
+      - ./scripts/:/veld/code/scripts/
+      - ./data/fuseki_data/:/veld/storage/
+      - ./data/fuseki_config/:/veld/input/config/
+    ports:
+      - 3030:3030
+    networks:
+      - veld_fuseki
+
+networks:
+  veld_fuseki:
+

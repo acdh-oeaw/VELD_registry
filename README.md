@@ -297,6 +297,19 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
         - 1:
           - file_type: json
           - content: statistics, NLP statistics
+- https://github.com/veldhub/veld_code__apache_jena_fuseki
+  - [veld_export.yaml](https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml)
+    - valid: True
+    - metadata:
+      - description: Exports data from an Apache Fuseki triplestore given a rq query file, into several serialization formats.
+      - topic: ETL, RDF, triplestore
+  - [veld_import_rdf.yaml](https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml)
+    - valid: True
+    - metadata:
+      - description: Import script to batch import rdf data from a folder into an apache fuseki triplestore. Note that if this service should connect to a triplestore running in another docker compose service, the relevant `networks` section might be necessary to set accordingly.
+      - topic: ETL, RDF, triplestore, database
+  - [veld_run_server.yaml](https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_run_server.yaml)
+    - valid: False, elements not allowed: /x-veld/code/storage
 - https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models
   - [veld_evaluate.yaml](https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml)
     - valid: True
@@ -348,9 +361,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: A very simple curl call. Since many veld chains need to download data, it makes sense to encapsulate the download functionality into a dedicated downloader veld code
       - topic: ETL
-      - output:
-        - 1:
-          - description: optional. If `out_file` is unset, this script will fetch the file name from the resource.
 - https://github.com/veldhub/veld_code__fasttext
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml)
     - valid: True
@@ -497,13 +507,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: True
     - metadata:
       - description: This code veld encapsulates and veldifies the udpipe2teitok script. All its config here are passed down to the script. For more information on its usage and config, see: https://github.com/ufal/teitok-tools?tab=readme-ov-file#udpipe2teitok
-      - topic: NLP, ETL, Tokenization, Universal Dependencies
-      - input:
-        - 1:
-          - file_type: txt
-      - output:
-        - 1:
-          - file_type: xml
+      - topic: NLP, Grammatical Annotation, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing
   - [veld_xmltokenize.yaml](https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml)
     - valid: True
     - metadata:
@@ -889,6 +893,39 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: Conversion of apis ner model data to harmonized custom json format.
       - topic: ETL, Data Cleaning
+- https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg
+  - [veld_multichain_all.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml)
+    - valid: True
+  - [veld_step1_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step1_download_gutenberg_metadata.yaml)
+    - valid: True
+    - metadata:
+      - description: Downloads and extracts the project gutenberg metadata.
+      - topic: ETL
+  - [veld_step2_run_server.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step2_run_server.yaml)
+    - valid: True
+    - metadata:
+      - description: An Apache Fuseki instance storing the entire gutenberg metadata.
+      - topic: RDF, triplestore, database
+  - [veld_step3_import_rdf.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step3_import_rdf.yaml)
+    - valid: True
+    - metadata:
+      - description: imports the gutenberg metadata into the Fuseki triplestore.
+      - topic: ETL, RDF, triplestore
+  - [veld_step4_query_books_urls.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step4_query_books_urls.yaml)
+    - valid: True
+    - metadata:
+      - description: Exports a csv file containing download links and file names of all german books that have no TEI files, but a txt, which will be used for automatic TEI generation further downstream.
+      - topic: ETL, RDF, triplestore
+  - [veld_step5_download_gutenberg_books.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step5_download_gutenberg_books.yaml)
+    - valid: True
+    - metadata:
+      - description: Downlaods all german books without TEI, as designated by the previously generated csv.
+      - topic: ETL
+  - [veld_step6_convert_books_to_teitok.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step6_convert_books_to_teitok.yaml)
+    - valid: True
+    - metadata:
+      - description: Automatic creation of tokenized TEI files of downloaded txt books
+      - topic: NLP, Grammatical Annotation, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing
 - https://github.com/veldhub/veld_chain__demo_teitok-tools
   - [veld_parseudpipe.yaml](https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml)
     - valid: True
@@ -917,6 +954,11 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - description: A demonstration of a VELD chain training a udpipe model from scratch
       - topic: NLP, Universal Dependencies
 - https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch
+  - [veld_jupyter_glove.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_glove.yaml)
+    - valid: True
+    - metadata:
+      - description: demo word2vec jupyter notebook
+      - topic: NLP, Machine Learning, Word Embeddings
   - [veld_jupyter_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_word2vec.yaml)
     - valid: True
     - metadata:
@@ -927,6 +969,8 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: Download and preprocessing of the bible
       - topic: ETL, NLP, Bible Studies
+  - [veld_train_glove.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_glove.yaml)
+    - valid: True
   - [veld_train_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_word2vec.yaml)
     - valid: True
     - metadata:
@@ -948,6 +992,17 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: xml / xslt transformation of ELTeC data
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
+- https://github.com/veldhub/veld_chain__gutenberg_fuseki
+  - [veld_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml)
+    - valid: True
+  - [veld_export.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml)
+    - valid: True
+  - [veld_import_rdf.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml)
+    - valid: True
+  - [veld_multi_chain_all.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_multi_chain_all.yaml)
+    - valid: True
+  - [veld_run_server.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml)
+    - valid: True
 - https://github.com/veldhub/veld_chain__mara_load_and_publish_models
   - [veld_publish_to_hf.yaml](https://github.com/veldhub/veld_chain__mara_load_and_publish_models/blob/main/veld_publish_to_hf.yaml)
     - valid: True
@@ -1098,10 +1153,13 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - Named Entity Recognition
 - Part Of Speech
 - Preprocessing
+- RDF
 - Testing
 - Tokenization
 - Universal Dependencies
 - Word Embeddings
+- database
+- triplestore
 
 ## content vocab
 - Evaluation data

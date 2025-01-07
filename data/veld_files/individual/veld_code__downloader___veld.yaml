@@ -4,17 +4,39 @@ x-veld:
       sense to encapsulate the download functionality into a dedicated downloader veld code"
     topic: ETL
 
+    input:
+      volume: /veld/input/
+      file_type: csv
+      content: "download urls and target file names"
+      environment_var: in_csv_file
+      description: "The downloader may also process a csv file for batch downloading. The first 
+        column must be the url, and the optional second column a designated file name. Column names 
+        are ignored by default (by var `csv_has_headers` being set to `true`). Note that the var 
+        `in_csv_file` can not be set at the same time as `url`, since the former designates batch 
+        processing while the latter designates a single download."
+
     output:
-      - volume: /veld/output/
-        environment_var: out_file
-        description: "optional. If `out_file` is unset, this script will fetch the file name from 
-          the resource."
-        optional: true
+      volume: /veld/output/
+      environment_var: out_file
+      description: "optional. If `out_file` is unset, this script will fetch the file name from 
+        the resource."
+      optional: true
 
     config:
-      environment_var: url
-      var_type: str
-      description: "The url where some resource is located and should be downloaded from."
+      - environment_var: url
+        var_type: str
+        description: "The url where some resource is located and should be downloaded from."
+      - environment_var: do_extract
+        var_type: bool
+        default: false
+        description: "If set to `true`, the generic extraction tool `dtrx` will be used on the 
+          downloaded file to extract its data."
+      - environment_var: csv_has_headers
+        var_type: bool
+        default: true
+        description: "Designates if the csv file has headers or not. Set to `true` by default and 
+          headers are ignored by the script. Must be set to `false` when no headers are present, 
+          because otherwise the first data row is assumed to be headers and thus ignored."
 
 services:
   veld_downloader:
@@ -22,8 +44,11 @@ services:
     command: sh /veld/code/downloader.sh
     volumes: 
       - ./downloader.sh:/veld/code/downloader.sh
+      - ./data/output/:/veld/output/
     environment:
+      in_csv_file: null
       url: null
       out_file: null
-
+      do_extract: false
+      csv_has_headers: true
 

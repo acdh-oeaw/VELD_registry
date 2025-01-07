@@ -7,10 +7,10 @@ x-veld:
       - "Word Embeddings"
 
 services:
-  veld_jupyter_word2vec:
+  veld_jupyter_glove:
     extends:
-      file: ./code/veld_code__word2vec/veld_jupyter_notebook.yaml
+      file: ./code/veld_code__glove/veld_jupyter_notebook.yaml
       service: veld_jupyter_notebook
     volumes:
-      - ./data/models/word2vec/:/veld/input/:z
+      - ./data/models/glove/:/veld/input/:z
 

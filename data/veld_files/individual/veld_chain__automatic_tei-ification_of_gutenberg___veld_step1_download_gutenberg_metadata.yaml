@@ -1,0 +1,17 @@
+x-veld:
+  chain:
+    description: "Downloads and extracts the project gutenberg metadata."
+    topic: ETL
+
+services:
+  veld_step1_download_gutenberg_metadata:
+    extends:
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    volumes:
+      - ./data/gutenberg_rdf/:/veld/output/
+    environment:
+      url: https://gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2
+      out_file: rdf-files.tar.bz2
+      do_extract: true
+

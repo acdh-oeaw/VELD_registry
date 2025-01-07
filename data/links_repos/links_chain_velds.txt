@@ -1,10 +1,12 @@
 https://github.com/veldhub/veld_chain__akp_ner_inference
 https://github.com/veldhub/veld_chain__apis_ner_evaluate_old_models
 https://github.com/veldhub/veld_chain__apis_ner_transform_to_gold
+https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg
 https://github.com/veldhub/veld_chain__demo_teitok-tools
 https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024
 https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch
 https://github.com/veldhub/veld_chain__eltec_udpipe_inference
+https://github.com/veldhub/veld_chain__gutenberg_fuseki
 https://github.com/veldhub/veld_chain__mara_load_and_publish_models
 https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc
 https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia
