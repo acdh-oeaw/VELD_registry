@@ -1130,43 +1130,6 @@ veld_code__apache_jena_fuseki___veld_import_rdf.yaml:
           fuseki_graph_uri: default
     networks:
       veld_fuseki: null
-veld_code__apis_ner_evaluate_old_models___veld_evaluate.yaml:
-  url: https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml
-  content:
-    x-veld:
-      code:
-        description: hard-coded evaluation of several spaCy2.2.4 models.
-        topic:
-        - NLP
-        - Machine Learning
-        - Named Entity Recognition
-        input:
-        - volume: /veld/input/
-          description: This input is hard-wired to the apis spacy-ner repo and not
-            made for generic usage.
-          file_type:
-          - pickle
-          - txt
-          - json
-          - spaCy model
-          content:
-          - NER gold data
-          - Machine Learning model
-          - NLP model
-        output:
-        - volume: /veld/output/
-          environment_var: out_eval_result
-          description: evaluation report of the models from the apis spacy-ner repo.
-          file_type: md
-          content: evaluation report
-    services:
-      veld_evaluate:
-        build: .
-        command: python /veld/code/reevaluate_all_models.py
-        volumes:
-        - ./src/:/veld/code/
-        environment:
-          out_eval_result_file: null
 veld_code__apis_ner_transform_to_gold___veld.yaml:
   url: https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml
   content:
@@ -1233,20 +1196,20 @@ veld_code__downloader___veld.yaml:
   content:
     x-veld:
       code:
-        description: A very simple curl call. Since many veld chains need to download
-          data, it makes sense to encapsulate the download functionality into a dedicated
-          downloader veld code
+        description: A download helper, for simple or batch downloads. Also offers
+          automatic compressed file extraction.
         topic: ETL
         input:
           volume: /veld/input/
           file_type: csv
           content: download urls and target file names
           environment_var: in_csv_file
-          description: The downloader may also process a csv file for batch downloading.
-            The first column must be the url, and the optional second column a designated
-            file name. Column names are ignored by default (by var `csv_has_headers`
-            being set to `true`). Note that the var `in_csv_file` can not be set at
-            the same time as `url`, since the former designates batch processing while
+          description: Besides downloading directly from a given url, the downloader
+            may also process a csv file for batch downloading. The first column of
+            the csv must be the url, and the optional second column a designated file
+            name. Column names are ignored by default (by var `csv_has_headers` being
+            set to `true`). Note that the var `in_csv_file` can not be set at the
+            same time as `url`, since the former designates batch processing while
             the latter designates a single download.
         output:
           volume: /veld/output/

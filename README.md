@@ -310,22 +310,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topic: ETL, RDF, triplestore, database
   - [veld_run_server.yaml](https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_run_server.yaml)
     - valid: False, elements not allowed: /x-veld/code/storage
-- https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models
-  - [veld_evaluate.yaml](https://github.com/veldhub/veld_code__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml)
-    - valid: True
-    - metadata:
-      - description: hard-coded evaluation of several spaCy2.2.4 models.
-      - topic: NLP, Machine Learning, Named Entity Recognition
-      - input:
-        - 1:
-          - description: This input is hard-wired to the apis spacy-ner repo and not made for generic usage.
-          - file_type: pickle, txt, json, spaCy model
-          - content: NER gold data, Machine Learning model, NLP model
-      - output:
-        - 1:
-          - description: evaluation report of the models from the apis spacy-ner repo.
-          - file_type: md
-          - content: evaluation report
 - https://github.com/veldhub/veld_code__apis_ner_transform_to_gold
   - [veld.yaml](https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml)
     - valid: True
@@ -359,7 +343,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [veld.yaml](https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml)
     - valid: True
     - metadata:
-      - description: A very simple curl call. Since many veld chains need to download data, it makes sense to encapsulate the download functionality into a dedicated downloader veld code
+      - description: A download helper, for simple or batch downloads. Also offers automatic compressed file extraction.
       - topic: ETL
 - https://github.com/veldhub/veld_code__fasttext
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml)
@@ -1226,7 +1210,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 ## content vocab
 - Evaluation data
 - ML gold data
-- Machine Learning model
 - NER data
 - NER gold data
 - NLP gold data
@@ -1243,7 +1226,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - data visualization
 - enriched text
 - evaluation data
-- evaluation report
 - gold data
 - grammatically annotated text
 - inferenced NLP data
@@ -1274,7 +1256,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - html
 - ini
 - json
-- md
 - pickle
 - png
 - spaCy docbin

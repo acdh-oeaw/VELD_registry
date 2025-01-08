@@ -1,7 +1,7 @@
 x-veld:
   code:
-    description: "A very simple curl call. Since many veld chains need to download data, it makes
-      sense to encapsulate the download functionality into a dedicated downloader veld code"
+    description: "A download helper, for simple or batch downloads. Also offers automatic 
+      compressed file extraction."
     topic: ETL
 
     input:
@@ -9,11 +9,12 @@ x-veld:
       file_type: csv
       content: "download urls and target file names"
       environment_var: in_csv_file
-      description: "The downloader may also process a csv file for batch downloading. The first 
-        column must be the url, and the optional second column a designated file name. Column names 
-        are ignored by default (by var `csv_has_headers` being set to `true`). Note that the var 
-        `in_csv_file` can not be set at the same time as `url`, since the former designates batch 
-        processing while the latter designates a single download."
+      description: "Besides downloading directly from a given url, the downloader may also process 
+        a csv file for batch downloading. The first column of the csv must be the url, and the 
+        optional second column a designated file name. Column names are ignored by default (by var 
+        `csv_has_headers` being set to `true`). Note that the var `in_csv_file` can not be set at 
+        the same time as `url`, since the former designates batch processing while the latter 
+        designates a single download."
 
     output:
       volume: /veld/output/
