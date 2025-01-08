@@ -19,8 +19,15 @@ services:
     extends:
       service: base_service
     command: python -u ./src/clscor_convert.py
+    depends_on:
+      create_registry:
+        condition: service_completed_successfully
 
   clscor_match_vocabs:
     extends:
       service: base_service
     command: python -u ./src/clscor_match_vocabs.py
+    depends_on:
+      clscor_convert:
+        condition: service_completed_successfully
+
