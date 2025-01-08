@@ -164,11 +164,13 @@ def _get_code_ved__file_type__of_io(veld_data, io):
     result = []
     try:
         _ = veld_data["content"]["x-veld"]["code"]
-        io_dict_list = veld_data["content"]["x-veld"]["code"][io]
+        io = veld_data["content"]["x-veld"]["code"][io]
     except:
         pass
     else:
-        for io_dict in io_dict_list:
+        if type(io) is dict:
+            io = [io]
+        for io_dict in io:
             if ft := io_dict.get("file_type"):
                 result.extend(_transform_file_type(ft))
     return result
