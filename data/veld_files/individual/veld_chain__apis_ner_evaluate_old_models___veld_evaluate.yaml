@@ -1,6 +1,7 @@
 x-veld:
   chain:
-    description: "hard-coded evaluation of several spaCy 2.2.4 models."
+    description: "hard-coded evaluation of several spaCy 2.2.4 models. This chain veld is a wrapper 
+      of legacy code."
     topic: 
       - "NLP"
       - "Machine Learning"
@@ -8,10 +9,10 @@ x-veld:
 
 services:
   veld_evaluate:
-    extends:
-      file: ./code/veld_code__apis_ner_evaluate_old_models/veld_evaluate.yaml
-      service: veld_evaluate
+    build: ./code/
+    command: python /veld/code/reevaluate_all_models.py
     volumes:
+      - ./code/src/:/veld/code/
       - ./data/spacy-ner/:/veld/input/
       - ./data/spacy-ner/:/veld/output/
     environment:

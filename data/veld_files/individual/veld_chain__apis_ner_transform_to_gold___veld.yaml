@@ -7,10 +7,10 @@ x-veld:
 
 services:
   veld:
-    extends:
-      file: ./code/veld_code__apis_ner_transform_to_gold/veld.yaml
-      service: veld
+    build: ./code/
+    command: python /veld/code/extract_and_clean.py
     volumes:
+      - ./code/src/:/veld/code/
       - ./data/veld_data__apis_spacy_ner_legacy/:/veld/input/
       - ./data/veld_data__apis_oebl__ner_gold/data_uncleaned:/veld/output/uncleaned/
       - ./data/veld_data__apis_oebl__ner_gold/data_cleaned:/veld/output/cleaned/

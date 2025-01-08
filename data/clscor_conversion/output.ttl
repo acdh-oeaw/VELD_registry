@@ -284,7 +284,6 @@
 
 <https://github.com/veldhub/veld_chain__apis_ner_transform_to_gold/blob/main/veld.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml> ;
     crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml> a pem:PE23_Volatile_Software,
@@ -705,14 +704,6 @@
         <https://clscor.io/entity/type/method/text_parsing>,
         <https://clscor.io/entity/type/method/tokenization> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu> .
-
-<https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json>,
-        <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json>,
-        <https://clscor.io/entity/type/format/pickle>,
-        <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> a crmcls:X12_Tool ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/spaCy_docbin>,

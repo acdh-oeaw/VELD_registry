@@ -1130,56 +1130,6 @@ veld_code__apache_jena_fuseki___veld_import_rdf.yaml:
           fuseki_graph_uri: default
     networks:
       veld_fuseki: null
-veld_code__apis_ner_transform_to_gold___veld.yaml:
-  url: https://github.com/veldhub/veld_code__apis_ner_transform_to_gold/blob/main/veld.yaml
-  content:
-    x-veld:
-      code:
-        description: hard-coded conversion of apis ner models to custom json format.
-        topic:
-        - ETL
-        - Data Cleaning
-        input:
-        - volume: /veld/input/
-          description: This input is hard-wired to the apis spacy-ner repo and not
-            made for generic usage.
-          file_type:
-          - pickle
-          - txt
-          - json
-          content: NER gold data
-        output:
-        - volume: /veld/output/cleaned/
-          environment_var: out_json_cleaned_file
-          description: raw uncleaned, as it was originally. Now just transformed to
-            json.
-          file_type: json
-          content: NER gold data
-        - volume: /veld/output/uncleaned/
-          environment_var: out_json_uncleaned_file
-          description: removed empty entity annotations and fixed border issues.
-          file_type: json
-          content: NER gold data
-        - volume: /veld/output/cleaned_simplified/
-          environment_var: out_json_cleaned_simplified_file
-          description: additionally to cleaning, this data is slimmed down from superfluous
-            entity ids in favor of simplified entity classes.
-          file_type: json
-          content: NER gold data
-        - volume: /veld/output/log/
-          environment_var: out_log_file
-          file_type: txt
-    services:
-      veld:
-        build: .
-        command: python /veld/code/extract_and_clean.py
-        volumes:
-        - ./src/:/veld/code/
-        environment:
-          out_json_uncleaned_file: null
-          out_json_cleaned_file: null
-          out_json_cleaned_simplified_file: null
-          out_log_file: null
 veld_code__bert_embeddings___veld_infer_and_create_index.yaml:
   url: https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml
   content:
@@ -3488,17 +3438,18 @@ veld_chain__apis_ner_evaluate_old_models___veld_evaluate.yaml:
   content:
     x-veld:
       chain:
-        description: hard-coded evaluation of several spaCy 2.2.4 models.
+        description: hard-coded evaluation of several spaCy 2.2.4 models. This chain
+          veld is a wrapper of legacy code.
         topic:
         - NLP
         - Machine Learning
         - Named Entity Recognition
     services:
       veld_evaluate:
-        extends:
-          file: ./code/veld_code__apis_ner_evaluate_old_models/veld_evaluate.yaml
-          service: veld_evaluate
+        build: ./code/
+        command: python /veld/code/reevaluate_all_models.py
         volumes:
+        - ./code/src/:/veld/code/
         - ./data/spacy-ner/:/veld/input/
         - ./data/spacy-ner/:/veld/output/
         environment:
@@ -3514,10 +3465,10 @@ veld_chain__apis_ner_transform_to_gold___veld.yaml:
         - Data Cleaning
     services:
       veld:
-        extends:
-          file: ./code/veld_code__apis_ner_transform_to_gold/veld.yaml
-          service: veld
+        build: ./code/
+        command: python /veld/code/extract_and_clean.py
         volumes:
+        - ./code/src/:/veld/code/
         - ./data/veld_data__apis_spacy_ner_legacy/:/veld/input/
         - ./data/veld_data__apis_oebl__ner_gold/data_uncleaned:/veld/output/uncleaned/
         - ./data/veld_data__apis_oebl__ner_gold/data_cleaned:/veld/output/cleaned/
