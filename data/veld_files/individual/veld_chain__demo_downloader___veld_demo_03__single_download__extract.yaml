@@ -1,0 +1,17 @@
+x-veld:
+  chain:
+    description: "chain demonstrating download from a single url where the downloaded file is an 
+      archive which will be automatically extracted."
+    topic: "demo"
+
+services:
+  veld_demo_03__single_download__extract:
+    extends:
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    volumes:
+      - ./data/demo_03/output/:/veld/output/
+    environment:
+      url: https://www.gutenberg.org/cache/epub/52521/pg52521-h.zip
+      do_extract: true
+

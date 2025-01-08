@@ -1,0 +1,18 @@
+x-veld:
+  chain:
+    description: "chain demonstrating bulk download from a csv in which each download link is an 
+      archive which will be automatically extracted."
+    topic: "demo"
+
+services:
+  veld_demo_07__csv_bulk_download__extract:
+    extends:
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    volumes:
+      - ./data/demo_07/input/:/veld/input/
+      - ./data/demo_07/output/:/veld/output/
+    environment:
+      in_csv_file: goethe.csv
+      do_extract: true
+

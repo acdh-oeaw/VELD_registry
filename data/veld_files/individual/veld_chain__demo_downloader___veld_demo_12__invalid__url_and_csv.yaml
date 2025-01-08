@@ -1,0 +1,15 @@
+x-veld:
+  chain:
+    description: "invalid chain demonstrating that giving `in_csv_file` and `url` at the same time 
+      is invalid, since `url` relates to single downloads only and not bulk downloads."
+    topic: "demo"
+
+services:
+  veld_demo_12__invalid__url_and_csv:
+    extends:
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    environment:
+      in_csv_file: goethe.csv
+      url: https://www.gutenberg.org/cache/epub/52521/pg52521.txt
+

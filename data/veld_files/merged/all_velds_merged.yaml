@@ -3736,6 +3736,253 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step6_convert_books_to_t
         environment:
           lang: de
           model: german-hdt-ud-2.6-200830
+veld_chain__demo_downloader___veld_demo_01__single_download.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating download from a single url without any other
+          configuration.
+        topic: demo
+    services:
+      veld_demo_01__single_download:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_01/output/:/veld/output/
+        environment:
+          url: https://www.gutenberg.org/cache/epub/52521/pg52521.txt
+veld_chain__demo_downloader___veld_demo_02__single_download__designate_file_name.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_02__single_download__designate_file_name.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating download from a single url where a designated
+          output file name is given.
+        topic: demo
+    services:
+      veld_demo_02__single_download__designate_file_name:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_02/output/:/veld/output/
+        environment:
+          url: https://www.gutenberg.org/cache/epub/52521/pg52521.txt
+          out_file: Grimms_Fairy_Tales.txt
+veld_chain__demo_downloader___veld_demo_03__single_download__extract.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_03__single_download__extract.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating download from a single url where the downloaded
+          file is an archive which will be automatically extracted.
+        topic: demo
+    services:
+      veld_demo_03__single_download__extract:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_03/output/:/veld/output/
+        environment:
+          url: https://www.gutenberg.org/cache/epub/52521/pg52521-h.zip
+          do_extract: true
+veld_chain__demo_downloader___veld_demo_04__single_download__designate_file_name__extract.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_04__single_download__designate_file_name__extract.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating download from a single url where a designated
+          output file name is given, and it is an archive which will be automatically
+          extracted.
+        topic: demo
+    services:
+      veld_demo_04__single_download__designate_file_name__extract:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_04/output/:/veld/output/
+        environment:
+          url: https://www.gutenberg.org/cache/epub/52521/pg52521-h.zip
+          out_file: Grimms_Fairy_Tales.zip
+          do_extract: true
+veld_chain__demo_downloader___veld_demo_05__csv_bulk_download.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_05__csv_bulk_download.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating bulk download from a csv without any other
+          configuration.
+        topic: demo
+    services:
+      veld_demo_05__csv_bulk_download:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_05/input/:/veld/input/
+        - ./data/demo_05/output/:/veld/output/
+        environment:
+          in_csv_file: goethe.csv
+veld_chain__demo_downloader___veld_demo_06__csv_bulk_download__designate_file_name.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_06__csv_bulk_download__designate_file_name.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating bulk download from a csv in which respective
+          designated file names are given to each download link.
+        topic: demo
+    services:
+      veld_demo_06__csv_bulk_download__designate_file_name:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_06/input/:/veld/input/
+        - ./data/demo_06/output/:/veld/output/
+        environment:
+          in_csv_file: goethe.csv
+veld_chain__demo_downloader___veld_demo_07__csv_bulk_download__extract.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_07__csv_bulk_download__extract.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating bulk download from a csv in which each download
+          link is an archive which will be automatically extracted.
+        topic: demo
+    services:
+      veld_demo_07__csv_bulk_download__extract:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_07/input/:/veld/input/
+        - ./data/demo_07/output/:/veld/output/
+        environment:
+          in_csv_file: goethe.csv
+          do_extract: true
+veld_chain__demo_downloader___veld_demo_08__csv_bulk_download__csv_no_headers.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_08__csv_bulk_download__csv_no_headers.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating bulk download from a csv without any headers.
+        topic: demo
+    services:
+      veld_demo_08__csv_bulk_download__csv_no_headers:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_08/input/:/veld/input/
+        - ./data/demo_08/output/:/veld/output/
+        environment:
+          in_csv_file: goethe.csv
+          csv_has_headers: false
+veld_chain__demo_downloader___veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml
+  content:
+    x-veld:
+      chain:
+        description: chain demonstrating bulk download from a csv in which respective
+          designated file names are given to each download link, where each download
+          link is an archive which will be automatically extracted, and without any
+          headers.
+        topic: demo
+    services:
+      veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/demo_09/input/:/veld/input/
+        - ./data/demo_09/output/:/veld/output/
+        environment:
+          in_csv_file: goethe.csv
+          do_extract: true
+          csv_has_headers: false
+veld_chain__demo_downloader___veld_demo_10__multichain_all_previous.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__multichain_all_previous.yaml
+  content:
+    x-veld:
+      chain:
+        description: multi chain consisting of each previously defined chain executed
+          in parallel.
+        topic: demo
+    services:
+      veld_demo_01__single_download:
+        extends:
+          file: ./veld_demo_01__single_download.yaml
+          service: veld_demo_01__single_download
+      veld_demo_02__single_download__designate_file_name:
+        extends:
+          file: ./veld_demo_02__single_download__designate_file_name.yaml
+          service: veld_demo_02__single_download__designate_file_name
+      veld_demo_03__single_download__extract:
+        extends:
+          file: ./veld_demo_03__single_download__extract.yaml
+          service: veld_demo_03__single_download__extract
+      veld_demo_04__single_download__designate_file_name__extract:
+        extends:
+          file: ./veld_demo_04__single_download__designate_file_name__extract.yaml
+          service: veld_demo_04__single_download__designate_file_name__extract
+      veld_demo_05__csv_bulk_download:
+        extends:
+          file: ./veld_demo_05__csv_bulk_download.yaml
+          service: veld_demo_05__csv_bulk_download
+      veld_demo_06__csv_bulk_download__designate_file_name:
+        extends:
+          file: ./veld_demo_06__csv_bulk_download__designate_file_name.yaml
+          service: veld_demo_06__csv_bulk_download__designate_file_name
+      veld_demo_07__csv_bulk_download__extract:
+        extends:
+          file: ./veld_demo_07__csv_bulk_download__extract.yaml
+          service: veld_demo_07__csv_bulk_download__extract
+      veld_demo_08__csv_bulk_download__csv_no_headers:
+        extends:
+          file: ./veld_demo_08__csv_bulk_download__csv_no_headers.yaml
+          service: veld_demo_08__csv_bulk_download__csv_no_headers
+      veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers:
+        extends:
+          file: ./veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml
+          service: veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers
+veld_chain__demo_downloader___veld_demo_11__invalid__out_file_and_csv.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_11__invalid__out_file_and_csv.yaml
+  content:
+    x-veld:
+      chain:
+        description: invalid chain demonstrating that giving `in_csv_file` and `out_file`
+          at the same time is invalid, since `out_file` relates to single downloads
+          only and not bulk downloads.
+        topic: demo
+    services:
+      veld_demo_11__invalid__out_file_and_csv:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        environment:
+          in_csv_file: goethe.csv
+          out_file: goethe.txt
+veld_chain__demo_downloader___veld_demo_12__invalid__url_and_csv.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_12__invalid__url_and_csv.yaml
+  content:
+    x-veld:
+      chain:
+        description: invalid chain demonstrating that giving `in_csv_file` and `url`
+          at the same time is invalid, since `url` relates to single downloads only
+          and not bulk downloads.
+        topic: demo
+    services:
+      veld_demo_12__invalid__url_and_csv:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        environment:
+          in_csv_file: goethe.csv
+          url: https://www.gutenberg.org/cache/epub/52521/pg52521.txt
 veld_chain__demo_teitok-tools___veld_parseudpipe.yaml:
   url: https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml
   content:

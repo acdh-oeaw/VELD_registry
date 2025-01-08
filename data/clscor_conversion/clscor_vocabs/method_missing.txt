@@ -4,4 +4,5 @@ https://clscor.io/entity/type/method/RDF
 https://clscor.io/entity/type/method/Testing
 https://clscor.io/entity/type/method/Universal_Dependencies
 https://clscor.io/entity/type/method/database
+https://clscor.io/entity/type/method/demo
 https://clscor.io/entity/type/method/triplestore

@@ -1,0 +1,16 @@
+x-veld:
+  chain:
+    description: "chain demonstrating bulk download from a csv without any other configuration."
+    topic: "demo"
+
+services:
+  veld_demo_05__csv_bulk_download:
+    extends:
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    volumes:
+      - ./data/demo_05/input/:/veld/input/
+      - ./data/demo_05/output/:/veld/output/
+    environment:
+      in_csv_file: goethe.csv
+

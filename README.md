@@ -926,6 +926,67 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: Automatic creation of tokenized TEI files of downloaded txt books
       - topic: NLP, Grammatical Annotation, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing
+- https://github.com/veldhub/veld_chain__demo_downloader
+  - [veld_demo_01__single_download.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating download from a single url without any other configuration.
+      - topic: demo
+  - [veld_demo_02__single_download__designate_file_name.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_02__single_download__designate_file_name.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating download from a single url where a designated output file name is given.
+      - topic: demo
+  - [veld_demo_03__single_download__extract.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_03__single_download__extract.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating download from a single url where the downloaded file is an archive which will be automatically extracted.
+      - topic: demo
+  - [veld_demo_04__single_download__designate_file_name__extract.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_04__single_download__designate_file_name__extract.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating download from a single url where a designated output file name is given, and it is an archive which will be automatically extracted.
+      - topic: demo
+  - [veld_demo_05__csv_bulk_download.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_05__csv_bulk_download.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating bulk download from a csv without any other configuration.
+      - topic: demo
+  - [veld_demo_06__csv_bulk_download__designate_file_name.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_06__csv_bulk_download__designate_file_name.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating bulk download from a csv in which respective designated file names are given to each download link.
+      - topic: demo
+  - [veld_demo_07__csv_bulk_download__extract.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_07__csv_bulk_download__extract.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating bulk download from a csv in which each download link is an archive which will be automatically extracted.
+      - topic: demo
+  - [veld_demo_08__csv_bulk_download__csv_no_headers.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_08__csv_bulk_download__csv_no_headers.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating bulk download from a csv without any headers.
+      - topic: demo
+  - [veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml)
+    - valid: True
+    - metadata:
+      - description: chain demonstrating bulk download from a csv in which respective designated file names are given to each download link, where each download link is an archive which will be automatically extracted, and without any headers.
+      - topic: demo
+  - [veld_demo_10__multichain_all_previous.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__multichain_all_previous.yaml)
+    - valid: True
+    - metadata:
+      - description: multi chain consisting of each previously defined chain executed in parallel.
+      - topic: demo
+  - [veld_demo_11__invalid__out_file_and_csv.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_11__invalid__out_file_and_csv.yaml)
+    - valid: True
+    - metadata:
+      - description: invalid chain demonstrating that giving `in_csv_file` and `out_file` at the same time is invalid, since `out_file` relates to single downloads only and not bulk downloads.
+      - topic: demo
+  - [veld_demo_12__invalid__url_and_csv.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_12__invalid__url_and_csv.yaml)
+    - valid: True
+    - metadata:
+      - description: invalid chain demonstrating that giving `in_csv_file` and `url` at the same time is invalid, since `url` relates to single downloads only and not bulk downloads.
+      - topic: demo
 - https://github.com/veldhub/veld_chain__demo_teitok-tools
   - [veld_parseudpipe.yaml](https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml)
     - valid: True
@@ -1159,6 +1220,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - Universal Dependencies
 - Word Embeddings
 - database
+- demo
 - triplestore
 
 ## content vocab
