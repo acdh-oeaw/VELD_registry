@@ -1,6 +1,7 @@
 x-veld:
   code:
-    description: "udpipe inference setup"
+    description: "udpipe inference setup. See https://lindat.mff.cuni.cz/services/udpipe/ for more 
+      information on the software encapsulated here."
     topic: 
       - "NLP"
       - "Machine Learning"

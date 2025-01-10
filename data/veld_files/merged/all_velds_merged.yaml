@@ -1357,6 +1357,7 @@ veld_code__glove___veld_train.yaml:
     services:
       veld_train:
         build: .
+        platform: linux/amd64
         volumes:
         - ./src/main/train/:/veld/code/:z
         - ./data/training_data/:/veld/input/:z
@@ -1919,7 +1920,8 @@ veld_code__udpipe___veld_infer.yaml:
   content:
     x-veld:
       code:
-        description: udpipe inference setup
+        description: udpipe inference setup. See https://lindat.mff.cuni.cz/services/udpipe/
+          for more information on the software encapsulated here.
         topic:
         - NLP
         - Machine Learning
@@ -2037,7 +2039,8 @@ veld_code__udpipe___veld_train.yaml:
   content:
     x-veld:
       code:
-        description: udpipe training setup
+        description: udpipe training setup. See https://lindat.mff.cuni.cz/services/udpipe/
+          for more information on the software encapsulated here.
         topic:
         - NLP
         - Machine Learning
@@ -4018,42 +4021,8 @@ veld_chain__demo_udipe_ts-vienna-2024___veld_train.yaml:
           tokenizer_epochs: 2
           tagger_iterations: 2
           parser_iterations: 2
-veld_chain__demo_wordembeddings_multiarch___veld_jupyter_glove.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_glove.yaml
-  content:
-    x-veld:
-      chain:
-        description: demo word2vec jupyter notebook
-        topic:
-        - NLP
-        - Machine Learning
-        - Word Embeddings
-    services:
-      veld_jupyter_glove:
-        extends:
-          file: ./code/veld_code__glove/veld_jupyter_notebook.yaml
-          service: veld_jupyter_notebook
-        volumes:
-        - ./data/models/glove/:/veld/input/:z
-veld_chain__demo_wordembeddings_multiarch___veld_jupyter_word2vec.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_word2vec.yaml
-  content:
-    x-veld:
-      chain:
-        description: demo word2vec jupyter notebook
-        topic:
-        - NLP
-        - Machine Learning
-        - Word Embeddings
-    services:
-      veld_jupyter_word2vec:
-        extends:
-          file: ./code/veld_code__word2vec/veld_jupyter_notebook.yaml
-          service: veld_jupyter_notebook
-        volumes:
-        - ./data/models/word2vec/:/veld/input/:z
-veld_chain__demo_wordembeddings_multiarch___veld_preprocess.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_preprocess.yaml
+veld_chain__demo_wordembeddings_multiarch___veld_step01_preprocess.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step01_preprocess.yaml
   content:
     x-veld:
       chain:
@@ -4071,7 +4040,6 @@ veld_chain__demo_wordembeddings_multiarch___veld_preprocess.yaml:
         - ./data/training_data/:/veld/output/
         environment:
           url: https://raw.githubusercontent.com/mxw/grmr/master/src/finaltests/bible.txt
-          out_file: bible.txt
       veld_bible_preprocess:
         build: ./code/bible_preprocess/
         command: python /veld/code/bible_preprocess.py
@@ -4085,8 +4053,34 @@ veld_chain__demo_wordembeddings_multiarch___veld_preprocess.yaml:
         depends_on:
           veld_downloader:
             condition: service_completed_successfully
-veld_chain__demo_wordembeddings_multiarch___veld_train_glove.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_glove.yaml
+veld_chain__demo_wordembeddings_multiarch___veld_step02_train_word2vec.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step02_train_word2vec.yaml
+  content:
+    x-veld:
+      chain:
+        description: demo word2vec training on the bible
+        topic:
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+    services:
+      veld_train:
+        extends:
+          file: ./code/veld_code__word2vec/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/training_data/:/veld/input/
+        - ./data/models/word2vec/m1/:/veld/output/
+        environment:
+          in_train_data_file: bible.txt
+          out_model_file: m1.bin
+          model_description: trained on bible with simple hyperparams
+          epochs: 20
+          vector_size: 200
+          window: 5
+          min_count: 5
+veld_chain__demo_wordembeddings_multiarch___veld_step04_train_glove.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step04_train_glove.yaml
   content:
     x-veld:
       chain: null
@@ -4115,34 +4109,175 @@ veld_chain__demo_wordembeddings_multiarch___veld_train_glove.yaml:
           binary: 2
           num_threads: 14
           x_max: 10
-veld_chain__demo_wordembeddings_multiarch___veld_train_word2vec.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_word2vec.yaml
+veld_chain__eltec_udpipe_inference___veld_step1_preprocess.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step1_preprocess.yaml
   content:
     x-veld:
       chain:
-        description: demo word2vec training on the bible
+        description: xml / xslt transformation of ELTeC data
         topic:
         - NLP
         - Machine Learning
-        - Word Embeddings
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
+    x-vars:
+    - &id001
+      file: ./code/veld_code__xml_xslt_transformer/veld.yaml
+      service: veld
+    - &id002
+      in_xsl_file: transformation.xsl
     services:
-      veld_train:
-        extends:
-          file: ./code/veld_code__word2vec/veld_train.yaml
-          service: veld_train
+      veld_preprocess_cze:
+        extends: *id001
         volumes:
-        - ./data/training_data/:/veld/input/
-        - ./data/models/word2vec/m1/:/veld/output/
+        - ./data/veld_data__eltec_original_selection/data/ELTeC-cze/level1/:/veld/input/xml/
+        - ./data/xsl/:/veld/input/xsl/
+        - ./data/data_tmp_txt_transformed/ELTeC-cze/level1/:/veld/output/
+        environment: *id002
+      veld_preprocess_deu:
+        extends: *id001
+        volumes:
+        - ./data/veld_data__eltec_original_selection/data/ELTeC-deu/level1/:/veld/input/xml/
+        - ./data/xsl/:/veld/input/xsl/
+        - ./data/data_tmp_txt_transformed/ELTeC-deu/level1/:/veld/output/
+        environment: *id002
+      veld_preprocess_eng:
+        extends: *id001
+        volumes:
+        - ./data/veld_data__eltec_original_selection/data/ELTeC-eng/level1/:/veld/input/xml/
+        - ./data/xsl/:/veld/input/xsl/
+        - ./data/data_tmp_txt_transformed/ELTeC-eng/level1/:/veld/output/
+        environment: *id002
+      veld_preprocess_fra:
+        extends: *id001
+        volumes:
+        - ./data/veld_data__eltec_original_selection/data/ELTeC-fra/level1/:/veld/input/xml/
+        - ./data/xsl/:/veld/input/xsl/
+        - ./data/data_tmp_txt_transformed/ELTeC-fra/level1/:/veld/output/
+        environment: *id002
+      veld_preprocess_spa:
+        extends: *id001
+        volumes:
+        - ./data/veld_data__eltec_original_selection/data/ELTeC-spa/level1/:/veld/input/xml/
+        - ./data/xsl/:/veld/input/xsl/
+        - ./data/data_tmp_txt_transformed/ELTeC-spa/level1/:/veld/output/
+        environment: *id002
+veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_infer.yaml
+  content:
+    x-veld:
+      chain:
+        description: udpipe inference setup, reading in preprocessed ELTeC data
+        topic:
+        - NLP
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
+    x-vars:
+    - &id004
+      file: ./code/veld_code__udpipe/veld_infer.yaml
+      service: veld_infer
+    - &id003
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    - - ./data/data_tmp_txt_transformed/:/veld/input/txt/
+      - ./data/data_tmp_conllu_inferenced/:/veld/output/
+    services:
+      veld_download_cze:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/cze/:/veld/output/
         environment:
-          in_train_data_file: bible.txt
-          out_model_file: m1.bin
-          model_description: trained on bible with simple hyperparams
-          epochs: 20
-          vector_size: 200
-          window: 5
-          min_count: 5
-veld_chain__eltec_udpipe_inference___veld_analyse.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_analyse.yaml
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/czech-pdt-ud-2.5-191206.udpipe
+      veld_infer_cze:
+        extends: *id004
+        volumes:
+        - ./data/data_tmp_txt_transformed/ELTeC-cze/level1/:/veld/input/txt/
+        - ./data/data_tmp_udpipe_models/cze/:/veld/input/model/
+        - ./data/data_tmp_conllu_inferenced/ELTeC-cze/level1/:/veld/output/
+        environment:
+          in_model_file: czech-pdt-ud-2.5-191206.udpipe
+        depends_on:
+          veld_download_cze:
+            condition: service_completed_successfully
+      veld_download_deu:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/deu/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/german-hdt-ud-2.5-191206.udpipe
+      veld_infer_deu:
+        extends: *id004
+        volumes:
+        - ./data/data_tmp_txt_transformed/ELTeC-deu/level1/:/veld/input/txt/
+        - ./data/data_tmp_udpipe_models/deu/:/veld/input/model/
+        - ./data/data_tmp_conllu_inferenced/ELTeC-deu/level1/:/veld/output/
+        environment:
+          in_model_file: german-hdt-ud-2.5-191206.udpipe
+        depends_on:
+          veld_download_deu:
+            condition: service_completed_successfully
+      veld_download_eng:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/eng/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/english-ewt-ud-2.5-191206.udpipe
+      veld_infer_eng:
+        extends: *id004
+        volumes:
+        - ./data/data_tmp_txt_transformed/ELTeC-eng/level1/:/veld/input/txt/
+        - ./data/data_tmp_udpipe_models/eng/:/veld/input/model/
+        - ./data/data_tmp_conllu_inferenced/ELTeC-eng/level1/:/veld/output/
+        environment:
+          in_model_file: english-ewt-ud-2.5-191206.udpipe
+        depends_on:
+          veld_download_eng:
+            condition: service_completed_successfully
+      veld_download_fra:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/fra/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/french-gsd-ud-2.5-191206.udpipe
+      veld_infer_fra:
+        extends: *id004
+        volumes:
+        - ./data/data_tmp_txt_transformed/ELTeC-fra/level1/:/veld/input/txt/
+        - ./data/data_tmp_udpipe_models/fra/:/veld/input/model/
+        - ./data/data_tmp_conllu_inferenced/ELTeC-fra/level1/:/veld/output/
+        environment:
+          in_model_file: french-gsd-ud-2.5-191206.udpipe
+        depends_on:
+          veld_download_fra:
+            condition: service_completed_successfully
+      veld_download_spa:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/spa/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/spanish-gsd-ud-2.5-191206.udpipe
+      veld_infer_spa:
+        extends: *id004
+        volumes:
+        - ./data/data_tmp_txt_transformed/ELTeC-spa/level1/:/veld/input/txt/
+        - ./data/data_tmp_udpipe_models/spa/:/veld/input/model/
+        - ./data/data_tmp_conllu_inferenced/ELTeC-spa/level1/:/veld/output/
+        environment:
+          in_model_file: spanish-gsd-ud-2.5-191206.udpipe
+        depends_on:
+          veld_download_spa:
+            condition: service_completed_successfully
+veld_chain__eltec_udpipe_inference___veld_step3_analyse.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_analyse.yaml
   content:
     x-veld:
       chain:
@@ -4165,173 +4300,6 @@ veld_chain__eltec_udpipe_inference___veld_analyse.yaml:
         volumes:
         - ./data/data_tmp_conllu_inferenced/:/veld/input/
         - ./data/veld_data__eltec_conllu_stats/data/:/veld/output/
-veld_chain__eltec_udpipe_inference___veld_infer.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_infer.yaml
-  content:
-    x-veld:
-      chain:
-        description: udpipe inference setup, reading in preprocessed ELTeC data
-        topic:
-        - NLP
-        - Machine Learning
-        - Tokenization
-        - Lemmatization
-        - Part Of Speech
-        - Dependency Parsing
-        - Universal Dependencies
-        - Grammatical Annotation
-    x-vars:
-    - &id002
-      file: ./code/veld_code__udpipe/veld_infer.yaml
-      service: veld_infer
-    - &id001
-      file: ./code/veld_code__downloader/veld.yaml
-      service: veld_downloader
-    - - ./data/data_tmp_txt_transformed/:/veld/input/txt/
-      - ./data/data_tmp_conllu_inferenced/:/veld/output/
-    services:
-      veld_download_cze:
-        extends: *id001
-        volumes:
-        - ./data/data_tmp_udpipe_models/cze/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/czech-pdt-ud-2.5-191206.udpipe
-      veld_infer_cze:
-        extends: *id002
-        volumes:
-        - ./data/data_tmp_txt_transformed/ELTeC-cze/level1/:/veld/input/txt/
-        - ./data/data_tmp_udpipe_models/cze/:/veld/input/model/
-        - ./data/data_tmp_conllu_inferenced/ELTeC-cze/level1/:/veld/output/
-        environment:
-          in_model_file: czech-pdt-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_cze:
-            condition: service_completed_successfully
-      veld_download_deu:
-        extends: *id001
-        volumes:
-        - ./data/data_tmp_udpipe_models/deu/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/german-hdt-ud-2.5-191206.udpipe
-      veld_infer_deu:
-        extends: *id002
-        volumes:
-        - ./data/data_tmp_txt_transformed/ELTeC-deu/level1/:/veld/input/txt/
-        - ./data/data_tmp_udpipe_models/deu/:/veld/input/model/
-        - ./data/data_tmp_conllu_inferenced/ELTeC-deu/level1/:/veld/output/
-        environment:
-          in_model_file: german-hdt-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_deu:
-            condition: service_completed_successfully
-      veld_download_eng:
-        extends: *id001
-        volumes:
-        - ./data/data_tmp_udpipe_models/eng/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/english-ewt-ud-2.5-191206.udpipe
-      veld_infer_eng:
-        extends: *id002
-        volumes:
-        - ./data/data_tmp_txt_transformed/ELTeC-eng/level1/:/veld/input/txt/
-        - ./data/data_tmp_udpipe_models/eng/:/veld/input/model/
-        - ./data/data_tmp_conllu_inferenced/ELTeC-eng/level1/:/veld/output/
-        environment:
-          in_model_file: english-ewt-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_eng:
-            condition: service_completed_successfully
-      veld_download_fra:
-        extends: *id001
-        volumes:
-        - ./data/data_tmp_udpipe_models/fra/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/french-gsd-ud-2.5-191206.udpipe
-      veld_infer_fra:
-        extends: *id002
-        volumes:
-        - ./data/data_tmp_txt_transformed/ELTeC-fra/level1/:/veld/input/txt/
-        - ./data/data_tmp_udpipe_models/fra/:/veld/input/model/
-        - ./data/data_tmp_conllu_inferenced/ELTeC-fra/level1/:/veld/output/
-        environment:
-          in_model_file: french-gsd-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_fra:
-            condition: service_completed_successfully
-      veld_download_spa:
-        extends: *id001
-        volumes:
-        - ./data/data_tmp_udpipe_models/spa/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/spanish-gsd-ud-2.5-191206.udpipe
-      veld_infer_spa:
-        extends: *id002
-        volumes:
-        - ./data/data_tmp_txt_transformed/ELTeC-spa/level1/:/veld/input/txt/
-        - ./data/data_tmp_udpipe_models/spa/:/veld/input/model/
-        - ./data/data_tmp_conllu_inferenced/ELTeC-spa/level1/:/veld/output/
-        environment:
-          in_model_file: spanish-gsd-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_spa:
-            condition: service_completed_successfully
-veld_chain__eltec_udpipe_inference___veld_preprocess.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_preprocess.yaml
-  content:
-    x-veld:
-      chain:
-        description: xml / xslt transformation of ELTeC data
-        topic:
-        - NLP
-        - Machine Learning
-        - Tokenization
-        - Lemmatization
-        - Part Of Speech
-        - Dependency Parsing
-        - Universal Dependencies
-        - Grammatical Annotation
-    x-vars:
-    - &id003
-      file: ./code/veld_code__xml_xslt_transformer/veld.yaml
-      service: veld
-    - &id004
-      in_xsl_file: transformation.xsl
-    services:
-      veld_preprocess_cze:
-        extends: *id003
-        volumes:
-        - ./data/veld_data__eltec_original_selection/data/ELTeC-cze/level1/:/veld/input/xml/
-        - ./data/xsl/:/veld/input/xsl/
-        - ./data/data_tmp_txt_transformed/ELTeC-cze/level1/:/veld/output/
-        environment: *id004
-      veld_preprocess_deu:
-        extends: *id003
-        volumes:
-        - ./data/veld_data__eltec_original_selection/data/ELTeC-deu/level1/:/veld/input/xml/
-        - ./data/xsl/:/veld/input/xsl/
-        - ./data/data_tmp_txt_transformed/ELTeC-deu/level1/:/veld/output/
-        environment: *id004
-      veld_preprocess_eng:
-        extends: *id003
-        volumes:
-        - ./data/veld_data__eltec_original_selection/data/ELTeC-eng/level1/:/veld/input/xml/
-        - ./data/xsl/:/veld/input/xsl/
-        - ./data/data_tmp_txt_transformed/ELTeC-eng/level1/:/veld/output/
-        environment: *id004
-      veld_preprocess_fra:
-        extends: *id003
-        volumes:
-        - ./data/veld_data__eltec_original_selection/data/ELTeC-fra/level1/:/veld/input/xml/
-        - ./data/xsl/:/veld/input/xsl/
-        - ./data/data_tmp_txt_transformed/ELTeC-fra/level1/:/veld/output/
-        environment: *id004
-      veld_preprocess_spa:
-        extends: *id003
-        volumes:
-        - ./data/veld_data__eltec_original_selection/data/ELTeC-spa/level1/:/veld/input/xml/
-        - ./data/xsl/:/veld/input/xsl/
-        - ./data/data_tmp_txt_transformed/ELTeC-spa/level1/:/veld/output/
-        environment: *id004
 veld_chain__gutenberg_fuseki___veld_download_gutenberg_metadata.yaml:
   url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml
   content:

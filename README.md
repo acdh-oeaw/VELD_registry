@@ -483,7 +483,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [veld_infer.yaml](https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml)
     - valid: True
     - metadata:
-      - description: udpipe inference setup
+      - description: udpipe inference setup. See https://lindat.mff.cuni.cz/services/udpipe/ for more information on the software encapsulated here.
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
       - input:
         - 1:
@@ -501,7 +501,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [veld_train.yaml](https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml)
     - valid: True
     - metadata:
-      - description: udpipe training setup
+      - description: udpipe training setup. See https://lindat.mff.cuni.cz/services/udpipe/ for more information on the software encapsulated here.
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
       - input:
         - 1:
@@ -973,43 +973,33 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - description: A demonstration of a VELD chain training a udpipe model from scratch
       - topic: NLP, Universal Dependencies
 - https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch
-  - [veld_jupyter_glove.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_glove.yaml)
-    - valid: True
-    - metadata:
-      - description: demo word2vec jupyter notebook
-      - topic: NLP, Machine Learning, Word Embeddings
-  - [veld_jupyter_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_jupyter_word2vec.yaml)
-    - valid: True
-    - metadata:
-      - description: demo word2vec jupyter notebook
-      - topic: NLP, Machine Learning, Word Embeddings
-  - [veld_preprocess.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_preprocess.yaml)
+  - [veld_step01_preprocess.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step01_preprocess.yaml)
     - valid: True
     - metadata:
       - description: Download and preprocessing of the bible
       - topic: ETL, NLP, Bible Studies
-  - [veld_train_glove.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_glove.yaml)
-    - valid: True
-  - [veld_train_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_train_word2vec.yaml)
+  - [veld_step02_train_word2vec.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step02_train_word2vec.yaml)
     - valid: True
     - metadata:
       - description: demo word2vec training on the bible
       - topic: NLP, Machine Learning, Word Embeddings
+  - [veld_step04_train_glove.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step04_train_glove.yaml)
+    - valid: True
 - https://github.com/veldhub/veld_chain__eltec_udpipe_inference
-  - [veld_analyse.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_analyse.yaml)
+  - [veld_step1_preprocess.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step1_preprocess.yaml)
     - valid: True
     - metadata:
-      - description: chain to analyse the conllu data which was inferenced by udpipe on several ELTeC corpora.
+      - description: xml / xslt transformation of ELTeC data
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
-  - [veld_infer.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_infer.yaml)
+  - [veld_step2_infer.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_infer.yaml)
     - valid: True
     - metadata:
       - description: udpipe inference setup, reading in preprocessed ELTeC data
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
-  - [veld_preprocess.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_preprocess.yaml)
+  - [veld_step3_analyse.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_analyse.yaml)
     - valid: True
     - metadata:
-      - description: xml / xslt transformation of ELTeC data
+      - description: chain to analyse the conllu data which was inferenced by udpipe on several ELTeC corpora.
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
 - https://github.com/veldhub/veld_chain__gutenberg_fuseki
   - [veld_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml)

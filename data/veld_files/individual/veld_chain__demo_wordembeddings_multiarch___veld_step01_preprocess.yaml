@@ -7,6 +7,7 @@ x-veld:
       - "Bible Studies"
 
 services:
+
   veld_downloader:
     extends:
       file: ./code/veld_code__downloader/veld.yaml
@@ -15,7 +16,6 @@ services:
       - ./data/training_data/:/veld/output/
     environment:
       url: "https://raw.githubusercontent.com/mxw/grmr/master/src/finaltests/bible.txt"
-      out_file: "bible.txt"
 
   veld_bible_preprocess:
     build: ./code/bible_preprocess/
