@@ -1,0 +1,47 @@
+x-veld:
+  chain:
+    description: "udpipe model download"
+
+# define some variables here once, so that following services can reuse it
+x-vars: 
+  - &var_extends_downloader
+    file: ./code/veld_code__downloader/veld.yaml
+    service: veld_downloader
+
+services:
+
+  veld_download_cze:
+    extends: *var_extends_downloader
+    volumes:
+      - ./data/data_tmp_udpipe_models/cze/:/veld/output/
+    environment:
+      url: "https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/czech-pdt-ud-2.5-191206.udpipe"
+
+  veld_download_deu:
+    extends: *var_extends_downloader
+    volumes:
+      - ./data/data_tmp_udpipe_models/deu/:/veld/output/
+    environment:
+      url: "https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/german-hdt-ud-2.5-191206.udpipe"
+
+  veld_download_eng:
+    extends: *var_extends_downloader
+    volumes:
+      - ./data/data_tmp_udpipe_models/eng/:/veld/output/
+    environment:
+      url: "https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/english-ewt-ud-2.5-191206.udpipe"
+
+  veld_download_fra:
+    extends: *var_extends_downloader
+    volumes:
+      - ./data/data_tmp_udpipe_models/fra/:/veld/output/
+    environment:
+      url: "https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/french-gsd-ud-2.5-191206.udpipe"
+
+  veld_download_spa:
+    extends: *var_extends_downloader
+    volumes:
+      - ./data/data_tmp_udpipe_models/spa/:/veld/output/
+    environment:
+      url: "https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/spanish-gsd-ud-2.5-191206.udpipe"
+

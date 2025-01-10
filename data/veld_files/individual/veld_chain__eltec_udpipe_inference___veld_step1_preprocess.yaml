@@ -2,14 +2,7 @@ x-veld:
   chain:
     description: "xml / xslt transformation of ELTeC data"
     topic:
-      - "NLP"
-      - "Machine Learning"
-      - "Tokenization"
-      - "Lemmatization"
-      - "Part Of Speech"
-      - "Dependency Parsing"
-      - "Universal Dependencies"
-      - "Grammatical Annotation"
+      - "ETL"
 
 # define a yaml variable here once, so that following services can reuse it
 x-vars: 

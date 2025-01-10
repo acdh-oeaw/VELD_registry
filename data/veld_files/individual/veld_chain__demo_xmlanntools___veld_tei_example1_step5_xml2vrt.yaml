@@ -1,0 +1,26 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the xml2vrt script and implementing the fifth 
+      step of the 'TEI_example1' at 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 "
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
+
+services:
+  veld_tei_example1_step5_xml2vrt:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_xml2vrt.yaml
+      service: veld_xml2vrt
+    volumes:
+      - ./data/TEI_example1/:/veld/input/data/
+      - ./data/TEI_example1/:/veld/output/
+    environment:
+      in_ann_xml_file: TEI_example1.ann.xml
+      profile_name: conllu
+      out_conlluish_xml_file: TEI_example1.vrt
+      include_elements: text
+      exclude_elements: front
+

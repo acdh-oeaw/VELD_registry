@@ -1,0 +1,24 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the tag_ud script and implementing the 
+      second step of the 'TEI_example1' at 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 "
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
+
+services:
+  veld_tei_example1_step2_tag_ud:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+      service: veld_tag_ud
+    volumes:
+      - ./data/TEI_example1/:/veld/input/
+      - ./data/TEI_example1/:/veld/output/
+    environment:
+      in_txt_file: TEI_example1.txt
+      out_conllu_file: TEI_example1.conllu
+      model: english-ewt-ud-2.15-241121
+

@@ -1,0 +1,25 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the standoff2xml script and implementing the 
+      fourth step of the 'Simple_poetry1' example at 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 "
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
+
+services:
+  veld_simple_poetry1_step4_standoff2xml:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_standoff2xml.yaml
+      service: veld_standoff2xml
+    volumes:
+      - ./data/Simple_poetry1/:/veld/input/
+      - ./data/Simple_poetry1/:/veld/output/
+    environment:
+      in_txt_file: Simple_poetry1.txt
+      in_json_file: Simple_poetry1.json
+      in_ann_json_file: Simple_poetry1.ann.json
+      out_ann_xml_file: Simple_poetry1.ann.xml
+

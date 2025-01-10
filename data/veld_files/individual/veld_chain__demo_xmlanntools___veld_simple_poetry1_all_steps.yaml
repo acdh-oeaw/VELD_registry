@@ -1,0 +1,42 @@
+x-veld:
+  chain:
+    description: "a multichain aggregating all individual steps of 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 into one single 
+      chain"
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
+
+services:
+
+  veld_simple_poetry1_step1_xml2standoff:
+    extends:
+      file: veld_simple_poetry1_step1_xml2standoff.yaml
+      service: veld_simple_poetry1_step1_xml2standoff
+
+  veld_simple_poetry1_step2_tag_ud:
+    extends:
+      file: veld_simple_poetry1_step2_tag_ud.yaml
+      service: veld_simple_poetry1_step2_tag_ud
+    depends_on:
+      veld_simple_poetry1_step1_xml2standoff:
+        condition: service_completed_successfully
+
+  veld_simple_poetry1_step3_ann2standoff:
+    extends:
+      file: veld_simple_poetry1_step3_ann2standoff.yaml
+      service: veld_simple_poetry1_step3_ann2standoff
+    depends_on:
+      veld_simple_poetry1_step2_tag_ud:
+        condition: service_completed_successfully
+
+  veld_simple_poetry1_step4_standoff2xml:
+    extends:
+      file: veld_simple_poetry1_step4_standoff2xml.yaml
+      service: veld_simple_poetry1_step4_standoff2xml
+    depends_on:
+      veld_simple_poetry1_step3_ann2standoff:
+        condition: service_completed_successfully
+

@@ -985,18 +985,78 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - topic: NLP, Machine Learning, Word Embeddings
   - [veld_step04_train_glove.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step04_train_glove.yaml)
     - valid: True
+- https://github.com/veldhub/veld_chain__demo_xmlanntools
+  - [veld_simple_poetry1_all_steps.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_all_steps.yaml)
+    - valid: True
+    - metadata:
+      - description: a multichain aggregating all individual steps of https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 into one single chain
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_simple_poetry1_step1_xml2standoff.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step1_xml2standoff.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the xml2standoff script and implementing the first step of the 'Simple_poetry1' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_simple_poetry1_step2_tag_ud.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step2_tag_ud.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the tag_ud script and implementing the second step of the 'Simple_poetry1' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_simple_poetry1_step3_ann2standoff.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step3_ann2standoff.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the ann2standoff script and implementing the third step of the 'Simple_poetry1' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_simple_poetry1_step4_standoff2xml.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step4_standoff2xml.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the standoff2xml script and implementing the fourth step of the 'Simple_poetry1' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_tei_example1_all_steps.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_all_steps.yaml)
+    - valid: True
+    - metadata:
+      - description: a multichain aggregating all individual steps of https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 into one single chain
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_tei_example1_step1_xml2standoff.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step1_xml2standoff.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the xml2standoff script and implementing the first step of the 'TEI_example1' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_tei_example1_step2_tag_ud.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step2_tag_ud.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the tag_ud script and implementing the second step of the 'TEI_example1' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_tei_example1_step3_ann2standoff.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step3_ann2standoff.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the ann2standoff script and implementing the third step of the 'TEI_example1' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_tei_example1_step4_standoff2xml.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step4_standoff2xml.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the standoff2xml script and implementing the fourth step of the 'TEI_example1' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
+  - [veld_tei_example1_step5_xml2vrt.yaml](https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step5_xml2vrt.yaml)
+    - valid: True
+    - metadata:
+      - description: A demo chain veld, integrating the xml2vrt script and implementing the fifth step of the 'TEI_example1' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 
+      - topic: NLP, ETL, Tokenization, Universal Dependencies
 - https://github.com/veldhub/veld_chain__eltec_udpipe_inference
   - [veld_step1_preprocess.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step1_preprocess.yaml)
     - valid: True
     - metadata:
       - description: xml / xslt transformation of ELTeC data
-      - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
-  - [veld_step2_infer.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_infer.yaml)
+      - topic: ETL
+  - [veld_step2_download_models.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_download_models.yaml)
+    - valid: True
+    - metadata:
+      - description: udpipe model download
+  - [veld_step3_infer.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_infer.yaml)
     - valid: True
     - metadata:
       - description: udpipe inference setup, reading in preprocessed ELTeC data
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
-  - [veld_step3_analyse.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_analyse.yaml)
+  - [veld_step4_analyse.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step4_analyse.yaml)
     - valid: True
     - metadata:
       - description: chain to analyse the conllu data which was inferenced by udpipe on several ELTeC corpora.

@@ -4109,6 +4109,314 @@ veld_chain__demo_wordembeddings_multiarch___veld_step04_train_glove.yaml:
           binary: 2
           num_threads: 14
           x_max: 10
+veld_chain__demo_xmlanntools___veld_simple_poetry1_all_steps.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_all_steps.yaml
+  content:
+    x-veld:
+      chain:
+        description: a multichain aggregating all individual steps of https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1
+          into one single chain
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_simple_poetry1_step1_xml2standoff:
+        extends:
+          file: veld_simple_poetry1_step1_xml2standoff.yaml
+          service: veld_simple_poetry1_step1_xml2standoff
+      veld_simple_poetry1_step2_tag_ud:
+        extends:
+          file: veld_simple_poetry1_step2_tag_ud.yaml
+          service: veld_simple_poetry1_step2_tag_ud
+        depends_on:
+          veld_simple_poetry1_step1_xml2standoff:
+            condition: service_completed_successfully
+      veld_simple_poetry1_step3_ann2standoff:
+        extends:
+          file: veld_simple_poetry1_step3_ann2standoff.yaml
+          service: veld_simple_poetry1_step3_ann2standoff
+        depends_on:
+          veld_simple_poetry1_step2_tag_ud:
+            condition: service_completed_successfully
+      veld_simple_poetry1_step4_standoff2xml:
+        extends:
+          file: veld_simple_poetry1_step4_standoff2xml.yaml
+          service: veld_simple_poetry1_step4_standoff2xml
+        depends_on:
+          veld_simple_poetry1_step3_ann2standoff:
+            condition: service_completed_successfully
+veld_chain__demo_xmlanntools___veld_simple_poetry1_step1_xml2standoff.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step1_xml2standoff.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the xml2standoff script and implementing
+          the first step of the ''Simple_poetry1'' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_simple_poetry1_step1_xml2standoff:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_xml2standoff.yaml
+          service: veld_xml2standoff
+        volumes:
+        - ./data/Simple_poetry1/:/veld/input/
+        - ./data/Simple_poetry1/:/veld/output/
+        environment:
+          in_xml_file: Simple_poetry1.xml
+          out_txt_file: Simple_poetry1.txt
+          out_json_file: Simple_poetry1.json
+          text_elements: p,head,lb
+veld_chain__demo_xmlanntools___veld_simple_poetry1_step2_tag_ud.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step2_tag_ud.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the tag_ud script and implementing
+          the second step of the ''Simple_poetry1'' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_simple_poetry1_step2_tag_ud:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+          service: veld_tag_ud
+        volumes:
+        - ./data/Simple_poetry1/:/veld/input/
+        - ./data/Simple_poetry1/:/veld/output/
+        environment:
+          in_txt_file: Simple_poetry1.txt
+          out_conllu_file: Simple_poetry1.conllu
+          model: czech-pdt-ud-2.15-241121
+veld_chain__demo_xmlanntools___veld_simple_poetry1_step3_ann2standoff.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step3_ann2standoff.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the ann2standoff script and implementing
+          the third step of the ''Simple_poetry1'' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_simple_poetry1_step3_ann2standoff:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_ann2standoff.yaml
+          service: veld_ann2standoff
+        volumes:
+        - ./data/Simple_poetry1/:/veld/input/data/
+        - ./data/Simple_poetry1/:/veld/output/
+        environment:
+          in_conllu_file: Simple_poetry1.conllu
+          in_txt_file: Simple_poetry1.txt
+          out_json_file: Simple_poetry1.ann.json
+          profile_name: conllu
+veld_chain__demo_xmlanntools___veld_simple_poetry1_step4_standoff2xml.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step4_standoff2xml.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the standoff2xml script and implementing
+          the fourth step of the ''Simple_poetry1'' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_simple_poetry1_step4_standoff2xml:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_standoff2xml.yaml
+          service: veld_standoff2xml
+        volumes:
+        - ./data/Simple_poetry1/:/veld/input/
+        - ./data/Simple_poetry1/:/veld/output/
+        environment:
+          in_txt_file: Simple_poetry1.txt
+          in_json_file: Simple_poetry1.json
+          in_ann_json_file: Simple_poetry1.ann.json
+          out_ann_xml_file: Simple_poetry1.ann.xml
+veld_chain__demo_xmlanntools___veld_tei_example1_all_steps.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_all_steps.yaml
+  content:
+    x-veld:
+      chain:
+        description: a multichain aggregating all individual steps of https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1
+          into one single chain
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_tei_example1_step1_xml2standoff:
+        extends:
+          file: veld_tei_example1_step1_xml2standoff.yaml
+          service: veld_tei_example1_step1_xml2standoff
+      veld_tei_example1_step2_tag_ud:
+        extends:
+          file: veld_tei_example1_step2_tag_ud.yaml
+          service: veld_tei_example1_step2_tag_ud
+        depends_on:
+          veld_tei_example1_step1_xml2standoff:
+            condition: service_completed_successfully
+      veld_tei_example1_step3_ann2standoff:
+        extends:
+          file: veld_tei_example1_step3_ann2standoff.yaml
+          service: veld_tei_example1_step3_ann2standoff
+        depends_on:
+          veld_tei_example1_step2_tag_ud:
+            condition: service_completed_successfully
+      veld_tei_example1_step4_standoff2xml:
+        extends:
+          file: veld_tei_example1_step4_standoff2xml.yaml
+          service: veld_tei_example1_step4_standoff2xml
+        depends_on:
+          veld_tei_example1_step3_ann2standoff:
+            condition: service_completed_successfully
+      veld_tei_example1_step5_xml2vrt:
+        extends:
+          file: veld_tei_example1_step5_xml2vrt.yaml
+          service: veld_tei_example1_step5_xml2vrt
+        depends_on:
+          veld_tei_example1_step4_standoff2xml:
+            condition: service_completed_successfully
+veld_chain__demo_xmlanntools___veld_tei_example1_step1_xml2standoff.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step1_xml2standoff.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the xml2standoff script and implementing
+          the first step of the ''TEI_example1'' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_tei_example1_step1_xml2standoff:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_xml2standoff.yaml
+          service: veld_xml2standoff
+        volumes:
+        - ./data/TEI_example1/:/veld/input/
+        - ./data/TEI_example1/:/veld/output/
+        environment:
+          in_xml_file: TEI_example1.xml
+          out_txt_file: TEI_example1.txt
+          out_json_file: TEI_example1.json
+          text_elements: p,head,quote,l
+          exclude_elements: teiHeader,front,foreign
+veld_chain__demo_xmlanntools___veld_tei_example1_step2_tag_ud.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step2_tag_ud.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the tag_ud script and implementing
+          the second step of the ''TEI_example1'' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_tei_example1_step2_tag_ud:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+          service: veld_tag_ud
+        volumes:
+        - ./data/TEI_example1/:/veld/input/
+        - ./data/TEI_example1/:/veld/output/
+        environment:
+          in_txt_file: TEI_example1.txt
+          out_conllu_file: TEI_example1.conllu
+          model: english-ewt-ud-2.15-241121
+veld_chain__demo_xmlanntools___veld_tei_example1_step3_ann2standoff.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step3_ann2standoff.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the ann2standoff script and implementing
+          the third step of the ''TEI_example1'' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_tei_example1_step3_ann2standoff:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_ann2standoff.yaml
+          service: veld_ann2standoff
+        volumes:
+        - ./data/TEI_example1/:/veld/input/data/
+        - ./data/TEI_example1/:/veld/output/
+        environment:
+          in_conllu_file: TEI_example1.conllu
+          in_txt_file: TEI_example1.txt
+          out_json_file: TEI_example1.ann.json
+          profile_name: conllu
+veld_chain__demo_xmlanntools___veld_tei_example1_step4_standoff2xml.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step4_standoff2xml.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the standoff2xml script and implementing
+          the fourth step of the ''TEI_example1'' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_tei_example1_step4_standoff2xml:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_standoff2xml.yaml
+          service: veld_standoff2xml
+        volumes:
+        - ./data/TEI_example1/:/veld/input/
+        - ./data/TEI_example1/:/veld/output/
+        environment:
+          in_txt_file: TEI_example1.txt
+          in_json_file: TEI_example1.json
+          in_ann_json_file: TEI_example1.ann.json
+          out_ann_xml_file: TEI_example1.ann.xml
+veld_chain__demo_xmlanntools___veld_tei_example1_step5_xml2vrt.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step5_xml2vrt.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the xml2vrt script and implementing
+          the fifth step of the ''TEI_example1'' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_tei_example1_step5_xml2vrt:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_xml2vrt.yaml
+          service: veld_xml2vrt
+        volumes:
+        - ./data/TEI_example1/:/veld/input/data/
+        - ./data/TEI_example1/:/veld/output/
+        environment:
+          in_ann_xml_file: TEI_example1.ann.xml
+          profile_name: conllu
+          out_conlluish_xml_file: TEI_example1.vrt
+          include_elements: text
+          exclude_elements: front
 veld_chain__eltec_udpipe_inference___veld_step1_preprocess.yaml:
   url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step1_preprocess.yaml
   content:
@@ -4116,14 +4424,7 @@ veld_chain__eltec_udpipe_inference___veld_step1_preprocess.yaml:
       chain:
         description: xml / xslt transformation of ELTeC data
         topic:
-        - NLP
-        - Machine Learning
-        - Tokenization
-        - Lemmatization
-        - Part Of Speech
-        - Dependency Parsing
-        - Universal Dependencies
-        - Grammatical Annotation
+        - ETL
     x-vars:
     - &id001
       file: ./code/veld_code__xml_xslt_transformer/veld.yaml
@@ -4166,8 +4467,49 @@ veld_chain__eltec_udpipe_inference___veld_step1_preprocess.yaml:
         - ./data/xsl/:/veld/input/xsl/
         - ./data/data_tmp_txt_transformed/ELTeC-spa/level1/:/veld/output/
         environment: *id002
-veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_infer.yaml
+veld_chain__eltec_udpipe_inference___veld_step2_download_models.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_download_models.yaml
+  content:
+    x-veld:
+      chain:
+        description: udpipe model download
+    x-vars:
+    - &id003
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    services:
+      veld_download_cze:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/cze/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/czech-pdt-ud-2.5-191206.udpipe
+      veld_download_deu:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/deu/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/german-hdt-ud-2.5-191206.udpipe
+      veld_download_eng:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/eng/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/english-ewt-ud-2.5-191206.udpipe
+      veld_download_fra:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/fra/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/french-gsd-ud-2.5-191206.udpipe
+      veld_download_spa:
+        extends: *id003
+        volumes:
+        - ./data/data_tmp_udpipe_models/spa/:/veld/output/
+        environment:
+          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/spanish-gsd-ud-2.5-191206.udpipe
+veld_chain__eltec_udpipe_inference___veld_step3_infer.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_infer.yaml
   content:
     x-veld:
       chain:
@@ -4185,18 +4527,9 @@ veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
     - &id004
       file: ./code/veld_code__udpipe/veld_infer.yaml
       service: veld_infer
-    - &id003
-      file: ./code/veld_code__downloader/veld.yaml
-      service: veld_downloader
     - - ./data/data_tmp_txt_transformed/:/veld/input/txt/
       - ./data/data_tmp_conllu_inferenced/:/veld/output/
     services:
-      veld_download_cze:
-        extends: *id003
-        volumes:
-        - ./data/data_tmp_udpipe_models/cze/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/czech-pdt-ud-2.5-191206.udpipe
       veld_infer_cze:
         extends: *id004
         volumes:
@@ -4205,15 +4538,6 @@ veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
         - ./data/data_tmp_conllu_inferenced/ELTeC-cze/level1/:/veld/output/
         environment:
           in_model_file: czech-pdt-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_cze:
-            condition: service_completed_successfully
-      veld_download_deu:
-        extends: *id003
-        volumes:
-        - ./data/data_tmp_udpipe_models/deu/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/german-hdt-ud-2.5-191206.udpipe
       veld_infer_deu:
         extends: *id004
         volumes:
@@ -4222,15 +4546,6 @@ veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
         - ./data/data_tmp_conllu_inferenced/ELTeC-deu/level1/:/veld/output/
         environment:
           in_model_file: german-hdt-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_deu:
-            condition: service_completed_successfully
-      veld_download_eng:
-        extends: *id003
-        volumes:
-        - ./data/data_tmp_udpipe_models/eng/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/english-ewt-ud-2.5-191206.udpipe
       veld_infer_eng:
         extends: *id004
         volumes:
@@ -4239,15 +4554,6 @@ veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
         - ./data/data_tmp_conllu_inferenced/ELTeC-eng/level1/:/veld/output/
         environment:
           in_model_file: english-ewt-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_eng:
-            condition: service_completed_successfully
-      veld_download_fra:
-        extends: *id003
-        volumes:
-        - ./data/data_tmp_udpipe_models/fra/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/french-gsd-ud-2.5-191206.udpipe
       veld_infer_fra:
         extends: *id004
         volumes:
@@ -4256,15 +4562,6 @@ veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
         - ./data/data_tmp_conllu_inferenced/ELTeC-fra/level1/:/veld/output/
         environment:
           in_model_file: french-gsd-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_fra:
-            condition: service_completed_successfully
-      veld_download_spa:
-        extends: *id003
-        volumes:
-        - ./data/data_tmp_udpipe_models/spa/:/veld/output/
-        environment:
-          url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/spanish-gsd-ud-2.5-191206.udpipe
       veld_infer_spa:
         extends: *id004
         volumes:
@@ -4273,11 +4570,8 @@ veld_chain__eltec_udpipe_inference___veld_step2_infer.yaml:
         - ./data/data_tmp_conllu_inferenced/ELTeC-spa/level1/:/veld/output/
         environment:
           in_model_file: spanish-gsd-ud-2.5-191206.udpipe
-        depends_on:
-          veld_download_spa:
-            condition: service_completed_successfully
-veld_chain__eltec_udpipe_inference___veld_step3_analyse.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_analyse.yaml
+veld_chain__eltec_udpipe_inference___veld_step4_analyse.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step4_analyse.yaml
   content:
     x-veld:
       chain:

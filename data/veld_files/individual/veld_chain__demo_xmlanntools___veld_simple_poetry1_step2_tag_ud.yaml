@@ -1,0 +1,24 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the tag_ud script and implementing the 
+      second step of the 'Simple_poetry1' example at 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 "
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
+
+services:
+  veld_simple_poetry1_step2_tag_ud:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+      service: veld_tag_ud
+    volumes:
+      - ./data/Simple_poetry1/:/veld/input/
+      - ./data/Simple_poetry1/:/veld/output/
+    environment:
+      in_txt_file: Simple_poetry1.txt
+      out_conllu_file: Simple_poetry1.conllu
+      model: czech-pdt-ud-2.15-241121
+

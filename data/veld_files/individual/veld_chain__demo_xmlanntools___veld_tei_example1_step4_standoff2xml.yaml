@@ -1,0 +1,25 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the standoff2xml script and implementing the 
+      fourth step of the 'TEI_example1' at 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 "
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
+
+services:
+  veld_tei_example1_step4_standoff2xml:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_standoff2xml.yaml
+      service: veld_standoff2xml
+    volumes:
+      - ./data/TEI_example1/:/veld/input/
+      - ./data/TEI_example1/:/veld/output/
+    environment:
+      in_txt_file: TEI_example1.txt
+      in_json_file: TEI_example1.json
+      in_ann_json_file: TEI_example1.ann.json
+      out_ann_xml_file: TEI_example1.ann.xml
+
