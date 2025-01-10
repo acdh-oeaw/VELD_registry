@@ -1,0 +1,150 @@
+x-veld:
+  chain:
+    description: "An aggregating chain, reusing and referencing all individual chains in a 
+      sequential processing"
+    topic:
+      - "ETL"
+      - "NLP"
+      - "Machine Learning"
+      - "Tokenization"
+      - "Lemmatization"
+      - "Part Of Speech"
+      - "Dependency Parsing"
+      - "Universal Dependencies"
+      - "Grammatical Annotation"
+
+services:
+
+
+  # veld_preprocess
+
+  veld_preprocess_cze:
+    extends:
+      file: veld_step1_preprocess.yaml
+      service: veld_preprocess_cze
+
+  veld_preprocess_deu:
+    extends:
+      file: veld_step1_preprocess.yaml
+      service: veld_preprocess_deu
+
+  veld_preprocess_eng:
+    extends:
+      file: veld_step1_preprocess.yaml
+      service: veld_preprocess_eng
+  
+  veld_preprocess_fra:
+    extends:
+      file: veld_step1_preprocess.yaml
+      service: veld_preprocess_fra
+  
+  veld_preprocess_spa:
+    extends:
+      file: veld_step1_preprocess.yaml
+      service: veld_preprocess_spa
+
+
+  # veld_download_models
+
+  veld_download_cze:
+    extends:
+      file: veld_step2_download_models.yaml
+      service: veld_download_cze
+    depends_on:
+      veld_preprocess_cze:
+        condition: service_completed_successfully
+
+  veld_download_deu:
+    extends:
+      file: veld_step2_download_models.yaml
+      service: veld_download_deu
+    depends_on:
+      veld_preprocess_deu:
+        condition: service_completed_successfully
+
+  veld_download_eng:
+    extends:
+      file: veld_step2_download_models.yaml
+      service: veld_download_eng
+    depends_on:
+      veld_preprocess_eng:
+        condition: service_completed_successfully
+
+  veld_download_fra:
+    extends:
+      file: veld_step2_download_models.yaml
+      service: veld_download_fra
+    depends_on:
+      veld_preprocess_fra:
+        condition: service_completed_successfully
+
+  veld_download_spa:
+    extends:
+      file: veld_step2_download_models.yaml
+      service: veld_download_spa
+    depends_on:
+      veld_preprocess_spa:
+        condition: service_completed_successfully
+
+
+  # veld_infer
+
+  veld_infer_cze:
+    extends:
+      file: veld_step3_infer.yaml
+      service: veld_infer_cze
+    depends_on:
+      veld_download_cze:
+        condition: service_completed_successfully
+
+  veld_infer_deu:
+    extends:
+      file: veld_step3_infer.yaml
+      service: veld_infer_deu
+    depends_on:
+      veld_download_deu:
+        condition: service_completed_successfully
+  
+  veld_infer_eng:
+    extends:
+      file: veld_step3_infer.yaml
+      service: veld_infer_eng
+    depends_on:
+      veld_download_eng:
+        condition: service_completed_successfully
+  
+  veld_infer_fra:
+    extends:
+      file: veld_step3_infer.yaml
+      service: veld_infer_fra
+    depends_on:
+      veld_download_fra:
+        condition: service_completed_successfully
+  
+  veld_infer_spa:
+    extends:
+      file: veld_step3_infer.yaml
+      service: veld_infer_spa
+    depends_on:
+      veld_download_spa:
+        condition: service_completed_successfully
+
+
+  # veld_analyse
+
+  veld_analyse:
+    extends:
+      file: veld_step4_analyse.yaml
+      service: veld_analyse
+    depends_on:
+      veld_infer_cze:
+        condition: service_completed_successfully
+      veld_infer_deu:
+        condition: service_completed_successfully
+      veld_infer_eng:
+        condition: service_completed_successfully
+      veld_infer_fra:
+        condition: service_completed_successfully
+      veld_infer_spa:
+        condition: service_completed_successfully
+

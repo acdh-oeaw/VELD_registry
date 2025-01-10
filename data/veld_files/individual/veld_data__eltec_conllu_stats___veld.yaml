@@ -1,0 +1,17 @@
+x-veld:
+  data:
+    description: "eltec analysis on its conllu data inferenced with udpipe"
+    file_type: json
+    content:
+      - "statistics"
+      - "linguistic data"
+      - "annotated literature"
+    topic:
+      - "NLP"
+      - "Tokenization"
+      - "Lemmatization"
+      - "Part Of Speech"
+      - "Dependency Parsing"
+      - "Universal Dependencies"
+      - "Grammatical Annotation"
+

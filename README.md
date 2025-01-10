@@ -156,6 +156,13 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - file_type: conllu
       - content: linguistically enriched text, tokenized text, lemmatized text
 - https://github.com/veldhub/veld_data__eltec_conllu_stats
+  - [veld.yaml](https://github.com/veldhub/veld_data__eltec_conllu_stats/blob/main/veld.yaml)
+    - valid: True
+    - metadata:
+      - description: eltec analysis on its conllu data inferenced with udpipe
+      - topic: NLP, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
+      - file_type: json
+      - content: statistics, linguistic data, annotated literature
 - https://github.com/veldhub/veld_data__eltec_original_selection
   - [veld.yaml](https://github.com/veldhub/veld_data__eltec_original_selection/blob/main/veld.yaml)
     - valid: True
@@ -289,6 +296,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
   - [veld.yaml](https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml)
     - valid: True
     - metadata:
+      - description: A statistical summary on conllu data, to count linguistic features of a conllu file: - count of total tokens - count of total lemma - count of lemma normalized by token (to put the lemma in relation with token) - count of occurrence of each (Universal Dependencies) part of speech tag Can be adapted to other use cases and made more flexible, but is primarily used in this chain veld: https://github.com/veldhub/veld_chain__eltec_udpipe_inference
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
       - input:
         - 1:
@@ -1051,6 +1059,7 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: True
     - metadata:
       - description: udpipe model download
+      - topic: ETL
   - [veld_step3_infer.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_infer.yaml)
     - valid: True
     - metadata:
@@ -1061,6 +1070,11 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: chain to analyse the conllu data which was inferenced by udpipe on several ELTeC corpora.
       - topic: NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
+  - [veld_step_all.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml)
+    - valid: True
+    - metadata:
+      - description: An aggregating chain, reusing and referencing all individual chains in a sequential processing
+      - topic: ETL, NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
 - https://github.com/veldhub/veld_chain__gutenberg_fuseki
   - [veld_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml)
     - valid: True

@@ -1,6 +1,8 @@
 x-veld:
   chain:
     description: "udpipe model download"
+    topic:
+      - "ETL"
 
 # define some variables here once, so that following services can reuse it
 x-vars: 

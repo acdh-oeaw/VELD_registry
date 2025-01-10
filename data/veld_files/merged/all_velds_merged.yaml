@@ -537,6 +537,25 @@ veld_data__demo_train_data_ts-vienna-2024___veld.yaml:
         - linguistically enriched text
         - tokenized text
         - lemmatized text
+veld_data__eltec_conllu_stats___veld.yaml:
+  url: https://github.com/veldhub/veld_data__eltec_conllu_stats/blob/main/veld.yaml
+  content:
+    x-veld:
+      data:
+        description: eltec analysis on its conllu data inferenced with udpipe
+        file_type: json
+        content:
+        - statistics
+        - linguistic data
+        - annotated literature
+        topic:
+        - NLP
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
 veld_data__eltec_original_selection___veld.yaml:
   url: https://github.com/veldhub/veld_data__eltec_original_selection/blob/main/veld.yaml
   content:
@@ -981,7 +1000,12 @@ veld_code__analyse_conllu___veld.yaml:
   content:
     x-veld:
       code:
-        description: ''
+        description: 'A statistical summary on conllu data, to count linguistic features
+          of a conllu file: - count of total tokens - count of total lemma - count
+          of lemma normalized by token (to put the lemma in relation with token) -
+          count of occurrence of each (Universal Dependencies) part of speech tag
+          Can be adapted to other use cases and made more flexible, but is primarily
+          used in this chain veld: https://github.com/veldhub/veld_chain__eltec_udpipe_inference'
         topic:
         - NLP
         - Machine Learning
@@ -4473,6 +4497,8 @@ veld_chain__eltec_udpipe_inference___veld_step2_download_models.yaml:
     x-veld:
       chain:
         description: udpipe model download
+        topic:
+        - ETL
     x-vars:
     - &id003
       file: ./code/veld_code__downloader/veld.yaml
@@ -4594,6 +4620,129 @@ veld_chain__eltec_udpipe_inference___veld_step4_analyse.yaml:
         volumes:
         - ./data/data_tmp_conllu_inferenced/:/veld/input/
         - ./data/veld_data__eltec_conllu_stats/data/:/veld/output/
+veld_chain__eltec_udpipe_inference___veld_step_all.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml
+  content:
+    x-veld:
+      chain:
+        description: An aggregating chain, reusing and referencing all individual
+          chains in a sequential processing
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Universal Dependencies
+        - Grammatical Annotation
+    services:
+      veld_preprocess_cze:
+        extends:
+          file: veld_step1_preprocess.yaml
+          service: veld_preprocess_cze
+      veld_preprocess_deu:
+        extends:
+          file: veld_step1_preprocess.yaml
+          service: veld_preprocess_deu
+      veld_preprocess_eng:
+        extends:
+          file: veld_step1_preprocess.yaml
+          service: veld_preprocess_eng
+      veld_preprocess_fra:
+        extends:
+          file: veld_step1_preprocess.yaml
+          service: veld_preprocess_fra
+      veld_preprocess_spa:
+        extends:
+          file: veld_step1_preprocess.yaml
+          service: veld_preprocess_spa
+      veld_download_cze:
+        extends:
+          file: veld_step2_download_models.yaml
+          service: veld_download_cze
+        depends_on:
+          veld_preprocess_cze:
+            condition: service_completed_successfully
+      veld_download_deu:
+        extends:
+          file: veld_step2_download_models.yaml
+          service: veld_download_deu
+        depends_on:
+          veld_preprocess_deu:
+            condition: service_completed_successfully
+      veld_download_eng:
+        extends:
+          file: veld_step2_download_models.yaml
+          service: veld_download_eng
+        depends_on:
+          veld_preprocess_eng:
+            condition: service_completed_successfully
+      veld_download_fra:
+        extends:
+          file: veld_step2_download_models.yaml
+          service: veld_download_fra
+        depends_on:
+          veld_preprocess_fra:
+            condition: service_completed_successfully
+      veld_download_spa:
+        extends:
+          file: veld_step2_download_models.yaml
+          service: veld_download_spa
+        depends_on:
+          veld_preprocess_spa:
+            condition: service_completed_successfully
+      veld_infer_cze:
+        extends:
+          file: veld_step3_infer.yaml
+          service: veld_infer_cze
+        depends_on:
+          veld_download_cze:
+            condition: service_completed_successfully
+      veld_infer_deu:
+        extends:
+          file: veld_step3_infer.yaml
+          service: veld_infer_deu
+        depends_on:
+          veld_download_deu:
+            condition: service_completed_successfully
+      veld_infer_eng:
+        extends:
+          file: veld_step3_infer.yaml
+          service: veld_infer_eng
+        depends_on:
+          veld_download_eng:
+            condition: service_completed_successfully
+      veld_infer_fra:
+        extends:
+          file: veld_step3_infer.yaml
+          service: veld_infer_fra
+        depends_on:
+          veld_download_fra:
+            condition: service_completed_successfully
+      veld_infer_spa:
+        extends:
+          file: veld_step3_infer.yaml
+          service: veld_infer_spa
+        depends_on:
+          veld_download_spa:
+            condition: service_completed_successfully
+      veld_analyse:
+        extends:
+          file: veld_step4_analyse.yaml
+          service: veld_analyse
+        depends_on:
+          veld_infer_cze:
+            condition: service_completed_successfully
+          veld_infer_deu:
+            condition: service_completed_successfully
+          veld_infer_eng:
+            condition: service_completed_successfully
+          veld_infer_fra:
+            condition: service_completed_successfully
+          veld_infer_spa:
+            condition: service_completed_successfully
 veld_chain__gutenberg_fuseki___veld_download_gutenberg_metadata.yaml:
   url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml
   content:

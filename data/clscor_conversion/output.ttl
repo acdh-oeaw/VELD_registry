@@ -64,7 +64,8 @@
     crmcls:Y7_uses <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step1_preprocess.yaml>,
         <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_download_models.yaml>,
         <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_infer.yaml>,
-        <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step4_analyse.yaml> .
+        <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step4_analyse.yaml>,
+        <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml> .
 
 <https://github.com/veldhub/veld_chain__gutenberg_fuseki> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml>,
@@ -189,6 +190,9 @@
 
 <https://github.com/veldhub/veld_data__demo_train_data_ts-vienna-2024/blob/main/veld.yaml> a pem:PE19_Persistent_Digital_Object ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/conllu> .
+
+<https://github.com/veldhub/veld_data__eltec_conllu_stats/blob/main/veld.yaml> a pem:PE19_Persistent_Digital_Object ;
+    crmcls:Y2_has_format <https://clscor.io/entity/type/format/json> .
 
 <https://github.com/veldhub/veld_data__eltec_original_selection/blob/main/veld.yaml> a pem:PE19_Persistent_Digital_Object ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/xml> .
@@ -512,7 +516,8 @@
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_download_models.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_infer.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -535,6 +540,20 @@
         <https://clscor.io/entity/type/method/annotating>,
         <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/automatic_annotation>,
+        <https://clscor.io/entity/type/method/lemmatization>,
+        <https://clscor.io/entity/type/method/machine_learning>,
+        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
+        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
+        <https://clscor.io/entity/type/method/text_parsing>,
+        <https://clscor.io/entity/type/method/tokenization> .
+
+<https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
+        <https://clscor.io/entity/type/method/annotating>,
+        <https://clscor.io/entity/type/method/applying_nlp_methods>,
+        <https://clscor.io/entity/type/method/automatic_annotation>,
+        <https://clscor.io/entity/type/method/information_extraction>,
         <https://clscor.io/entity/type/method/lemmatization>,
         <https://clscor.io/entity/type/method/machine_learning>,
         <https://clscor.io/entity/type/method/part_of_speech_tagging>,
