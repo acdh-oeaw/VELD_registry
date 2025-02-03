@@ -261,7 +261,7 @@ x-veld:
 services:
   veld_train:
     build: .
-    command: /veld/code/train.sh
+    command: bash /veld/code/train.sh
     volumes:
       - ./data/training/input/:/veld/input/
       - ./data/training/output/:/veld/output/

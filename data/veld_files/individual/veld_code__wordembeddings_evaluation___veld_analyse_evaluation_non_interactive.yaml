@@ -31,7 +31,7 @@ services:
     build: 
       context: .
       dockerfile: ./build_analyse.dockerfile
-    command: ./analyse.sh
+    command: bash /veld/code/analyse.sh
     volumes:
       - ./src/analyse/:/veld/code/:z
     environment:

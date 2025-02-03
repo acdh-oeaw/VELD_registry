@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "custom evaluation logic on fasttext word embeddings."
+    topic:
+      - "NLP"
+      - "Machine Learning"
+      - "Evaluation"
 
 services:
   veld_eval_fasttext:

@@ -1,3 +1,4 @@
+https://clscor.io/entity/type/method/Analysis
 https://clscor.io/entity/type/method/Bible_Studies
 https://clscor.io/entity/type/method/Data_Visualization
 https://clscor.io/entity/type/method/RDF

@@ -1,5 +1,11 @@
 x-veld:
   chain:
+    description: "Given rq (sparql query) files, this chain exports data from Apache Fuseki 
+      triplestore into json files."
+    topic:
+      - ETL
+      - RDF
+      - triplestore
 
 services:
   veld_export:

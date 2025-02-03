@@ -94,7 +94,7 @@ x-veld:
 services:
   veld_infer:
     build: .
-    command: /veld/code/infer.sh
+    command: bash /veld/code/infer.sh
     volumes:
       - ./data/inference/input/txt/:/veld/input/txt/
       - ./data/inference/input/model/:/veld/input/model/

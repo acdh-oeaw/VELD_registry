@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "removes punctuation from text with spaCy pretrained models"
+    topic: 
+      - "NLP"
+      - "Preprocessing"
+      - "ETL"
 
 services:
   veld_preprocess_remove_punctuation:

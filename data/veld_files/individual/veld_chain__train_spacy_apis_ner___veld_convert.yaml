@@ -1,6 +1,6 @@
 x-veld:
   chain:
-    description: "cleaning and converting json into spaCy docbin"
+    description: "Cleaning and converting json into spaCy docbin"
     topic:
       - "ETL"
       - "NLP"

@@ -1,5 +1,11 @@
 x-veld:
   chain:
+    description: "takes a random sample of lines from a txt file. Randomness can be set with a seed
+      too"
+    topic: 
+      - "NLP"
+      - "Preprocessing"
+      - "ETL"
 
 services:
   veld_preprocess_sample:

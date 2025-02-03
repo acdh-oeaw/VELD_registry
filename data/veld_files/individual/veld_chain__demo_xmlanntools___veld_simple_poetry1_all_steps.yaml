@@ -40,3 +40,11 @@ services:
       veld_simple_poetry1_step3_ann2standoff:
         condition: service_completed_successfully
 
+  veld_simple_poetry1_step5_xml2vrt:
+    extends:
+      file: veld_simple_poetry1_step5_xml2vrt.yaml
+      service: veld_simple_poetry1_step5_xml2vrt
+    depends_on:
+      veld_simple_poetry1_step4_standoff2xml:
+        condition: service_completed_successfully
+

@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "makes entire text lowercase"
+    topic: 
+      - "NLP"
+      - "Preprocessing"
+      - "ETL"
 
 services:
   veld_preprocess_lowercase:

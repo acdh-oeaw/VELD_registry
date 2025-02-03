@@ -1,0 +1,18 @@
+x-veld:
+  chain:
+    description: "Downloads the bible"
+    topic:
+      - "ETL"
+      - "Bible Studies"
+
+services:
+  veld_step_1_download:
+    extends:
+      file: ./code/veld_code__downloader/veld.yaml
+      service: veld_downloader
+    volumes:
+      - ./data/training_data/:/veld/output/
+    environment:
+      url: "https://raw.githubusercontent.com/mxw/grmr/master/src/finaltests/bible.txt"
+      out_file: "bible_unprocessed.txt"
+

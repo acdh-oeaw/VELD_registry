@@ -1,0 +1,24 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the xml2vrt script and implementing the fifth 
+      step of the 'Simple_poetry1' example at 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 "
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
+
+services:
+  veld_simple_poetry1_step5_xml2vrt:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_xml2vrt.yaml
+      service: veld_xml2vrt
+    volumes:
+      - ./data/Simple_poetry1/:/veld/input/data/
+      - ./data/Simple_poetry1/:/veld/output/
+    environment:
+      in_ann_xml_file: Simple_poetry1.ann.xml
+      profile_name: conllu
+      out_conlluish_xml_file: Simple_poetry1.vrt
+

@@ -1221,6 +1221,40 @@ veld_code__downloader___veld.yaml:
           out_file: null
           do_extract: false
           csv_has_headers: true
+veld_code__fasttext___veld_export.yaml:
+  url: https://github.com/veldhub/veld_code__fasttext/blob/main/veld_export.yaml
+  content:
+    x-veld:
+      code:
+        description: exports a fasttext model to a pkl file containing a python dict,
+          where the keys are words and its values are the learned vectors, represented
+          as high-dimensional numpy arrays.
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+        input:
+          volume: /veld/input/
+          environment_var: in_model_file
+          file_type: fastText model
+          content: Word Embeddings vectors
+        output:
+          volume: /veld/output/
+          environment_var: out_vector_file
+          file_type: pkl
+          content:
+          - Word Embeddings model
+          - Word Embeddings vectors
+    services:
+      veld_export:
+        build: .
+        command: python /veld/code/export.py
+        volumes:
+        - ./src/export/:/veld/code/
+        environment:
+          in_model_file: null
+          out_vector_file: null
 veld_code__fasttext___veld_jupyter_notebook.yaml:
   url: https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml
   content:
@@ -1245,7 +1279,7 @@ veld_code__fasttext___veld_train.yaml:
   content:
     x-veld:
       code:
-        description: a fasttext training and inference jupyter notebook.
+        description: A fasttext training setup.
         topic:
         - NLP
         - Machine Learning
@@ -1277,7 +1311,7 @@ veld_code__fasttext___veld_train.yaml:
     services:
       veld_train:
         build: .
-        command: /veld/code/train.sh
+        command: sh /veld/code/train.sh
         volumes:
         - ./src/train/:/veld/code/:z
         - ./data/training_data/:/veld/input/:z
@@ -1289,6 +1323,43 @@ veld_code__fasttext___veld_train.yaml:
           vector_size: 200
           epochs: 50
           window_size: 5
+veld_code__glove___veld_export.yaml:
+  url: https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml
+  content:
+    x-veld:
+      code:
+        description: exports a glove model to a pkl file containing a python dict,
+          where the keys are words and its values are the learned vectors, represented
+          as high-dimensional numpy arrays.
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+        input:
+          volume: /veld/input/
+          environment_var: in_vector_file
+          file_type: txt
+          content:
+          - GloVe model
+          - Word Embeddings model
+          - Word Embeddings vectors
+        output:
+          volume: /veld/output/
+          environment_var: out_vector_file
+          file_type: pkl
+          content:
+          - Word Embeddings model
+          - Word Embeddings vectors
+    services:
+      veld_export:
+        build: .
+        command: python3 /veld/code/export.py
+        volumes:
+        - ./src/main/export/:/veld/code/
+        environment:
+          in_vector_file: null
+          out_vector_file: null
 veld_code__glove___veld_jupyter_notebook.yaml:
   url: https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml
   content:
@@ -1314,7 +1385,7 @@ veld_code__glove___veld_train.yaml:
   content:
     x-veld:
       code:
-        description: This code repo encapsulates the original code from https://github.com/stanfordnlp/GloVe/tree/master
+        description: A GloVe training setup.
         topic:
         - NLP
         - Machine Learning
@@ -1386,7 +1457,7 @@ veld_code__glove___veld_train.yaml:
         - ./src/main/train/:/veld/code/:z
         - ./data/training_data/:/veld/input/:z
         - ./data/models/:/veld/output/:z
-        command: /veld/code/train.sh
+        command: sh /veld/code/train.sh
         environment:
           in_corpus_file: null
           out_vocab_file: null
@@ -1624,7 +1695,7 @@ veld_code__spacy___veld_create_config.yaml:
       veld_create_config:
         build: .
         working_dir: /veld/code/
-        command: /veld/code/create_config.sh
+        command: bash /veld/code/create_config.sh
         volumes:
         - ./src/:/veld/code/
         - ./data/configs/:/veld/output/
@@ -1655,7 +1726,7 @@ veld_code__spacy___veld_publish_to_hf.yaml:
   content:
     x-veld:
       code:
-        description: 'simple service to push spacy models to huggingface. IMPORTANT:
+        description: 'simple service to push spacy models to huggingface. Important:
           Only works from spacy v3.* onwards!'
         topic:
         - NLP
@@ -1679,14 +1750,18 @@ veld_code__spacy___veld_publish_to_hf.yaml:
           var_type: str
           optional: true
         - environment_var: hf_token
-          description: 'huggingface authentication token. IMPORTANT: It is advised
-            to not hardcode that directly into the yaml file but rather define the
-            environment variable yourself, before calling this docker compose service.
-            On linux and mac, this can be done with `export hf_token=<TOKEN>` before
-            launching a docker compose service, or persist it in a `.env` (with the
-            content simply being `hf_token=<TOKEN>`) file next to the chain veld yaml
-            file, where docker compose would load it from (take care to not commit
-            that to git! Best to add the `.env` to `.gitignore`).'
+          description: 'huggingface authentication token.
+
+            IMPORTANT: DON''T HARDCODE THE TOKEN HERE!
+
+            Rather define this environment variable on the host, by either: - PREFERRED:
+            do this manually before calling this docker compose service. On linux
+            and mac, this can be done with `export hf_token=<TOKEN>` and on windows
+            with `set hf_token=<TOKEN>` before launching a docker compose service.
+            - LESS PREFERRED: only do this if you know .gitignore: you may persist
+            it in a `.env` file (with the content simply being `hf_token=<TOKEN>`)
+            file next to the chain veld yaml file, which docker would automatically
+            load, and then add the `.env` to `.gitignore`!'
           var_type: str
     services:
       veld_publish_to_hf:
@@ -1756,7 +1831,7 @@ veld_code__spacy___veld_train.yaml:
       veld_train:
         build: .
         working_dir: /veld/code/
-        command: /veld/code/train.sh
+        command: bash /veld/code/train.sh
         volumes:
         - ./src/:/veld/code/
         - ./data/models_base_cache/:/tmp/models_base_cache/
@@ -1825,7 +1900,7 @@ veld_code__teitok-tools___veld_parseudpipe.yaml:
         build: .
         volumes:
         - ./:/veld/code/
-        command: ./veld_parseudpipe.sh
+        command: bash /veld/code/veld_parseudpipe.sh
         environment:
           in_xml_file: null
           out_xml_file: null
@@ -1880,7 +1955,7 @@ veld_code__teitok-tools___veld_udpipe2teitok.yaml:
         build: .
         volumes:
         - ./:/veld/code/
-        command: ./veld_udpipe2teitok.sh
+        command: bash /veld/code/veld_udpipe2teitok.sh
         environment:
           lang: null
           model: null
@@ -1930,7 +2005,7 @@ veld_code__teitok-tools___veld_xmltokenize.yaml:
         build: .
         volumes:
         - ./:/veld/code/
-        command: ./veld_xmltokenize.sh
+        command: bash /veld/code/veld_xmltokenize.sh
         environment:
           in_xml_file: null
           out_xml_file: null
@@ -2041,7 +2116,7 @@ veld_code__udpipe___veld_infer.yaml:
     services:
       veld_infer:
         build: .
-        command: /veld/code/infer.sh
+        command: bash /veld/code/infer.sh
         volumes:
         - ./data/inference/input/txt/:/veld/input/txt/
         - ./data/inference/input/model/:/veld/input/model/
@@ -2342,7 +2417,7 @@ veld_code__udpipe___veld_train.yaml:
     services:
       veld_train:
         build: .
-        command: /veld/code/train.sh
+        command: bash /veld/code/train.sh
         volumes:
         - ./data/training/input/:/veld/input/
         - ./data/training/output/:/veld/output/
@@ -2428,7 +2503,7 @@ veld_code__wikipedia_nlp_preprocessing___veld_download_and_extract.yaml:
         volumes:
         - ./src/:/veld/code/:z
         - ./data/wikipedia_json/:/veld/output/:z
-        command: /veld/code/download_and_extract.sh
+        command: bash /veld/code/download_and_extract.sh
         environment:
           wikipedia_dump_url: null
           out_data_description: null
@@ -2513,6 +2588,42 @@ veld_code__wikipedia_nlp_preprocessing___veld_transform_wiki_json_to_txt.yaml:
           sample_size_percentage: 100
           sample_random_seed: null
           buffer_segments: 100
+veld_code__word2vec___veld_export.yaml:
+  url: https://github.com/veldhub/veld_code__word2vec/blob/main/veld_export.yaml
+  content:
+    x-veld:
+      code:
+        description: exports a word2vec model to a pkl file containing a python dict,
+          where the keys are words and its values are the learned vectors, represented
+          as high-dimensional numpy arrays.
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+        input:
+          volume: /veld/input/
+          environment_var: in_model_file
+          file_type: word2vec model
+          content:
+          - Word Embeddings model
+          - Word Embeddings vectors
+        output:
+          volume: /veld/output/
+          environment_var: out_vector_file
+          file_type: pkl
+          content:
+          - Word Embeddings model
+          - Word Embeddings vectors
+    services:
+      veld_export:
+        build: .
+        command: python /veld/code/export.py
+        volumes:
+        - ./src/export/:/veld/code/
+        environment:
+          in_model_file: null
+          out_vector_file: null
 veld_code__word2vec___veld_jupyter_notebook.yaml:
   url: https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml
   content:
@@ -2564,7 +2675,7 @@ veld_code__word2vec___veld_train.yaml:
   content:
     x-veld:
       code:
-        description: word2vec training setup
+        description: A word2vec training setup
         topic:
         - NLP
         - Machine Learning
@@ -2708,7 +2819,7 @@ veld_code__wordembeddings_evaluation___veld_analyse_evaluation_non_interactive.y
         build:
           context: .
           dockerfile: ./build_analyse.dockerfile
-        command: ./analyse.sh
+        command: bash /veld/code/analyse.sh
         volumes:
         - ./src/analyse/:/veld/code/:z
         environment:
@@ -3114,7 +3225,7 @@ veld_code__wordembeddings_preprocessing___veld_preprocess_strip.yaml:
         build: .
         volumes:
         - ./src/:/veld/code/:z
-        command: /veld/code/preprocess_strip.sh
+        command: bash /veld/code/preprocess_strip.sh
         environment:
           in_file: null
           out_file: null
@@ -3159,7 +3270,7 @@ veld_code__xmlanntools___veld_ann2standoff.yaml:
         - ./data/ann2standoff/in/data/:/veld/input/data/
         - ./data/ann2standoff/in/config/:/veld/input/config/
         - ./data/ann2standoff/out/:/veld/output/
-        command: ./veld_ann2standoff.sh
+        command: bash /veld/code/veld_ann2standoff.sh
         environment:
           in_conllu_file: null
           in_txt_file: null
@@ -3209,7 +3320,7 @@ veld_code__xmlanntools___veld_standoff2xml.yaml:
         - ./:/veld/code/
         - ./data/standoff2xml/in/:/veld/input/
         - ./data/standoff2xml/out/:/veld/output/
-        command: ./veld_standoff2xml.sh
+        command: bash /veld/code/veld_standoff2xml.sh
         environment:
           in_txt_file: null
           in_json_file: null
@@ -3256,7 +3367,7 @@ veld_code__xmlanntools___veld_tag_ud.yaml:
         - ./:/veld/code/
         - ./data/tag_ud/in/:/veld/input/
         - ./data/tag_ud/out/:/veld/output/
-        command: ./veld_tag_ud.sh
+        command: bash /veld/code/veld_tag_ud.sh
         environment:
           in_txt_file: null
           out_conllu_file: null
@@ -3302,7 +3413,7 @@ veld_code__xmlanntools___veld_xml2standoff.yaml:
         - ./:/veld/code/
         - ./data/xml2standoff/in/:/veld/input/
         - ./data/xml2standoff/out/:/veld/output/
-        command: ./veld_xml2standoff.sh
+        command: bash /veld/code/./veld_xml2standoff.sh
         environment:
           in_xml_file: null
           out_txt_file: null
@@ -3379,7 +3490,7 @@ veld_code__xmlanntools___veld_xml2vrt.yaml:
         - ./data/xml2vrt/in/data/:/veld/input/data/
         - ./data/xml2vrt/in/config/:/veld/input/config/
         - ./data/xml2vrt/out/:/veld/output/
-        command: ./veld_xml2vrt.sh
+        command: bash /veld/code/veld_xml2vrt.sh
         environment:
           in_ann_xml_file: null
           in_ann2standoff_ini_file: null
@@ -3431,7 +3542,7 @@ veld_code__xml_xslt_transformer___veld.yaml:
     services:
       veld:
         build: .
-        command: /veld/code/transform.sh
+        command: bash /veld/code/transform.sh
         volumes:
         - ./src/:/veld/code/
         environment:
@@ -3845,53 +3956,8 @@ veld_chain__demo_downloader___veld_demo_09__csv_bulk_download__designate_file_na
           in_csv_file: goethe.csv
           do_extract: true
           csv_has_headers: false
-veld_chain__demo_downloader___veld_demo_10__multichain_all_previous.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__multichain_all_previous.yaml
-  content:
-    x-veld:
-      chain:
-        description: multi chain consisting of each previously defined chain executed
-          in parallel.
-        topic: demo
-    services:
-      veld_demo_01__single_download:
-        extends:
-          file: ./veld_demo_01__single_download.yaml
-          service: veld_demo_01__single_download
-      veld_demo_02__single_download__designate_file_name:
-        extends:
-          file: ./veld_demo_02__single_download__designate_file_name.yaml
-          service: veld_demo_02__single_download__designate_file_name
-      veld_demo_03__single_download__extract:
-        extends:
-          file: ./veld_demo_03__single_download__extract.yaml
-          service: veld_demo_03__single_download__extract
-      veld_demo_04__single_download__designate_file_name__extract:
-        extends:
-          file: ./veld_demo_04__single_download__designate_file_name__extract.yaml
-          service: veld_demo_04__single_download__designate_file_name__extract
-      veld_demo_05__csv_bulk_download:
-        extends:
-          file: ./veld_demo_05__csv_bulk_download.yaml
-          service: veld_demo_05__csv_bulk_download
-      veld_demo_06__csv_bulk_download__designate_file_name:
-        extends:
-          file: ./veld_demo_06__csv_bulk_download__designate_file_name.yaml
-          service: veld_demo_06__csv_bulk_download__designate_file_name
-      veld_demo_07__csv_bulk_download__extract:
-        extends:
-          file: ./veld_demo_07__csv_bulk_download__extract.yaml
-          service: veld_demo_07__csv_bulk_download__extract
-      veld_demo_08__csv_bulk_download__csv_no_headers:
-        extends:
-          file: ./veld_demo_08__csv_bulk_download__csv_no_headers.yaml
-          service: veld_demo_08__csv_bulk_download__csv_no_headers
-      veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers:
-        extends:
-          file: ./veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml
-          service: veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers
-veld_chain__demo_downloader___veld_demo_11__invalid__out_file_and_csv.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_11__invalid__out_file_and_csv.yaml
+veld_chain__demo_downloader___veld_demo_10__invalid__out_file_and_csv.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__invalid__out_file_and_csv.yaml
   content:
     x-veld:
       chain:
@@ -3907,8 +3973,8 @@ veld_chain__demo_downloader___veld_demo_11__invalid__out_file_and_csv.yaml:
         environment:
           in_csv_file: goethe.csv
           out_file: goethe.txt
-veld_chain__demo_downloader___veld_demo_12__invalid__url_and_csv.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_12__invalid__url_and_csv.yaml
+veld_chain__demo_downloader___veld_demo_11__invalid__url_and_csv.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_11__invalid__url_and_csv.yaml
   content:
     x-veld:
       chain:
@@ -4045,18 +4111,17 @@ veld_chain__demo_udipe_ts-vienna-2024___veld_train.yaml:
           tokenizer_epochs: 2
           tagger_iterations: 2
           parser_iterations: 2
-veld_chain__demo_wordembeddings_multiarch___veld_step01_preprocess.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step01_preprocess.yaml
+veld_chain__demo_wordembeddings_multiarch___veld_step_1_download.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_1_download.yaml
   content:
     x-veld:
       chain:
-        description: Download and preprocessing of the bible
+        description: Downloads the bible
         topic:
         - ETL
-        - NLP
         - Bible Studies
     services:
-      veld_downloader:
+      veld_step_1_download:
         extends:
           file: ./code/veld_code__downloader/veld.yaml
           service: veld_downloader
@@ -4064,75 +4129,276 @@ veld_chain__demo_wordembeddings_multiarch___veld_step01_preprocess.yaml:
         - ./data/training_data/:/veld/output/
         environment:
           url: https://raw.githubusercontent.com/mxw/grmr/master/src/finaltests/bible.txt
-      veld_bible_preprocess:
-        build: ./code/bible_preprocess/
-        command: python /veld/code/bible_preprocess.py
-        volumes:
-        - ./code/bible_preprocess/bible_preprocess.py:/veld/code/bible_preprocess.py
-        - ./data/training_data/:/veld/input/
-        - ./data/training_data/:/veld/output/
-        environment:
-          in_file: bible.txt
-          out_file: bible.txt
-        depends_on:
-          veld_downloader:
-            condition: service_completed_successfully
-veld_chain__demo_wordembeddings_multiarch___veld_step02_train_word2vec.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step02_train_word2vec.yaml
+          out_file: bible_unprocessed.txt
+veld_chain__demo_wordembeddings_multiarch___veld_step_2_preprocess.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_2_preprocess.yaml
   content:
     x-veld:
       chain:
-        description: demo word2vec training on the bible
+        description: Preprocesses the bible to be compatible with word embeddings
+          training. This chain does not use a code veld but build context and code
+          that is integrated into the chain repo itself, since the preprocessing is
+          highly specific to this kind of data and the subsequent training.
         topic:
+        - ETL
+        - NLP
+        - Bible Studies
+    services:
+      veld_step_2_preprocess:
+        build: ./code/bible_preprocess/
+        command: python /veld/code/bible_preprocess.py
+        volumes:
+        - ./code/bible_preprocess/:/veld/code/
+        - ./data/training_data/:/veld/input/
+        - ./data/training_data/:/veld/output/
+        environment:
+          in_file: bible_unprocessed.txt
+          out_file: bible_processed.txt
+veld_chain__demo_wordembeddings_multiarch___veld_step_3_train_fasttext.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_3_train_fasttext.yaml
+  content:
+    x-veld:
+      chain:
+        description: Trains a fasttext model on the bible and exports its vectors
+          as a dict serialized into a pkl file. The training data is rather small
+          and the hyperparameteres are simplistic, in order to demonstrate the reproducibility
+          of this chain rather than claiming any deeper insight into the data's words
+          context.
+        topic:
+        - ETL
         - NLP
         - Machine Learning
         - Word Embeddings
+        - Bible Studies
     services:
-      veld_train:
+      veld_step_3_train_fasttext:
         extends:
-          file: ./code/veld_code__word2vec/veld_train.yaml
+          file: ./code/veld_code__fasttext/veld_train.yaml
           service: veld_train
         volumes:
         - ./data/training_data/:/veld/input/
-        - ./data/models/word2vec/m1/:/veld/output/
+        - ./data/models/fasttext/:/veld/output/
         environment:
-          in_train_data_file: bible.txt
+          in_train_data_file: bible_processed.txt
           out_model_file: m1.bin
-          model_description: trained on bible with simple hyperparams
-          epochs: 20
+          model_description: simple bible fasttext model
           vector_size: 200
-          window: 5
-          min_count: 5
-veld_chain__demo_wordembeddings_multiarch___veld_step04_train_glove.yaml:
-  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step04_train_glove.yaml
+          epochs: 100
+          window_size: 10
+      veld_step_3_export_fasttext:
+        extends:
+          file: ./code/veld_code__fasttext/veld_export.yaml
+          service: veld_export
+        volumes:
+        - ./data/models/fasttext/:/veld/input/
+        - ./data/vectors/fasttext/:/veld/output/
+        environment:
+          in_model_file: m1.bin
+          out_vector_file: m1.pkl
+        depends_on:
+          veld_step_3_train_fasttext:
+            condition: service_completed_successfully
+veld_chain__demo_wordembeddings_multiarch___veld_step_4_train_glove.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_4_train_glove.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: Trains a glove model on the bible and exports its vectors as
+          a dict serialized into a pkl file. The training data is rather small and
+          the hyperparameteres are simplistic, in order to demonstrate the reproducibility
+          of this chain rather than claiming any deeper insight into the data's words
+          context.
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+        - Bible Studies
     services:
-      veld_train_glove:
+      veld_step_4_train_glove:
         extends:
           file: ./code/veld_code__glove/veld_train.yaml
           service: veld_train
         volumes:
         - ./data/training_data/:/veld/input/
-        - ./data/models/glove/m1/:/veld/output/
+        - ./data/models/glove/:/veld/output/
         environment:
-          in_corpus_file: bible.txt
+          in_corpus_file: bible_processed.txt
           out_vocab_file: m1_vocab.txt
           out_cooccurrence_file: m1_cooccurrence.bin
           out_cooccurrence_shuf_file: m1_cooccurrence_shuf.bin
           out_vector_file: m1_vector
           model_id: m1
-          model_description: test glove model
-          verbose: 2
-          memory: 4.0
-          vocab_min_count: 5
-          vector_size: 100
-          max_iter: 5
-          window_size: 5
-          binary: 2
-          num_threads: 14
-          x_max: 10
+          model_description: simple bible glove model
+          vector_size: 200
+          max_iter: 50
+          window_size: 10
+      veld_step_4_export_glove:
+        extends:
+          file: ./code/veld_code__glove/veld_export.yaml
+          service: veld_export
+        volumes:
+        - ./data/models/glove/:/veld/input/
+        - ./data/vectors/glove/:/veld/output/
+        environment:
+          in_vector_file: m1_vector.txt
+          out_vector_file: m1.pkl
+        depends_on:
+          veld_step_4_train_glove:
+            condition: service_completed_successfully
+veld_chain__demo_wordembeddings_multiarch___veld_step_5_train_word2vec.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_5_train_word2vec.yaml
+  content:
+    x-veld:
+      chain:
+        description: Trains a word2vec model on the bible and exports its vectors
+          as a dict serialized into a pkl file. The training data is rather small
+          and the hyperparameteres are simplistic, in order to demonstrate the reproducibility
+          of this chain rather than claiming any deeper insight into the data's words
+          context.
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+        - Bible Studies
+    services:
+      veld_step_5_train_word2vec:
+        extends:
+          file: ./code/veld_code__word2vec/veld_train.yaml
+          service: veld_train
+        volumes:
+        - ./data/training_data/:/veld/input/
+        - ./data/models/word2vec/:/veld/output/
+        environment:
+          in_train_data_file: bible_processed.txt
+          out_model_file: m1.bin
+          model_description: simple bible word2vec model
+          epochs: 100
+          vector_size: 200
+          window: 10
+      veld_step_5_export_word2vec:
+        extends:
+          file: ./code/veld_code__word2vec/veld_export.yaml
+          service: veld_export
+        volumes:
+        - ./data/models/word2vec/:/veld/input/
+        - ./data/vectors/word2vec/:/veld/output/
+        environment:
+          in_model_file: m1.bin
+          out_vector_file: m1.pkl
+        depends_on:
+          veld_step_5_train_word2vec:
+            condition: service_completed_successfully
+veld_chain__demo_wordembeddings_multiarch___veld_step_6_analyse_vectors.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml
+  content:
+    x-veld:
+      code:
+        description: 'Reads in the trained word vectors from their pkl serializations
+          and tests them for plausability on a few selected words which should show
+          intuitive close or distant relations to each other. This chain does not
+          inherit from a code veld but is defined entirely within its containing chain
+          repository since its code and data are highly context-specific.
+
+          After reproducing the entire previous sequences yourself and execution of
+          the notebook, feel free to save the notebook and compare the resulting differences
+          with `git diff ./code/analyse_vectors/notebooks/analyse_vectors.ipynb`,
+          where the reproduced vector similarities will have only slight differences
+          to the record of previously trained ones. This difference is due to randomization
+          within the training, but should be small enough to indicate approximate
+          reproduction.'
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+        - Bible Studies
+    services:
+      veld_step_6_analyse_vectors:
+        build: ./code/analyse_vectors/
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        working_dir: /veld/code/
+        volumes:
+        - ./code/analyse_vectors/notebooks/:/veld/code/
+        - ./data/vectors/:/veld/input/
+veld_chain__demo_wordembeddings_multiarch___veld_step_all.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_all.yaml
+  content:
+    x-veld:
+      chain:
+        description: This is a multi chain that executes all other individual chains
+          in sequential order. Refer to the other veld yaml files for more information
+          on each step.
+        topic:
+        - ETL
+        - NLP
+        - Machine Learning
+        - Word Embeddings
+        - Bible Studies
+    services:
+      veld_step_1_download:
+        extends:
+          file: ./veld_step_1_download.yaml
+          service: veld_step_1_download
+      veld_step_2_preprocess:
+        extends:
+          file: ./veld_step_2_preprocess.yaml
+          service: veld_step_2_preprocess
+        depends_on:
+          veld_step_1_download:
+            condition: service_completed_successfully
+      veld_step_3_train_fasttext:
+        extends:
+          file: ./veld_step_3_train_fasttext.yaml
+          service: veld_step_3_train_fasttext
+        depends_on:
+          veld_step_2_preprocess:
+            condition: service_completed_successfully
+      veld_step_3_export_fasttext:
+        extends:
+          file: ./veld_step_3_train_fasttext.yaml
+          service: veld_step_3_export_fasttext
+        depends_on:
+          veld_step_3_train_fasttext:
+            condition: service_completed_successfully
+      veld_step_4_train_glove:
+        extends:
+          file: ./veld_step_4_train_glove.yaml
+          service: veld_step_4_train_glove
+        depends_on:
+          veld_step_3_export_fasttext:
+            condition: service_completed_successfully
+      veld_step_4_export_glove:
+        extends:
+          file: ./veld_step_4_train_glove.yaml
+          service: veld_step_4_export_glove
+        depends_on:
+          veld_step_4_train_glove:
+            condition: service_completed_successfully
+      veld_step_5_train_word2vec:
+        extends:
+          file: ./veld_step_5_train_word2vec.yaml
+          service: veld_step_5_train_word2vec
+        depends_on:
+          veld_step_4_export_glove:
+            condition: service_completed_successfully
+      veld_step_5_export_word2vec:
+        extends:
+          file: ./veld_step_5_train_word2vec.yaml
+          service: veld_step_5_export_word2vec
+        depends_on:
+          veld_step_5_train_word2vec:
+            condition: service_completed_successfully
+      veld_step_6_analyse_vectors:
+        extends:
+          file: ./veld_step_6_analyse_vectors.yaml
+          service: veld_step_6_analyse_vectors
+        depends_on:
+          veld_step_5_export_word2vec:
+            condition: service_completed_successfully
 veld_chain__demo_xmlanntools___veld_simple_poetry1_all_steps.yaml:
   url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_all_steps.yaml
   content:
@@ -4170,6 +4436,13 @@ veld_chain__demo_xmlanntools___veld_simple_poetry1_all_steps.yaml:
           service: veld_simple_poetry1_step4_standoff2xml
         depends_on:
           veld_simple_poetry1_step3_ann2standoff:
+            condition: service_completed_successfully
+      veld_simple_poetry1_step5_xml2vrt:
+        extends:
+          file: veld_simple_poetry1_step5_xml2vrt.yaml
+          service: veld_simple_poetry1_step5_xml2vrt
+        depends_on:
+          veld_simple_poetry1_step4_standoff2xml:
             condition: service_completed_successfully
 veld_chain__demo_xmlanntools___veld_simple_poetry1_step1_xml2standoff.yaml:
   url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step1_xml2standoff.yaml
@@ -4270,6 +4543,30 @@ veld_chain__demo_xmlanntools___veld_simple_poetry1_step4_standoff2xml.yaml:
           in_json_file: Simple_poetry1.json
           in_ann_json_file: Simple_poetry1.ann.json
           out_ann_xml_file: Simple_poetry1.ann.xml
+veld_chain__demo_xmlanntools___veld_simple_poetry1_step5_xml2vrt.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step5_xml2vrt.yaml
+  content:
+    x-veld:
+      chain:
+        description: 'A demo chain veld, integrating the xml2vrt script and implementing
+          the fifth step of the ''Simple_poetry1'' example at https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 '
+        topic:
+        - NLP
+        - ETL
+        - Tokenization
+        - Universal Dependencies
+    services:
+      veld_simple_poetry1_step5_xml2vrt:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_xml2vrt.yaml
+          service: veld_xml2vrt
+        volumes:
+        - ./data/Simple_poetry1/:/veld/input/data/
+        - ./data/Simple_poetry1/:/veld/output/
+        environment:
+          in_ann_xml_file: Simple_poetry1.ann.xml
+          profile_name: conllu
+          out_conlluish_xml_file: Simple_poetry1.vrt
 veld_chain__demo_xmlanntools___veld_tei_example1_all_steps.yaml:
   url: https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_all_steps.yaml
   content:
@@ -4441,8 +4738,8 @@ veld_chain__demo_xmlanntools___veld_tei_example1_step5_xml2vrt.yaml:
           out_conlluish_xml_file: TEI_example1.vrt
           include_elements: text
           exclude_elements: front
-veld_chain__eltec_udpipe_inference___veld_step1_preprocess.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step1_preprocess.yaml
+veld_chain__eltec_udpipe_inference___veld_step_1_preprocess.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_1_preprocess.yaml
   content:
     x-veld:
       chain:
@@ -4491,8 +4788,8 @@ veld_chain__eltec_udpipe_inference___veld_step1_preprocess.yaml:
         - ./data/xsl/:/veld/input/xsl/
         - ./data/data_tmp_txt_transformed/ELTeC-spa/level1/:/veld/output/
         environment: *id002
-veld_chain__eltec_udpipe_inference___veld_step2_download_models.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step2_download_models.yaml
+veld_chain__eltec_udpipe_inference___veld_step_2_download_models.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_2_download_models.yaml
   content:
     x-veld:
       chain:
@@ -4534,8 +4831,8 @@ veld_chain__eltec_udpipe_inference___veld_step2_download_models.yaml:
         - ./data/data_tmp_udpipe_models/spa/:/veld/output/
         environment:
           url: https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3131/spanish-gsd-ud-2.5-191206.udpipe
-veld_chain__eltec_udpipe_inference___veld_step3_infer.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step3_infer.yaml
+veld_chain__eltec_udpipe_inference___veld_step_3_infer.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_3_infer.yaml
   content:
     x-veld:
       chain:
@@ -4596,8 +4893,8 @@ veld_chain__eltec_udpipe_inference___veld_step3_infer.yaml:
         - ./data/data_tmp_conllu_inferenced/ELTeC-spa/level1/:/veld/output/
         environment:
           in_model_file: spanish-gsd-ud-2.5-191206.udpipe
-veld_chain__eltec_udpipe_inference___veld_step4_analyse.yaml:
-  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step4_analyse.yaml
+veld_chain__eltec_udpipe_inference___veld_step_4_analyse.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_4_analyse.yaml
   content:
     x-veld:
       chain:
@@ -4620,6 +4917,29 @@ veld_chain__eltec_udpipe_inference___veld_step4_analyse.yaml:
         volumes:
         - ./data/data_tmp_conllu_inferenced/:/veld/input/
         - ./data/veld_data__eltec_conllu_stats/data/:/veld/output/
+veld_chain__eltec_udpipe_inference___veld_step_5_inspect_with_conllueditor.yaml:
+  url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_5_inspect_with_conllueditor.yaml
+  content:
+    x-veld:
+      chain:
+        description: inspecting the conllu files with conllueditor.
+        topic:
+        - NLP
+        - Universal Dependencies
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Grammatical Annotation
+    services:
+      veld_inspect_with_conllueditor:
+        extends:
+          file: ./code/veld_code__conllueditor/veld.yaml
+          service: veld_conllueditor
+        volumes:
+        - ./data/data_tmp_conllu_inferenced/ELTeC-eng/level1/:/data/
+        environment:
+          filename: ENG18400_Trollope.conllu
 veld_chain__eltec_udpipe_inference___veld_step_all.yaml:
   url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml
   content:
@@ -4747,7 +5067,10 @@ veld_chain__gutenberg_fuseki___veld_download_gutenberg_metadata.yaml:
   url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: Downloads the entire gutenberg metadata RDF/XML file and extracts
+          it
+        topic: ETL
     services:
       veld_download_gutenberg_metadata:
         extends:
@@ -4763,7 +5086,13 @@ veld_chain__gutenberg_fuseki___veld_export.yaml:
   url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: Given rq (sparql query) files, this chain exports data from Apache
+          Fuseki triplestore into json files.
+        topic:
+        - ETL
+        - RDF
+        - triplestore
     services:
       veld_export:
         extends:
@@ -4783,7 +5112,12 @@ veld_chain__gutenberg_fuseki___veld_import_rdf.yaml:
   url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: Imports the Gutenberg RDF/XML data into the Apache Fuseki triplestore
+        topic:
+        - ETL
+        - RDF
+        - triplestore
     services:
       veld_import_rdf:
         extends:
@@ -4795,37 +5129,17 @@ veld_chain__gutenberg_fuseki___veld_import_rdf.yaml:
           fuseki_dataset_name: gutenberg
     networks:
       veld_fuseki: null
-veld_chain__gutenberg_fuseki___veld_multi_chain_all.yaml:
-  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_multi_chain_all.yaml
-  content:
-    x-veld:
-      chain: null
-    services:
-      veld_download_gutenberg_metadata:
-        extends:
-          file: ./veld_download_gutenberg_metadata.yaml
-          service: veld_download_gutenberg_metadata
-      veld_run_server:
-        extends:
-          file: ./veld_run_server.yaml
-          service: veld_run_server
-        depends_on:
-          veld_download_gutenberg_metadata:
-            condition: service_completed_successfully
-      veld_import_rdf:
-        extends:
-          file: ./veld_import_rdf.yaml
-          service: veld_import_rdf
-        depends_on:
-          veld_run_server:
-            condition: service_healthy
-    networks:
-      veld_fuseki: null
 veld_chain__gutenberg_fuseki___veld_run_server.yaml:
   url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: Runs an Apache Fuseki triplestore. Configuration can be adjusted
+          with the respective shiro.ini file, of which there is a default integrated
+          into this chain veld.
+        topic:
+        - RDF
+        - triplestore
     services:
       veld_run_server:
         extends:
@@ -4856,7 +5170,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_analys
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: data visualization of all evaluation data. In a jupyter notebook.
+        topic:
+        - NLP
+        - Word Embeddings
+        - Data Visualization
     services:
       veld_analyse_evaluation:
         extends:
@@ -4865,7 +5184,7 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_analys
         volumes:
         - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/input/:z
         - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/output/:z
-        environment_var:
+        environment:
           in_evaluation_summary_file: summary.yaml
           out_visualization_html_file: summary_visualized.html
           out_visualization_png_file: summary_visualized.png
@@ -4873,7 +5192,13 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_analys
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: data visualization of all evaluation data. non-interactive version
+          of the juypter code.
+        topic:
+        - NLP
+        - Word Embeddings
+        - Data Visualization
     services:
       veld_analyse_evaluation_non_interactive:
         extends:
@@ -4890,7 +5215,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_eval_f
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_fasttext.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: custom evaluation logic on fasttext word embeddings.
+        topic:
+        - NLP
+        - Machine Learning
+        - Evaluation
     services:
       veld_eval_fasttext:
         extends:
@@ -5002,7 +5332,13 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_prepro
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml
   content:
     x-veld:
-      code: null
+      code:
+        description: Removes lines that don't reach a threshold regarding the ratio
+          of textual content to non-textual (numbers, special characters) content.
+        topic:
+        - NLP
+        - Preprocessing
+        - ETL
     services:
       veld_preprocess_clean:
         extends:
@@ -5027,7 +5363,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_prepro
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: makes entire text lowercase
+        topic:
+        - NLP
+        - Preprocessing
+        - ETL
     services:
       veld_preprocess_lowercase:
         extends:
@@ -5045,7 +5386,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_prepro
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: removes punctuation from text with spaCy pretrained models
+        topic:
+        - NLP
+        - Preprocessing
+        - ETL
     services:
       veld_preprocess_remove_punctuation:
         extends:
@@ -5066,7 +5412,13 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_prepro
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: takes a random sample of lines from a txt file. Randomness can
+          be set with a seed too
+        topic:
+        - NLP
+        - Preprocessing
+        - ETL
     services:
       veld_preprocess_sample:
         extends:
@@ -5086,7 +5438,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_prepro
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: removes all lines before and after given line numbers
+        topic:
+        - NLP
+        - Preprocessing
+        - ETL
     services:
       veld_preprocess_strip:
         extends:
@@ -5104,7 +5461,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_train_
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: A fasttext training setup.
+        topic:
+        - NLP
+        - Machine Learning
+        - Word Embeddings
     services:
       veld_train_fasttext:
         extends:
@@ -5124,7 +5486,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_train_
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: A GloVe training setup.
+        topic:
+        - NLP
+        - Machine Learning
+        - Word Embeddings
     services:
       veld_train_glove:
         extends:
@@ -5154,7 +5521,12 @@ veld_chain__train_infer_wordembeddings_multiple_architectures__amc___veld_train_
   url: https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: A word2vec training setup
+        topic:
+        - NLP
+        - Machine Learning
+        - Word Embeddings
     services:
       veld_train_word2vec:
         extends:
@@ -5759,7 +6131,13 @@ veld_chain__train_spacy_apis_ner___veld_analysis.yaml:
   url: https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_analysis.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: Analyses out-of vocabulary occurrences of training data.
+        topic:
+        - NLP
+        - Machine Learning
+        - Named Entity Recognition
+        - Analysis
     services:
       veld_analysis:
         extends:
@@ -5772,7 +6150,7 @@ veld_chain__train_spacy_apis_ner___veld_convert.yaml:
   content:
     x-veld:
       chain:
-        description: cleaning and converting json into spaCy docbin
+        description: Cleaning and converting json into spaCy docbin
         topic:
         - ETL
         - NLP
@@ -5794,7 +6172,12 @@ veld_chain__train_spacy_apis_ner___veld_create_config.yaml:
   url: https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_create_config.yaml
   content:
     x-veld:
-      chain: null
+      chain:
+        description: Creates a spacy training config according to passed arguments.
+          See https://spacy.io/usage/training/#config for the target outcome.
+        topic:
+        - NLP
+        - Machine Learning
     services:
       veld_create_config:
         extends:
@@ -5813,7 +6196,7 @@ veld_chain__train_spacy_apis_ner___veld_publish_to_hf.yaml:
   content:
     x-veld:
       chain:
-        description: pushing spacy model to huggingface.
+        description: Pushing spacy model to huggingface.
         topic: NLP
     services:
       veld_publish_to_hf:

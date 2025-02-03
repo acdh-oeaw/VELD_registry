@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "A fasttext training setup."
+    topic:
+      - "NLP"
+      - "Machine Learning"
+      - "Word Embeddings"
 
 services:
   veld_train_fasttext:

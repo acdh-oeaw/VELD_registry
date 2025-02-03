@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "data visualization of all evaluation data. In a jupyter notebook."
+    topic:
+      - "NLP"
+      - "Word Embeddings"
+      - "Data Visualization"
 
 services:
   veld_analyse_evaluation:
@@ -9,7 +14,7 @@ services:
     volumes:
       - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/input/:z
       - ./data/veld_data__wordembeddings_evaluation/evaluation_results/:/veld/output/:z
-    environment_var:
+    environment:
       in_evaluation_summary_file: "summary.yaml"
       out_visualization_html_file: "summary_visualized.html"
       out_visualization_png_file: "summary_visualized.png"

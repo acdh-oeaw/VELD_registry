@@ -1,0 +1,31 @@
+x-veld:
+  code:
+    description: "Reads in the trained word vectors from their pkl serializations and tests them for
+      plausability on a few selected words which should show intuitive close or distant relations to
+      each other. This chain does not inherit from a code veld but is defined entirely within its
+      containing chain repository since its code and data are highly context-specific. 
+
+      After reproducing the entire previous sequences yourself and execution of the notebook, feel
+      free to save the notebook and compare the resulting differences with `git diff
+      ./code/analyse_vectors/notebooks/analyse_vectors.ipynb`, where the reproduced vector
+      similarities will have only slight differences to the record of previously trained ones. This
+      difference is due to randomization within the training, but should be small enough to indicate
+      approximate reproduction."
+    topic:
+      - "ETL"
+      - "NLP"
+      - "Machine Learning"
+      - "Word Embeddings"
+      - "Bible Studies"
+
+services:
+  veld_step_6_analyse_vectors:
+    build: ./code/analyse_vectors/
+    command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+    ports:
+      - 8888:8888
+    working_dir: /veld/code/
+    volumes:
+      - ./code/analyse_vectors/notebooks/:/veld/code/
+      - ./data/vectors/:/veld/input/
+

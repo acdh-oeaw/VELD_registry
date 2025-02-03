@@ -1,5 +1,7 @@
 x-veld:
   chain:
+    description: "Downloads the entire gutenberg metadata RDF/XML file and extracts it"
+    topic: ETL
 
 services:
   veld_download_gutenberg_metadata:

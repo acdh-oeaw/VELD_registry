@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "Creates a spacy training config according to passed arguments. See 
+      https://spacy.io/usage/training/#config for the target outcome."
+    topic:
+      - "NLP"
+      - "Machine Learning"
 
 services:
   veld_create_config:

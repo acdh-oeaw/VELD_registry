@@ -1,7 +1,6 @@
 x-veld:
   code:
-    description: "This code repo encapsulates the original code from
-      https://github.com/stanfordnlp/GloVe/tree/master"
+    description: "A GloVe training setup."
     topic:
       - "NLP"
       - "Machine Learning"
@@ -77,7 +76,7 @@ services:
       - ./src/main/train/:/veld/code/:z
       - ./data/training_data/:/veld/input/:z                                                        
       - ./data/models/:/veld/output/:z       
-    command: /veld/code/train.sh
+    command: sh /veld/code/train.sh
     environment:
       in_corpus_file: null
       out_vocab_file: null

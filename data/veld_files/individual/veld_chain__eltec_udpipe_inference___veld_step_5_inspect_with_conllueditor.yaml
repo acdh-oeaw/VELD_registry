@@ -1,0 +1,22 @@
+x-veld:
+  chain:
+    description: "inspecting the conllu files with conllueditor."
+    topic:
+      - NLP
+      - Universal Dependencies
+      - Tokenization
+      - Lemmatization
+      - Part Of Speech
+      - Dependency Parsing
+      - Grammatical Annotation
+
+services:
+  veld_inspect_with_conllueditor:
+    extends:
+      file: ./code/veld_code__conllueditor/veld.yaml
+      service: veld_conllueditor
+    volumes:
+      - ./data/data_tmp_conllu_inferenced/ELTeC-eng/level1/:/data/
+    environment:
+      filename: ENG18400_Trollope.conllu
+

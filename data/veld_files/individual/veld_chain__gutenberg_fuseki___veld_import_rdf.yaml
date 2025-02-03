@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "Imports the Gutenberg RDF/XML data into the Apache Fuseki triplestore"
+    topic:
+      - ETL
+      - RDF
+      - triplestore
 
 services:
   veld_import_rdf:

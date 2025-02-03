@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "removes all lines before and after given line numbers"
+    topic: 
+      - "NLP"
+      - "Preprocessing"
+      - "ETL"
 
 services:
   veld_preprocess_strip:

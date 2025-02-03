@@ -1,5 +1,11 @@
 x-veld:
   chain:
+    description: "Analyses out-of vocabulary occurrences of training data."
+    topic:
+      - "NLP"
+      - "Machine Learning"
+      - "Named Entity Recognition"
+      - "Analysis"
 
 services:
   veld_analysis:

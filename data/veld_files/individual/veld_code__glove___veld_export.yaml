@@ -1,0 +1,37 @@
+x-veld:
+  code:
+    description: "exports a glove model to a pkl file containing a python dict, where the keys are 
+      words and its values are the learned vectors, represented as high-dimensional numpy arrays."
+    topic:
+      - "ETL"
+      - "NLP"
+      - "Machine Learning"
+      - "Word Embeddings"
+
+    input:
+      volume: /veld/input/
+      environment_var: in_vector_file
+      file_type: "txt"
+      content: 
+        - "GloVe model"
+        - "Word Embeddings model"
+        - "Word Embeddings vectors"
+
+    output:
+      volume: /veld/output/
+      environment_var: out_vector_file
+      file_type: "pkl"
+      content:
+        - "Word Embeddings model"
+        - "Word Embeddings vectors"
+
+services:
+  veld_export:
+    build: .
+    command: python3 /veld/code/export.py
+    volumes:
+      - ./src/main/export/:/veld/code/
+    environment:
+      in_vector_file: null
+      out_vector_file: null
+

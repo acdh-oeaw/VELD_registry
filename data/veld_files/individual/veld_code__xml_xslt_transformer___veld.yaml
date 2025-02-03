@@ -32,7 +32,7 @@ x-veld:
 services:
   veld:
     build: .
-    command: /veld/code/transform.sh
+    command: bash /veld/code/transform.sh
     volumes:
       - ./src/:/veld/code/
     environment:

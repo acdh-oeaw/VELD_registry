@@ -1,6 +1,6 @@
 x-veld:
   chain:
-    description: "pushing spacy model to huggingface."
+    description: "Pushing spacy model to huggingface."
     topic: "NLP"
 
 services:

@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "A GloVe training setup."
+    topic:
+      - "NLP"
+      - "Machine Learning"
+      - "Word Embeddings"
 
 services:
   veld_train_glove:

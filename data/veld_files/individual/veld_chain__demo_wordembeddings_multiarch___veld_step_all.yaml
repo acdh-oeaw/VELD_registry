@@ -1,0 +1,82 @@
+x-veld:
+  chain:
+    description: "This is a multi chain that executes all other individual chains in sequential 
+      order. Refer to the other veld yaml files for more information on each step."
+    topic:
+      - "ETL"
+      - "NLP"
+      - "Machine Learning"
+      - "Word Embeddings"
+      - "Bible Studies"
+
+services:
+
+  veld_step_1_download:
+    extends:
+      file: ./veld_step_1_download.yaml
+      service: veld_step_1_download
+
+  veld_step_2_preprocess:
+    extends:
+      file: ./veld_step_2_preprocess.yaml
+      service: veld_step_2_preprocess
+    depends_on:
+      veld_step_1_download:
+        condition: service_completed_successfully
+
+  veld_step_3_train_fasttext:
+    extends:
+      file: ./veld_step_3_train_fasttext.yaml
+      service: veld_step_3_train_fasttext
+    depends_on:
+      veld_step_2_preprocess:
+        condition: service_completed_successfully
+
+  veld_step_3_export_fasttext:
+    extends:
+      file: ./veld_step_3_train_fasttext.yaml
+      service: veld_step_3_export_fasttext
+    depends_on:
+      veld_step_3_train_fasttext:
+        condition: service_completed_successfully
+
+  veld_step_4_train_glove:
+    extends:
+      file: ./veld_step_4_train_glove.yaml
+      service: veld_step_4_train_glove
+    depends_on:
+      veld_step_3_export_fasttext:
+        condition: service_completed_successfully
+
+  veld_step_4_export_glove:
+    extends:
+      file: ./veld_step_4_train_glove.yaml
+      service: veld_step_4_export_glove
+    depends_on:
+      veld_step_4_train_glove:
+        condition: service_completed_successfully
+  
+  veld_step_5_train_word2vec:
+    extends:
+      file: ./veld_step_5_train_word2vec.yaml
+      service: veld_step_5_train_word2vec
+    depends_on:
+      veld_step_4_export_glove:
+        condition: service_completed_successfully
+  
+  veld_step_5_export_word2vec:
+    extends:
+      file: ./veld_step_5_train_word2vec.yaml
+      service: veld_step_5_export_word2vec
+    depends_on:
+      veld_step_5_train_word2vec:
+        condition: service_completed_successfully
+
+  veld_step_6_analyse_vectors:
+    extends:
+      file: ./veld_step_6_analyse_vectors.yaml
+      service: veld_step_6_analyse_vectors
+    depends_on:
+      veld_step_5_export_word2vec:
+        condition: service_completed_successfully
+

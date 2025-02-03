@@ -1,0 +1,44 @@
+x-veld:
+  chain:
+    description: "Trains a word2vec model on the bible and exports its vectors as a dict serialized 
+      into a pkl file. The training data is rather small and the hyperparameteres are simplistic, 
+      in order to demonstrate the reproducibility of this chain rather than claiming any deeper 
+      insight into the data's words context."
+    topic:
+      - "ETL"
+      - "NLP"
+      - "Machine Learning"
+      - "Word Embeddings"
+      - "Bible Studies"
+
+services:
+
+  veld_step_5_train_word2vec:
+    extends:
+      file: ./code/veld_code__word2vec/veld_train.yaml
+      service: veld_train
+    volumes:
+      - ./data/training_data/:/veld/input/
+      - ./data/models/word2vec/:/veld/output/
+    environment:
+      in_train_data_file: "bible_processed.txt"
+      out_model_file: "m1.bin"
+      model_description: "simple bible word2vec model"
+      epochs: 100
+      vector_size: 200
+      window: 10
+
+  veld_step_5_export_word2vec:
+    extends:
+      file: ./code/veld_code__word2vec/veld_export.yaml
+      service: veld_export
+    volumes:
+      - ./data/models/word2vec/:/veld/input/
+      - ./data/vectors/word2vec/:/veld/output/
+    environment:
+      in_model_file: "m1.bin"
+      out_vector_file: "m1.pkl"
+    depends_on:
+      veld_step_5_train_word2vec:
+        condition: service_completed_successfully
+

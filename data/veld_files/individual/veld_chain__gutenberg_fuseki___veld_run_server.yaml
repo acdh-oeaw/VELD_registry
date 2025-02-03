@@ -1,5 +1,10 @@
 x-veld:
   chain:
+    description: "Runs an Apache Fuseki triplestore. Configuration can be adjusted with the 
+      respective shiro.ini file, of which there is a default integrated into this chain veld."
+    topic:
+      - RDF
+      - triplestore
 
 services:
   veld_run_server:

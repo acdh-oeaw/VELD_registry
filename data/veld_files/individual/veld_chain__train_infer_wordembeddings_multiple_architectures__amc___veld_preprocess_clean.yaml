@@ -1,5 +1,11 @@
 x-veld:
   code:
+    description: "Removes lines that don't reach a threshold regarding the ratio of textual content 
+      to non-textual (numbers, special characters) content."
+    topic: 
+      - "NLP"
+      - "Preprocessing"
+      - "ETL"
 
 services:
   veld_preprocess_clean:
