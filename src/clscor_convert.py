@@ -24,6 +24,25 @@ def _get_veld_uri_by_type(veld_data, veld_type):
     return result
 
 
+def _get_veld_label(veld_data, veld_type):
+    result = []
+    try:
+        _ = veld_data["content"]["x-veld"][veld_type]
+        _ = veld_data["url"]
+    except KeyError:
+        pass
+    else:
+        url_part_list = veld_data["url"].split("https://github.com/veldhub/")[1].split("/")
+        label_repo = url_part_list[0]
+        label_veld = url_part_list[-1].split(".yaml")[0]
+        if label_veld == "veld":
+            label = label_repo
+        else:
+            label = label_repo + "__" + label_veld.replace("veld_", "")
+        result = [Literal(label)]
+    return result
+
+
 def get_data_veld_uris(veld_data):
     result = _get_veld_uri_by_type(veld_data, "data")
     return result
@@ -75,6 +94,21 @@ def get_data_veld_uris__as_chain_input(veld_data):
 
 def get_data_veld_uris__as_chain_output(veld_data):
     result = _get_data_veld_uris__as_chain_io(veld_data, "output")
+    return result
+
+
+def get_data_veld_label(veld_data):
+    result = _get_veld_label(veld_data, "data")
+    return result
+
+
+def get_code_veld_label(veld_data):
+    result = _get_veld_label(veld_data, "code")
+    return result
+
+
+def get_chain_veld_label(veld_data):
+    result = _get_veld_label(veld_data, "chain")
     return result
 
 
