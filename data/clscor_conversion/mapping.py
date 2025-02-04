@@ -3,6 +3,42 @@ from src.clscor_convert import *
 
 
 mappings = {
+    
+    # data velds
+    "data veld Y2 to file type": {
+        "s": get_data_veld_uris,
+        "p": CRMCLS["Y2_has_format"],
+        "o": get_data_veld_file_type,
+    },
+    "data veld url a PE19": {
+        "s": get_data_veld_uris,
+        "p": RDF.type,
+        "o": PEM["PE19_Persistent_Digital_Object"],
+    },
+    
+    # code velds
+    "code veld Y9 X7": {
+        "s": get_code_veld_uris,
+        "p": CRMCLS["Y9_expects_input"],
+        "o": get_code_ved__file_type_inputs,
+    },
+    "code veld Y10 X7": {
+        "s": get_code_veld_uris,
+        "p": CRMCLS["Y10_generates_output"],
+        "o": get_code_ved__file_type_outputs,
+    },
+    "code veld url a X12": {
+        "s": get_code_veld_uris,
+        "p": RDF.type,
+        "o": CRMCLS["X12_Tool"],
+    },
+    "code veld url crmcls:Y8_implements X6": {
+        "s": get_code_veld_uris,
+        "p": CRMCLS["Y8_implements"],
+        "o": get_code_topic_as_x6,
+    },
+    
+    # chain velds
     "chain repo url a X5": {
         "s": get_x5_uri_from_chain,
         "p": RDF.type,
@@ -28,31 +64,6 @@ mappings = {
         "p": CRMCLS["Y7_uses"],
         "o": get_integrated_code_veld_id,
     },
-    "data veld Y2 to file type": {
-        "s": get_data_veld_uris,
-        "p": CRMCLS["Y2_has_format"],
-        "o": get_data_veld_file_type,
-    },
-    "code veld Y9 X7": {
-        "s": get_code_veld_uris,
-        "p": CRMCLS["Y9_expects_input"],
-        "o": get_code_ved__file_type_inputs,
-    },
-    "code veld Y10 X7": {
-        "s": get_code_veld_uris,
-        "p": CRMCLS["Y10_generates_output"],
-        "o": get_code_ved__file_type_outputs,
-    },
-    "data veld url a PE19": {
-        "s": get_data_veld_uris,
-        "p": RDF.type,
-        "o": PEM["PE19_Persistent_Digital_Object"],
-    },
-    "code veld url a X12": {
-        "s": get_code_veld_uris,
-        "p": RDF.type,
-        "o": CRMCLS["X12_Tool"],
-    },
     "chain veld url a X12": {
         "s": get_chain_veld_uris,
         "p": RDF.type,
@@ -62,11 +73,6 @@ mappings = {
         "s": get_chain_veld_uris,
         "p": RDF.type,
         "o": PEM["PE23_Volatile_Software"],
-    },
-    "code veld url crmcls:Y8_implements X6": {
-        "s": get_code_veld_uris,
-        "p": CRMCLS["Y8_implements"],
-        "o": get_code_topic_as_x6,
     },
     "chain veld url crmcls:Y8_implements X6": {
         "s": get_chain_veld_uris,
