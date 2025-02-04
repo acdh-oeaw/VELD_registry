@@ -43,32 +43,32 @@ mappings = {
         "p": CRMCLS["Y10_generates_output"],
         "o": get_code_ved__file_type_outputs,
     },
-    "data_uri a PE19": {
+    "data veld url a PE19": {
         "s": get_data_veld_uris,
         "p": RDF.type,
         "o": PEM["PE19_Persistent_Digital_Object"],
     },
-    "code_uri a X12": {
+    "code veld url a X12": {
         "s": get_code_veld_uris,
         "p": RDF.type,
         "o": CRMCLS["X12_Tool"],
     },
-    "chain_uri a X12": {
+    "chain veld url a X12": {
         "s": get_chain_veld_uris,
         "p": RDF.type,
         "o": CRMCLS["X12_Tool"],
     },
-    "chain_uri a PE23": {
+    "chain veld url a PE23": {
         "s": get_chain_veld_uris,
         "p": RDF.type,
         "o": PEM["PE23_Volatile_Software"],
     },
-    "code_uri crmcls:Y8_implements X6": {
+    "code veld url crmcls:Y8_implements X6": {
         "s": get_code_veld_uris,
         "p": CRMCLS["Y8_implements"],
         "o": get_code_topic_as_x6,
     },
-    "chain_uri crmcls:Y8_implements X6": {
+    "chain veld url crmcls:Y8_implements X6": {
         "s": get_chain_veld_uris,
         "p": CRMCLS["Y8_implements"],
         "o": get_chain_topic_as_x6,
