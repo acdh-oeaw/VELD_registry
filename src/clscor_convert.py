@@ -43,11 +43,6 @@ def _get_veld_label(veld_data, veld_type):
     return result
 
 
-def get_data_veld_uris(veld_data):
-    result = _get_veld_uri_by_type(veld_data, "data")
-    return result
-
-
 def _get_data_veld_uris__as_chain_io(veld_data, io):
     result = []
     try:
@@ -87,38 +82,19 @@ def _get_data_veld_uris__as_chain_io(veld_data, io):
     return result
 
 
-def get_data_veld_uris__as_chain_input(veld_data):
-    result = _get_data_veld_uris__as_chain_io(veld_data, "input")
-    return result
-
-
-def get_data_veld_uris__as_chain_output(veld_data):
-    result = _get_data_veld_uris__as_chain_io(veld_data, "output")
-    return result
-
-
-def get_data_veld_label(veld_data):
-    result = _get_veld_label(veld_data, "data")
-    return result
-
-
-def get_code_veld_label(veld_data):
-    result = _get_veld_label(veld_data, "code")
-    return result
-
-
-def get_chain_veld_label(veld_data):
-    result = _get_veld_label(veld_data, "chain")
-    return result
-
-
-def get_code_veld_uris(veld_data):
-    result = _get_veld_uri_by_type(veld_data, "code")
-    return result
-
-
-def get_chain_veld_uris(veld_data):
-    result = _get_veld_uri_by_type(veld_data, "chain")
+def _get_code_ved__file_type__of_io(veld_data, io):
+    result = []
+    try:
+        _ = veld_data["content"]["x-veld"]["code"]
+        io = veld_data["content"]["x-veld"]["code"][io]
+    except:
+        pass
+    else:
+        if type(io) is dict:
+            io = [io]
+        for io_dict in io:
+            if ft := io_dict.get("file_type"):
+                result.extend(_transform_file_type(ft))
     return result
 
 
@@ -145,6 +121,71 @@ def _get_topic(veld_data):
     return result
 
 
+def _transform_file_type(file_type_data):
+    if type(file_type_data) is str:
+        file_type_data = [file_type_data]
+    return [
+        CRM_FORMAT[ft.replace(" ", "_")]
+        for ft in file_type_data
+    ]
+
+
+
+def get_data_veld_uris(veld_data):
+    result = _get_veld_uri_by_type(veld_data, "data")
+    return result
+
+
+
+
+def get_data_veld_uris__as_chain_input(veld_data):
+    result = _get_data_veld_uris__as_chain_io(veld_data, "input")
+    return result
+
+
+def get_data_veld_uris__as_chain_output(veld_data):
+    result = _get_data_veld_uris__as_chain_io(veld_data, "output")
+    return result
+
+
+def get_data_veld_label(veld_data):
+    result = _get_veld_label(veld_data, "data")
+    return result
+
+
+def get_data_veld_file_type(veld_data):
+    result = []
+    try:
+        _ = veld_data["content"]["x-veld"]["data"]
+        file_type = veld_data["content"]["x-veld"]["data"]["file_type"]
+    except:
+        pass
+    else:
+        result = _transform_file_type(file_type)
+    return result
+
+
+def get_code_veld_label(veld_data):
+    result = _get_veld_label(veld_data, "code")
+    return result
+
+
+def get_code_veld_uris(veld_data):
+    result = _get_veld_uri_by_type(veld_data, "code")
+    return result
+
+
+def get_code_topic_as_x6(veld_data):
+    result = []
+    try:
+        _ = veld_data["content"]["x-veld"]["code"]
+    except:
+        pass
+    else:
+        result = _get_topic(veld_data)
+    return result
+
+
 # TODO: maybe remove?
 def get_code_reification_to_topic(veld_data):
     result = []
@@ -161,11 +202,28 @@ def get_code_reification_to_topic(veld_data):
     return result
 
 
-# TODO: maybe remove?
-def get_topic_of_code_reification_to_topic(veld_data):
-    result = []
+def get_code_ved__file_type_inputs(veld_data):
+    return _get_code_ved__file_type__of_io(veld_data, "input")
+
+
+def get_code_ved__file_type_outputs(veld_data):
+    return _get_code_ved__file_type__of_io(veld_data, "output")
+
+
+def get_chain_veld_uris(veld_data):
+    result = _get_veld_uri_by_type(veld_data, "chain")
+    return result
+
+
+def get_chain_veld_label(veld_data):
+    result = _get_veld_label(veld_data, "chain")
+    return result
+
+
+def get_chain_topic_as_x6(veld_data):
+    result = {}
     try:
-        _ = veld_data["content"]["x-veld"]["code"]
+        _ = veld_data["content"]["x-veld"]["chain"]
     except:
         pass
     else:
@@ -173,49 +231,16 @@ def get_topic_of_code_reification_to_topic(veld_data):
     return result
 
 
-def _transform_file_type(file_type_data):
-    if type(file_type_data) is str:
-        file_type_data = [file_type_data]
-    return [
-        CRM_FORMAT[ft.replace(" ", "_")]
-        for ft in file_type_data
-    ]
-
-
-def get_data_veld_file_type(veld_data):
+def get_x5_uri_from_chain(veld_data):
     result = []
     try:
-        _ = veld_data["content"]["x-veld"]["data"]
-        file_type = veld_data["content"]["x-veld"]["data"]["file_type"]
+        _ = veld_data["content"]["x-veld"]["chain"]
     except:
         pass
     else:
-        result = _transform_file_type(file_type)
+        chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
+        result = [URIRef(chain_repo_url)]
     return result
-
-
-def _get_code_ved__file_type__of_io(veld_data, io):
-    result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["code"]
-        io = veld_data["content"]["x-veld"]["code"][io]
-    except:
-        pass
-    else:
-        if type(io) is dict:
-            io = [io]
-        for io_dict in io:
-            if ft := io_dict.get("file_type"):
-                result.extend(_transform_file_type(ft))
-    return result
-
-
-def get_code_ved__file_type_inputs(veld_data):
-    return _get_code_ved__file_type__of_io(veld_data, "input")
-
-
-def get_code_ved__file_type_outputs(veld_data):
-    return _get_code_ved__file_type__of_io(veld_data, "output")
 
 
 def get_integrated_code_veld_id(veld_data):
@@ -238,18 +263,8 @@ def get_integrated_code_veld_id(veld_data):
     return result
 
 
-def get_chain_topic_as_x6(veld_data):
-    result = {}
-    try:
-        _ = veld_data["content"]["x-veld"]["chain"]
-    except:
-        pass
-    else:
-        result = _get_topic(veld_data)
-    return result
-
-
-def get_code_topic_as_x6(veld_data):
+# TODO: maybe remove?
+def get_topic_of_code_reification_to_topic(veld_data):
     result = []
     try:
         _ = veld_data["content"]["x-veld"]["code"]
@@ -257,18 +272,6 @@ def get_code_topic_as_x6(veld_data):
         pass
     else:
         result = _get_topic(veld_data)
-    return result
-
-
-def get_x5_uri_from_chain(veld_data):
-    result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["chain"]
-    except:
-        pass
-    else:
-        chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
-        result = [URIRef(chain_repo_url)]
     return result
 
 
