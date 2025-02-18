@@ -126,7 +126,7 @@ mappings = {
     "assignment_uri_y9 P140 code or chain veld url": {
         "s": get_attribute_assignment_uris_y9,
         "p": CRM["P140_assigned_attribute_to"],
-        "o": get_code_or_chain_veld_yaml_url,
+        "o": get_code_veld_uris,
     },
     "assignment_uri_y9 P141 method uri": {
         "s": get_attribute_assignment_uris_y9,
@@ -137,6 +137,33 @@ mappings = {
         "s": get_attribute_assignment_uris_y9,
         "p": CRM["P177_assigned_property_of_type"],
         "o": CRMCLS["Y9_expects_input"],
+    },
+    
+    # Attribute Assignments Y10
+    "assignment_uri_y10 a E13": {
+        "s": get_attribute_assignment_uris_y10,
+        "p": RDF.type,
+        "o": CRM["E13_Attribute_Assignment"]
+    },
+    "assignment_uri_y10 P134 tool_description_uri": {
+        "s": get_attribute_assignment_uris_y10,
+        "p": CRM["P134_continued"],
+        "o": get_cls_tool_description_event_uris
+    },
+    "assignment_uri_y10 P140 code or chain veld url": {
+        "s": get_attribute_assignment_uris_y10,
+        "p": CRM["P140_assigned_attribute_to"],
+        "o": get_code_veld_uris,
+    },
+    "assignment_uri_y10 P141 method uri": {
+        "s": get_attribute_assignment_uris_y10,
+        "p": CRM["P141_assigned"],
+        "o": get_code_or_chain_veld_output_format,
+    },
+    "assignment_uri_y10 P177 Y10": {
+        "s": get_attribute_assignment_uris_y10,
+        "p": CRM["P177_assigned_property_of_type"],
+        "o": CRMCLS["Y10_generates_output"],
     },
 }
 

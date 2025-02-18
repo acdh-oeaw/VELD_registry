@@ -3,6 +3,26 @@
 @prefix pem: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+<https://clscor.io/entity/024bcf10fe> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/json>,
+        <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/03f8400ee1> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
+        <https://clscor.io/entity/type/format/yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/045b93b096> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/cfg> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/05277613db> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> ;
@@ -16,6 +36,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/0b81f09fe1> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/0c116afa94> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -72,6 +98,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/ini>,
         <https://clscor.io/entity/type/format/xml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
+
+<https://clscor.io/entity/0f931d4f01> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/12ddb590c4> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -188,11 +220,27 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/29cbf1a40a> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/29e820e4c4> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/2a59721fe6> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
+
+<https://clscor.io/entity/2b1f119989> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_export.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/pkl> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/2b4db743a9> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -207,11 +255,21 @@
         <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/2cbf37cf97> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/2d1cb34dac> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
+
+<https://clscor.io/entity/2e5ee2538b> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/2f2c23e1f6> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -282,6 +340,20 @@
         <https://clscor.io/entity/type/method/information_extraction>,
         <https://clscor.io/entity/type/method/triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/352f42a40f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/35a6c559ff> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/csv>,
+        <https://clscor.io/entity/type/format/json>,
+        <https://clscor.io/entity/type/format/tsv>,
+        <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/365d6cd1a1> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -356,6 +428,11 @@
         <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/403f2a5b8f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/41b4316ba1> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> ;
@@ -363,6 +440,11 @@
         <https://clscor.io/entity/type/method/machine_learning>,
         <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/43479d5bdd> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/44bb93b9b3> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -372,6 +454,18 @@
         <https://clscor.io/entity/type/method/information_extraction>,
         <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/45358e47ba> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/GloVe_model> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/4699409cc7> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/fastText_model> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/46de974029> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -387,10 +481,22 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
+<https://clscor.io/entity/4868723631> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_strip.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/4909090713> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/497db547b5> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/49cc1cb34c> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -416,6 +522,12 @@
         <https://clscor.io/entity/type/method/information_extraction>,
         <https://clscor.io/entity/type/method/triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/4d1ccdfe0e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/json> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/4d330cd3fd> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -466,6 +578,13 @@
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/51598e4b4b> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
+        <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/517cecff31> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -528,6 +647,12 @@
         <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/52e485b3de> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_export.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/pkl> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/53482d8950> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_fasttext.yaml> ;
@@ -540,6 +665,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/59cbae116c> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/json> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/5a64695a45> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -612,6 +743,19 @@
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
+<https://clscor.io/entity/62a65230ad> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/word2vec_model> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/631d32c16b> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
+        <https://clscor.io/entity/type/format/yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/6489e6b744> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> ;
@@ -643,6 +787,13 @@
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_2_download_models.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/68042f3c43> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/conllu>,
+        <https://clscor.io/entity/type/format/tsv> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/680d529417> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -735,6 +886,13 @@
         <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/7b36765e5d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/html>,
+        <https://clscor.io/entity/type/format/png> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/7bf7e0f63e> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_05__csv_bulk_download.yaml> ;
@@ -774,11 +932,29 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/json> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
+<https://clscor.io/entity/81f1b18d59> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_clean.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/856f26a928> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/88273fc270> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_07__csv_bulk_download__extract.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/884c41841f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_sample.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/88ab2ed91a> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -853,6 +1029,13 @@
         <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/9b2be4f2ad> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/html>,
+        <https://clscor.io/entity/type/format/png> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/9ba82041cd> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> ;
@@ -895,6 +1078,12 @@
         <https://clscor.io/entity/type/method/information_extraction>,
         <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/a3d943512f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/a47f19761d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -947,6 +1136,18 @@
         <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/af710f4ba6> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
+        <https://clscor.io/entity/type/format/yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/afe3b23128> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/b0a035ce8d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1010,6 +1211,13 @@
         <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/b9d7812008> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/spaCy_docbin>,
+        <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/badffe1d61> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step2_run_server.yaml> ;
@@ -1018,11 +1226,23 @@
         <https://clscor.io/entity/type/method/triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/bcb840fa5e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/json> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/be5a00aad4> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_07_train_glove.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/bec25aa2d4> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_parseudpipe.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/bff93ddbae> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1050,6 +1270,11 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/c441c1566c> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/c4a7f7f118> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_04__single_download__designate_file_name__extract.yaml> ;
@@ -1067,6 +1292,19 @@
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__invalid__out_file_and_csv.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/c83033a644> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/pkl> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/cc00706c72> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
+        <https://clscor.io/entity/type/format/word2vec_model> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/cc7f3ab70c> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1155,6 +1393,12 @@
         <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/dcc9009484> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/dd206765e5> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_train.yaml> ;
@@ -1163,12 +1407,24 @@
         <https://clscor.io/entity/type/method/named_entity_recognition> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/ddd185ee02> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/udpipe_model> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/dfedc4869f> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/e06fbe7108> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/e07abc83b5> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1217,6 +1473,13 @@
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
+
+<https://clscor.io/entity/e70c559a0d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/spaCy_model>,
+        <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/eb11a53093> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1301,6 +1564,13 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
+<https://clscor.io/entity/f5871056b8> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/conllu>,
+        <https://clscor.io/entity/type/format/tsv> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/f668298d68> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> ;
@@ -1335,6 +1605,11 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/ff2220990e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://github.com/veldhub/veld_chain__akp_ner_inference> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_chain__akp_ner_inference/blob/main/veld_infer.yaml> .
@@ -1776,9 +2051,6 @@
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_export.yaml>,
         <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> .
 
-<https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_6_analyse_vectors" .
-
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_all.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_all" .
@@ -1932,9 +2204,6 @@
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_word2vec" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> .
 
-<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_clean" .
-
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_lowercase" ;
@@ -2067,6 +2336,12 @@
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_spacy_apis_ner__train" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> .
+
+<https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml> a crmcls:X12_Tool ;
+    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_6_analyse_vectors" .
+
+<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml> a crmcls:X12_Tool ;
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_clean" .
 
 <https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__bert_embeddings__infer_and_create_index" .

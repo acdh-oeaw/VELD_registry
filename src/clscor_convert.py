@@ -245,6 +245,14 @@ def get_attribute_assignment_uris_y9(veld_data):
     return result
 
 
+def get_attribute_assignment_uris_y10(veld_data):
+    result = []
+    if _get_data_recursively(veld_data, ["content", "x-veld", "code"]) is not None:
+        hash = _generate_hash(veld_data["url"] + "_y10")
+        result = [CLS[hash]]
+    return result
+
+
 def get_cls_tool_description_event_uris(_):
     hash = _generate_hash("random hash for one tool description event")
     result = [CLS[hash]]
@@ -253,9 +261,7 @@ def get_cls_tool_description_event_uris(_):
 
 def get_code_or_chain_veld_yaml_url(veld_data):
     result_code = _get_veld_uri_by_type(veld_data, "code")
-    # TODO: check if y9 assignment can be used for chains as well, if so keep this; if not, remove
-    # result_chain = _get_veld_uri_by_type(veld_data, "chain")
-    result_chain = None
+    result_chain = _get_veld_uri_by_type(veld_data, "chain")
     if result_code:
         return result_code
     elif result_chain:
@@ -281,6 +287,19 @@ def get_method_uris(veld_data):
     
 def get_code_or_chain_veld_input_format(veld_data):
     result_code = get_code_veld__file_type_inputs(veld_data)
+    # TODO: check if y9 assignment can be used for chains as well, if so keep this; if not, remove
+    # result_chain = get_code_veld__file_type_inputs(veld_data)
+    result_chain = None
+    if result_code:
+        return result_code
+    elif result_chain:
+        return result_chain
+    else:
+        return []
+    
+    
+def get_code_or_chain_veld_output_format(veld_data):
+    result_code = get_code_veld__file_type_outputs(veld_data)
     # TODO: check if y9 assignment can be used for chains as well, if so keep this; if not, remove
     # result_chain = get_code_veld__file_type_inputs(veld_data)
     result_chain = None
