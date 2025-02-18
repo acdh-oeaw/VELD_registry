@@ -266,8 +266,9 @@ def get_method_uris(veld_data):
 
 def main():
     g = Graph()
-    g.bind("crmcls", CRMCLS)
     g.bind("pem", PEM)
+    g.bind("crm", CRM)
+    g.bind("crmcls", CRMCLS)
     
     for veld_key, veld_data in VELD_DATA_ALL.items():
         print("# VELD: ", veld_key)
