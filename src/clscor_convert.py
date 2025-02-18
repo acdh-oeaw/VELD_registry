@@ -227,9 +227,11 @@ def get_integrated_code_veld_id(veld_data):
 
 
 def get_attribute_assignment_uris(veld_data):
-    hash = _generate_hash(veld_data["url"])
-    uri = CLS[hash]
-    return [uri]
+    result = []
+    if _get_data_recursively(veld_data, ["content", "x-veld", "data"]) is None:
+        hash = _generate_hash(veld_data["url"])
+        result = [CLS[hash]]
+    return result
 
 
 def get_cls_tool_description_event_uris(_):
