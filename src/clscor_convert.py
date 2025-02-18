@@ -240,8 +240,10 @@ def get_attribute_assignment_uris_y8(veld_data):
 def get_attribute_assignment_uris_y9(veld_data):
     result = []
     if _get_data_recursively(veld_data, ["content", "x-veld", "code"]) is not None:
-        hash = _generate_hash(veld_data["url"] + "_y9")
-        result = [CLS[hash]]
+        input = get_code_or_chain_veld_input_format(veld_data)
+        if input:
+            hash = _generate_hash(veld_data["url"] + "_y9")
+            result = [CLS[hash]]
     return result
 
 
