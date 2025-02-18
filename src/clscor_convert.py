@@ -127,9 +127,9 @@ def _get_topic(veld_data):
 
 
 def _transform_file_type(file_type_data):
+    result = []
     if type(file_type_data) is str:
         file_type_data = [file_type_data]
-    result = []
     for ft in file_type_data:
         result.append(CRM_FORMAT[ft.replace(" ", "_")])
     return result
@@ -178,11 +178,13 @@ def get_code_veld_uris(veld_data):
 
 
 def get_code_ved__file_type_inputs(veld_data):
-    return _get_code_ved__file_type__of_io(veld_data, "input")
+    result = _get_code_ved__file_type__of_io(veld_data, "input")
+    return result
 
 
 def get_code_ved__file_type_outputs(veld_data):
-    return _get_code_ved__file_type__of_io(veld_data, "output")
+    result = _get_code_ved__file_type__of_io(veld_data, "output")
+    return result
 
 
 def get_chain_veld_uris(veld_data):
@@ -236,8 +238,8 @@ def get_attribute_assignment_uris_y8(veld_data):
 
 def get_cls_tool_description_event_uris(_):
     hash = _generate_hash("random hash for one tool description event")
-    uri = CLS[hash]
-    return [uri]
+    result = [CLS[hash]]
+    return result
 
 
 def get_code_or_chain_veld_yaml_url(veld_data):
