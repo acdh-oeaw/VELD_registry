@@ -1,3 +1,4 @@
+import hashlib
 import types
 
 import yaml
@@ -10,6 +11,10 @@ IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
 with open(IN_VELD_DATA_PATH, "r") as f:
     VELD_DATA_ALL = yaml.safe_load(f)
 OUT_TTL_DATA_PATH = "/app/data/clscor_conversion/output.ttl"
+
+
+def _generate_hash(s):
+    return hashlib.sha256(s.encode()).hexdigest()[:10]
     
 
 def _get_veld_uri_by_type(veld_data, veld_type):
@@ -130,12 +135,9 @@ def _transform_file_type(file_type_data):
     ]
 
 
-
 def get_data_veld_uris(veld_data):
     result = _get_veld_uri_by_type(veld_data, "data")
     return result
-
-
 
 
 def get_data_veld_uris__as_chain_input(veld_data):
@@ -263,16 +265,47 @@ def get_integrated_code_veld_id(veld_data):
     return result
 
 
-# TODO: maybe remove?
-def get_topic_of_code_reification_to_topic(veld_data):
-    result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["code"]
-    except:
-        pass
+def get_attribute_assignment_uris(veld_data):
+    hash = _generate_hash(veld_data["url"])
+    uri = CLS[hash]
+    return [uri]
+
+
+def get_cls_tool_description_event_uris(_):
+    hash = _generate_hash("random hash for one tool description event")
+    uri = CLS[hash]
+    return [uri]
+
+
+def get_code_or_chain_veld_yaml_url(veld_data):
+    result_code = _get_veld_uri_by_type(veld_data, "code")
+    result_chain = _get_veld_uri_by_type(veld_data, "chain")
+    if result_code and result_chain:
+        raise Exception("this should never happen")
+    elif result_code:
+        return result_code
+    elif result_chain:
+        return result_chain
     else:
-        result = _get_topic(veld_data)
-    return result
+        return []
+
+
+def get_method_uris(veld_data):
+    result_code = get_code_topic_as_x6(veld_data)
+    result_chain = get_chain_topic_as_x6(veld_data)
+    if result_code and result_chain:
+        raise Exception("this should never happen")
+    elif result_code:
+        return result_code
+    elif result_chain:
+        return result_chain
+    else:
+        return []
+
+
+# TODO: where to get the labels from?
+# def get_method_labels(veld_data):
+#     pass
 
 
 def main():
@@ -287,7 +320,8 @@ def main():
             m_instantiated = {}
             for k, v in m.items():
                 if type(v) is types.FunctionType:
-                    m_instantiated[k] = v(veld_data)
+                    result = v(veld_data)
+                    m_instantiated[k] = result
                 else:
                     m_instantiated[k] = [v]
             for s in m_instantiated["s"]:
