@@ -15,29 +15,35 @@ OUT_TTL_DATA_PATH = "/app/data/clscor_conversion/output.ttl"
 
 def _generate_hash(s):
     return hashlib.sha256(s.encode()).hexdigest()[:10]
+
+
+def _get_data_recursively(d, key_list):
+    if type(d) is dict and key_list and key_list[0] in d:
+        d_val = d[key_list[0]]
+        return _get_data_recursively(d_val, key_list[1:])
+    elif len(key_list) == 0:
+        if d is None:
+            d = []
+        return d
+    else:
+        return None
     
 
 def _get_veld_uri_by_type(veld_data, veld_type):
     result = []
-    try:
-        _ = veld_data["content"]["x-veld"][veld_type]
-        _ = veld_data["url"]
-    except KeyError:
-        pass
-    else:
-        result = [URIRef(veld_data["url"])]
+    result_veld_type = _get_data_recursively(veld_data, ["content", "x-veld", veld_type])
+    if result_veld_type is not None:
+        result_url = _get_data_recursively(veld_data, ["url"])
+        if result_url:
+            result = [URIRef(veld_data["url"])]
     return result
 
 
-def _get_veld_label(veld_data, veld_type):
+def _get_veld_label(veld_data):
     result = []
-    try:
-        _ = veld_data["content"]["x-veld"][veld_type]
-        _ = veld_data["url"]
-    except KeyError:
-        pass
-    else:
-        url_part_list = veld_data["url"].split("https://github.com/veldhub/")[1].split("/")
+    veld_url = veld_data.get("url")
+    if veld_url is not None:
+        url_part_list = veld_url.split("https://github.com/veldhub/")[1].split("/")
         label_repo = url_part_list[0]
         label_veld = url_part_list[-1].split(".yaml")[0]
         if label_veld == "veld":
@@ -50,23 +56,18 @@ def _get_veld_label(veld_data, veld_type):
 
 def _get_data_veld_uris__as_chain_io(veld_data, io):
     result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["chain"]
-        services = veld_data["content"]["services"]
-        volumes_list = []
+    volumes_list = []
+    if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None:
+        services = _get_data_recursively(veld_data, ["content", "services"])
         for s in services.values():
-            for vol in s.get("volumes"):
-                volumes_list.append(vol)
-    except:
-        pass
-    else:
+            v = s.get("volumes")
+            if v is not None:
+                for vol in v:
+                    volumes_list.append(vol)
+    if volumes_list:
         data_veld_uris = {}
         for data_veld_id, data_veld_data in VELD_DATA_ALL.items():
-            try:
-                _ = data_veld_data["content"]["x-veld"]["data"]
-            except:
-                pass
-            else:
+            if _get_data_recursively(data_veld_data, ["content", "x-veld", "data"]) is not None:
                 data_veld_uris[data_veld_id] = data_veld_data["url"]
         for vol in volumes_list:
             vol = vol.split(":")
@@ -87,14 +88,10 @@ def _get_data_veld_uris__as_chain_io(veld_data, io):
     return result
 
 
-def _get_code_ved__file_type__of_io(veld_data, io):
+def _get_code_ved__file_type__of_io(veld_data, io_direction):
     result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["code"]
-        io = veld_data["content"]["x-veld"]["code"][io]
-    except:
-        pass
-    else:
+    io = _get_data_recursively(veld_data, ["content", "x-veld", "code", io_direction])
+    if io is not None:
         if type(io) is dict:
             io = [io]
         for io_dict in io:
@@ -103,13 +100,16 @@ def _get_code_ved__file_type__of_io(veld_data, io):
     return result
 
 
+def _check_if_type(veld_data, veld_type):
+    result = _get_data_recursively(veld_data, ["content", "x-veld", veld_type])
+    return result is not None
+
+
 def _get_topic(veld_data):
     result = []
-    try:
-        topics = list(veld_data["content"]["x-veld"].values())[0]["topic"]
-    except:
-        pass
-    else:
+    veld_data_any = _get_data_recursively(veld_data, ["content", "x-veld"])
+    if veld_data_any is not None:
+        topics = list(veld_data_any.values())[0].get("topic")
         if type(topics) is str:
             topics = [topics]
         if type(topics) is list and topics != [] and topics is not None:
@@ -129,10 +129,10 @@ def _get_topic(veld_data):
 def _transform_file_type(file_type_data):
     if type(file_type_data) is str:
         file_type_data = [file_type_data]
-    return [
-        CRM_FORMAT[ft.replace(" ", "_")]
-        for ft in file_type_data
-    ]
+    result = []
+    for ft in file_type_data:
+        result.append(CRM_FORMAT[ft.replace(" ", "_")])
+    return result
 
 
 def get_data_veld_uris(veld_data):
@@ -151,56 +151,29 @@ def get_data_veld_uris__as_chain_output(veld_data):
 
 
 def get_data_veld_label(veld_data):
-    result = _get_veld_label(veld_data, "data")
+    result = []
+    if _check_if_type(veld_data, "data"):
+        result = _get_veld_label(veld_data)
     return result
 
 
 def get_data_veld_file_type(veld_data):
     result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["data"]
-        file_type = veld_data["content"]["x-veld"]["data"]["file_type"]
-    except:
-        pass
-    else:
+    file_type = _get_data_recursively(veld_data, ["content", "x-veld", "data", "file_type"])
+    if file_type is not None:
         result = _transform_file_type(file_type)
     return result
 
 
 def get_code_veld_label(veld_data):
-    result = _get_veld_label(veld_data, "code")
+    result = []
+    if _check_if_type(veld_data, "code"):
+        result = _get_veld_label(veld_data)
     return result
 
 
 def get_code_veld_uris(veld_data):
     result = _get_veld_uri_by_type(veld_data, "code")
-    return result
-
-
-def get_code_topic_as_x6(veld_data):
-    result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["code"]
-    except:
-        pass
-    else:
-        result = _get_topic(veld_data)
-    return result
-
-
-# TODO: maybe remove?
-def get_code_reification_to_topic(veld_data):
-    result = []
-    i = 1 # TODO: solve problem with global index
-    try:
-        _ = veld_data["content"]["x-veld"]["code"]
-        topics = veld_data["content"]["x-veld"]["code"]["topic"]
-    except:
-        pass
-    else:
-        if topics != "" and topics != [] and topics is not None:
-            result = [f"clscor:/code_reification_to_topic_{i}"]
-            i += 1
     return result
 
 
@@ -218,28 +191,15 @@ def get_chain_veld_uris(veld_data):
 
 
 def get_chain_veld_label(veld_data):
-    result = _get_veld_label(veld_data, "chain")
-    return result
-
-
-def get_chain_topic_as_x6(veld_data):
-    result = {}
-    try:
-        _ = veld_data["content"]["x-veld"]["chain"]
-    except:
-        pass
-    else:
-        result = _get_topic(veld_data)
+    result = []
+    if _check_if_type(veld_data, "chain"):
+        result = _get_veld_label(veld_data)
     return result
 
 
 def get_x5_uri_from_chain(veld_data):
     result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["chain"]
-    except:
-        pass
-    else:
+    if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None:
         chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
         result = [URIRef(chain_repo_url)]
     return result
@@ -247,21 +207,22 @@ def get_x5_uri_from_chain(veld_data):
 
 def get_integrated_code_veld_id(veld_data):
     result = []
-    try:
-        _ = veld_data["content"]["x-veld"]["chain"]
-        services = veld_data["content"]["services"]
-        code_veld_file_list = [s["extends"]["file"] for s in services.values()]
-    except:
-        pass
-    else:
-        for code_veld_file in code_veld_file_list:
-            code_veld_file = code_veld_file.replace("./code/", "./")
-            code_veld_id = code_veld_file[2:].replace("/", "___")
-            code_veld_data = VELD_DATA_ALL.get(code_veld_id)
-            if code_veld_data is not None:
-                code_veld_uri = get_code_veld_uris(code_veld_data)
-                if code_veld_uri is not None:
-                    result.extend(code_veld_uri)
+    if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None:
+        services = _get_data_recursively(veld_data, ["content", "services"])
+        if services is not None:
+            code_veld_file_list = []
+            for s in services.values():
+                code_veld_file = _get_data_recursively(s, ["extends", "file"])
+                if code_veld_file is not None:
+                    code_veld_file_list.append(code_veld_file)
+            for code_veld_file in code_veld_file_list:
+                code_veld_file = code_veld_file.replace("./code/", "./")
+                code_veld_id = code_veld_file[2:].replace("/", "___")
+                code_veld_data = VELD_DATA_ALL.get(code_veld_id)
+                if code_veld_data is not None:
+                    code_veld_uri = get_code_veld_uris(code_veld_data)
+                    if code_veld_uri is not None:
+                        result.extend(code_veld_uri)
     return result
 
 
@@ -280,9 +241,7 @@ def get_cls_tool_description_event_uris(_):
 def get_code_or_chain_veld_yaml_url(veld_data):
     result_code = _get_veld_uri_by_type(veld_data, "code")
     result_chain = _get_veld_uri_by_type(veld_data, "chain")
-    if result_code and result_chain:
-        raise Exception("this should never happen")
-    elif result_code:
+    if result_code:
         return result_code
     elif result_chain:
         return result_chain
@@ -291,11 +250,13 @@ def get_code_or_chain_veld_yaml_url(veld_data):
 
 
 def get_method_uris(veld_data):
-    result_code = get_code_topic_as_x6(veld_data)
-    result_chain = get_chain_topic_as_x6(veld_data)
-    if result_code and result_chain:
-        raise Exception("this should never happen")
-    elif result_code:
+    result_code = _get_data_recursively(veld_data, ["content", "x-veld", "code"])
+    if result_code:
+        result_code = _get_topic(veld_data)
+    result_chain = _get_data_recursively(veld_data, ["content", "x-veld", "chain"])
+    if result_chain:
+        result_chain = _get_topic(veld_data)
+    if result_code:
         return result_code
     elif result_chain:
         return result_chain
