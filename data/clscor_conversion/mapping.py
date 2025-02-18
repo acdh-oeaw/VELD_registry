@@ -37,11 +37,6 @@ mappings = {
         "p": RDF.type,
         "o": CRMCLS["X12_Tool"],
     },
-    "code veld url crmcls:Y8_implements X6": {
-        "s": get_code_veld_uris,
-        "p": CRMCLS["Y8_implements"],
-        "o": get_code_topic_as_x6,
-    },
     "code veld url rdfs:label label": {
         "s": get_code_veld_uris,
         "p": RDFS.label,
@@ -83,11 +78,6 @@ mappings = {
         "s": get_chain_veld_uris,
         "p": RDF.type,
         "o": PEM["PE23_Volatile_Software"],
-    },
-    "chain veld url crmcls:Y8_implements X6": {
-        "s": get_chain_veld_uris,
-        "p": CRMCLS["Y8_implements"],
-        "o": get_chain_topic_as_x6,
     },
     "chain veld url rdfs:label label": {
         "s": get_chain_veld_uris,

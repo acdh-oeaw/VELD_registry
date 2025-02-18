@@ -1496,17 +1496,10 @@
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_6_analyse_vectors" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Bible_Studies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_6_analyse_vectors" .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_clean" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_clean" .
 
 <https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__bert_embeddings__infer_and_create_index" .
@@ -1515,14 +1508,11 @@
     rdfs:label "veld_code__jupyter_notebook_base" .
 
 <https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__simple_docker_test" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Testing> .
+    rdfs:label "veld_code__simple_docker_test" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_clean.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_clean" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/veld.yaml> a pem:PE19_Persistent_Digital_Object ;
@@ -1543,22 +1533,15 @@
 
 <https://github.com/veldhub/veld_chain__akp_ner_inference/blob/main/veld_infer.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__akp_ner_inference__infer" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/named_entity_recognition> .
+    rdfs:label "veld_chain__akp_ner_inference__infer" .
 
 <https://github.com/veldhub/veld_chain__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__apis_ner_evaluate_old_models__evaluate" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/named_entity_recognition> .
+    rdfs:label "veld_chain__apis_ner_evaluate_old_models__evaluate" .
 
 <https://github.com/veldhub/veld_chain__apis_ner_transform_to_gold/blob/main/veld.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__apis_ner_transform_to_gold" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
+    rdfs:label "veld_chain__apis_ner_transform_to_gold" .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -1567,447 +1550,266 @@
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step1_download_gutenberg_metadata.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step1_download_gutenberg_metadata" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step2_run_server.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step2_run_server" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/database>,
-        <https://clscor.io/entity/type/method/triplestore> .
+    rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step2_run_server" .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step3_import_rdf.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step3_import_rdf" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step4_query_books_urls.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step4_query_books_urls" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step5_download_gutenberg_books.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step5_download_gutenberg_books" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step6_convert_books_to_teitok.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step6_convert_books_to_teitok" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_01__single_download" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_02__single_download__designate_file_name.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_02__single_download__designate_file_name" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_03__single_download__extract.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_03__single_download__extract" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_04__single_download__designate_file_name__extract.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_04__single_download__designate_file_name__extract" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_05__csv_bulk_download.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_05__csv_bulk_download" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_06__csv_bulk_download__designate_file_name.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_06__csv_bulk_download__designate_file_name" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_07__csv_bulk_download__extract.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_07__csv_bulk_download__extract" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_08__csv_bulk_download__csv_no_headers.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_08__csv_bulk_download__csv_no_headers" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__invalid__out_file_and_csv.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_10__invalid__out_file_and_csv" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_11__invalid__url_and_csv.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_downloader__demo_11__invalid__url_and_csv" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/demo> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_teitok-tools__parseudpipe" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_parseudpipe.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_parseudpipe.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_udpipe2teitok.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_teitok-tools__udpipe2teitok" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_xmltokenize.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_teitok-tools__xmltokenize" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_infer.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_udipe_ts-vienna-2024__infer" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_train.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_udipe_ts-vienna-2024__train" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_1_download.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_1_download" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Bible_Studies>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_2_preprocess.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_2_preprocess" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Bible_Studies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_2_preprocess" .
 
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_3_train_fasttext.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_3_train_fasttext" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_export.yaml>,
-        <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Bible_Studies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+        <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_4_train_glove.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_4_train_glove" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml>,
-        <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Bible_Studies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+        <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_5_train_word2vec.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_5_train_word2vec" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_export.yaml>,
-        <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Bible_Studies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+        <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_all.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_all" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Bible_Studies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_all" .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_all_steps.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__demo_xmlanntools__simple_poetry1_all_steps" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    rdfs:label "veld_chain__demo_xmlanntools__simple_poetry1_all_steps" .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step1_xml2standoff.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__simple_poetry1_step1_xml2standoff" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step2_tag_ud.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__simple_poetry1_step2_tag_ud" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step3_ann2standoff.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__simple_poetry1_step3_ann2standoff" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step4_standoff2xml.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__simple_poetry1_step4_standoff2xml" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step5_xml2vrt.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__simple_poetry1_step5_xml2vrt" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_all_steps.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__demo_xmlanntools__tei_example1_all_steps" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    rdfs:label "veld_chain__demo_xmlanntools__tei_example1_all_steps" .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step1_xml2standoff.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__tei_example1_step1_xml2standoff" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step2_tag_ud.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__tei_example1_step2_tag_ud" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step3_ann2standoff.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__tei_example1_step3_ann2standoff" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step4_standoff2xml.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__tei_example1_step4_standoff2xml" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step5_xml2vrt.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_xmlanntools__tei_example1_step5_xml2vrt" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_1_preprocess.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__eltec_udpipe_inference__step_1_preprocess" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_2_download_models.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__eltec_udpipe_inference__step_2_download_models" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_3_infer.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__eltec_udpipe_inference__step_3_infer" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_4_analyse.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__eltec_udpipe_inference__step_4_analyse" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_5_inspect_with_conllueditor.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__eltec_udpipe_inference__step_5_inspect_with_conllueditor" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    rdfs:label "veld_chain__eltec_udpipe_inference__step_5_inspect_with_conllueditor" .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__eltec_udpipe_inference__step_all" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> .
+    rdfs:label "veld_chain__eltec_udpipe_inference__step_all" .
 
 <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__gutenberg_fuseki__download_gutenberg_metadata" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
 <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__gutenberg_fuseki__export" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> .
 
 <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__gutenberg_fuseki__import_rdf" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> .
 
 <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__gutenberg_fuseki__run_server" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/triplestore> .
+    rdfs:label "veld_chain__gutenberg_fuseki__run_server" .
 
 <https://github.com/veldhub/veld_chain__mara_load_and_publish_models/blob/main/veld_publish_to_hf.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__mara_load_and_publish_models__publish_to_hf" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    rdfs:label "veld_chain__mara_load_and_publish_models__publish_to_hf" .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__analyse_evaluation" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Data_Visualization>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__analyse_evaluation_non_interactive" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Data_Visualization>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_fasttext.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_fasttext" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -2037,337 +1839,221 @@
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_lowercase" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_remove_punctuation" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_sample" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_sample.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_sample.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_strip" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_strip.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_strip.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__train_fasttext" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__train_glove" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__train_word2vec" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_fasttext.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__playground_jupyter_notebook_fasttext" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_glove.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__playground_jupyter_notebook_glove" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_word2vec.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__playground_jupyter_notebook_word2vec" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_01_preprocess_download_and_extract.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_01_preprocess_download_and_extract" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_02_preprocess_transform_wiki_json_to_txt.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_02_preprocess_transform_wiki_json_to_txt" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_03_preprocess_lowercase.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_03_preprocess_lowercase" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_04_preprocess_remove_punctuation.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_04_preprocess_remove_punctuation" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_05_train_fasttext.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_05_train_fasttext" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_06_train_word2vec.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_06_train_word2vec" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_07_train_glove.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_07_train_glove" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_08_eval_fasttext.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_08_eval_fasttext" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_09_eval_word2vec.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_09_eval_word2vec" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_10_eval_glove.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_10_eval_glove" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_11_analyse_evaluation.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_11_analyse_evaluation" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_all_multi_chain.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_all_multi_chain" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_all_multi_chain" .
 
 <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_analysis.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_spacy_apis_ner__analysis" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Analysis>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/named_entity_recognition> .
+    rdfs:label "veld_chain__train_spacy_apis_ner__analysis" .
 
 <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_convert.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_spacy_apis_ner__convert" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_create_config.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_spacy_apis_ner__create_config" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_publish_to_hf.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_spacy_apis_ner__publish_to_hf" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_train.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_spacy_apis_ner__train" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/named_entity_recognition> .
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> .
 
 <https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__analyse_conllu" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu> .
 
 <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_export.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__fasttext__export" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/pkl> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__glove__export" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/pkl> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__spacy__convert" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/spaCy_docbin>,
         <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__spacy__create_config" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/cfg> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning> .
+    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/cfg> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__spacy__publish_to_hf" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/spaCy_model> .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__spacy__train" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/spaCy_model>,
         <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/cfg>,
         <https://clscor.io/entity/type/format/spaCy_docbin> .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_parseudpipe.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__teitok-tools__parseudpipe" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__teitok-tools__xmltokenize" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/tokenization> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__udpipe__train" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/udpipe_model> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu> .
 
 <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wikipedia_nlp_preprocessing__download_and_extract" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning> .
+    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> .
 
 <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wikipedia_nlp_preprocessing__transform_wiki_json_to_txt" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json> .
 
 <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_export.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__word2vec__export" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/pkl> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wordembeddings_evaluation__analyse_evaluation_non_interactive" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/html>,
         <https://clscor.io/entity/type/format/png> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Data_Visualization>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_sample.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_sample" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_strip.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_strip" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__xml_xslt_transformer" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml>,
         <https://clscor.io/entity/type/format/xslt> .
 
@@ -2377,59 +2063,27 @@
         <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/tsv>,
         <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/rq> .
 
 <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__apache_jena_fuseki__import_rdf" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/database>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__fasttext__jupyter_notebook" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    rdfs:label "veld_code__fasttext__jupyter_notebook" .
 
 <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__glove__jupyter_notebook" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> .
+    rdfs:label "veld_code__glove__jupyter_notebook" .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__teitok-tools__udpipe2teitok" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__udpipe__infer" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/conllu>,
         <https://clscor.io/entity/type/format/tsv> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Universal_Dependencies>,
-        <https://clscor.io/entity/type/method/annotating>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/automatic_annotation>,
-        <https://clscor.io/entity/type/method/lemmatization>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
-        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
-        <https://clscor.io/entity/type/method/text_parsing>,
-        <https://clscor.io/entity/type/method/tokenization> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/udpipe_model> .
 
@@ -2437,9 +2091,6 @@
     rdfs:label "veld_code__word2vec__jupyter_notebook" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/word2vec_model> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/word2vec_model> .
 
@@ -2447,18 +2098,12 @@
     rdfs:label "veld_code__wordembeddings_evaluation__analyse_evaluation" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/html>,
         <https://clscor.io/entity/type/format/png> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/Data_Visualization>,
-        <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wordembeddings_evaluation__eval_fasttext" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/fastText_model>,
         <https://clscor.io/entity/type/format/yaml> .
 
@@ -2466,9 +2111,6 @@
     rdfs:label "veld_code__wordembeddings_evaluation__eval_glove" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/GloVe_model>,
         <https://clscor.io/entity/type/format/yaml> .
 
@@ -2476,31 +2118,22 @@
     rdfs:label "veld_code__wordembeddings_evaluation__eval_word2vec" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/quantitative_analysis> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/word2vec_model>,
         <https://clscor.io/entity/type/format/yaml> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_lowercase" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_remove_punctuation" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__xmlanntools__ann2standoff" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu>,
         <https://clscor.io/entity/type/format/ini>,
         <https://clscor.io/entity/type/format/tsv>,
@@ -2509,8 +2142,6 @@
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__xmlanntools__standoff2xml" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/txt> .
 
@@ -2518,52 +2149,36 @@
     rdfs:label "veld_code__xmlanntools__tag_ud" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/conllu>,
         <https://clscor.io/entity/type/format/tsv> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__xmlanntools__xml2standoff" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__xmlanntools__xml2vrt" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/ini>,
         <https://clscor.io/entity/type/format/xml> .
 
 <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__fasttext__train" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/fastText_model> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__glove__train" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/GloVe_model> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__word2vec__train" ;
     crmcls:Y10_generates_output <https://clscor.io/entity/type/format/word2vec_model> ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/applying_nlp_methods>,
-        <https://clscor.io/entity/type/method/machine_learning>,
-        <https://clscor.io/entity/type/method/word_embedding> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
 
 <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__downloader" ;
-    crmcls:Y8_implements <https://clscor.io/entity/type/method/information_extraction> ;
     crmcls:Y9_expects_input <https://clscor.io/entity/type/format/csv> .
 
