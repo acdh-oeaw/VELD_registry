@@ -111,12 +111,6 @@ mappings = {
         "p": CRM["P177_assigned_property_of_type"],
         "o": CRMCLS["Y8_implements"],
     },
-    # TODO: where to get the labels from?
-    # "assignment_uri P3 method label": {
-    #     "s": get_attribute_assignment_uris,
-    #     "p": CRM["P3_has_note"],
-    #     "o": get_method_labels,
-    # },
 }
 
 

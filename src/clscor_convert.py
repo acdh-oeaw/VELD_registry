@@ -264,11 +264,6 @@ def get_method_uris(veld_data):
         return []
 
 
-# TODO: where to get the labels from?
-# def get_method_labels(veld_data):
-#     pass
-
-
 def main():
     g = Graph()
     g.bind("crmcls", CRMCLS)
