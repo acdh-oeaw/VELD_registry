@@ -177,12 +177,12 @@ def get_code_veld_uris(veld_data):
     return result
 
 
-def get_code_ved__file_type_inputs(veld_data):
+def get_code_veld__file_type_inputs(veld_data):
     result = _get_code_ved__file_type__of_io(veld_data, "input")
     return result
 
 
-def get_code_ved__file_type_outputs(veld_data):
+def get_code_veld__file_type_outputs(veld_data):
     result = _get_code_ved__file_type__of_io(veld_data, "output")
     return result
 
@@ -201,6 +201,7 @@ def get_chain_veld_label(veld_data):
 
 def get_x5_uri_from_chain(veld_data):
     result = []
+    # TODO: remove `is not None`
     if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None:
         chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
         result = [URIRef(chain_repo_url)]
@@ -236,6 +237,14 @@ def get_attribute_assignment_uris_y8(veld_data):
     return result
 
 
+def get_attribute_assignment_uris_y9(veld_data):
+    result = []
+    if _get_data_recursively(veld_data, ["content", "x-veld", "code"]) is not None:
+        hash = _generate_hash(veld_data["url"] + "_y9")
+        result = [CLS[hash]]
+    return result
+
+
 def get_cls_tool_description_event_uris(_):
     hash = _generate_hash("random hash for one tool description event")
     result = [CLS[hash]]
@@ -244,7 +253,9 @@ def get_cls_tool_description_event_uris(_):
 
 def get_code_or_chain_veld_yaml_url(veld_data):
     result_code = _get_veld_uri_by_type(veld_data, "code")
-    result_chain = _get_veld_uri_by_type(veld_data, "chain")
+    # TODO: check if y9 assignment can be used for chains as well, if so keep this; if not, remove
+    # result_chain = _get_veld_uri_by_type(veld_data, "chain")
+    result_chain = None
     if result_code:
         return result_code
     elif result_chain:
@@ -260,6 +271,19 @@ def get_method_uris(veld_data):
     result_chain = _get_data_recursively(veld_data, ["content", "x-veld", "chain"])
     if result_chain:
         result_chain = _get_topic(veld_data)
+    if result_code:
+        return result_code
+    elif result_chain:
+        return result_chain
+    else:
+        return []
+    
+    
+def get_code_or_chain_veld_input_format(veld_data):
+    result_code = get_code_veld__file_type_inputs(veld_data)
+    # TODO: check if y9 assignment can be used for chains as well, if so keep this; if not, remove
+    # result_chain = get_code_veld__file_type_inputs(veld_data)
+    result_chain = None
     if result_code:
         return result_code
     elif result_chain:
