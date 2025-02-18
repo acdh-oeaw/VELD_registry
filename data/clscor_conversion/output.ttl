@@ -66,11 +66,6 @@
         <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/0c5e676af3> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_fasttext.yaml> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/0ca8ab9b70> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> ;
@@ -104,11 +99,6 @@
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://clscor.io/entity/12ddb590c4> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/138915244b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -447,11 +437,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/4909090713> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/497db547b5> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> ;
@@ -532,11 +517,6 @@
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_06__csv_bulk_download__designate_file_name.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/50597e4ea4> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/51598e4b4b> a crm:E13_Attribute_Assignment ;
@@ -750,22 +730,12 @@
         <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/6b73e18cc5> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_glove.yaml> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/6de79ada6c> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/machine_learning>,
         <https://clscor.io/entity/type/method/word_embedding> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/6e11b7e1c7> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_word2vec.yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/6ee90e409d> a crm:E13_Attribute_Assignment ;
@@ -793,11 +763,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/word2vec_model>,
         <https://clscor.io/entity/type/format/yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
-
-<https://clscor.io/entity/7630360e39> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/76dddab897> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1091,11 +1056,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/udpipe_model> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
-
-<https://clscor.io/entity/b5a9318e75> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/b5d2189b5e> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1640,6 +1600,12 @@
         <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_publish_to_hf.yaml>,
         <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_train.yaml> .
 
+<https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> a crmcls:X12_Tool ;
+    rdfs:label "veld_code__bert_embeddings__infer_and_create_index" .
+
+<https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml> a crmcls:X12_Tool ;
+    rdfs:label "veld_code__jupyter_notebook_base" .
+
 <https://github.com/veldhub/veld_data__akp_ner_linkedcat/blob/main/linkedcat/veld.yaml> a pem:PE19_Persistent_Digital_Object ;
     rdfs:label "veld_data__akp_ner_linkedcat" ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/csv> .
@@ -1788,17 +1754,40 @@
     rdfs:label "veld_data__word2vec_models" ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
+<https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__multichain_all" .
+
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_6_analyse_vectors" .
 
+<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_glove" ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> .
+
+<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_word2vec" ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> .
+
+<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_fasttext.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_fasttext" ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> .
+
+<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_glove.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_glove" ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> .
+
+<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_word2vec.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_word2vec" ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> .
+
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_clean" .
-
-<https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__bert_embeddings__infer_and_create_index" .
-
-<https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__jupyter_notebook_base" .
 
 <https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_code__simple_docker_test" .
@@ -1830,10 +1819,6 @@
 <https://github.com/veldhub/veld_chain__apis_ner_transform_to_gold/blob/main/veld.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__apis_ner_transform_to_gold" .
-
-<https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml> a pem:PE23_Volatile_Software,
-        crmcls:X12_Tool ;
-    rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__multichain_all" .
 
 <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step1_download_gutenberg_metadata.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -2098,31 +2083,6 @@
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_fasttext" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> .
-
-<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml> a pem:PE23_Volatile_Software,
-        crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_glove" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> .
-
-<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml> a pem:PE23_Volatile_Software,
-        crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_word2vec" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> .
-
-<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_fasttext.yaml> a pem:PE23_Volatile_Software,
-        crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_fasttext" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> .
-
-<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_glove.yaml> a pem:PE23_Volatile_Software,
-        crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_glove" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> .
-
-<https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_word2vec.yaml> a pem:PE23_Volatile_Software,
-        crmcls:X12_Tool ;
-    rdfs:label "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_word2vec" ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> .
 
 <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;

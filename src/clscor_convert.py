@@ -232,8 +232,10 @@ def get_integrated_code_veld_id(veld_data):
 def get_attribute_assignment_uris_y8(veld_data):
     result = []
     if _get_data_recursively(veld_data, ["content", "x-veld", "data"]) is None:
-        hash = _generate_hash(veld_data["url"] + "_y8")
-        result = [CLS[hash]]
+        methods = get_method_uris(veld_data)
+        if methods:
+            hash = _generate_hash(veld_data["url"] + "_y8")
+            result = [CLS[hash]]
     return result
 
 
