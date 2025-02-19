@@ -2255,214 +2255,116 @@
     rdfs:label "veld_code__glove__jupyter_notebook" .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__spacy__create_config" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/cfg> .
+    rdfs:label "veld_code__spacy__create_config" .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__spacy__publish_to_hf" ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/spaCy_model> .
+    rdfs:label "veld_code__spacy__publish_to_hf" .
 
 <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wikipedia_nlp_preprocessing__download_and_extract" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> .
+    rdfs:label "veld_code__wikipedia_nlp_preprocessing__download_and_extract" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_clean.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_clean" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_clean" .
 
 <https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__analyse_conllu" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu> .
+    rdfs:label "veld_code__analyse_conllu" .
 
 <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__apache_jena_fuseki__import_rdf" ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
+    rdfs:label "veld_code__apache_jena_fuseki__import_rdf" .
 
 <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_export.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__fasttext__export" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/pkl> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/fastText_model> .
+    rdfs:label "veld_code__fasttext__export" .
 
 <https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__glove__export" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/pkl> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__glove__export" .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__spacy__convert" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/spaCy_docbin>,
-        <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json> .
+    rdfs:label "veld_code__spacy__convert" .
 
 <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__spacy__train" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/spaCy_model>,
-        <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/cfg>,
-        <https://clscor.io/entity/type/format/spaCy_docbin> .
+    rdfs:label "veld_code__spacy__train" .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_parseudpipe.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__teitok-tools__parseudpipe" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
+    rdfs:label "veld_code__teitok-tools__parseudpipe" .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__teitok-tools__xmltokenize" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
+    rdfs:label "veld_code__teitok-tools__xmltokenize" .
 
 <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__udpipe__train" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/udpipe_model> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu> .
+    rdfs:label "veld_code__udpipe__train" .
 
 <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wikipedia_nlp_preprocessing__transform_wiki_json_to_txt" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json> .
+    rdfs:label "veld_code__wikipedia_nlp_preprocessing__transform_wiki_json_to_txt" .
 
 <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_export.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__word2vec__export" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/pkl> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/word2vec_model> .
+    rdfs:label "veld_code__word2vec__export" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_evaluation__analyse_evaluation_non_interactive" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/html>,
-        <https://clscor.io/entity/type/format/png> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/yaml> .
+    rdfs:label "veld_code__wordembeddings_evaluation__analyse_evaluation_non_interactive" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_sample.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_sample" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_sample" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_strip.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_strip" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_strip" .
 
 <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__xml_xslt_transformer" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml>,
-        <https://clscor.io/entity/type/format/xslt> .
+    rdfs:label "veld_code__xml_xslt_transformer" .
 
 <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__apache_jena_fuseki__export" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/csv>,
-        <https://clscor.io/entity/type/format/json>,
-        <https://clscor.io/entity/type/format/tsv>,
-        <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/rq> .
+    rdfs:label "veld_code__apache_jena_fuseki__export" .
 
 <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__teitok-tools__udpipe2teitok" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__teitok-tools__udpipe2teitok" .
 
 <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__udpipe__infer" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/conllu>,
-        <https://clscor.io/entity/type/format/tsv> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/udpipe_model> .
+    rdfs:label "veld_code__udpipe__infer" .
 
 <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__word2vec__jupyter_notebook" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/word2vec_model> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/word2vec_model> .
+    rdfs:label "veld_code__word2vec__jupyter_notebook" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_evaluation__analyse_evaluation" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/html>,
-        <https://clscor.io/entity/type/format/png> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/yaml> .
+    rdfs:label "veld_code__wordembeddings_evaluation__analyse_evaluation" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_evaluation__eval_fasttext" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/fastText_model>,
-        <https://clscor.io/entity/type/format/yaml> .
+    rdfs:label "veld_code__wordembeddings_evaluation__eval_fasttext" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_evaluation__eval_glove" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/GloVe_model>,
-        <https://clscor.io/entity/type/format/yaml> .
+    rdfs:label "veld_code__wordembeddings_evaluation__eval_glove" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_evaluation__eval_word2vec" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/yaml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/word2vec_model>,
-        <https://clscor.io/entity/type/format/yaml> .
+    rdfs:label "veld_code__wordembeddings_evaluation__eval_word2vec" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_lowercase" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_lowercase" .
 
 <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_remove_punctuation" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__wordembeddings_preprocessing__preprocess_remove_punctuation" .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__xmlanntools__ann2standoff" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/conllu>,
-        <https://clscor.io/entity/type/format/ini>,
-        <https://clscor.io/entity/type/format/tsv>,
-        <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__xmlanntools__ann2standoff" .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__xmlanntools__standoff2xml" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/json>,
-        <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__xmlanntools__standoff2xml" .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__xmlanntools__tag_ud" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/conllu>,
-        <https://clscor.io/entity/type/format/tsv> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__xmlanntools__tag_ud" .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__xmlanntools__xml2standoff" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/json>,
-        <https://clscor.io/entity/type/format/txt> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/xml> .
+    rdfs:label "veld_code__xmlanntools__xml2standoff" .
 
 <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__xmlanntools__xml2vrt" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/xml> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/ini>,
-        <https://clscor.io/entity/type/format/xml> .
+    rdfs:label "veld_code__xmlanntools__xml2vrt" .
 
 <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__fasttext__train" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/fastText_model> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__fasttext__train" .
 
 <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__glove__train" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/GloVe_model> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__glove__train" .
 
 <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__word2vec__train" ;
-    crmcls:Y10_generates_output <https://clscor.io/entity/type/format/word2vec_model> ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/txt> .
+    rdfs:label "veld_code__word2vec__train" .
 
 <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> a crmcls:X12_Tool ;
-    rdfs:label "veld_code__downloader" ;
-    crmcls:Y9_expects_input <https://clscor.io/entity/type/format/csv> .
+    rdfs:label "veld_code__downloader" .
 

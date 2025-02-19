@@ -22,16 +22,6 @@ mappings = {
     },
     
     # code velds
-    "code veld Y9 X7": {
-        "s": get_code_veld_uris,
-        "p": CRMCLS["Y9_expects_input"],
-        "o": get_code_veld__file_type_inputs,
-    },
-    "code veld Y10 X7": {
-        "s": get_code_veld_uris,
-        "p": CRMCLS["Y10_generates_output"],
-        "o": get_code_veld__file_type_outputs,
-    },
     "code veld url a X12": {
         "s": get_code_veld_uris,
         "p": RDF.type,
