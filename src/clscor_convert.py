@@ -261,10 +261,13 @@ def get_attribute_assignment_uris_y10(veld_data):
 
 def get_cls_tool_description_event_uris_y8(veld_data):
     result = []
-    if _get_data_recursively(veld_data, ["content", "x-veld", "data"]) is None:
+    if (
+        _get_data_recursively(veld_data, ["content", "x-veld", "code"]) is not None
+        or _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None
+    ):
         methods = get_method_uris(veld_data)
         if methods:
-            hash = _generate_hash(veld_data["url"] + "description_event_y8")
+            hash = _generate_hash(veld_data["url"] + "description_event")
             result = [CLS[hash]]
     return result
 
@@ -274,7 +277,7 @@ def get_cls_tool_description_event_uris_y9(veld_data):
     if _get_data_recursively(veld_data, ["content", "x-veld", "code"]) is not None:
         input = get_code_or_chain_veld_input_format(veld_data)
         if input:
-            hash = _generate_hash(veld_data["url"] + "description_event_y9")
+            hash = _generate_hash(veld_data["url"] + "description_event")
             result = [CLS[hash]]
     return result
 
@@ -284,7 +287,7 @@ def get_cls_tool_description_event_uris_y10(veld_data):
     if _get_data_recursively(veld_data, ["content", "x-veld", "code"]) is not None:
         output = get_code_or_chain_veld_output_format(veld_data)
         if output:
-            hash = _generate_hash(veld_data["url"] + "description_event_y10")
+            hash = _generate_hash(veld_data["url"] + "description_event")
             result = [CLS[hash]]
     return result
 
