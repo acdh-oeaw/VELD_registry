@@ -84,7 +84,7 @@ mappings = {
     "assignment_uri_y8 P134 tool_description_uri": {
         "s": get_attribute_assignment_uris_y8,
         "p": CRM["P134_continued"],
-        "o": get_cls_tool_description_event_uris
+        "o": get_cls_tool_description_event_uris_y8
     },
     "assignment_uri_y8 P140 code or chain veld url": {
         "s": get_attribute_assignment_uris_y8,
@@ -111,7 +111,7 @@ mappings = {
     "assignment_uri_y9 P134 tool_description_uri": {
         "s": get_attribute_assignment_uris_y9,
         "p": CRM["P134_continued"],
-        "o": get_cls_tool_description_event_uris
+        "o": get_cls_tool_description_event_uris_y9
     },
     "assignment_uri_y9 P140 code or chain veld url": {
         "s": get_attribute_assignment_uris_y9,
@@ -138,7 +138,7 @@ mappings = {
     "assignment_uri_y10 P134 tool_description_uri": {
         "s": get_attribute_assignment_uris_y10,
         "p": CRM["P134_continued"],
-        "o": get_cls_tool_description_event_uris
+        "o": get_cls_tool_description_event_uris_y10
     },
     "assignment_uri_y10 P140 code or chain veld url": {
         "s": get_attribute_assignment_uris_y10,
