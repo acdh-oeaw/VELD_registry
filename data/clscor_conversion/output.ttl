@@ -3,6 +3,14 @@
 @prefix pem: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+<https://clscor.io/entity/007b04652c> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_import_rdf.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/RDF>,
+        <https://clscor.io/entity/type/method/information_extraction>,
+        <https://clscor.io/entity/type/method/triplestore> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/024bcf10fe> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> ;
@@ -85,6 +93,13 @@
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/0e5949ef48> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_run_server.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/RDF>,
+        <https://clscor.io/entity/type/method/triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/0f7e878dd2> a crm:E13_Attribute_Assignment ;
@@ -364,20 +379,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/RDF>,
         <https://clscor.io/entity/type/method/information_extraction>,
         <https://clscor.io/entity/type/method/triplestore> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/3ec33daa6e> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/3fc146cfc2> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/402eb37224> a crm:E13_Attribute_Assignment ;
@@ -757,6 +758,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/757199f339> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_download_gutenberg_metadata.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/7628e0219f> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> ;
@@ -949,13 +956,6 @@
         <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/9c9861bc0c> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/triplestore> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/9e67fad78b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> ;
@@ -1006,6 +1006,20 @@
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/csv> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
+
+<https://clscor.io/entity/a7309d8ded> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies>,
+        <https://clscor.io/entity/type/method/annotating>,
+        <https://clscor.io/entity/type/method/applying_nlp_methods>,
+        <https://clscor.io/entity/type/method/automatic_annotation>,
+        <https://clscor.io/entity/type/method/lemmatization>,
+        <https://clscor.io/entity/type/method/part_of_speech_tagging>,
+        <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
+        <https://clscor.io/entity/type/method/text_parsing>,
+        <https://clscor.io/entity/type/method/tokenization> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/ab3e188a04> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
@@ -1085,6 +1099,14 @@
         <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/information_extraction>,
         <https://clscor.io/entity/type/method/tokenization> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/b8c06303ec> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
+    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_export.yaml> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/RDF>,
+        <https://clscor.io/entity/type/method/information_extraction>,
+        <https://clscor.io/entity/type/method/triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/b8f591d2be> a crm:E13_Attribute_Assignment ;
@@ -1326,14 +1348,6 @@
         <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/e3235ed3e3> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6277180d35> ;
-    crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF>,
-        <https://clscor.io/entity/type/method/information_extraction>,
-        <https://clscor.io/entity/type/method/triplestore> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/e5cc243f93> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6277180d35> ;
     crm:P140_assigned_attribute_to <https://github.com/veldhub/veld_chain__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml> ;
@@ -1494,6 +1508,12 @@
         <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step5_download_gutenberg_books.yaml>,
         <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step6_convert_books_to_teitok.yaml> .
 
+<https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/code/veld_code__jupyter_analysis/veld.yaml> a crmcls:X12_Tool ;
+    rdfs:label "veld_chain__compare_tokenizations" .
+
+<https://github.com/veldhub/veld_chain__demo_conllueditor> a crmcls:X5_Research_Activity ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml> .
+
 <https://github.com/veldhub/veld_chain__demo_downloader> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml>,
         <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_02__single_download__designate_file_name.yaml>,
@@ -1506,6 +1526,9 @@
         <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml>,
         <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__invalid__out_file_and_csv.yaml>,
         <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_11__invalid__url_and_csv.yaml> .
+
+<https://github.com/veldhub/veld_chain__demo_pypi_publisher> a crmcls:X5_Research_Activity ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_chain__demo_pypi_publisher/blob/main/veld_publish.yaml> .
 
 <https://github.com/veldhub/veld_chain__demo_teitok-tools> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml>,
@@ -1546,11 +1569,11 @@
         <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_5_inspect_with_conllueditor.yaml>,
         <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml> .
 
-<https://github.com/veldhub/veld_chain__gutenberg_fuseki> a crmcls:X5_Research_Activity ;
-    crmcls:Y7_uses <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml>,
-        <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml>,
-        <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml>,
-        <https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml> .
+<https://github.com/veldhub/veld_chain__gutenberg_triplestore> a crmcls:X5_Research_Activity ;
+    crmcls:Y7_uses <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_download_gutenberg_metadata.yaml>,
+        <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_export.yaml>,
+        <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_import_rdf.yaml>,
+        <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_run_server.yaml> .
 
 <https://github.com/veldhub/veld_chain__mara_load_and_publish_models> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_chain__mara_load_and_publish_models/blob/main/veld_publish_to_hf.yaml> .
@@ -1758,6 +1781,10 @@
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__multichain_all" .
 
+<https://github.com/veldhub/veld_chain__demo_pypi_publisher/blob/main/veld_publish.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__demo_pypi_publisher__publish" .
+
 <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml> a crmcls:X12_Tool ;
     rdfs:label "veld_chain__demo_wordembeddings_multiarch__step_6_analyse_vectors" .
 
@@ -1848,6 +1875,10 @@
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__automatic_tei-ification_of_gutenberg__step6_convert_books_to_teitok" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> .
+
+<https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml> a pem:PE23_Volatile_Software,
+        crmcls:X12_Tool ;
+    rdfs:label "veld_chain__demo_conllueditor" .
 
 <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -2046,24 +2077,24 @@
         crmcls:X12_Tool ;
     rdfs:label "veld_chain__eltec_udpipe_inference__step_all" .
 
-<https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml> a pem:PE23_Volatile_Software,
+<https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_download_gutenberg_metadata.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__gutenberg_fuseki__download_gutenberg_metadata" ;
+    rdfs:label "veld_chain__gutenberg_triplestore__download_gutenberg_metadata" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> .
 
-<https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml> a pem:PE23_Volatile_Software,
+<https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_export.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__gutenberg_fuseki__export" ;
+    rdfs:label "veld_chain__gutenberg_triplestore__export" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> .
 
-<https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml> a pem:PE23_Volatile_Software,
+<https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_import_rdf.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__gutenberg_fuseki__import_rdf" ;
+    rdfs:label "veld_chain__gutenberg_triplestore__import_rdf" ;
     crmcls:Y7_uses <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> .
 
-<https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml> a pem:PE23_Volatile_Software,
+<https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_run_server.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
-    rdfs:label "veld_chain__gutenberg_fuseki__run_server" .
+    rdfs:label "veld_chain__gutenberg_triplestore__run_server" .
 
 <https://github.com/veldhub/veld_chain__mara_load_and_publish_models/blob/main/veld_publish_to_hf.yaml> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
