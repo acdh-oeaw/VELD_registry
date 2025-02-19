@@ -101,6 +101,11 @@ mappings = {
         "p": CRM["P177_assigned_property_of_type"],
         "o": CRMCLS["Y8_implements"],
     },
+    "tool_desc_event (y8) a X13": {
+        "s": get_cls_tool_description_event_uris_y8,
+        "p": RDF.type,
+        "o": CRMCLS["X13_Tool_Description"],
+    },
     
     # Attribute Assignments Y9
     "assignment_uri_y9 a E13": {
@@ -128,6 +133,11 @@ mappings = {
         "p": CRM["P177_assigned_property_of_type"],
         "o": CRMCLS["Y9_expects_input"],
     },
+    "tool_desc_event (y9) a X13": {
+        "s": get_cls_tool_description_event_uris_y9,
+        "p": RDF.type,
+        "o": CRMCLS["X13_Tool_Description"],
+    },
     
     # Attribute Assignments Y10
     "assignment_uri_y10 a E13": {
@@ -154,6 +164,11 @@ mappings = {
         "s": get_attribute_assignment_uris_y10,
         "p": CRM["P177_assigned_property_of_type"],
         "o": CRMCLS["Y10_generates_output"],
+    },
+    "tool_desc_event (y10) a X13": {
+        "s": get_cls_tool_description_event_uris_y10,
+        "p": RDF.type,
+        "o": CRMCLS["X13_Tool_Description"],
     },
 }
 
