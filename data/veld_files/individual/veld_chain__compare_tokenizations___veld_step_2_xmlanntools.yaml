@@ -1,0 +1,66 @@
+x-veld:
+  chain:
+    description:
+    topic:
+
+services:
+
+  veld_step_2_xmlanntools_xml2standoff:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_xml2standoff.yaml
+      service: veld_xml2standoff
+    volumes:
+      - ./data/xmlanntools/:/veld/input/
+      - ./data/xmlanntools/:/veld/output/
+    environment:
+      in_xml_file: DEU100.xml
+      out_txt_file: DEU100.txt
+      out_json_file: DEU100.json
+
+  veld_step_2_xmlanntools_tag_ud:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+      service: veld_tag_ud
+    volumes:
+      - ./data/xmlanntools/:/veld/input/
+      - ./data/xmlanntools/:/veld/output/
+    environment:
+      in_txt_file: "DEU100.txt"
+      out_conllu_file: "DEU100.conllu"
+      model: german-hdt-ud-2.5-191206
+    depends_on:
+      veld_step_2_xmlanntools_xml2standoff:
+        condition: service_completed_successfully
+
+  veld_step_2_xmlanntools_ann2standoff:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_ann2standoff.yaml
+      service: veld_ann2standoff
+    volumes:
+      - ./data/xmlanntools/:/veld/input/data/
+      - ./data/xmlanntools/:/veld/output/
+    environment:
+      in_conllu_file: "DEU100.conllu"
+      in_txt_file: "DEU100.txt"
+      out_json_file: "DEU100.ann.json"
+      profile_name: conllu
+    depends_on:
+      veld_step_2_xmlanntools_tag_ud:
+        condition: service_completed_successfully
+  
+  veld_step_2_xmlanntools_standoff2xml:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_standoff2xml.yaml
+      service: veld_standoff2xml
+    volumes:
+      - ./data/xmlanntools/:/veld/input/
+      - ./data/xmlanntools/:/veld/output/
+    environment:
+      in_txt_file: "DEU100.txt"
+      in_json_file: "DEU100.json"
+      in_ann_json_file: "DEU100.ann.json"
+      out_ann_xml_file: "DEU100.ann.xml"
+    depends_on:
+      veld_step_2_xmlanntools_ann2standoff:
+        condition: service_completed_successfully
+

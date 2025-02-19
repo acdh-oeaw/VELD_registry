@@ -1,0 +1,71 @@
+x-veld:
+  chain:
+    description:
+    topic:
+
+services:
+
+  # - xmlanntools -----------------------------------------
+
+  veld_step_1_download_xmlanntools:
+    extends:
+      file: ./veld_step_1_download.yaml
+      service: veld_step_1_download_xmlanntools
+
+  veld_step_2_xmlanntools_xml2standoff:
+    extends:
+      file: ./veld_step_2_xmlanntools.yaml
+      service: veld_step_2_xmlanntools_xml2standoff
+    depends_on:
+      veld_step_1_download_xmlanntools:
+        condition: service_completed_successfully
+
+  veld_step_2_xmlanntools_tag_ud:
+    extends:
+      file: ./veld_step_2_xmlanntools.yaml
+      service: veld_step_2_xmlanntools_tag_ud
+    depends_on:
+      veld_step_2_xmlanntools_xml2standoff:
+        condition: service_completed_successfully
+
+  veld_step_2_xmlanntools_ann2standoff:
+    extends:
+      file: ./veld_step_2_xmlanntools.yaml
+      service: veld_step_2_xmlanntools_ann2standoff
+    depends_on:
+      veld_step_2_xmlanntools_tag_ud:
+        condition: service_completed_successfully
+  
+  veld_step_2_xmlanntools_standoff2xml:
+    extends:
+      file: ./veld_step_2_xmlanntools.yaml
+      service: veld_step_2_xmlanntools_standoff2xml
+    depends_on:
+      veld_step_2_xmlanntools_ann2standoff:
+        condition: service_completed_successfully
+
+  # - teitok ----------------------------------------------
+
+  veld_step_1_download_teitok:
+    extends:
+      file: ./veld_step_1_download.yaml
+      service: veld_step_1_download_xmlanntools
+
+  veld_step_3_teitok:
+    extends:
+      file: ./veld_step_3_teitok.yaml
+      service: veld_step_3_teitok
+    depends_on:
+      veld_step_1_download_teitok:
+        condition: service_completed_successfully
+
+  veld_step_4_jupyter_analysis:
+    extends:
+      file: ./veld_step_4_jupyter_analysis.yaml
+      service: veld_step_4_jupyter_analysis
+    depends_on:
+      veld_step_2_xmlanntools_standoff2xml:
+        condition: service_completed_successfully
+      veld_step_3_teitok:
+        condition: service_completed_successfully
+

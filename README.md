@@ -292,6 +292,9 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
       - content: evaluation data, NLP gold data
 
 ## code velds
+- https://github.com/veldhub/veld_code__akp_ner_inference
+  - [veld_infer.yaml](https://github.com/veldhub/veld_code__akp_ner_inference/blob/main/veld_infer.yaml)
+    - valid: False, all possible options are invalid: (is not dict at: /x-veld/code/config/; all possible options are invalid: (single content mismatch: expected: 'str', found: url, at: /x-veld/code/config/0/var_type/; single content mismatch: expected: 'bool', found: url, at: /x-veld/code/config/0/var_type/; single content mismatch: expected: 'int', found: url, at: /x-veld/code/config/0/var_type/; single content mismatch: expected: 'float', found: url, at: /x-veld/code/config/0/var_type/))
 - https://github.com/veldhub/veld_code__analyse_conllu
   - [veld.yaml](https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml)
     - valid: True
@@ -321,6 +324,9 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 - https://github.com/veldhub/veld_code__bert_embeddings
   - [veld_infer_and_create_index.yaml](https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml)
     - valid: True
+- https://github.com/veldhub/veld_code__conllueditor
+  - [veld.yaml](https://github.com/veldhub/veld_code__conllueditor/blob/main/veld.yaml)
+    - valid: False, elements not allowed: /x-veld/code/storage
 - https://github.com/veldhub/veld_code__downloader
   - [veld.yaml](https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml)
     - valid: True
@@ -352,6 +358,11 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
         - 1:
           - file_type: fastText model
           - content: Word Embeddings
+- https://github.com/veldhub/veld_code__flair
+  - [veld_infer.yaml](https://github.com/veldhub/veld_code__flair/blob/main/veld_infer.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/code/topic/
+  - [veld_train.yaml](https://github.com/veldhub/veld_code__flair/blob/main/veld_train.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/code/topic/
 - https://github.com/veldhub/veld_code__glove
   - [veld_export.yaml](https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml)
     - valid: True
@@ -386,11 +397,17 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
         - 4:
           - file_type: GloVe model
           - content: NLP model, Word Embeddings model
+- https://github.com/veldhub/veld_code__inception
+  - [veld.yaml](https://github.com/veldhub/veld_code__inception/blob/main/veld.yaml)
+    - valid: False, elements not allowed: /x-veld/code/storage
 - https://github.com/veldhub/veld_code__jupyter_notebook_base
   - [veld.yaml](https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml)
     - valid: True
     - metadata:
       - description: template veld code repo for a juptyer notebook
+- https://github.com/veldhub/veld_code__pypi_publisher
+  - [veld_publish.yaml](https://github.com/veldhub/veld_code__pypi_publisher/blob/main/veld_publish.yaml)
+    - valid: False, elements not allowed: /x-veld/code/inputs
 - https://github.com/veldhub/veld_code__simple_docker_test
   - [veld.yaml](https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml)
     - valid: True
@@ -909,6 +926,27 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: Automatic creation of tokenized TEI files of downloaded txt books
       - topic: NLP, Grammatical Annotation, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing
+- https://github.com/veldhub/veld_chain__compare_tokenizations
+  - [code/veld_code__jupyter_analysis/veld.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/code/veld_code__jupyter_analysis/veld.yaml)
+    - valid: True
+    - metadata:
+      - description: template veld code repo for a juptyer notebook
+  - [veld_step_1_download.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_1_download.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+  - [veld_step_2_xmlanntools.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_2_xmlanntools.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+  - [veld_step_3_teitok.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_3_teitok.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+  - [veld_step_4_jupyter_analysis.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_4_jupyter_analysis.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+  - [veld_step_all.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_all.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+- https://github.com/veldhub/veld_chain__demo_conllueditor
+  - [veld.yaml](https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml)
+    - valid: True
+    - metadata:
+      - description: an example chain using the veldified version of https://github.com/Orange-OpenSource/conllueditor on sample data.
+      - topic: NLP, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Grammatical Annotation
 - https://github.com/veldhub/veld_chain__demo_downloader
   - [veld_demo_01__single_download.yaml](https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml)
     - valid: True
@@ -965,6 +1003,14 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - metadata:
       - description: invalid chain demonstrating that giving `in_csv_file` and `url` at the same time is invalid, since `url` relates to single downloads only and not bulk downloads.
       - topic: demo
+- https://github.com/veldhub/veld_chain__demo_flair
+  - [veld_demo_01_infer.yaml](https://github.com/veldhub/veld_chain__demo_flair/blob/main/veld_demo_01_infer.yaml)
+    - valid: False, root node x-veld missing
+- https://github.com/veldhub/veld_chain__demo_pypi_publisher
+  - [veld_publish.yaml](https://github.com/veldhub/veld_chain__demo_pypi_publisher/blob/main/veld_publish.yaml)
+    - valid: True
+    - metadata:
+      - description: This code veld encapsulates a demo publishing workflow to pypi.org . It uses setuptools and contains a template python module that can be found at ./data/test_python_module/
 - https://github.com/veldhub/veld_chain__demo_teitok-tools
   - [veld_parseudpipe.yaml](https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml)
     - valid: True
@@ -1090,6 +1136,9 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: A demo chain veld, integrating the xml2vrt script and implementing the fifth step of the 'TEI_example1' at https://github.com/czcorpus/xmlanntools/tree/main/examples#tei_example1 
       - topic: NLP, ETL, Tokenization, Universal Dependencies
+- https://github.com/veldhub/veld_chain__dta_semantic_drift_analysis
+  - [veld_step_1_download.yaml](https://github.com/veldhub/veld_chain__dta_semantic_drift_analysis/blob/main/veld_step_1_download.yaml)
+    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
 - https://github.com/veldhub/veld_chain__eltec_udpipe_inference
   - [veld_step_1_preprocess.yaml](https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_1_preprocess.yaml)
     - valid: True
@@ -1121,23 +1170,23 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: An aggregating chain, reusing and referencing all individual chains in a sequential processing
       - topic: ETL, NLP, Machine Learning, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing, Universal Dependencies, Grammatical Annotation
-- https://github.com/veldhub/veld_chain__gutenberg_fuseki
-  - [veld_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml)
+- https://github.com/veldhub/veld_chain__gutenberg_triplestore
+  - [veld_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_download_gutenberg_metadata.yaml)
     - valid: True
     - metadata:
       - description: Downloads the entire gutenberg metadata RDF/XML file and extracts it
       - topic: ETL
-  - [veld_export.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml)
+  - [veld_export.yaml](https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_export.yaml)
     - valid: True
     - metadata:
       - description: Given rq (sparql query) files, this chain exports data from Apache Fuseki triplestore into json files.
       - topic: ETL, RDF, triplestore
-  - [veld_import_rdf.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml)
+  - [veld_import_rdf.yaml](https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_import_rdf.yaml)
     - valid: True
     - metadata:
       - description: Imports the Gutenberg RDF/XML data into the Apache Fuseki triplestore
       - topic: ETL, RDF, triplestore
-  - [veld_run_server.yaml](https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml)
+  - [veld_run_server.yaml](https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_run_server.yaml)
     - valid: True
     - metadata:
       - description: Runs an Apache Fuseki triplestore. Configuration can be adjusted with the respective shiro.ini file, of which there is a default integrated into this chain veld.

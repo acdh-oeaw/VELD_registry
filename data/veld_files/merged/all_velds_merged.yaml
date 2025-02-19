@@ -3788,6 +3788,47 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step6_convert_books_to_t
         environment:
           lang: de
           model: german-hdt-ud-2.6-200830
+veld_chain__compare_tokenizations___code___veld_code__jupyter_analysis___veld.yaml:
+  url: https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/code/veld_code__jupyter_analysis/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: template veld code repo for a juptyer notebook
+    services:
+      veld:
+        build: .
+        command: jupyter notebook --allow-root --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        working_dir: /veld/code/
+        volumes:
+        - ./src:/veld/code/
+        - ./volumes/input/:/veld/input/
+        - ./volumes/output/:/veld/output/
+veld_chain__demo_conllueditor___veld.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml
+  content:
+    x-veld:
+      chain:
+        description: an example chain using the veldified version of https://github.com/Orange-OpenSource/conllueditor
+          on sample data.
+        topic:
+        - NLP
+        - Universal Dependencies
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Grammatical Annotation
+    services:
+      veld_conllueditor:
+        extends:
+          file: ./code/veld_code__conllueditor/veld.yaml
+          service: veld_conllueditor
+        volumes:
+        - ./data/:/data/
+        environment:
+          filename: en.conllu
 veld_chain__demo_downloader___veld_demo_01__single_download.yaml:
   url: https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml
   content:
@@ -3990,6 +4031,21 @@ veld_chain__demo_downloader___veld_demo_11__invalid__url_and_csv.yaml:
         environment:
           in_csv_file: goethe.csv
           url: https://www.gutenberg.org/cache/epub/52521/pg52521.txt
+veld_chain__demo_pypi_publisher___veld_publish.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_pypi_publisher/blob/main/veld_publish.yaml
+  content:
+    x-veld:
+      chain:
+        description: This code veld encapsulates a demo publishing workflow to pypi.org
+          . It uses setuptools and contains a template python module that can be found
+          at ./data/test_python_module/
+    services:
+      veld_publish:
+        extends:
+          file: ./code/veld_code__pypi_publisher/veld_publish.yaml
+          service: veld_publish
+        volumes:
+        - ./data/test_python_module/:/veld/input/
 veld_chain__demo_teitok-tools___veld_parseudpipe.yaml:
   url: https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml
   content:
@@ -5063,8 +5119,8 @@ veld_chain__eltec_udpipe_inference___veld_step_all.yaml:
             condition: service_completed_successfully
           veld_infer_spa:
             condition: service_completed_successfully
-veld_chain__gutenberg_fuseki___veld_download_gutenberg_metadata.yaml:
-  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_download_gutenberg_metadata.yaml
+veld_chain__gutenberg_triplestore___veld_download_gutenberg_metadata.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_download_gutenberg_metadata.yaml
   content:
     x-veld:
       chain:
@@ -5082,8 +5138,8 @@ veld_chain__gutenberg_fuseki___veld_download_gutenberg_metadata.yaml:
           url: https://gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2
           out_file: rdf-files.tar.bz2
           do_extract: true
-veld_chain__gutenberg_fuseki___veld_export.yaml:
-  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_export.yaml
+veld_chain__gutenberg_triplestore___veld_export.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_export.yaml
   content:
     x-veld:
       chain:
@@ -5108,8 +5164,8 @@ veld_chain__gutenberg_fuseki___veld_export.yaml:
           fuseki_dataset_name: gutenberg
     networks:
       veld_fuseki: null
-veld_chain__gutenberg_fuseki___veld_import_rdf.yaml:
-  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_import_rdf.yaml
+veld_chain__gutenberg_triplestore___veld_import_rdf.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_import_rdf.yaml
   content:
     x-veld:
       chain:
@@ -5129,8 +5185,8 @@ veld_chain__gutenberg_fuseki___veld_import_rdf.yaml:
           fuseki_dataset_name: gutenberg
     networks:
       veld_fuseki: null
-veld_chain__gutenberg_fuseki___veld_run_server.yaml:
-  url: https://github.com/veldhub/veld_chain__gutenberg_fuseki/blob/main/veld_run_server.yaml
+veld_chain__gutenberg_triplestore___veld_run_server.yaml:
+  url: https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_run_server.yaml
   content:
     x-veld:
       chain:

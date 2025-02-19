@@ -1,0 +1,18 @@
+x-veld:
+  chain:
+    description:
+    topic:
+
+services:
+  veld_step_3_teitok:
+    extends:
+      file: ./code/veld_code__teitok-tools/veld_parseudpipe.yaml
+      service: veld_parseudpipe
+    volumes:
+      - ./data/teitok/:/veld/input/
+      - ./data/teitok/:/veld/output/
+    environment:
+      in_xml_file: "DEU100.xml"
+      out_xml_file: "DEU100.xml"
+      model: german-hdt-ud-2.5-191206
+

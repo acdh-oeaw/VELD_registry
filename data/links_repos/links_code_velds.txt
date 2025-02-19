@@ -1,10 +1,15 @@
+https://github.com/veldhub/veld_code__akp_ner_inference
 https://github.com/veldhub/veld_code__analyse_conllu
 https://github.com/veldhub/veld_code__apache_jena_fuseki
 https://github.com/veldhub/veld_code__bert_embeddings
+https://github.com/veldhub/veld_code__conllueditor
 https://github.com/veldhub/veld_code__downloader
 https://github.com/veldhub/veld_code__fasttext
+https://github.com/veldhub/veld_code__flair
 https://github.com/veldhub/veld_code__glove
+https://github.com/veldhub/veld_code__inception
 https://github.com/veldhub/veld_code__jupyter_notebook_base
+https://github.com/veldhub/veld_code__pypi_publisher
 https://github.com/veldhub/veld_code__simple_docker_test
 https://github.com/veldhub/veld_code__spacy
 https://github.com/veldhub/veld_code__teitok-tools

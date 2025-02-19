@@ -1,0 +1,44 @@
+x-veld:
+  code:
+    description: "apply NER models on linkedcat data for usage of the inferenced entites in the 
+      AKP project"
+    topic:
+      - "NLP"
+      - "Machine Learning"
+      - "Named Entity Recognition"
+
+    input:
+      - volume: /veld/input/
+        file_type: "spacy model"
+        content:
+          - "NLP model"
+          - "NER model"
+
+    output:
+      - volume: /veld/output/
+        file_type: "csv"
+        environment_var: out_csv_file
+        description: "inferenced NLP / NER data."
+        content:
+          - "inferenced NLP data"
+          - "NLP data"
+          - "NER data"
+
+    config:
+      - environment_var: solr_core_url
+        description: "url pointing to a solr core from where text data should be loaded"
+        var_type: "url"
+
+services:
+  veld_infer:
+    build: .
+    command: jupyter notebook --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    ports:
+      - 8888:8888
+    working_dir: /veld/code/
+    volumes:
+      - ./src:/veld/code/
+    environment:
+      solr_core_url: null
+      out_csv_file: null
+

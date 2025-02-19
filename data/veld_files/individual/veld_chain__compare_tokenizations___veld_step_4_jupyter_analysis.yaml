@@ -1,0 +1,14 @@
+x-veld:
+  chain:
+    description:
+    topic:
+
+services:
+  veld_step_4_jupyter_analysis:
+    extends:
+      file: ./code/veld_code__jupyter_analysis/veld.yaml
+      service: veld
+    volumes:
+      - ./data/xmlanntools/:/veld/input/xmlanntools/
+      - ./data/teitok/:/veld/input/teitok/
+

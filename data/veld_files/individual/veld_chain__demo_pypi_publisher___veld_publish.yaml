@@ -1,0 +1,15 @@
+x-veld:
+  chain:
+    description: "This code veld encapsulates a demo publishing workflow to pypi.org . It uses 
+      setuptools and contains a template python module that can be found at 
+      ./data/test_python_module/"
+
+
+services:
+  veld_publish:
+    extends:
+      file: ./code/veld_code__pypi_publisher/veld_publish.yaml
+      service: veld_publish
+    volumes:
+      - ./data/test_python_module/:/veld/input/
+

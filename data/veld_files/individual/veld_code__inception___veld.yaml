@@ -1,0 +1,63 @@
+x-veld:
+  code:
+    description: "An veldified inception instance. See 
+      https://github.com/inception-project/inception for more information."
+    topic:
+      - NLP
+      - Annotation
+      - Universal Dependencies
+      - Tokenization
+      - Lemmatization
+      - Part Of Speech
+      - Dependency Parsing
+      - Grammatical Annotation
+
+    storage:
+      - volume: /export/
+        service: veld_inception_app
+        content: "inception metadata"
+      - volume: /var/lib/mysql/
+        service: veld_inception_db
+        content: "maria db"
+
+services:
+
+  veld_inception_app:
+    image: ghcr.io/inception-project/inception:latest
+    ports:
+      - 8080:8080
+    environment:
+      - INCEPTION_DB_DIALECT=org.hibernate.dialect.MariaDB106Dialect
+      - INCEPTION_DB_URL=jdbc:mariadb://veld_inception_db:3306/inception?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      - INCEPTION_DB_USERNAME=${DBUSER:-inception}
+      - INCEPTION_DB_PASSWORD=${DBPASSWORD:-inception}
+    volumes:
+      - ./data/inception_app/:/export/
+    depends_on:
+      veld_inception_db:
+        condition: service_healthy
+    networks:
+      inception-net:
+
+  veld_inception_db:
+    image: "mariadb:11.4"
+    environment:
+      - MARIADB_RANDOM_ROOT_PASSWORD=yes
+      - MARIADB_DATABASE=inception
+      - MARIADB_USER=${DBUSER:-inception}
+      - MARIADB_PASSWORD=${DBPASSWORD:-inception}
+      - MARIADB_AUTO_UPGRADE=1
+    volumes:
+      - ./data/inception_db/:/var/lib/mysql/
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_bin"]
+    healthcheck:
+      test: ["CMD", "mariadb-admin" ,"ping", "-h", "localhost", "-p${DBPASSWORD:-inception}", "-u${DBUSER:-inception}"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+    networks:
+      inception-net:
+
+networks:
+  inception-net:
+

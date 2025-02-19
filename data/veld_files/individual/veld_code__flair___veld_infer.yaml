@@ -1,0 +1,39 @@
+x-veld:
+  code:
+    description:
+    topic:
+    additional:
+
+    input:
+      - volume: /veld/input/
+        file_type:
+        content:
+        environemnt_var:
+
+    output:
+      - volume: /veld/output/
+        file_type:
+        content:
+        environemnt_var:
+
+    config:
+      - environemnt_var:
+        description:
+        var_type:
+        default:
+        optional:
+
+services:
+  veld_infer:
+    build: .
+    command: bash /veld/code/run.sh infer
+    ports:
+      - 8888:8888
+    volumes:
+      - ./src/:/veld/code/
+      - ./data/models_cache/:/veld/input/models_cache/
+    environment:
+      run_interactively: true
+      in_file: ""
+      out_file: ""
+

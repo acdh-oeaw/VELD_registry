@@ -1,0 +1,23 @@
+x-veld:
+  chain:
+    description: "an example chain using the veldified version of
+      https://github.com/Orange-OpenSource/conllueditor on sample data."
+    topic:
+      - NLP
+      - Universal Dependencies
+      - Tokenization
+      - Lemmatization
+      - Part Of Speech
+      - Dependency Parsing
+      - Grammatical Annotation
+
+services:
+  veld_conllueditor:
+    extends:
+      file: ./code/veld_code__conllueditor/veld.yaml
+      service: veld_conllueditor
+    volumes:
+      - ./data/:/data/
+    environment:
+      filename: en.conllu
+

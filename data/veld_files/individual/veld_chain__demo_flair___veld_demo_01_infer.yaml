@@ -1,0 +1,23 @@
+
+
+services:
+  veld_demo_01__infer_ner:
+    extends:
+      file: ./code/veld_code__flair/veld_infer.yaml
+      service: veld_infer
+    volumes:
+      - ./data/demo_01_infer/in/:/veld/input/data/
+      - ./data/models_cache/:/veld/input/models_cache/
+      - ./data/demo_01_infer/out/:/veld/output/
+    environment:
+      run_interactively: false
+      in_file: test.txt
+      out_file: text.json
+      do_split_sentences: true
+      model_infer_ner: "flair/ner-english-large"
+      model_infer_sentiment: "sentiment"
+      model_infer_linker: "linker"
+      model_infer_frame: "frame"
+      model_infer_chunk: "flair/chunk-english"
+      model_infer_relations: "relations"
+
