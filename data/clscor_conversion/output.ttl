@@ -2,7 +2,6 @@
 @prefix crmcls: <https://clscor.io/ontologies/CRMcls/> .
 @prefix pem: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <https://clscor.io/entity/001a8a7e7e> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/45de1c25be> ;
@@ -41,7 +40,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/015802899c> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/8d55edde-9135-583c-beda-7e7b55bf1cc9> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/01edd29b15> a crm:E13_Attribute_Assignment ;
@@ -74,8 +73,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/0431b109-7852-5426-b560-cd4998773305> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/05cbeae29d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/c5d0a97751> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6a91b13fca> ;
@@ -104,7 +101,7 @@
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/06107a82c7> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__word2vec_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/535f96e2-82b6-514e-aeb7-05b271b68d85> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://clscor.io/entity/0644b25bc9> a crm:E13_Attribute_Assignment ;
@@ -138,7 +135,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/0932153879> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__demo_inference_input_ts-vienna-2024" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/fa6af222-5429-5160-b23e-5b6fe76e9199> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/0983d43d71> a crm:E13_Attribute_Assignment ;
@@ -201,8 +198,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/0eb00bdd-cee7-5c98-93b1-53f3bc05144c> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/0ece6e01b3> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/ba79d79c8f> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7fc2a610b0> ;
@@ -220,8 +215,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/18e6b5c66c> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
-
-<https://clscor.io/entity/0f9b3a2e-fe25-5938-894b-5110207a54e5> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/0fb509325b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/64c349561d> ;
@@ -270,8 +263,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/102bcabfce> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/150da607-2e26-58c6-9cb8-a143780b5554> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/1516ca0ca0> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/94aa0d0bf1> ;
@@ -334,10 +325,8 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/1ba3cdc1-1086-526a-8b26-b485e521f35a> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/1c5bf66015> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/150da607-2e26-58c6-9cb8-a143780b5554> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/1cc4aff447> a crm:E13_Attribute_Assignment ;
@@ -354,7 +343,7 @@
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
 <https://clscor.io/entity/1d24422861> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/3b6c8863-c5df-51e9-aa2c-a824fae3141e> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/1d39f485c3> a crm:E13_Attribute_Assignment ;
@@ -376,7 +365,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/1ece86be2a> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__word2vec_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/4485455d-f807-5b85-9e84-04cf5dc9dfd6> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://clscor.io/entity/1f02f7e004> a crm:E13_Attribute_Assignment ;
@@ -396,8 +385,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/ce3ec69676> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/1f74546f-219d-5fc9-b712-2d2f6bddeed7> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/1fe653d881> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/47ccb1f5f8> ;
@@ -473,7 +460,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/25c6e82f98> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__apis_spacy_ner_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/401fbeed-947a-5786-a275-cb4b99c3752e> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/spaCy_model> .
 
 <https://clscor.io/entity/266a50a75f> a crm:E13_Attribute_Assignment ;
@@ -512,6 +499,8 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/29050110fc> crm:P1_is_identified_by <https://clscor.io/entity/793cd1bc-9da9-5908-ba46-0ea5e018219a> .
 
 <https://clscor.io/entity/29e83598e1> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6f46911a30> ;
@@ -561,13 +550,13 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/2d3f84fe5e> crm:P1_is_identified_by <https://clscor.io/entity/b471bd16-e8e9-54c6-8d61-be53ee5da770> .
+
 <https://clscor.io/entity/2dd8d6e1fb> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/2db59e4280> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5c40fe0f21> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/lemmatization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/2ecb90e4-3477-5fb4-92c2-479f086140d8> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/2ed85b3314> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/030320c3d4> ;
@@ -631,7 +620,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/337c61da84> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__apis_spacy_ner_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/1ba3cdc1-1086-526a-8b26-b485e521f35a> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/spaCy_model> .
 
 <https://clscor.io/entity/33a8758e9a> a crm:E13_Attribute_Assignment ;
@@ -689,7 +678,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/39583e0c86> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/6e7f25b6-7cf1-5232-ad55-efff67ded370> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/397d898a8f> a crm:E13_Attribute_Assignment ;
@@ -711,15 +700,11 @@
         <https://clscor.io/entity/type/format/word2vec_model> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/3b6c8863-c5df-51e9-aa2c-a824fae3141e> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/3bc8042661> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/3240344fb9> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/872572da8f> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/3c4fd294-84ed-5764-b0d9-05d901182859> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/3cb875574e> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/72d47f6a0a> ;
@@ -746,8 +731,6 @@
         <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/401fbeed-947a-5786-a275-cb4b99c3752e> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/40b17854de> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/f777b22e2c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/d5438a20a1> ;
@@ -772,8 +755,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/429bd6d2-e131-5f83-a5b9-8b2b2feb8405> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/4361325a28> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/d4e6c53079> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/b4dd2ee17c> ;
@@ -785,8 +766,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/ae2e1f55bd> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/4485455d-f807-5b85-9e84-04cf5dc9dfd6> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/44d81e573a> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/8d514cded0> ;
@@ -813,7 +792,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/466f560ca3> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/7a9014fa-838d-5642-aab8-a5b8e4d29962> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/47edf404aa> a crm:E13_Attribute_Assignment ;
@@ -871,7 +850,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/4afa972270> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__apis_oebl__ner_gold" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/77c1886a-3ddb-5087-ae0a-94e713190a86> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/json> .
 
 <https://clscor.io/entity/4c116ecd19> a crm:E13_Attribute_Assignment ;
@@ -928,10 +907,8 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/4f94e744-29ec-5bff-bea1-2dd4995b791d> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/4fc165c0b6> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__eltec_original_selection" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/0431b109-7852-5426-b560-cd4998773305> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/xml> .
 
 <https://clscor.io/entity/4fe94a7af6> a crm:E13_Attribute_Assignment ;
@@ -958,8 +935,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/516806bd-39de-5263-bc3f-11c250c35107> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/51a50548ab> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/4b6bf3502a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/c7753b4558> ;
@@ -977,8 +952,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/a8d4976b37> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/535f96e2-82b6-514e-aeb7-05b271b68d85> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/537253aa4c> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/82f045f2c8> ;
@@ -1011,7 +984,7 @@
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/5750d7d3ee> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__glove_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/a041a831-f315-5483-8adf-5f1b551f308a> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/GloVe_model>,
         <https://clscor.io/entity/type/format/bin>,
         <https://clscor.io/entity/type/format/txt> .
@@ -1065,7 +1038,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/5b6f7ab2b6> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/cf41e964-b61d-5d96-ba15-8980ab944de5> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/5be4be40cc> a crm:E13_Attribute_Assignment ;
@@ -1110,6 +1083,8 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/text_parsing> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/5eb0c10c8d> crm:P1_is_identified_by <https://clscor.io/entity/aa8e0e30-45fb-5660-aaa1-58be7ca72e8e> .
+
 <https://clscor.io/entity/5f72e3916a> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/5f05117adf> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/1bb4b621f7> ;
@@ -1134,10 +1109,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/61aa92e5-1f45-5cf4-b497-341de0560a70> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
-<https://clscor.io/entity/620cf845-10aa-51c4-9805-c7a1698dfada> crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> .
-
 <https://clscor.io/entity/6221a24356> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/e288f37867> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/f7c18da271> ;
@@ -1145,7 +1116,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/62615b1f3c> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__word2vec_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/cbe01903-1c80-5665-ae68-eefd8f3ce024> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://clscor.io/entity/629d606ac6> a crm:E13_Attribute_Assignment ;
@@ -1200,8 +1171,6 @@
         <https://clscor.io/entity/type/format/yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/675ff4f0-f81a-504a-b1ac-ad86f5fabc09> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/67b759cc5d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/030320c3d4> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/0d7be09fe7> ;
@@ -1225,8 +1194,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6cd5447bb6> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/word_embedding> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/685c6baf-31e9-50d3-ae43-0753b2fa6e0c> crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> .
 
 <https://clscor.io/entity/685dc1f366> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/e7de680579> ;
@@ -1253,7 +1220,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/69cf0abe83> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__apis_oebl__ner_gold" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/4f94e744-29ec-5bff-bea1-2dd4995b791d> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/json> .
 
 <https://clscor.io/entity/6a1af9afe1> a crm:E13_Attribute_Assignment ;
@@ -1292,12 +1259,8 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/6dda5108-bd07-5508-99a7-d5d834c1a95d> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
-<https://clscor.io/entity/6e7f25b6-7cf1-5232-ad55-efff67ded370> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/6eb5b76429> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__word2vec_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/1f74546f-219d-5fc9-b712-2d2f6bddeed7> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://clscor.io/entity/6ec99ce90e> a crm:E13_Attribute_Assignment ;
@@ -1379,7 +1342,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/7517d6e159> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/bbee70d5-d9ba-592a-967c-d7701939318c> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/753b826f31> a crm:E13_Attribute_Assignment ;
@@ -1395,7 +1358,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/7570919c28> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__word2vec_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/429bd6d2-e131-5f83-a5b9-8b2b2feb8405> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://clscor.io/entity/75a1430723> a crm:E13_Attribute_Assignment ;
@@ -1422,8 +1385,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/json> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/77c1886a-3ddb-5087-ae0a-94e713190a86> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/783973856b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/4b6bf3502a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/c7753b4558> ;
@@ -1442,8 +1403,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/793cd1bc-9da9-5908-ba46-0ea5e018219a> crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> .
-
 <https://clscor.io/entity/7947bce1dd> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/a645ed7e9e> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/e00a01bd40> ;
@@ -1461,8 +1420,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/3890690b56> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/7a9014fa-838d-5642-aab8-a5b8e4d29962> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/7b3836eee7> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/c44928ba6a> ;
@@ -1534,8 +1491,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/7fc98cbe-4214-54ab-97aa-f9e39a654878> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/7fee31c6e7> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/5a90eaada0> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/341495a4bc> ;
@@ -1565,8 +1520,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/758b1605db> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/8168400a-d5a2-5c79-af24-3b0cccd0fd77> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/81ffc1aa03> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/8dda035507> ;
@@ -1605,7 +1558,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/8464232d80> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__apis_oebl__ner_gold" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/d7ee3109-6693-520a-a35f-4b6e2b18a70d> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/json> .
 
 <https://clscor.io/entity/852a6ecdb0> a crm:E13_Attribute_Assignment ;
@@ -1663,15 +1616,11 @@
         <https://clscor.io/entity/type/format/word2vec_model> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/8d55edde-9135-583c-beda-7e7b55bf1cc9> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/8d6ead3c29> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/7dbb105b65> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/988c5f9827> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/Data_Visualization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/8daadd5a-3101-5428-80b0-b07a24afbf91> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/8db2963852> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/acb3c1230a> ;
@@ -1686,18 +1635,14 @@
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://clscor.io/entity/8dcaa6629f> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__akp_ner_linkedcat" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/e2e05114-bdc0-59a7-ab1b-8edf39b77dcf> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/csv> .
-
-<https://clscor.io/entity/8dcdf39d-ad77-56df-83aa-fe3d2a118ad4> crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> .
 
 <https://clscor.io/entity/8de9bccfed> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/94e4fab64c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/723109466b> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/8e033dde-f687-5b02-b5ab-3fc1ef1a76bb> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/8e35b043e3> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/a6dcca58f9> ;
@@ -1735,8 +1680,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/f7c18da271> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/92142a07-bfd3-5214-a597-60ecc95dd089> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/921d44487e> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/7475826eb8> ;
@@ -1780,6 +1723,8 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/94ac3260be> crm:P1_is_identified_by <https://clscor.io/entity/ec6614ad-df55-5c88-84f8-e8e5efd939c9> .
+
 <https://clscor.io/entity/94b275c51a> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6adfb3cf01> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/f8c770d2a6> ;
@@ -1799,7 +1744,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/979637de26> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/9c3abc3b-f5c9-549e-bc7c-5a1f20f5da66> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/97ec2e19d1> a crm:E13_Attribute_Assignment ;
@@ -1807,8 +1752,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/a3edb9de55> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/text_parsing> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/9806e443-d684-5113-949f-0cab4ce91dec> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/9859c21bff> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/122972043f> ;
@@ -1834,14 +1777,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/lemmatization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/9c3abc3b-f5c9-549e-bc7c-5a1f20f5da66> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/9c7e7bc991> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/516806bd-39de-5263-bc3f-11c250c35107> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/9ca0d96706> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/675ff4f0-f81a-504a-b1ac-ad86f5fabc09> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/9daab56413> a crm:E13_Attribute_Assignment ;
@@ -1878,10 +1819,8 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/9ed5d58317> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__word2vec_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/92142a07-bfd3-5214-a597-60ecc95dd089> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
-
-<https://clscor.io/entity/a041a831-f315-5483-8adf-5f1b551f308a> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/a067701029> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/c125f389b0> ;
@@ -1961,8 +1900,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/a78ba7da-1245-5dde-b440-904dce6996ce> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/a792fb49fb> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/2f2ee5faa1> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/e48363fff0> ;
@@ -1989,8 +1926,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/aa8e0e30-45fb-5660-aaa1-58be7ca72e8e> crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> .
-
 <https://clscor.io/entity/aacdbf0db7> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/f777b22e2c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/d5438a20a1> ;
@@ -1998,7 +1933,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/ab7b4af4a2> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__eltec_conllu_stats" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/0f9b3a2e-fe25-5938-894b-5110207a54e5> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/json> .
 
 <https://clscor.io/entity/ab989fe321> a crm:E13_Attribute_Assignment ;
@@ -2115,8 +2050,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/Data_Visualization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/b471bd16-e8e9-54c6-8d61-be53ee5da770> crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> .
-
 <https://clscor.io/entity/b51248348e> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6f562dbd66> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/b05f7a4a14> ;
@@ -2183,7 +2116,7 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/bbee70d5-d9ba-592a-967c-d7701939318c> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
+<https://clscor.io/entity/bc0485b622> crm:P1_is_identified_by <https://clscor.io/entity/685c6baf-31e9-50d3-ae43-0753b2fa6e0c> .
 
 <https://clscor.io/entity/bc278e5559> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/c5d0a97751> ;
@@ -2439,8 +2372,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/cbe01903-1c80-5665-ae68-eefd8f3ce024> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/cc0cd4c7de> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/2db59e4280> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5c40fe0f21> ;
@@ -2466,10 +2397,8 @@
         <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/cf41e964-b61d-5d96-ba15-8980ab944de5> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/d06c8c9f72> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__glove_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/a78ba7da-1245-5dde-b440-904dce6996ce> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/GloVe_model>,
         <https://clscor.io/entity/type/format/bin>,
         <https://clscor.io/entity/type/format/txt> .
@@ -2529,8 +2458,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/semi_automatical_token_annotation> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/d32a63c8ac> crm:P1_is_identified_by <https://clscor.io/entity/620cf845-10aa-51c4-9805-c7a1698dfada> .
+
 <https://clscor.io/entity/d336fdc3fd> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__akp_ner_linkedcat" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/ed3ea6ea-70e3-51f0-8142-4aa58caa3603> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/csv> .
 
 <https://clscor.io/entity/d34c54fec2> a crm:E13_Attribute_Assignment ;
@@ -2586,8 +2517,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/387b1363c7> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/d7ee3109-6693-520a-a35f-4b6e2b18a70d> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/d81f3ef95d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/a645ed7e9e> ;
@@ -2657,7 +2586,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/dc1ecc299f> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__word2vec_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/3c4fd294-84ed-5764-b0d9-05d901182859> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
 <https://clscor.io/entity/dc6fdaf8b0> a crm:E13_Attribute_Assignment ;
@@ -2665,8 +2594,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/3dd2657276> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/dccc9fc2-6a2d-5927-ad74-44826fbde10a> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/de6087d774> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/975a9f97ee> ;
@@ -2681,7 +2608,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/df0d6b69b1> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/61aa92e5-1f45-5cf4-b497-341de0560a70> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/df46ea86d0> a crm:E13_Attribute_Assignment ;
@@ -2739,8 +2666,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/e2e05114-bdc0-59a7-ab1b-8edf39b77dcf> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
-
 <https://clscor.io/entity/e3f15de5e1> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/a77d8f4379> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/a8d4976b37> ;
@@ -2766,7 +2691,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/e561e55b9c> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/7fc98cbe-4214-54ab-97aa-f9e39a654878> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/e59825a899> a crm:E13_Attribute_Assignment ;
@@ -2842,8 +2767,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/ec6614ad-df55-5c88-84f8-e8e5efd939c9> crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> .
-
 <https://clscor.io/entity/ec7c35c16b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/d62f685459> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/e48363fff0> ;
@@ -2855,8 +2778,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/785456ccba> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/ed3ea6ea-70e3-51f0-8142-4aa58caa3603> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/ed83f98bc8> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/8070d93798> ;
@@ -2901,7 +2822,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/efbe951a2c> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/2ecb90e4-3477-5fb4-92c2-479f086140d8> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/f13fb10399> a crm:E13_Attribute_Assignment ;
@@ -2917,7 +2838,7 @@
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
 <https://clscor.io/entity/f2a68d784e> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/0eb00bdd-cee7-5c98-93b1-53f3bc05144c> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/f2f0267268> a crm:E13_Attribute_Assignment ;
@@ -2925,8 +2846,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/341495a4bc> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/f32dbbd1-0906-56df-ab73-eb1e7296be90> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
 
 <https://clscor.io/entity/f35ef35691> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/930d70dd15> ;
@@ -2959,7 +2878,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/f6508c1329> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/8e033dde-f687-5b02-b5ab-3fc1ef1a76bb> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/f804a0387f> a crm:E13_Attribute_Assignment ;
@@ -2992,7 +2911,7 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/fa6af222-5429-5160-b23e-5b6fe76e9199> crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> .
+<https://clscor.io/entity/fab7e8cd1d> crm:P1_is_identified_by <https://clscor.io/entity/8dcdf39d-ad77-56df-83aa-fe3d2a118ad4> .
 
 <https://clscor.io/entity/fbd7ea25f9> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/5e02cce0df> ;
@@ -3001,7 +2920,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/fbde57cbcd> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__demo_train_data_ts-vienna-2024" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/8daadd5a-3101-5428-80b0-b07a24afbf91> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/conllu> .
 
 <https://clscor.io/entity/fbfab5447f> a crm:E13_Attribute_Assignment ;
@@ -3023,7 +2942,7 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/fde9fa8b58> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/8168400a-d5a2-5c79-af24-3b0cccd0fd77> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
 <https://clscor.io/entity/fe4611c6be> a crm:E13_Attribute_Assignment ;
@@ -3203,6 +3122,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__simple_docker_test" .
 
+<https://clscor.io/entity/0431b109-7852-5426-b560-cd4998773305> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__eltec_original_selection" .
+
 <https://clscor.io/entity/049ce208-0c6a-50bf-8eae-1a8f3163607f> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_spacy_apis_ner__analysis" .
@@ -3227,6 +3150,14 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_downloader__demo_01__single_download" .
 
+<https://clscor.io/entity/0eb00bdd-cee7-5c98-93b1-53f3bc05144c> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
+
+<https://clscor.io/entity/0f9b3a2e-fe25-5938-894b-5110207a54e5> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__eltec_conllu_stats" .
+
 <https://clscor.io/entity/10448923-9066-58be-80c4-bed5248fdc2c> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__wordembeddings_evaluation__analyse_evaluation_non_interactive" .
@@ -3243,6 +3174,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__udpipe__infer" .
 
+<https://clscor.io/entity/150da607-2e26-58c6-9cb8-a143780b5554> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
+
 <https://clscor.io/entity/1682e68c-810a-5a3d-ab46-9291762aac09> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_spacy_apis_ner__train" .
@@ -3254,6 +3189,10 @@
 <https://clscor.io/entity/1b0b364f-6aca-556c-aafc-e85c084f9cc1> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_downloader__demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers" .
+
+<https://clscor.io/entity/1ba3cdc1-1086-526a-8b26-b485e521f35a> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__apis_spacy_ner_models" .
 
 <https://clscor.io/entity/1d44ad92-805a-54a8-99f8-36d40a4bfb0f> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3270,6 +3209,10 @@
 <https://clscor.io/entity/1ef7ac5e-fc87-5ee7-ba70-084e8746fb1b> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_xmlanntools__tei_example1_step4_standoff2xml" .
+
+<https://clscor.io/entity/1f74546f-219d-5fc9-b712-2d2f6bddeed7> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__word2vec_models" .
 
 <https://clscor.io/entity/1fde5cfb54> a crmcls:X13_Tool_Description .
 
@@ -3329,6 +3272,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_03_preprocess_lowercase" .
 
+<https://clscor.io/entity/2ecb90e4-3477-5fb4-92c2-479f086140d8> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
+
 <https://clscor.io/entity/31235247-a2a3-539c-b394-2677ee4ae5e5> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__xmlanntools__ann2standoff" .
@@ -3353,15 +3300,27 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_xmlanntools__simple_poetry1_step4_standoff2xml" .
 
+<https://clscor.io/entity/3b6c8863-c5df-51e9-aa2c-a824fae3141e> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
+
 <https://clscor.io/entity/3bf13652dd> a crmcls:X13_Tool_Description .
 
 <https://clscor.io/entity/3c4573f8-526c-5bf8-9112-81f1d1d27888> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__wordembeddings_evaluation__analyse_evaluation" .
 
+<https://clscor.io/entity/3c4fd294-84ed-5764-b0d9-05d901182859> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__word2vec_models" .
+
 <https://clscor.io/entity/3d01a036-ce5a-5465-af7c-f8c4fd688df9> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__apis_ner_evaluate_old_models__evaluate" .
+
+<https://clscor.io/entity/401fbeed-947a-5786-a275-cb4b99c3752e> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__apis_spacy_ner_models" .
 
 <https://clscor.io/entity/403a77ed-cde3-58b7-a62b-481702b237ad> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3369,8 +3328,16 @@
 
 <https://clscor.io/entity/416719475e> a crmcls:X13_Tool_Description .
 
+<https://clscor.io/entity/429bd6d2-e131-5f83-a5b9-8b2b2feb8405> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__word2vec_models" .
+
+<https://clscor.io/entity/4485455d-f807-5b85-9e84-04cf5dc9dfd6> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__word2vec_models" .
+
 <https://clscor.io/entity/4518561bfe> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__wordembeddings_evaluation" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/dccc9fc2-6a2d-5927-ad74-44826fbde10a> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/yaml> .
 
 <https://clscor.io/entity/4564c33d77> a crmcls:X13_Tool_Description .
@@ -3403,6 +3370,14 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__word2vec__train" .
 
+<https://clscor.io/entity/4f94e744-29ec-5bff-bea1-2dd4995b791d> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__apis_oebl__ner_gold" .
+
+<https://clscor.io/entity/516806bd-39de-5263-bc3f-11c250c35107> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
+
 <https://clscor.io/entity/52b00d0e-e579-5d12-8aeb-d6516fb95001> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__word2vec__export" .
@@ -3410,6 +3385,10 @@
 <https://clscor.io/entity/52f3b5dc-d9a2-587b-b526-79a82fb99b4a> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_downloader__demo_08__csv_bulk_download__csv_no_headers" .
+
+<https://clscor.io/entity/535f96e2-82b6-514e-aeb7-05b271b68d85> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__word2vec_models" .
 
 <https://clscor.io/entity/58063c2e-21fe-5217-b225-2839b25a34a0> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3436,6 +3415,14 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_chain__demo_wordembeddings_multiarch__step_6_analyse_vectors" .
 
+<https://clscor.io/entity/61aa92e5-1f45-5cf4-b497-341de0560a70> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
+
+<https://clscor.io/entity/620cf845-10aa-51c4-9805-c7a1698dfada> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
+    rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_glove" .
+
 <https://clscor.io/entity/6223a497-31fe-53e4-a495-79ec7008c231> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__automatic_tei-ification_of_gutenberg__step4_query_books_urls" .
@@ -3444,11 +3431,19 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__playground_jupyter_notebook_glove" .
 
+<https://clscor.io/entity/675ff4f0-f81a-504a-b1ac-ad86f5fabc09> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
+
 <https://clscor.io/entity/67d4750c-a65e-5d83-aef6-5a4479ebdcfc> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_teitok-tools__udpipe2teitok" .
 
 <https://clscor.io/entity/684105181b> a crmcls:X13_Tool_Description .
+
+<https://clscor.io/entity/685c6baf-31e9-50d3-ae43-0753b2fa6e0c> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
+    rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_glove" .
 
 <https://clscor.io/entity/69939c9069> a crmcls:X13_Tool_Description .
 
@@ -3470,6 +3465,14 @@
 
 <https://clscor.io/entity/6db547cdd1> a crmcls:X13_Tool_Description .
 
+<https://clscor.io/entity/6dda5108-bd07-5508-99a7-d5d834c1a95d> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__wordembeddings_evaluation" .
+
+<https://clscor.io/entity/6e7f25b6-7cf1-5232-ad55-efff67ded370> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
+
 <https://clscor.io/entity/70c465c1-ce8b-58df-b7b7-cae66773ca73> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_xmlanntools__simple_poetry1_step1_xml2standoff" .
@@ -3478,13 +3481,25 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__spacy__create_config" .
 
+<https://clscor.io/entity/77c1886a-3ddb-5087-ae0a-94e713190a86> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__apis_oebl__ner_gold" .
+
+<https://clscor.io/entity/793cd1bc-9da9-5908-ba46-0ea5e018219a> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
+    rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_word2vec" .
+
 <https://clscor.io/entity/79b7fceb-011c-57dc-993d-05e48ca18c70> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_wordembeddings_multiarch__step_2_preprocess" .
 
 <https://clscor.io/entity/7a4122fc1f> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__wordembeddings_evaluation" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/6dda5108-bd07-5508-99a7-d5d834c1a95d> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/yaml> .
+
+<https://clscor.io/entity/7a9014fa-838d-5642-aab8-a5b8e4d29962> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
 
 <https://clscor.io/entity/7ab8e39a-0d37-5a63-b831-e8fd72d6facf> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3504,6 +3519,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__xmlanntools__xml2vrt" .
 
+<https://clscor.io/entity/7fc98cbe-4214-54ab-97aa-f9e39a654878> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
+
 <https://clscor.io/entity/8058c847-c18b-51c8-9498-afb83303082e> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_conllueditor" .
@@ -3512,11 +3531,31 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_fasttext" .
 
+<https://clscor.io/entity/8168400a-d5a2-5c79-af24-3b0cccd0fd77> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
+
 <https://clscor.io/entity/81d90126-2a96-5177-a309-d774ab2e2056> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__glove__export" .
 
 <https://clscor.io/entity/89ca3b9c88> a crmcls:X13_Tool_Description .
+
+<https://clscor.io/entity/8d55edde-9135-583c-beda-7e7b55bf1cc9> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
+
+<https://clscor.io/entity/8daadd5a-3101-5428-80b0-b07a24afbf91> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__demo_train_data_ts-vienna-2024" .
+
+<https://clscor.io/entity/8dcdf39d-ad77-56df-83aa-fe3d2a118ad4> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
+    rdf:value "veld_code__bert_embeddings__infer_and_create_index" .
+
+<https://clscor.io/entity/8e033dde-f687-5b02-b5ab-3fc1ef1a76bb> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
 
 <https://clscor.io/entity/8fcbe2a5-89d2-5b11-bc32-c04ef0cbe61b> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3539,13 +3578,21 @@
     rdf:value "veld_chain__train_spacy_apis_ner__create_config" .
 
 <https://clscor.io/entity/91ea24fe02> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__amc_we_training_data" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/f32dbbd1-0906-56df-ab73-eb1e7296be90> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
+
+<https://clscor.io/entity/92142a07-bfd3-5214-a597-60ecc95dd089> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__word2vec_models" .
 
 <https://clscor.io/entity/930d70dd15> a crmcls:X13_Tool_Description .
 
+<https://clscor.io/entity/9806e443-d684-5113-949f-0cab4ce91dec> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
+
 <https://clscor.io/entity/9827beaab7> a pem:PE19_Persistent_Digital_Object ;
-    rdfs:label "veld_data__fasttext_models" ;
+    crm:P1_is_identified_by <https://clscor.io/entity/9806e443-d684-5113-949f-0cab4ce91dec> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
 
 <https://clscor.io/entity/9a36a821ce> a crmcls:X13_Tool_Description .
@@ -3553,6 +3600,10 @@
 <https://clscor.io/entity/9b0c5500-6c23-5d25-a9fb-43fd02257744> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__preprocess_clean" .
+
+<https://clscor.io/entity/9c3abc3b-f5c9-549e-bc7c-5a1f20f5da66> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__fasttext_models" .
 
 <https://clscor.io/entity/9d61df7a72> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -3570,6 +3621,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_xmlanntools__tei_example1_step3_ann2standoff" .
 
+<https://clscor.io/entity/a041a831-f315-5483-8adf-5f1b551f308a> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__glove_models" .
+
 <https://clscor.io/entity/a1ad68d3-6482-562d-b592-c799f8a06e90> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_09_eval_word2vec" .
@@ -3580,6 +3635,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_xmlanntools__tei_example1_step5_xml2vrt" .
 
+<https://clscor.io/entity/a78ba7da-1245-5dde-b440-904dce6996ce> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__glove_models" .
+
 <https://clscor.io/entity/a9187429-37a3-5570-a761-c4831a6a1b32> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_downloader__demo_06__csv_bulk_download__designate_file_name" .
@@ -3589,6 +3648,10 @@
 <https://clscor.io/entity/aa6c1072-aed6-539a-a746-1ae3b12a244b> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__eltec_udpipe_inference__step_3_infer" .
+
+<https://clscor.io/entity/aa8e0e30-45fb-5660-aaa1-58be7ca72e8e> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
+    rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__jupyter_notebook_fasttext" .
 
 <https://clscor.io/entity/ac804d56-e036-5bb9-a0f9-0c638a363b2c> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3610,6 +3673,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_wordembeddings_multiarch__step_4_train_glove" .
 
+<https://clscor.io/entity/b471bd16-e8e9-54c6-8d61-be53ee5da770> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
+    rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__amc__eval_word2vec" .
+
 <https://clscor.io/entity/b54ccb5c-a344-500f-89b2-71a0dee1cf55> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__teitok-tools__udpipe2teitok" .
@@ -3625,6 +3692,10 @@
     rdf:value "veld_code__spacy__publish_to_hf" .
 
 <https://clscor.io/entity/bb21fea4fd> a crmcls:X13_Tool_Description .
+
+<https://clscor.io/entity/bbee70d5-d9ba-592a-967c-d7701939318c> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
 
 <https://clscor.io/entity/bcc90d2f-fd9c-57e9-932f-c23ce0482a5e> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -3658,6 +3729,10 @@
 
 <https://clscor.io/entity/c9273f1c15> a crmcls:X13_Tool_Description .
 
+<https://clscor.io/entity/cbe01903-1c80-5665-ae68-eefd8f3ce024> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__word2vec_models" .
+
 <https://clscor.io/entity/cd2ecc56-12f6-570f-bd00-003427f6ef85> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_spacy_apis_ner__convert" .
@@ -3665,6 +3740,10 @@
 <https://clscor.io/entity/ce8ee016-2d15-5380-9074-bb23bbfd6c7d> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__step_07_train_glove" .
+
+<https://clscor.io/entity/cf41e964-b61d-5d96-ba15-8980ab944de5> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
 
 <https://clscor.io/entity/cf6316e3-0c55-5905-bb13-1944b14715a6> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3692,6 +3771,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__udpipe__train" .
 
+<https://clscor.io/entity/d7ee3109-6693-520a-a35f-4b6e2b18a70d> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__apis_oebl__ner_gold" .
+
 <https://clscor.io/entity/d8a8f3e0a4> a crmcls:X13_Tool_Description .
 
 <https://clscor.io/entity/d97481ae-fe57-538f-b621-0f1885726fb1> a crm:E41_Appellation ;
@@ -3701,6 +3784,10 @@
 <https://clscor.io/entity/dac55f39-9214-53fe-8ddb-56b5bbe76343> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__xmlanntools__tag_ud" .
+
+<https://clscor.io/entity/dccc9fc2-6a2d-5927-ad74-44826fbde10a> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__wordembeddings_evaluation" .
 
 <https://clscor.io/entity/ddf15079-ed7b-586c-9bb8-e38686c95182> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -3718,6 +3805,10 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__mara_load_and_publish_models__publish_to_hf" .
 
+<https://clscor.io/entity/e2e05114-bdc0-59a7-ab1b-8edf39b77dcf> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__akp_ner_linkedcat" .
+
 <https://clscor.io/entity/e30a137e-9088-5a18-b51b-ef456b2851ec> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__glove__train" .
@@ -3732,9 +3823,17 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_wordembeddings_multiarch__step_5_train_word2vec" .
 
+<https://clscor.io/entity/ec6614ad-df55-5c88-84f8-e8e5efd939c9> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
+    rdf:value "veld_chain__automatic_tei-ification_of_gutenberg__multichain_all" .
+
 <https://clscor.io/entity/ed222489-97ce-5b0a-bf4f-964ed5fca52f> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia__playground_jupyter_notebook_fasttext" .
+
+<https://clscor.io/entity/ed3ea6ea-70e3-51f0-8142-4aa58caa3603> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__akp_ner_linkedcat" .
 
 <https://clscor.io/entity/eeef2d47-82d6-52e8-84ad-9f61eff3f7b0> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -3753,6 +3852,10 @@
     rdf:value "veld_chain__demo_xmlanntools__tei_example1_step1_xml2standoff" .
 
 <https://clscor.io/entity/f16c4d29dd> a crmcls:X13_Tool_Description .
+
+<https://clscor.io/entity/f32dbbd1-0906-56df-ab73-eb1e7296be90> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__amc_we_training_data" .
 
 <https://clscor.io/entity/f363220fd2> a crmcls:X13_Tool_Description .
 
@@ -3791,6 +3894,10 @@
 <https://clscor.io/entity/f9f87daf-8181-576d-b170-cb3798e1ec04> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__demo_wordembeddings_multiarch__step_1_download" .
+
+<https://clscor.io/entity/fa6af222-5429-5160-b23e-5b6fe76e9199> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
+    rdf:value "veld_data__demo_inference_input_ts-vienna-2024" .
 
 <https://clscor.io/entity/fac9342c-ae7a-5751-8edd-392bc8184d19> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;

@@ -131,21 +131,27 @@ def _get_veld_url_by_type(veld_data, veld_type):
         return URIRef(veld_data["url"])
     else:
         return None
+    
+    
+def _get_veld_label(veld_data):
+    result = None
+    veld_url = veld_data.get("url")
+    if veld_url is not None:
+        url_part_list = veld_url.split("https://github.com/veldhub/")[1].split("/")
+        label_repo = url_part_list[0]
+        label_veld = url_part_list[-1].split(".yaml")[0]
+        if label_veld == "veld":
+            label = label_repo
+        else:
+            label = label_repo + "__" + label_veld.replace("veld_", "")
+        result = Literal(label)
+    return result
 
 
 def _get_veld_label_by_type(veld_data, veld_type):
     result = None
     if _get_data_recursively(veld_data, ["content", "x-veld", veld_type]):
-        veld_url = veld_data.get("url")
-        if veld_url is not None:
-            url_part_list = veld_url.split("https://github.com/veldhub/")[1].split("/")
-            label_repo = url_part_list[0]
-            label_veld = url_part_list[-1].split(".yaml")[0]
-            if label_veld == "veld":
-                label = label_repo
-            else:
-                label = label_repo + "__" + label_veld.replace("veld_", "")
-            result = Literal(label)
+        result = _get_veld_label(veld_data)
     return result
 
 
@@ -197,6 +203,14 @@ def get_chain_or_code_veld_uris():
             veld_uri = chain_uri
         if veld_uri:
             result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
+    return result
+
+
+def get_all_veld_uris():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_uri = URIRef(veld_data["url"])
+        result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
     return result
     
     
@@ -332,7 +346,9 @@ def get_all_veld_appellation_type():
 def get_all_veld_appellation_label():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        result[veld_key] = [URIRef(veld_data["url"])]
+        veld_type = _get_data_recursively(veld_data, ["content", "x-veld"])
+        label = _get_veld_label(veld_data)
+        result[veld_key] = [label]
     return result
     
     

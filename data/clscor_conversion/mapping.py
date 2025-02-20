@@ -15,11 +15,11 @@ mappings = {
         "p": CRMCLS["Y2_has_format"],
         "o": get_data_veld_file_type,
     },
-    "data veld url rdfs:label label": {
-        "s": get_data_veld_uris,
-        "p": RDFS.label,
-        "o": get_data_veld_label,
-    },
+    # "data veld url rdfs:label label": {
+    #     "s": get_data_veld_uris,
+    #     "p": RDFS.label,
+    #     "o": get_data_veld_label,
+    # },
 
     # code velds
     # "code veld url rdfs:label label": {
@@ -72,12 +72,12 @@ mappings = {
         "o": CRMCLS["X12_Tool"],
     },
     "veld url id p1 E41 / E42 instance": {
-        "s": get_chain_or_code_veld_uris,
+        "s": get_all_veld_uris,
         "p": CRM["P1_is_identified_by"],
-        "o": get_chain_or_code_veld_appellation_and_id,
+        "o": get_all_veld_appellation,
     },
     "E41 instance (of chain or code veld) a E41": {
-        "s": get_chain_or_code_veld_appellation_and_id,
+        "s": get_all_veld_appellation,
         "p": RDF.type,
         "o": CRM["E41_Appellation"],
     },
@@ -89,7 +89,7 @@ mappings = {
     "E41 instance (of any veld) p2 appellation label": {
         "s": get_all_veld_appellation,
         "p": RDF.value,
-        "o": get_chain_or_code_veld_label,
+        "o": get_all_veld_appellation_label,
     },
     # "E42 instance (of chain or code veld) a E42": {
     #     "s": get_chain_or_code_veld_appellation_and_id,
