@@ -278,7 +278,22 @@ def get_chain_veld_label():
     return result
 
 
-def get_chain_or_code_veld_appellation():
+def get_chain_or_code_veld_label():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_label = None
+        code_label = _get_veld_label_by_type(veld_data, "code")
+        chain_label = _get_veld_label_by_type(veld_data, "chain")
+        if code_label:
+            veld_label = code_label
+        if chain_label:
+            veld_label = chain_label
+        if veld_label:
+            result[veld_key] = [veld_label]
+    return result
+
+
+def get_chain_or_code_veld_appellation_and_id():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         veld_uri = None

@@ -22,11 +22,11 @@ mappings = {
     },
 
     # code velds
-    "code veld url rdfs:label label": {
-        "s": get_code_veld_uris,
-        "p": RDFS.label,
-        "o": get_code_veld_label,
-    },
+    # "code veld url rdfs:label label": {
+    #     "s": get_code_veld_uris,
+    #     "p": RDFS.label,
+    #     "o": get_code_veld_label,
+    # },
 
     # chain velds
     "chain veld url a PE23": {
@@ -59,11 +59,11 @@ mappings = {
         "p": CRMCLS["Y7_uses"],
         "o": get_integrated_code_veld_uri,
     },
-    "chain veld url rdfs:label label": {
-        "s": get_chain_veld_uris,
-        "p": RDFS.label,
-        "o": get_chain_veld_label,
-    },
+    # "chain veld url rdfs:label label": {
+    #     "s": get_chain_veld_uris,
+    #     "p": RDFS.label,
+    #     "o": get_chain_veld_label,
+    # },
     
     # both chain and code veld appellations
     "hashed veld url p1 E41": {
@@ -71,13 +71,13 @@ mappings = {
         "p": RDF.type,
         "o": CRMCLS["X12_Tool"],
     },
-    "veld url id p1 E41": {
+    "veld url id p1 E41 / E42 instance": {
         "s": get_chain_or_code_veld_uris,
         "p": CRM["P1_is_identified_by"],
-        "o": get_chain_or_code_veld_appellation,
+        "o": get_chain_or_code_veld_appellation_and_id,
     },
     "E41 instance (of chain or code veld) a E41": {
-        "s": get_chain_or_code_veld_appellation,
+        "s": get_chain_or_code_veld_appellation_and_id,
         "p": RDF.type,
         "o": CRM["E41_Appellation"],
     },
@@ -89,8 +89,18 @@ mappings = {
     "E41 instance (of any veld) p2 appellation label": {
         "s": get_all_veld_appellation,
         "p": RDF.value,
-        "o": get_all_veld_appellation_label,
+        "o": get_chain_or_code_veld_label,
     },
+    # "E42 instance (of chain or code veld) a E42": {
+    #     "s": get_chain_or_code_veld_appellation_and_id,
+    #     "p": RDF.type,
+    #     "o": CRM["E42_Identifier"],
+    # },
+    # "E41 instance (of any veld) p190 veld url": {
+    #     "s": get_all_veld_appellation,
+    #     "p": CRM["P190_has_symbolic_content"],
+    #     "o": get_all_veld_appellation_type,
+    # },
 
     # Attribute Assignments Y8
     "assignment_uri_y8 a E13": {
