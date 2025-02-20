@@ -73,7 +73,7 @@ def _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io):
                     if match_count_tmp > match_count_max:
                         match_count_max = match_count_tmp
                         if match_count_max > 0:
-                            result.append(URIRef(data_uri))
+                            result.append(CLS[_generate_hash(data_uri + "__uri_hash")])
     return result
 
 
@@ -126,7 +126,7 @@ def _transform_file_type(file_type_data):
     return result
 
 
-def _get_veld_uri_by_type(veld_data, veld_type):
+def _get_veld_url_by_type(veld_data, veld_type):
     if _get_data_recursively(veld_data, ["content", "x-veld", veld_type]):
         return URIRef(veld_data["url"])
     else:
@@ -152,18 +152,51 @@ def _get_veld_label_by_type(veld_data, veld_type):
 def _get_data_veld_uris__as_chain_io_by_io(io):
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        inputs = _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io)
-        if inputs:
-            result[veld_key] = inputs
+        io_result = _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io)
+        if io_result:
+            result[veld_key] = io_result
     return result
     
     
 def get_data_veld_uris():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = _get_veld_uri_by_type(veld_data, "data")
+        veld_uri = _get_veld_url_by_type(veld_data, "data")
         if veld_uri:
-            result[veld_key] = [veld_uri]
+            result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
+    return result
+
+
+def get_code_veld_uris():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_uri = _get_veld_url_by_type(veld_data, "code")
+        if veld_uri:
+            result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
+    return result
+
+
+def get_chain_veld_uris():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_uri = _get_veld_url_by_type(veld_data, "chain")
+        if veld_uri:
+            result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
+    return result
+
+
+def get_chain_or_code_veld_uris():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_uri = None
+        code_uri = _get_veld_url_by_type(veld_data, "code")
+        chain_uri = _get_veld_url_by_type(veld_data, "chain")
+        if code_uri:
+            veld_uri = code_uri
+        if chain_uri:
+            veld_uri = chain_uri
+        if veld_uri:
+            result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
     return result
     
     
@@ -185,30 +218,12 @@ def get_data_veld_label():
     return result
 
 
-def get_code_veld_uris():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = _get_veld_uri_by_type(veld_data, "code")
-        if veld_uri:
-            result[veld_key] = [veld_uri]
-    return result
-
-
 def get_code_veld_label():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         veld_label = _get_veld_label_by_type(veld_data, "code")
         if veld_label:
             result[veld_key] = [veld_label]
-    return result
-
-
-def get_chain_veld_uris():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = _get_veld_uri_by_type(veld_data, "chain")
-        if veld_uri:
-            result[veld_key] = [veld_uri]
     return result
 
 
@@ -220,7 +235,7 @@ def get_data_veld_uris__as_chain_output():
     return _get_data_veld_uris__as_chain_io_by_io("output")
 
 
-def get_integrated_code_veld_id():
+def get_integrated_code_veld_uri():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         if _is_chain_veld(veld_data):
@@ -237,9 +252,9 @@ def get_integrated_code_veld_id():
                     code_veld_id = code_veld_file[2:].replace("/", "___")
                     code_veld_data = VELD_DATA_ALL.get(code_veld_id)
                     if code_veld_data is not None:
-                        code_veld_uri = _get_veld_uri_by_type(code_veld_data, "code")
+                        code_veld_uri = _get_veld_url_by_type(code_veld_data, "code")
                         if code_veld_uri is not None:
-                            result_per_veld_key.append(code_veld_uri)
+                            result_per_veld_key.append(CLS[_generate_hash(code_veld_uri + "__uri_hash")])
                 if result_per_veld_key:
                     result[veld_key] = result_per_veld_key
     return result
@@ -263,27 +278,12 @@ def get_chain_veld_label():
     return result
 
 
-def get_chain_or_code_veld_uri():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = None
-        code_uri = _get_veld_uri_by_type(veld_data, "code")
-        chain_uri = _get_veld_uri_by_type(veld_data, "chain")
-        if code_uri:
-            veld_uri = code_uri
-        if chain_uri:
-            veld_uri = chain_uri
-        if veld_uri:
-            result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
-    return result
-
-
 def get_chain_or_code_veld_appellation():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         veld_uri = None
-        code_uri = _get_veld_uri_by_type(veld_data, "code")
-        chain_uri = _get_veld_uri_by_type(veld_data, "chain")
+        code_uri = _get_veld_url_by_type(veld_data, "code")
+        chain_uri = _get_veld_url_by_type(veld_data, "chain")
         if code_uri:
             veld_uri = code_uri
         if chain_uri:
@@ -362,12 +362,12 @@ def get_method_uris():
     return result
 
 
-def get_code_or_chain_veld_yaml_url():
+def get_code_or_chain_veld_uri_per_method():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         veld_uri = None
-        code_veld_uri = _get_veld_uri_by_type(veld_data, "code")
-        chain_veld_uri = _get_veld_uri_by_type(veld_data, "chain")
+        code_veld_uri = _get_veld_url_by_type(veld_data, "code")
+        chain_veld_uri = _get_veld_url_by_type(veld_data, "chain")
         if code_veld_uri:
             veld_uri = code_veld_uri
         if chain_veld_uri:
@@ -375,7 +375,7 @@ def get_code_or_chain_veld_yaml_url():
         if veld_uri:
             methods = _get_topic_as_method_uri(veld_data)
             for i, m in enumerate(methods):
-                result[veld_key + "__" + str(i)] = [veld_uri]
+                result[veld_key + "__" + str(i)] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
     return result
 
 

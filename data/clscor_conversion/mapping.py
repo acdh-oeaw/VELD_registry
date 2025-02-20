@@ -22,11 +22,6 @@ mappings = {
     },
 
     # code velds
-    # "code veld url a X12": {
-    #     "s": get_code_veld_uris,
-    #     "p": RDF.type,
-    #     "o": CRMCLS["X12_Tool"],
-    # },
     "code veld url rdfs:label label": {
         "s": get_code_veld_uris,
         "p": RDFS.label,
@@ -34,11 +29,6 @@ mappings = {
     },
 
     # chain velds
-    # "chain veld url a X12": {
-    #     "s": get_chain_veld_uris,
-    #     "p": RDF.type,
-    #     "o": CRMCLS["X12_Tool"],
-    # },
     "chain veld url a PE23": {
         "s": get_chain_veld_uris,
         "p": RDF.type,
@@ -67,7 +57,7 @@ mappings = {
     "chain Y7 code": {
         "s": get_chain_veld_uris,
         "p": CRMCLS["Y7_uses"],
-        "o": get_integrated_code_veld_id,
+        "o": get_integrated_code_veld_uri,
     },
     "chain veld url rdfs:label label": {
         "s": get_chain_veld_uris,
@@ -77,12 +67,12 @@ mappings = {
     
     # both chain and code veld appellations
     "hashed veld url p1 E41": {
-        "s": get_chain_or_code_veld_uri,
+        "s": get_chain_or_code_veld_uris,
         "p": RDF.type,
         "o": CRMCLS["X12_Tool"],
     },
     "veld url id p1 E41": {
-        "s": get_chain_or_code_veld_uri,
+        "s": get_chain_or_code_veld_uris,
         "p": CRM["P1_is_identified_by"],
         "o": get_chain_or_code_veld_appellation,
     },
@@ -116,7 +106,7 @@ mappings = {
     "assignment_uri_y8 P140 code or chain veld url": {
         "s": get_attribute_assignment_uris_y8,
         "p": CRM["P140_assigned_attribute_to"],
-        "o": get_code_or_chain_veld_yaml_url,
+        "o": get_code_or_chain_veld_uri_per_method,
     },
     "assignment_uri_y8 P141 method uri": {
         "s": get_attribute_assignment_uris_y8,
