@@ -8,10 +8,12 @@ from data.clscor_conversion.rdf_modules_namespaces import *
 from data.clscor_conversion import mapping
 
 
-IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
+# IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
+IN_VELD_DATA_PATH = "/app/data/veld_files/merged/all_velds_merged_sample.yaml"
 with open(IN_VELD_DATA_PATH, "r") as f:
     VELD_DATA_ALL = yaml.safe_load(f)
-OUT_TTL_DATA_PATH = "/app/data/clscor_conversion/output.ttl"
+# OUT_TTL_DATA_PATH = "/app/data/clscor_conversion/output.ttl"
+OUT_TTL_DATA_PATH = "/app/data/clscor_conversion/output_sample.ttl"
 
 
 def _generate_hash(s):
@@ -486,8 +488,6 @@ def get_code_veld_input_format():
 
 def get_code_veld_output_format():
     return get_code_veld_input_or_output_format("output")
-    
-
 
 def main():
     
