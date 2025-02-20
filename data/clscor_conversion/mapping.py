@@ -71,26 +71,31 @@ mappings = {
         "p": RDF.type,
         "o": CRMCLS["X12_Tool"],
     },
-    "veld url id p1 E41 / E42 instance": {
+    "veld url id p1 E41 instance": {
         "s": get_all_veld_uris,
         "p": CRM["P1_is_identified_by"],
-        "o": get_all_veld_appellation,
+        "o": get_all_veld_appellation_uri,
     },
     "E41 instance (of chain or code veld) a E41": {
-        "s": get_all_veld_appellation,
+        "s": get_all_veld_appellation_uri,
         "p": RDF.type,
         "o": CRM["E41_Appellation"],
     },
     "E41 instance (of any veld) p2 appellation type": {
-        "s": get_all_veld_appellation,
+        "s": get_all_veld_appellation_uri,
         "p": CRM["P2_has_type"],
         "o": get_all_veld_appellation_type,
     },
     "E41 instance (of any veld) p2 appellation label": {
-        "s": get_all_veld_appellation,
+        "s": get_all_veld_appellation_uri,
         "p": RDF.value,
         "o": get_all_veld_appellation_label,
     },
+    # "veld url id p1 E42 instance": {
+    #     "s": get_all_veld_uris,
+    #     "p": CRM["P1_is_identified_by"],
+    #     "o": get_all_veld_identifier_uri,
+    # },
     # "E42 instance (of chain or code veld) a E42": {
     #     "s": get_chain_or_code_veld_appellation_and_id,
     #     "p": RDF.type,
