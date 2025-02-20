@@ -45,7 +45,6 @@ def _is_chain_veld(veld_data):
 def _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io):
     result = []
     volumes_list = []
-    # if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None:
     if _is_chain_veld(veld_data):
         services = _get_data_recursively(veld_data, ["content", "services"])
         for s in services.values():
@@ -223,7 +222,6 @@ def get_data_veld_uris__as_chain_output():
 def get_integrated_code_veld_id():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        # if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]):
         if _is_chain_veld(veld_data):
             services = _get_data_recursively(veld_data, ["content", "services"])
             if services is not None:
@@ -249,7 +247,6 @@ def get_integrated_code_veld_id():
 def get_x5_uri_from_chain():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        # if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]):
         if _is_chain_veld(veld_data):
             chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
             result[veld_key] = [URIRef(chain_repo_url)]
