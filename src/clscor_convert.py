@@ -219,6 +219,17 @@ def get_all_veld_urls():
     for veld_key, veld_data in VELD_DATA_ALL.items():
         result[veld_key] = [URIRef(veld_data["url"])]
     return result
+
+
+def get_data_description():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_data_data = _get_data_recursively(veld_data, ["content", "x-veld"])
+        veld_data_data_data = list(veld_data_data.values())[0]
+        desc = _get_data_recursively(veld_data_data_data, ["description"])
+        if desc:
+            result[veld_key] = [Literal(desc)]
+    return result
     
     
 def get_data_veld_file_type():

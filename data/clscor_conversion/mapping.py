@@ -4,6 +4,13 @@ from src.clscor_convert import *
 
 mappings = {
     
+    # all velds
+    "veld description P3 description": {
+        "s": get_all_veld_uris,
+        "p": CRM["P3_has_note"],
+        "o": get_data_description,
+    },
+    
     # data velds
     "data veld url a PE19": {
         "s": get_data_veld_uris,
@@ -15,18 +22,6 @@ mappings = {
         "p": CRMCLS["Y2_has_format"],
         "o": get_data_veld_file_type,
     },
-    # "data veld url rdfs:label label": {
-    #     "s": get_data_veld_uris,
-    #     "p": RDFS.label,
-    #     "o": get_data_veld_label,
-    # },
-
-    # code velds
-    # "code veld url rdfs:label label": {
-    #     "s": get_code_veld_uris,
-    #     "p": RDFS.label,
-    #     "o": get_code_veld_label,
-    # },
 
     # chain velds
     "chain veld url a PE23": {
@@ -59,11 +54,6 @@ mappings = {
         "p": CRMCLS["Y7_uses"],
         "o": get_integrated_code_veld_uri,
     },
-    # "chain veld url rdfs:label label": {
-    #     "s": get_chain_veld_uris,
-    #     "p": RDFS.label,
-    #     "o": get_chain_veld_label,
-    # },
     
     # both chain and code veld appellations
     "hashed veld url p1 E41": {
