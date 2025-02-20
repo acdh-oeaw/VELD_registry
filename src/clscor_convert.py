@@ -27,13 +27,26 @@ def _get_data_recursively(d, key_list):
         return d
     else:
         return None
+
+
+def _is_data_veld(veld_data):
+    return _get_data_recursively(veld_data, ["content", "x-veld", "data"]) is not None
+
+
+def _is_code_veld(veld_data):
+    return _get_data_recursively(veld_data, ["content", "x-veld", "code"]) is not None
+
+
+def _is_chain_veld(veld_data):
+    return _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None
     
 
 # TODO: result of this seems a little bit low; check it
 def _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io):
     result = []
     volumes_list = []
-    if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None:
+    # if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None:
+    if _is_chain_veld(veld_data):
         services = _get_data_recursively(veld_data, ["content", "services"])
         for s in services.values():
             v = s.get("volumes")
@@ -43,7 +56,7 @@ def _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io):
     if volumes_list:
         data_veld_uris = {}
         for data_veld_id, data_veld_data in VELD_DATA_ALL.items():
-            if _get_data_recursively(data_veld_data, ["content", "x-veld", "data"]) is not None:
+            if _is_data_veld(data_veld_data):
                 data_veld_uris[data_veld_id] = data_veld_data["url"]
         for vol in volumes_list:
             vol = vol.split(":")
@@ -210,7 +223,8 @@ def get_data_veld_uris__as_chain_output():
 def get_integrated_code_veld_id():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]):
+        # if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]):
+        if _is_chain_veld(veld_data):
             services = _get_data_recursively(veld_data, ["content", "services"])
             if services is not None:
                 code_veld_file_list = []
@@ -235,7 +249,8 @@ def get_integrated_code_veld_id():
 def get_x5_uri_from_chain():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]):
+        # if _get_data_recursively(veld_data, ["content", "x-veld", "chain"]):
+        if _is_chain_veld(veld_data):
             chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
             result[veld_key] = [URIRef(chain_repo_url)]
     return result
@@ -254,8 +269,8 @@ def get_attribute_assignment_uris_y8():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         if (
-            _get_data_recursively(veld_data, ["content", "x-veld", "code"])
-            or _get_data_recursively(veld_data, ["content", "x-veld", "chain"])
+            _is_code_veld(veld_data)
+            or _is_chain_veld(veld_data)
         ):
             methods = _get_topic_as_method_uri(veld_data)
             for i, m in enumerate(methods):
@@ -268,8 +283,8 @@ def get_cls_tool_description_event_uris_y8():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         if (
-            _get_data_recursively(veld_data, ["content", "x-veld", "code"])
-            or _get_data_recursively(veld_data, ["content", "x-veld", "chain"])
+            _is_code_veld(veld_data)
+            or _is_chain_veld(veld_data)
         ):
             methods = _get_topic_as_method_uri(veld_data)
             hashed_uri = _generate_hash(veld_data["url"] + "description_event")
@@ -282,8 +297,8 @@ def get_method_uris():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         if (
-            _get_data_recursively(veld_data, ["content", "x-veld", "code"])
-            or _get_data_recursively(veld_data, ["content", "x-veld", "chain"])
+            _is_code_veld(veld_data)
+            or _is_chain_veld(veld_data)
         ):
             methods_uri = _get_topic_as_method_uri(veld_data)
             for i, m in enumerate(methods_uri):
@@ -312,7 +327,7 @@ def get_attribute_assignment_uris_regarding_y9_or_y10_by_io(io):
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         if (
-            _get_data_recursively(veld_data, ["content", "x-veld", "code"])
+            _is_code_veld(veld_data)
              and _get_code_veld_file_type_to_format_of_io(veld_data, io)
         ):
             hashed_uri = _generate_hash(veld_key + "attribute_assignment__y9_and_y10__" + io)
@@ -332,7 +347,7 @@ def get_tool_description_event_uris_y9_and_y10():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         if (
-            _get_data_recursively(veld_data, ["content", "x-veld", "code"])
+            _is_code_veld(veld_data)
              and (
                 _get_code_veld_file_type_to_format_of_io(veld_data, "input")
                 or _get_code_veld_file_type_to_format_of_io(veld_data, "output")
@@ -346,7 +361,7 @@ def get_tool_description_event_uris_y9_and_y10():
 def get_code_veld_input_or_output_format(io):
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _get_data_recursively(veld_data, ["content", "x-veld", "code"]):
+        if _is_code_veld(veld_data):
             io_result = _get_code_veld_file_type_to_format_of_io(veld_data, io)
             if io_result:
                 result[veld_key] = io_result
