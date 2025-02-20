@@ -76,17 +76,17 @@ mappings = {
         "p": CRM["P1_is_identified_by"],
         "o": get_all_veld_appellation_uri,
     },
-    "E41 instance (of chain or code veld) a E41": {
+    "E41 instance a E41": {
         "s": get_all_veld_appellation_uri,
         "p": RDF.type,
         "o": CRM["E41_Appellation"],
     },
-    "E41 instance (of any veld) p2 appellation type": {
+    "E41 instancep2 appellation type": {
         "s": get_all_veld_appellation_uri,
         "p": CRM["P2_has_type"],
         "o": get_all_veld_appellation_type,
     },
-    "E41 instance (of any veld) p2 appellation label": {
+    "E41 instancep2 appellation label": {
         "s": get_all_veld_appellation_uri,
         "p": RDF.value,
         "o": get_all_veld_appellation_label,
@@ -96,12 +96,12 @@ mappings = {
         "p": CRM["P1_is_identified_by"],
         "o": get_all_veld_identifier_uri,
     },
-    "E42 instance (of chain or code veld) a E42": {
+    "E42 instance a E42": {
         "s": get_all_veld_identifier_uri,
         "p": RDF.type,
         "o": CRM["E42_Identifier"],
     },
-    "E41 instance (of any veld) p190 veld url": {
+    "E41 instance p190 veld url": {
         "s": get_all_veld_identifier_uri,
         "p": CRM["P190_has_symbolic_content"],
         "o": get_all_veld_urls,
