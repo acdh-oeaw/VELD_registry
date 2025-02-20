@@ -318,7 +318,7 @@ def get_chain_or_code_veld_appellation_and_id():
         if chain_uri:
             veld_uri = chain_uri
         if veld_uri:
-            veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key + "__appellation_id")
+            veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key + "__e41")
             result[veld_key] = [CLS[str(veld_uuid)]]
     return result
 
@@ -326,7 +326,7 @@ def get_chain_or_code_veld_appellation_and_id():
 def get_all_veld_appellation_uri():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key + "__appellation_id")
+        veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key + "__e41")
         result[veld_key] = [CLS[str(veld_uuid)]]
     return result
 
@@ -354,7 +354,7 @@ def get_all_veld_appellation_label():
 def get_all_veld_identifier_uri():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key)
+        veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key + "__e42")
         result[veld_key] = [CLS[str(veld_uuid)]]
     return result
     
