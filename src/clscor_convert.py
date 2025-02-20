@@ -1,5 +1,6 @@
 import hashlib
 import types
+import uuid
 
 import yaml
 
@@ -260,6 +261,64 @@ def get_chain_veld_label():
         if veld_label:
             result[veld_key] = [veld_label]
     return result
+
+
+def get_chain_or_code_veld_uri():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_uri = None
+        code_uri = _get_veld_uri_by_type(veld_data, "code")
+        chain_uri = _get_veld_uri_by_type(veld_data, "chain")
+        if code_uri:
+            veld_uri = code_uri
+        if chain_uri:
+            veld_uri = chain_uri
+        if veld_uri:
+            result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
+    return result
+
+
+def get_chain_or_code_veld_appellation():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_uri = None
+        code_uri = _get_veld_uri_by_type(veld_data, "code")
+        chain_uri = _get_veld_uri_by_type(veld_data, "chain")
+        if code_uri:
+            veld_uri = code_uri
+        if chain_uri:
+            veld_uri = chain_uri
+        if veld_uri:
+            veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key)
+            result[veld_key] = [CLS[str(veld_uuid)]]
+    return result
+
+
+def get_all_veld_appellation():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key)
+        result[veld_key] = [CLS[str(veld_uuid)]]
+    return result
+
+
+def get_all_veld_appellation_type():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        if _is_data_veld(veld_data):
+            result[veld_key] = [CLS_APLTN["data_veld"]]
+        if _is_code_veld(veld_data):
+            result[veld_key] = [CLS_APLTN["code_veld"]]
+        if _is_chain_veld(veld_data):
+            result[veld_key] = [CLS_APLTN["chain_veld"]]
+    return result
+
+
+def get_all_veld_appellation_label():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        result[veld_key] = [URIRef(veld_data["url"])]
+    return result
     
     
 def get_attribute_assignment_uris_y8():
@@ -371,6 +430,7 @@ def get_code_veld_input_format():
 
 def get_code_veld_output_format():
     return get_code_veld_input_or_output_format("output")
+    
 
 
 def main():
