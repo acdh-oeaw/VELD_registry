@@ -96,16 +96,16 @@ mappings = {
         "p": CRM["P1_is_identified_by"],
         "o": get_all_veld_identifier_uri,
     },
-    # "E42 instance (of chain or code veld) a E42": {
-    #     "s": get_chain_or_code_veld_appellation_and_id,
-    #     "p": RDF.type,
-    #     "o": CRM["E42_Identifier"],
-    # },
-    # "E41 instance (of any veld) p190 veld url": {
-    #     "s": get_all_veld_appellation,
-    #     "p": CRM["P190_has_symbolic_content"],
-    #     "o": get_all_veld_appellation_type,
-    # },
+    "E42 instance (of chain or code veld) a E42": {
+        "s": get_all_veld_identifier_uri,
+        "p": RDF.type,
+        "o": CRM["E42_Identifier"],
+    },
+    "E41 instance (of any veld) p190 veld url": {
+        "s": get_all_veld_identifier_uri,
+        "p": CRM["P190_has_symbolic_content"],
+        "o": get_all_veld_urls,
+    },
 
     # Attribute Assignments Y8
     "assignment_uri_y8 a E13": {

@@ -212,6 +212,13 @@ def get_all_veld_uris():
         veld_uri = URIRef(veld_data["url"])
         result[veld_key] = [CLS[_generate_hash(veld_uri + "__uri_hash")]]
     return result
+
+
+def get_all_veld_urls():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        result[veld_key] = [URIRef(veld_data["url"])]
+    return result
     
     
 def get_data_veld_file_type():
