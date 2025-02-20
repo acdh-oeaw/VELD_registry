@@ -91,11 +91,11 @@ mappings = {
         "p": RDF.value,
         "o": get_all_veld_appellation_label,
     },
-    # "veld url id p1 E42 instance": {
-    #     "s": get_all_veld_uris,
-    #     "p": CRM["P1_is_identified_by"],
-    #     "o": get_all_veld_identifier_uri,
-    # },
+    "veld url id p1 E42 instance": {
+        "s": get_all_veld_uris,
+        "p": CRM["P1_is_identified_by"],
+        "o": get_all_veld_identifier_uri,
+    },
     # "E42 instance (of chain or code veld) a E42": {
     #     "s": get_chain_or_code_veld_appellation_and_id,
     #     "p": RDF.type,
