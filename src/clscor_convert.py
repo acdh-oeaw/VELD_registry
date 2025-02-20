@@ -346,7 +346,6 @@ def get_all_veld_appellation_type():
 def get_all_veld_appellation_label():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_type = _get_data_recursively(veld_data, ["content", "x-veld"])
         label = _get_veld_label(veld_data)
         result[veld_key] = [label]
     return result
