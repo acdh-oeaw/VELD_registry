@@ -151,27 +151,24 @@ def _get_data_veld_uris__as_chain_io_by_io(io):
 def get_data_veld_uris():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = _get_veld_url_by_type(veld_data, "data")
-        if veld_uri:
-            result[veld_key] = [CLS[_generate_hash(veld_uri)]]
+        if _is_data_veld(veld_data):
+            result[veld_key] = [CLS[_generate_hash(veld_data["url"])]]
     return result
 
 
 def get_code_veld_uris():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = _get_veld_url_by_type(veld_data, "code")
-        if veld_uri:
-            result[veld_key] = [CLS[_generate_hash(veld_uri)]]
+        if _is_code_veld(veld_data):
+            result[veld_key] = [CLS[_generate_hash(veld_data["url"])]]
     return result
 
 
 def get_chain_veld_uris():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = _get_veld_url_by_type(veld_data, "chain")
-        if veld_uri:
-            result[veld_key] = [CLS[_generate_hash(veld_uri)]]
+        if _is_chain_veld(veld_data):
+            result[veld_key] = [CLS[_generate_hash(veld_data["url"])]]
     return result
 
 
@@ -179,8 +176,7 @@ def get_chain_veld_uris():
 def get_all_veld_uris():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        veld_uri = URIRef(veld_data["url"])
-        result[veld_key] = [CLS[_generate_hash(veld_uri)]]
+        result[veld_key] = [CLS[_generate_hash(veld_data["url"])]]
     return result
 
 
@@ -236,9 +232,8 @@ def get_integrated_code_veld_uri():
                     code_veld_id = code_veld_file[2:].replace("/", "___")
                     code_veld_data = VELD_DATA_ALL.get(code_veld_id)
                     if code_veld_data is not None:
-                        code_veld_uri = _get_veld_url_by_type(code_veld_data, "code")
-                        if code_veld_uri is not None:
-                            result_per_veld_key.append(CLS[_generate_hash(code_veld_uri)])
+                        if _is_code_veld(code_veld_data):
+                            result_per_veld_key.append(CLS[_generate_hash(code_veld_data["url"])])
                 if result_per_veld_key:
                     result[veld_key] = result_per_veld_key
     return result
