@@ -5,51 +5,51 @@ from src.clscor_convert import *
 mappings = {
 
     # all velds
-    "veld description P3 description": {
+    "veld_instance -P3-> veld_description": {
         "s": get_all_veld_uris,
         "p": CRM["P3_has_note"],
         "o": get_data_description,
     },
 
     # data velds
-    "data veld url a PE19": {
+    "data_veld_instance -a-> PE19": {
         "s": get_data_veld_uris,
         "p": RDF.type,
         "o": PEM["PE19_Persistent_Digital_Object"],
     },
-    "data veld Y2 to file type": {
+    "data_veld_instance -Y2-> format": {
         "s": get_data_veld_uris,
         "p": CRMCLS["Y2_has_format"],
         "o": get_data_veld_file_type,
     },
 
     # chain velds
-    "chain veld url a PE23": {
+    "chain_veld_instance -a-> PE23": {
         "s": get_chain_veld_uris,
         "p": RDF.type,
         "o": PEM["PE23_Volatile_Software"],
     },
-    "chain repo url a X5": {
+    "X5_instance -a-> X5": {
         "s": get_x5_uri_from_chain,
         "p": RDF.type,
         "o": CRMCLS["X5_Research_Activity"],
     },
-    "X5 to chain": {
+    "X5_instance -Y7-> chain_veld_instance": {
         "s": get_x5_uri_from_chain,
         "p": CRMCLS["Y7_uses"],
         "o": get_chain_veld_uris,
     },
-    "X5 had input PE19 (data veld)": {
+    "X5_instance -Y11-> data_veld_instance": {
         "s": get_x5_uri_from_chain,
         "p": CRMCLS["Y11_received_input"],
         "o": get_data_veld_uris__as_chain_input,
     },
-    "X5 generated output PE19 (data veld)": {
+    "X5_instance -Y12-> data_veld_instance": {
         "s": get_x5_uri_from_chain,
         "p": CRMCLS["Y12_created_output"],
         "o": get_data_veld_uris__as_chain_output,
     },
-    "chain Y7 code": {
+    "chain_veld_instance -Y7-> code_veld_instance": {
         "s": get_chain_veld_uris,
         "p": CRMCLS["Y7_uses"],
         "o": get_integrated_code_veld_uri,
