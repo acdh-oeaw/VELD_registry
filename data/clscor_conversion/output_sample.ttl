@@ -3,31 +3,41 @@
 @prefix pem: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://clscor.io/entity/20933b3b30> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/45c6fff138> ;
+<https://clscor.io/entity/1ab7412fd0> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/50c03c729e> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
-    crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
-        <https://clscor.io/entity/type/format/xml> ;
-    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://clscor.io/entity/286be1dc4a> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6db547cdd1> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/30fd449bde> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/45c6fff138> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
-    crm:P141_assigned <https://clscor.io/entity/type/format/xml>,
-        <https://clscor.io/entity/type/format/xslt> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xslt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/75a1430723> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/a9c48f2175> ;
+<https://clscor.io/entity/1ea79b1e5e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/50c03c729e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/6c2ec8edfe> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/7e02f3bc48> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/486810d152> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/806fd1c853> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/50c03c729e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
+
+<https://clscor.io/entity/ab9116f48a> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/50c03c729e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/ebba55732d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/50c03c729e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/e8a5b1d10a> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://clscor.io/entity/486810d152> ;
@@ -54,9 +64,7 @@
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
     rdf:value "veld_code__xml_xslt_transformer" .
 
-<https://clscor.io/entity/6db547cdd1> a crmcls:X13_Tool_Description .
-
-<https://clscor.io/entity/a9c48f2175> a crmcls:X13_Tool_Description .
+<https://clscor.io/entity/7e02f3bc48> a crmcls:X13_Tool_Description .
 
 <https://clscor.io/entity/bba75c0c-5e72-5c5f-8a3e-c110bfdc2cf4> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> .
@@ -64,17 +72,15 @@
 <https://clscor.io/entity/f45cf867-125a-5da8-baae-6befc58f11ac> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__eltec_original_selection/blob/main/veld.yaml> .
 
-<https://clscor.io/entity/45c6fff138> a crmcls:X13_Tool_Description .
-
-<https://clscor.io/entity/486810d152> a pem:PE23_Volatile_Software,
-        crmcls:X12_Tool ;
+<https://clscor.io/entity/486810d152> a pem:PE23_Volatile_Software ;
     crm:P1_is_identified_by <https://clscor.io/entity/13dcf45e-eaa0-55f3-a817-2ef7fbb96df0>,
         <https://clscor.io/entity/378e9780-2ed9-5790-8f34-503c3d846da8> ;
     crm:P3_has_note "xml / xslt transformation of ELTeC data" ;
     crmcls:Y7_uses <https://clscor.io/entity/e8a5b1d10a> .
 
-<https://clscor.io/entity/e8a5b1d10a> a crmcls:X12_Tool ;
-    crm:P1_is_identified_by <https://clscor.io/entity/57d312dc-d575-52ff-9aad-1e358fded264>,
+<https://clscor.io/entity/50c03c729e> a crmcls:X13_Tool_Description .
+
+<https://clscor.io/entity/e8a5b1d10a> crm:P1_is_identified_by <https://clscor.io/entity/57d312dc-d575-52ff-9aad-1e358fded264>,
         <https://clscor.io/entity/bba75c0c-5e72-5c5f-8a3e-c110bfdc2cf4> ;
     crm:P3_has_note "generic xml / xslt transformation setup." .
 
