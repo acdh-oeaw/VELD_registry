@@ -75,6 +75,34 @@
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "annotation through text reading" .
 
+<https://clscor.io/entity/type/method/applying_ETL_process> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "applying ETL process" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:broaderMatch "<https://vocabs.dariah.eu/tadirah/extracting>" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "applying ETL process" .
+
+<https://clscor.io/entity/type/method/applying_RDF_schema> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "applying RDF schema" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "applying RDF schema" .
+
+<https://clscor.io/entity/type/method/applying_bible_studies> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "applying bible studies" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "applying bible studies" .
+
 <https://clscor.io/entity/type/method/applying_nlp_methods> a crm:E55_Type,
         skos:Concept,
         crmcls:X6_Method ;
@@ -94,6 +122,15 @@
     skos:definition "general task of applying textometry methods" ;
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "applying textometry methods" .
+
+<https://clscor.io/entity/type/method/applying_universal_dependencies> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "applying universal dependencies" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "applying universal dependencies" .
 
 <https://clscor.io/entity/type/method/automatic_annotation> a crm:E55_Type,
         skos:Concept,
@@ -237,6 +274,37 @@
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "correspondence factor analysis" .
 
+<https://clscor.io/entity/type/method/data_cleaning> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "data cleaning" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:altLabel "data cleansing" ;
+    skos:broaderMatch "<https://vocabs.dariah.eu/tadirah/dataCleansing>" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "data cleaning" .
+
+<https://clscor.io/entity/type/method/data_visualization> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "data visualization" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:exactMatch "<https://vocabs.dariah.eu/tadirah/dataVisualization>" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "data visualization" .
+
+<https://clscor.io/entity/type/method/dependency_parsing> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "dependency parsing" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:broaderMatch "<https://vocabs.dariah.eu/tadirah/parsing>" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "dependency parsing" .
+
 <https://clscor.io/entity/type/method/drama_analysis> a crm:E55_Type,
         skos:Concept,
         crmcls:X6_Method ;
@@ -258,6 +326,15 @@
     skos:example "Entity Linking (aka Wikification - Grounding)" ;
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "entity linking" .
+
+<https://clscor.io/entity/type/method/evaluating> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "evaluating" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "evaluating" .
 
 <https://clscor.io/entity/type/method/event_extraction> a crm:E55_Type,
         skos:Concept,
@@ -287,6 +364,16 @@
     rdfs:comment "source: D8.1" ;
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "frequency distribution" .
+
+<https://clscor.io/entity/type/method/grammatical_annotation> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "grammatical annotation" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:broaderMatch "<https://vocabs.dariah.eu/tadirah/annotating>" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "grammatical annotation" .
 
 <https://clscor.io/entity/type/method/hierarchical_cluster_analysis> a crm:E55_Type,
         skos:Concept,
@@ -513,6 +600,16 @@ branch of statistics and computer science which studies algorithms and architect
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "portal management" .
 
+<https://clscor.io/entity/type/method/preprocessing> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "preprocessing" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:exactMatch "<https://vocabs.dariah.eu/tadirah/preprocessing>" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "preprocessing" .
+
 <https://clscor.io/entity/type/method/progression_analysis> a crm:E55_Type,
         skos:Concept,
         crmcls:X6_Method ;
@@ -522,6 +619,15 @@ branch of statistics and computer science which studies algorithms and architect
     skos:broaderMatch "<https://vocabs.dariah.eu/tadirah/analyzing>" ;
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "progression analysis" .
+
+<https://clscor.io/entity/type/method/providing_a_demo> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "providing a demo" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "providing a demo" .
 
 <https://clscor.io/entity/type/method/qualitative_analysis> a crm:E55_Type,
         skos:Concept,
@@ -581,6 +687,16 @@ branch of statistics and computer science which studies algorithms and architect
     skos:definition "Automatic enjambment detection" ;
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "rule-based enjambment detection" .
+
+<https://clscor.io/entity/type/method/searching> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "searching" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: D8.1" ;
+    skos:exactMatch "<https://vocabs.dariah.eu/tadirah/searching>" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "searching" .
 
 <https://clscor.io/entity/type/method/semantic_parsing> a crm:E55_Type,
         skos:Concept,
@@ -718,6 +834,15 @@ branch of statistics and computer science which studies algorithms and architect
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "syntagmatic analysis" .
 
+<https://clscor.io/entity/type/method/testing> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "testing" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "testing" .
+
 <https://clscor.io/entity/type/method/text_classification> a crm:E55_Type,
         skos:Concept,
         crmcls:X6_Method ;
@@ -777,6 +902,24 @@ branch of statistics and computer science which studies algorithms and architect
     skos:inScheme <https://clscor.io/entity/type/method> ;
     skos:prefLabel "transcribing" .
 
+<https://clscor.io/entity/type/method/using_a_database> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "using a database" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "using a database" .
+
+<https://clscor.io/entity/type/method/using_a_triplestore> a crm:E55_Type,
+        skos:Concept,
+        crmcls:X6_Method ;
+    rdfs:label "using a triplestore" ;
+    crm:P71i_is_listed_in <https://clscor.io/entity/type/method> ;
+    rdfs:comment "source: creating new method-terms for VELD mapping" ;
+    skos:inScheme <https://clscor.io/entity/type/method> ;
+    skos:prefLabel "using a triplestore" .
+
 <https://clscor.io/entity/type/method/word_counting> a crm:E55_Type,
         skos:Concept,
         crmcls:X6_Method ;
@@ -804,8 +947,12 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/annotation_through_concordance>,
         <https://clscor.io/entity/type/method/annotation_through_scripts>,
         <https://clscor.io/entity/type/method/annotation_through_text_reading>,
+        <https://clscor.io/entity/type/method/applying_ETL_process>,
+        <https://clscor.io/entity/type/method/applying_RDF_schema>,
+        <https://clscor.io/entity/type/method/applying_bible_studies>,
         <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/applying_textometry_methods>,
+        <https://clscor.io/entity/type/method/applying_universal_dependencies>,
         <https://clscor.io/entity/type/method/automatic_annotation>,
         <https://clscor.io/entity/type/method/classification>,
         <https://clscor.io/entity/type/method/clustering>,
@@ -820,11 +967,16 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/corpus_extraction>,
         <https://clscor.io/entity/type/method/corpus_management>,
         <https://clscor.io/entity/type/method/correspondence_factor_analysis>,
+        <https://clscor.io/entity/type/method/data_cleaning>,
+        <https://clscor.io/entity/type/method/data_visualization>,
+        <https://clscor.io/entity/type/method/dependency_parsing>,
         <https://clscor.io/entity/type/method/drama_analysis>,
         <https://clscor.io/entity/type/method/entity_linking>,
+        <https://clscor.io/entity/type/method/evaluating>,
         <https://clscor.io/entity/type/method/event_extraction>,
         <https://clscor.io/entity/type/method/filtering_stop_words>,
         <https://clscor.io/entity/type/method/frequency_distribution>,
+        <https://clscor.io/entity/type/method/grammatical_annotation>,
         <https://clscor.io/entity/type/method/hierarchical_cluster_analysis>,
         <https://clscor.io/entity/type/method/hierarchical_index_analysis>,
         <https://clscor.io/entity/type/method/indexing>,
@@ -846,13 +998,16 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/part_of_speech_tagging>,
         <https://clscor.io/entity/type/method/poetry_processing>,
         <https://clscor.io/entity/type/method/portal_management>,
+        <https://clscor.io/entity/type/method/preprocessing>,
         <https://clscor.io/entity/type/method/progression_analysis>,
+        <https://clscor.io/entity/type/method/providing_a_demo>,
         <https://clscor.io/entity/type/method/qualitative_analysis>,
         <https://clscor.io/entity/type/method/quantification>,
         <https://clscor.io/entity/type/method/quantitative_analysis>,
         <https://clscor.io/entity/type/method/relation_extraction>,
         <https://clscor.io/entity/type/method/rhyme_detection>,
         <https://clscor.io/entity/type/method/rule_based_enjambment_detection>,
+        <https://clscor.io/entity/type/method/searching>,
         <https://clscor.io/entity/type/method/semantic_parsing>,
         <https://clscor.io/entity/type/method/semantic_role_labelling>,
         <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
@@ -867,12 +1022,15 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/syntactic_parsing>,
         <https://clscor.io/entity/type/method/syntactic_tree_search>,
         <https://clscor.io/entity/type/method/syntagmatic_analysis>,
+        <https://clscor.io/entity/type/method/testing>,
         <https://clscor.io/entity/type/method/text_classification>,
         <https://clscor.io/entity/type/method/text_parsing>,
         <https://clscor.io/entity/type/method/tokenization>,
         <https://clscor.io/entity/type/method/topic_modelling>,
         <https://clscor.io/entity/type/method/topic_segmentation>,
         <https://clscor.io/entity/type/method/transcribing>,
+        <https://clscor.io/entity/type/method/using_a_database>,
+        <https://clscor.io/entity/type/method/using_a_triplestore>,
         <https://clscor.io/entity/type/method/word_counting>,
         <https://clscor.io/entity/type/method/word_embedding> ;
     skos:hasTopConcept <https://clscor.io/entity/type/method/analytical_views_production_and_interaction>,
@@ -882,8 +1040,12 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/annotation_through_concordance>,
         <https://clscor.io/entity/type/method/annotation_through_scripts>,
         <https://clscor.io/entity/type/method/annotation_through_text_reading>,
+        <https://clscor.io/entity/type/method/applying_ETL_process>,
+        <https://clscor.io/entity/type/method/applying_RDF_schema>,
+        <https://clscor.io/entity/type/method/applying_bible_studies>,
         <https://clscor.io/entity/type/method/applying_nlp_methods>,
         <https://clscor.io/entity/type/method/applying_textometry_methods>,
+        <https://clscor.io/entity/type/method/applying_universal_dependencies>,
         <https://clscor.io/entity/type/method/automatic_annotation>,
         <https://clscor.io/entity/type/method/classification>,
         <https://clscor.io/entity/type/method/clustering>,
@@ -898,11 +1060,16 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/corpus_extraction>,
         <https://clscor.io/entity/type/method/corpus_management>,
         <https://clscor.io/entity/type/method/correspondence_factor_analysis>,
+        <https://clscor.io/entity/type/method/data_cleaning>,
+        <https://clscor.io/entity/type/method/data_visualization>,
+        <https://clscor.io/entity/type/method/dependency_parsing>,
         <https://clscor.io/entity/type/method/drama_analysis>,
         <https://clscor.io/entity/type/method/entity_linking>,
+        <https://clscor.io/entity/type/method/evaluating>,
         <https://clscor.io/entity/type/method/event_extraction>,
         <https://clscor.io/entity/type/method/filtering_stop_words>,
         <https://clscor.io/entity/type/method/frequency_distribution>,
+        <https://clscor.io/entity/type/method/grammatical_annotation>,
         <https://clscor.io/entity/type/method/hierarchical_cluster_analysis>,
         <https://clscor.io/entity/type/method/hierarchical_index_analysis>,
         <https://clscor.io/entity/type/method/indexing>,
@@ -924,13 +1091,16 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/part_of_speech_tagging>,
         <https://clscor.io/entity/type/method/poetry_processing>,
         <https://clscor.io/entity/type/method/portal_management>,
+        <https://clscor.io/entity/type/method/preprocessing>,
         <https://clscor.io/entity/type/method/progression_analysis>,
+        <https://clscor.io/entity/type/method/providing_a_demo>,
         <https://clscor.io/entity/type/method/qualitative_analysis>,
         <https://clscor.io/entity/type/method/quantification>,
         <https://clscor.io/entity/type/method/quantitative_analysis>,
         <https://clscor.io/entity/type/method/relation_extraction>,
         <https://clscor.io/entity/type/method/rhyme_detection>,
         <https://clscor.io/entity/type/method/rule_based_enjambment_detection>,
+        <https://clscor.io/entity/type/method/searching>,
         <https://clscor.io/entity/type/method/semantic_parsing>,
         <https://clscor.io/entity/type/method/semantic_role_labelling>,
         <https://clscor.io/entity/type/method/semi_automatical_token_annotation>,
@@ -945,12 +1115,15 @@ branch of statistics and computer science which studies algorithms and architect
         <https://clscor.io/entity/type/method/syntactic_parsing>,
         <https://clscor.io/entity/type/method/syntactic_tree_search>,
         <https://clscor.io/entity/type/method/syntagmatic_analysis>,
+        <https://clscor.io/entity/type/method/testing>,
         <https://clscor.io/entity/type/method/text_classification>,
         <https://clscor.io/entity/type/method/text_parsing>,
         <https://clscor.io/entity/type/method/tokenization>,
         <https://clscor.io/entity/type/method/topic_modelling>,
         <https://clscor.io/entity/type/method/topic_segmentation>,
         <https://clscor.io/entity/type/method/transcribing>,
+        <https://clscor.io/entity/type/method/using_a_database>,
+        <https://clscor.io/entity/type/method/using_a_triplestore>,
         <https://clscor.io/entity/type/method/word_counting>,
         <https://clscor.io/entity/type/method/word_embedding> .
 
