@@ -21,22 +21,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/008e9e7ebd> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/c0c835fbab> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/64ff2c8692> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/00cc96f6ae> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/672c45b440> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/9c56bff97f> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/word_embedding> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/0127284b0c> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/e7de680579> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/bea0e62959> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/015802899c> a pem:PE19_Persistent_Digital_Object ;
@@ -49,12 +37,6 @@
     crm:P134_continued <https://clscor.io/entity/4b6bf3502a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/c7753b4558> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/02fc3e8131> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/c3d17b98db> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/dda24f17d2> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/037344ee06> a crm:E13_Attribute_Assignment ;
@@ -73,6 +55,12 @@
     crm:P134_continued <https://clscor.io/entity/bae7d2305f> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6d549d345c> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/04d3fcb06f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6adfb3cf01> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/f8c770d2a6> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/05cbeae29d> a crm:E13_Attribute_Assignment ;
@@ -156,10 +144,22 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/0afd29a05a> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/2db59e4280> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5c40fe0f21> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/0b0d9ed798> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/b7fa29ecc0> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7e88e97b7a> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/0b4c0bda07> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/59f9e17483> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/1be5ea208b> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/0b76fb2fe2> a crm:E13_Attribute_Assignment ;
@@ -180,6 +180,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/0c71c0a4f3> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/72d47f6a0a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/2cf2d731f0> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/0d9e9dc5ee> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/e7de680579> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/bea0e62959> ;
@@ -196,18 +202,6 @@
     crm:P134_continued <https://clscor.io/entity/4b6bf3502a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/c7753b4558> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/0e4f0b2a66> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6f562dbd66> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/b05f7a4a14> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/0ece6e01b3> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/ba79d79c8f> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/7fc2a610b0> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/0eeb4afacf> a crm:E13_Attribute_Assignment ;
@@ -240,6 +234,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/annotating> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/11c4f54019> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/0f1707d13a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/3890690b56> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/12331ece9b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/29c754bbdf> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/f96634bea4> ;
@@ -264,12 +264,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/142def23f6> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/fd9746b1c4> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/102bcabfce> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/1516ca0ca0> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/94aa0d0bf1> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/1d73060450> ;
@@ -277,10 +271,28 @@
         <https://clscor.io/entity/type/format/yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
+<https://clscor.io/entity/15dc5a8b2a> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/fb4a73a67b> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/a3edb9de55> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/16867f406f> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/b7fa29ecc0> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7e88e97b7a> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/16fa887e61> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/5a90eaada0> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/341495a4bc> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/178fd3d419> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/a6dcca58f9> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/7e597c84c9> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/180550d8b9> a crm:E13_Attribute_Assignment ;
@@ -305,12 +317,6 @@
     crm:P134_continued <https://clscor.io/entity/7f3c719b08> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5d1b7beaeb> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/1951d74a23> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/9d5de4b346> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/520a2ca544> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/1abde01205> a crm:E13_Attribute_Assignment ;
@@ -356,10 +362,10 @@
     crm:P3_has_note "Entire AMC: unique sentence data, cleaned from non-alphanumeric junk before 'A' (anything before line number 54,993) and after 'Z' (anything after line number 521,781,020)" ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
-<https://clscor.io/entity/1d39f485c3> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/c44928ba6a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/6766e67b07> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/1d8245d572> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/9d5de4b346> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/520a2ca544> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/1dbcf0aad6> a crm:E13_Attribute_Assignment ;
@@ -386,16 +392,16 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/1f21a21b4f> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/72d47f6a0a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/2cf2d731f0> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/1f655144e7> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/4b156e4c3c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/ce3ec69676> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/1fcf630aad> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6f562dbd66> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/b05f7a4a14> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/1fe653d881> a crm:E13_Attribute_Assignment ;
@@ -483,12 +489,6 @@
         <https://clscor.io/entity/type/format/spaCy_docbin> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/26e5749131> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/a6dcca58f9> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/7e597c84c9> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/2752ff3c4b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/23fbacedb0> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5e587d2b2c> ;
@@ -499,6 +499,12 @@
     crm:P134_continued <https://clscor.io/entity/57605eb392> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/3d72654084> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/27b960ac4b> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/dee566fb7f> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/aeddefe23a> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/286700e3dc> a crm:E13_Attribute_Assignment ;
@@ -522,10 +528,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/2a48373d9f> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/89ca3b9c88> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/5fc0b9c74b> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Testing> ;
+<https://clscor.io/entity/2a218a1c06> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/fa225c71b1> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/c950e8d586> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/2a905f5082> a crm:E13_Attribute_Assignment ;
@@ -579,16 +585,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/2f0a12bd73> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/86cf3e38e7> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/5ad5ea4780> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/2fcb78a6c3> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/4564c33d77> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/5abf27d438> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
+<https://clscor.io/entity/2eec87cff3> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/9e8f0938bc> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/c535aafead> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/303c524212> a crm:E13_Attribute_Assignment ;
@@ -596,6 +596,12 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5a1cdfa328> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/yaml> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
+
+<https://clscor.io/entity/30d2c68a86> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6c3606923e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/6fa30cfb9c> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_bible_studies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/30fd449bde> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/45c6fff138> ;
@@ -616,12 +622,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/31de091db0> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/9e8f0938bc> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/c535aafead> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/32550e99f2> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/8bc6130d84> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/77b49b3223> ;
@@ -632,6 +632,12 @@
     crm:P134_continued <https://clscor.io/entity/b7fa29ecc0> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7e88e97b7a> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/quantitative_analysis> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/330604b0fa> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/ee2a48bc05> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/692ee04988> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/337c61da84> a pem:PE19_Persistent_Digital_Object ;
@@ -649,6 +655,18 @@
     crm:P134_continued <https://clscor.io/entity/f6d1e6f3af> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/69e3fb8ee5> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/341a20b968> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/28c19233de> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/a8d4976b37> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/343af660fb> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/4b6bf3502a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/c7753b4558> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/34758163db> a crm:E13_Attribute_Assignment ;
@@ -687,10 +705,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/391cd6edcb> a crm:E13_Attribute_Assignment ;
+<https://clscor.io/entity/37e51d5989> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/59d9f69bec> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/d8cb230cfc> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/39583e0c86> a pem:PE19_Persistent_Digital_Object ;
@@ -724,10 +742,16 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/3cb875574e> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/72d47f6a0a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/2cf2d731f0> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
+<https://clscor.io/entity/3c3105b9cc> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/416719475e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/01741e907a> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/3cadc0e140> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/c68d4cb3d3> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/7bfddf6634> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/3cfd82e276> a crm:E13_Attribute_Assignment ;
@@ -749,10 +773,10 @@
         <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/40b17854de> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/f777b22e2c> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/d5438a20a1> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/403472f3e6> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/205f61376d> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/19ad53534b> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/4108cb82bd> a crm:E13_Attribute_Assignment ;
@@ -761,16 +785,22 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/4113d95426> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6f46911a30> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/af0ceb7f9d> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/41cc350fb6> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/08d90e4b46> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6cd5447bb6> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/422d5d0150> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6a20bd4af9> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/19acc55abb> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/42184e4f3e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/72d47f6a0a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/2cf2d731f0> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_database> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/4361325a28> a crm:E13_Attribute_Assignment ;
@@ -791,10 +821,16 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/454d47921f> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/f16c4d29dd> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/43072d4901> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
+<https://clscor.io/entity/45668127f9> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/9415b242f6> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5a1cdfa328> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/data_visualization> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/4591e245c7> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/28c19233de> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/a8d4976b37> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/45c4d7038e> a crm:E13_Attribute_Assignment ;
@@ -845,12 +881,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/492001b853> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/b77b3175b5> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/5605705e25> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/492317007e> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/04319ab56f> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/4a11351adb> ;
@@ -869,22 +899,34 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/4aa53f4172> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/128f1883f5> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/a1b6771091> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/4afa972270> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/719bd1c7-0431-522c-a998-c74a9b1d86ad>,
         <https://clscor.io/entity/7f0ef481-895c-5dc8-9322-89ac1ccc1c90> ;
     crm:P3_has_note "Same as the cleaned data, but with simplified entities (e.g. `PER` instead of `PER-1337`). Probably it's best to use this data set for NER training." ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/json> .
 
+<https://clscor.io/entity/4b18e75aea> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/fb91d34178> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/1399d26e9d> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/4b7ea65713> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/82359497fc> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/b76907e62d> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_bible_studies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/4c116ecd19> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/122972043f> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/b834442508> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/4c19a97d01> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/c5d0a97751> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/6a91b13fca> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/4c1d972a3a> a crm:E13_Attribute_Assignment ;
@@ -893,22 +935,16 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/word2vec_model> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/4c89a5b690> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/2f2ee5faa1> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/e48363fff0> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Data_Visualization> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/4cdb216370> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/c44928ba6a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6766e67b07> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/4d30901566> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/7f3c719b08> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/5d1b7beaeb> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/4d83eb837d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/fd9746b1c4> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/102bcabfce> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/4db43971cf> a crm:E13_Attribute_Assignment ;
@@ -927,6 +963,12 @@
     crm:P134_continued <https://clscor.io/entity/f4c9dba29e> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/878b25c6d9> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/4faa0ea396> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/538a1fc0c2> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/8d480d4d0c> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_bible_studies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/4fc165c0b6> a pem:PE19_Persistent_Digital_Object ;
@@ -971,12 +1013,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/quantitative_analysis> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/53250c2a67> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/28c19233de> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/a8d4976b37> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/537253aa4c> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/82f045f2c8> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/b916bd6d8b> ;
@@ -987,12 +1023,6 @@
     crm:P134_continued <https://clscor.io/entity/bae7d2305f> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6d549d345c> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/55b842e896> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6adfb3cf01> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/f8c770d2a6> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/55fbe8ccf6> a crm:E13_Attribute_Assignment ;
@@ -1021,17 +1051,17 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/fastText_model> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
+<https://clscor.io/entity/587e9d76cc> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6f46911a30> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/af0ceb7f9d> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/58874bcee8> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/536c86f403> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/267850f0fb> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/GloVe_model> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://clscor.io/entity/58cb2ef669> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/3380be66e2> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/68b18b5b60> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/590bccbf81> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6a20bd4af9> ;
@@ -1043,6 +1073,12 @@
     crm:P134_continued <https://clscor.io/entity/0f1707d13a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/3890690b56> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/5a41cb3b9a> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/030320c3d4> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/0d7be09fe7> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/5a68800ce5> a crm:E13_Attribute_Assignment ;
@@ -1073,18 +1109,6 @@
     crm:P134_continued <https://clscor.io/entity/5a90eaada0> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/341495a4bc> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/automatic_annotation> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/5c15422297> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/41ee98258e> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/c6b3db3351> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Analysis> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/5c5c8af3a9> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/fb4a73a67b> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/a3edb9de55> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/5c9f6395d0> a crm:E13_Attribute_Assignment ;
@@ -1150,6 +1174,12 @@
     crm:P3_has_note "100% AMC model" ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
+<https://clscor.io/entity/6270012f3c> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/7f3c719b08> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5d1b7beaeb> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/629d606ac6> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6c3606923e> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6fa30cfb9c> ;
@@ -1177,16 +1207,28 @@
         <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/650627f8c5> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/4eda318e4c> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/69123b526a> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
+<https://clscor.io/entity/6494eec37f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/297a48601a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/10b0ed1237> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/649609f878> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/72d47f6a0a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/2cf2d731f0> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/653c467ecd> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/9d5de4b346> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/520a2ca544> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/part_of_speech_tagging> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/662398bca9> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/f213760379> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/1e16019d0c> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/665f8d4f7f> a crm:E13_Attribute_Assignment ;
@@ -1232,22 +1274,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/695c53a320> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/f213760379> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/1e16019d0c> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/6980b9a79a> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/ba79d79c8f> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7fc2a610b0> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/69b88b49d5> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/9a36a821ce> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/c4ff08a4c4> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/69cf0abe83> a pem:PE19_Persistent_Digital_Object ;
@@ -1262,22 +1292,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/6aa6d11add> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6cf10fd774> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/ab0ed2c2c8> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Data_Visualization> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/6ab982a924> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/82f045f2c8> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/b916bd6d8b> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/6b04f52013> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6f46911a30> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/af0ceb7f9d> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/6bc79830f0> a crm:E13_Attribute_Assignment ;
@@ -1292,16 +1310,22 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/6e861685dd> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/59d9f69bec> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/d8cb230cfc> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/6eb5b76429> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/6f0d2d21-1c8f-5392-b670-86c5f0790ed9>,
         <https://clscor.io/entity/7d9bbd7f-fa44-55e2-8607-ce225463b197> ;
     crm:P3_has_note "10% AMC model" ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
-<https://clscor.io/entity/6ec99ce90e> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/ee2a48bc05> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/692ee04988> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/6eedb8433e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/b77b3175b5> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5605705e25> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/710255a6e4> a crm:E13_Attribute_Assignment ;
@@ -1326,6 +1350,12 @@
     crm:P134_continued <https://clscor.io/entity/3967964f2c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/59101704b9> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/727aa62840> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/7dbb105b65> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/988c5f9827> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/data_visualization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/7294fa84d2> a crm:E13_Attribute_Assignment ;
@@ -1406,12 +1436,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/75bfbc3e09> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/9eb805a1fb> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/8d27e6eb2e> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/7670f6abf4> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/7054a52ef7> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/8f7c0bd28d> ;
@@ -1423,12 +1447,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/3d72654084> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/json> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://clscor.io/entity/783973856b> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/4b6bf3502a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/c7753b4558> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/787048be3d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6adfb3cf01> ;
@@ -1446,6 +1464,12 @@
     crm:P134_continued <https://clscor.io/entity/a645ed7e9e> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/e00a01bd40> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/automatic_annotation> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/79c254353c> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/fd9746b1c4> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/102bcabfce> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/79cd04beda> a crm:E13_Attribute_Assignment ;
@@ -1471,12 +1495,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7e597c84c9> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://clscor.io/entity/7b81bc813f> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/72d47f6a0a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/2cf2d731f0> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/database> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/7b8258d413> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/f213760379> ;
@@ -1532,6 +1550,18 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/7f30e1ac7c> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/e7de680579> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/bea0e62959> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/7fe1d06f1f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/c5d0a97751> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/6a91b13fca> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/7fee31c6e7> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/5a90eaada0> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/341495a4bc> ;
@@ -1548,12 +1578,6 @@
     crm:P134_continued <https://clscor.io/entity/78b48d8599> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7b2da7fa32> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/810844b1ed> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/c61e3955fa> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/785456ccba> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/813b1d2381> a crm:E13_Attribute_Assignment ;
@@ -1604,28 +1628,22 @@
     crm:P3_has_note "Overlapping entities are removed, index offsets corrected, and duplicates removed. Also texts without any entities are removed too, since it's not known if they don't contain any entities (which often is not true; quite a few of them contain entities) or if the annotators simply didn't go through them (which is more likely, hence they were removed). In the original uncleaned data, some entity types are suffixed with numbers (e.g. `PER-1337`). These were used for identifying entities in a project context, but are probably of less use for NER NLP training. This dataset keeps the identifiers." ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/json> .
 
-<https://clscor.io/entity/852a6ecdb0> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/787806902a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/c0d303f760> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/8885e4de1b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/672c45b440> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/9c56bff97f> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/8ad175e4fd> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/dee566fb7f> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/aeddefe23a> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/8af41fed9d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/8070d93798> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/9fffec5221> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/word_embedding> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/8b034c3043> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/d8a8f3e0a4> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/0b77eed30b> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/8b5a06b0ed> a crm:E13_Attribute_Assignment ;
@@ -1658,12 +1676,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt>,
         <https://clscor.io/entity/type/format/word2vec_model> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
-
-<https://clscor.io/entity/8d6ead3c29> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/7dbb105b65> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/988c5f9827> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Data_Visualization> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/8db2963852> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/acb3c1230a> ;
@@ -1744,6 +1756,18 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/annotating> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/92d7383c12> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6f562dbd66> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/b05f7a4a14> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/931304e277> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/a645ed7e9e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/e00a01bd40> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/931ed6ee03> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/88bb61b24b> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/b0201c25fe> ;
@@ -1754,6 +1778,12 @@
     crm:P134_continued <https://clscor.io/entity/672c45b440> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/9c56bff97f> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/9419117fc8> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/8d514cded0> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/799264ff29> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/943347ec61> a crm:E13_Attribute_Assignment ;
@@ -1777,12 +1807,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/95dc7e5629> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/128f1883f5> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/a1b6771091> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/9694bc25d1> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/f777b22e2c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/d5438a20a1> ;
@@ -1794,6 +1818,12 @@
         <https://clscor.io/entity/ffba746c-59d5-5a59-9c27-6e3adb525843> ;
     crm:P3_has_note "10% AMC model" ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/fastText_model> .
+
+<https://clscor.io/entity/97dd331d54> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/f777b22e2c> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/d5438a20a1> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/97ec2e19d1> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/fb4a73a67b> ;
@@ -1837,12 +1867,6 @@
     crm:P3_has_note "Entire AMC: unique sentences, stripped from non-alphanumeric lines, lowercased, punctuation removed." ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/txt> .
 
-<https://clscor.io/entity/9daab56413> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/59d9f69bec> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/d8cb230cfc> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/9de42449c9> a crmcls:X12_Tool ;
     crm:P1_is_identified_by <https://clscor.io/entity/0e69b827-0317-5e23-a4d7-2421df7a3f0e>,
         <https://clscor.io/entity/3724274a-9177-5bd8-b924-8bce5c62bcd1> ;
@@ -1864,6 +1888,18 @@
     crm:P134_continued <https://clscor.io/entity/f5c8fcfa7a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/10b2253731> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/quantitative_analysis> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/9e794a0ceb> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/f16c4d29dd> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/43072d4901> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/9e9c3362e5> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/3380be66e2> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/68b18b5b60> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/9eccd242bb> a crm:E13_Attribute_Assignment ;
@@ -1896,16 +1932,28 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/a1a28dafe3> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/89ca3b9c88> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5fc0b9c74b> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/testing> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/a1dbd50d09> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/00af39805a> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/4742784b5a> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/a3dc93e098> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/297a48601a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/10b0ed1237> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/a1f28d5578> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/9a36a821ce> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/c4ff08a4c4> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/a2da59bb47> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/8d514cded0> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/799264ff29> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/a493064884> a crm:E13_Attribute_Assignment ;
@@ -1926,22 +1974,16 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/a5c59c68bd> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/205f61376d> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/19ad53534b> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
+<https://clscor.io/entity/a5b6f4e493> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/fcf3863284> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/f2240bbc4b> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/a643e646d5> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/94e4fab64c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/723109466b> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/a65cff7a7c> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/8d514cded0> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/799264ff29> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/a6742092f4> a crm:E13_Attribute_Assignment ;
@@ -1976,16 +2018,16 @@
         <https://clscor.io/entity/type/format/png> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/aa58742483> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/538a1fc0c2> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/8d480d4d0c> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/aacdbf0db7> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/f777b22e2c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/d5438a20a1> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/automatic_annotation> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/ab15c13250> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/ba79d79c8f> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/7fc2a610b0> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_bible_studies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/ab7b4af4a2> a pem:PE19_Persistent_Digital_Object ;
@@ -2024,6 +2066,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/ac9f3b3b29> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/e3ce5e134c> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/387b1363c7> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_bible_studies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/acc9139652> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/fb4a73a67b> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/a3edb9de55> ;
@@ -2042,22 +2090,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/aff0fb5a9b> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/c68d4cb3d3> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/7bfddf6634> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/b0a6a97ad7> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/e288f37867> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/f7c18da271> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/b1762927b2> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/5a90eaada0> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/341495a4bc> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/b21e1b13d5> a crm:E13_Attribute_Assignment ;
@@ -2096,24 +2132,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/part_of_speech_tagging> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/b3f9ed3416> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/fa225c71b1> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/c950e8d586> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/b402540b25> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/9415b242f6> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/5a1cdfa328> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Data_Visualization> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/b51248348e> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6f562dbd66> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/b05f7a4a14> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/database> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/b527fbe552> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/c9273f1c15> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6f1d8247d9> ;
@@ -2136,12 +2154,6 @@
     crm:P134_continued <https://clscor.io/entity/2db59e4280> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5c40fe0f21> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/automatic_annotation> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/b8c82be1ba> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/8d514cded0> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/799264ff29> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/b9564112d5> a crm:E13_Attribute_Assignment ;
@@ -2207,10 +2219,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/bf161bb751> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6f562dbd66> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/b05f7a4a14> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
+<https://clscor.io/entity/beb41ac585> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/9eb805a1fb> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/8d27e6eb2e> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/bf543b27bd> a crm:E13_Attribute_Assignment ;
@@ -2237,18 +2249,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/c0c78a9c62> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6c3606923e> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/6fa30cfb9c> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/c1787754b7> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/fcf3863284> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/f2240bbc4b> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/c1aed35c26> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/a6dcca58f9> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7e597c84c9> ;
@@ -2271,6 +2271,12 @@
     crm:P134_continued <https://clscor.io/entity/9eb805a1fb> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/8d27e6eb2e> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/c26677008e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/4564c33d77> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5abf27d438> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/c39579bd00> a crm:E13_Attribute_Assignment ;
@@ -2316,10 +2322,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/c58443f7d7> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/28c19233de> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/a8d4976b37> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
+<https://clscor.io/entity/c64fd5347e> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/787806902a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/c0d303f760> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_triplestore> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/c6bceb21be> a crm:E13_Attribute_Assignment ;
@@ -2346,6 +2352,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
+<https://clscor.io/entity/c735021a71> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/2f2ee5faa1> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/e48363fff0> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/data_visualization> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/c76e80a974> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/fb4a73a67b> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/a3edb9de55> ;
@@ -2370,10 +2382,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/c867686f58> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/0f1707d13a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/3890690b56> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/c8c6f91e78> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/3967964f2c> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/59101704b9> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/c901823401> a crm:E13_Attribute_Assignment ;
@@ -2382,12 +2394,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/json>,
         <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://clscor.io/entity/c90233c4cb> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/59f9e17483> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/1be5ea208b> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/c9029fdae4> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/030320c3d4> ;
@@ -2405,6 +2411,12 @@
     crm:P134_continued <https://clscor.io/entity/7c9fe670ec> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/dda04d7877> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/ca33162f61> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6a20bd4af9> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/19acc55abb> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/caa19cb8b7> a crm:E13_Attribute_Assignment ;
@@ -2425,18 +2437,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/pkl> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
-<https://clscor.io/entity/cbc17dd2f2> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/6f46911a30> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/af0ceb7f9d> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/cc0cd4c7de> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/2db59e4280> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/5c40fe0f21> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/cc124a7a0c> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/dee566fb7f> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/aeddefe23a> ;
@@ -2447,6 +2447,12 @@
     crm:P134_continued <https://clscor.io/entity/8f340243a6> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5e50024e60> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/ccf757825d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/787806902a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/c0d303f760> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_RDF_schema> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/cd89df156a> a crm:E13_Attribute_Assignment ;
@@ -2470,10 +2476,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/d113d2f7b1> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/fd9746b1c4> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/102bcabfce> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/triplestore> ;
+<https://clscor.io/entity/d19f1b0d8a> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/86cf3e38e7> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5ad5ea4780> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/d1a7b9891a> a crm:E13_Attribute_Assignment ;
@@ -2507,6 +2513,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/part_of_speech_tagging> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/d2c72fb4a2> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6cf10fd774> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/ab0ed2c2c8> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/data_visualization> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/d2e229c446> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/6a20bd4af9> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/19acc55abb> ;
@@ -2528,16 +2540,16 @@
     crm:P3_has_note "Prefered dataset is this one, not linkedcat! This dataset was created by applying a custom trained SpaCy NER model an APIS / ÖBL data, on data set 'linkedcat2' at our solr index. The csv file is split into id column, character start index of recognized entity, character end index of entity, label of entity type, and a small context window." ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/csv> .
 
-<https://clscor.io/entity/d34c54fec2> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/fb91d34178> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/1399d26e9d> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/d35ed4da34> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/3967964f2c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/59101704b9> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/d361c7bb74> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/41ee98258e> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/c6b3db3351> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/corpus_analysis> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/d390e85ed8> a crm:E13_Attribute_Assignment ;
@@ -2570,12 +2582,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/d6e167dc64> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/e3ce5e134c> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/387b1363c7> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
 <https://clscor.io/entity/d7ceaf056f> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/e3ce5e134c> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/387b1363c7> ;
@@ -2594,10 +2600,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/lemmatization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/d90603708f> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/a645ed7e9e> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/e00a01bd40> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/d8aab74217> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/6f562dbd66> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/b05f7a4a14> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/using_a_database> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/d985a081b6> a crm:E13_Attribute_Assignment ;
@@ -2691,12 +2697,6 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/conllu>,
         <https://clscor.io/entity/type/format/tsv> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://clscor.io/entity/dffbaa4333> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/787806902a> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/c0d303f760> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/RDF> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/e04137bf55> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/dee566fb7f> ;
@@ -2794,22 +2794,16 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/tokenization> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/e8287d0927> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/030320c3d4> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/0d7be09fe7> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
+<https://clscor.io/entity/e80cf0a3d5> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/c0c835fbab> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/64ff2c8692> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/providing_a_demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/e8957e940d> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/9d5de4b346> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/520a2ca544> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/e911f2955c> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/d8a8f3e0a4> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/0b77eed30b> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/e92f3861f4> a crm:E13_Attribute_Assignment ;
@@ -2830,12 +2824,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/5c40fe0f21> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/conllu> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
-
-<https://clscor.io/entity/ec2468c029> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/82359497fc> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/b76907e62d> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Bible_Studies> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/ec7c35c16b> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/d62f685459> ;
@@ -2927,6 +2915,12 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/spaCy_model> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
+<https://clscor.io/entity/f3bef43f6d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/c44928ba6a> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/6766e67b07> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/f448004185> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/64c349561d> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7bfddf6634> ;
@@ -2943,12 +2937,6 @@
     crm:P134_continued <https://clscor.io/entity/bb21fea4fd> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/6e6fe61936> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
-    crm:P177_assigned_property_of_type crmcls:Y8_implements .
-
-<https://clscor.io/entity/f62e86fe37> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/3967964f2c> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/59101704b9> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/Universal_Dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/f6508c1329> a pem:PE19_Persistent_Digital_Object ;
@@ -2969,10 +2957,22 @@
     crm:P141_assigned <https://clscor.io/entity/type/method/information_extraction> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
-<https://clscor.io/entity/f89637e2a0> a crm:E13_Attribute_Assignment ;
-    crm:P134_continued <https://clscor.io/entity/416719475e> ;
-    crm:P140_assigned_attribute_to <https://clscor.io/entity/01741e907a> ;
-    crm:P141_assigned <https://clscor.io/entity/type/method/demo> ;
+<https://clscor.io/entity/f8c04103b3> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/c61e3955fa> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/785456ccba> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_bible_studies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/f97d1a374f> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/4eda318e4c> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/69123b526a> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_bible_studies> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/f9f2cf249d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/c3d17b98db> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/dda24f17d2> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_universal_dependencies> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/f9f4715320> a crm:E13_Attribute_Assignment ;

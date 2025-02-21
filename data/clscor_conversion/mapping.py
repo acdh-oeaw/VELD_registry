@@ -210,4 +210,13 @@ vocab_mapping_method = {
     "Preprocessing": "https://clscor.io/entity/type/method/information_extraction",
     "Tokenization": "https://clscor.io/entity/type/method/tokenization",
     "Word Embeddings": "https://clscor.io/entity/type/method/word_embedding",
+    "RDF": "https://clscor.io/entity/type/method/applying_RDF_schema",
+    "Testing": "https://clscor.io/entity/type/method/testing",
+    "Bible Studies": "https://clscor.io/entity/type/method/applying_bible_studies",
+    "Data Visualization": "https://clscor.io/entity/type/method/data_visualization",
+    "Universal Dependencies": "https://clscor.io/entity/type/method/applying_universal_dependencies",
+    "database": "https://clscor.io/entity/type/method/using_a_database",
+    "demo": "https://clscor.io/entity/type/method/providing_a_demo",
+    "triplestore": "https://clscor.io/entity/type/method/using_a_triplestore",
+    "Analysis": "https://clscor.io/entity/type/method/corpus_analysis",
 }
