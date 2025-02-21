@@ -40,8 +40,8 @@
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference> a crmcls:X5_Research_Activity ;
-    crmcls:Y7_uses <https://clscor.io/entity/486810d152> ;
-    crmcls:hadInput <https://clscor.io/entity/4fc165c0b6> .
+    crmcls:Y11_received_input <https://clscor.io/entity/4fc165c0b6> ;
+    crmcls:Y7_uses <https://clscor.io/entity/486810d152> .
 
 <https://clscor.io/entity/0fe674ce-632e-5eaf-84a0-75c10ac0e9fb> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;

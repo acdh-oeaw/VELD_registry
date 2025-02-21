@@ -41,12 +41,12 @@ mappings = {
     },
     "X5 had input PE19 (data veld)": {
         "s": get_x5_uri_from_chain,
-        "p": CRMCLS["hadInput"],
+        "p": CRMCLS["Y11_received_input"],
         "o": get_data_veld_uris__as_chain_input,
     },
     "X5 generated output PE19 (data veld)": {
         "s": get_x5_uri_from_chain,
-        "p": CRMCLS["generatedOutput"],
+        "p": CRMCLS["Y12_created_output"],
         "o": get_data_veld_uris__as_chain_output,
     },
     "chain Y7 code": {
