@@ -244,7 +244,7 @@ def get_x5_uri_from_chain():
     for veld_key, veld_data in VELD_DATA_ALL.items():
         if _is_chain_veld(veld_data):
             chain_repo_url = "/".join(veld_data["url"].split("/")[:5])
-            result[veld_key] = [URIRef(chain_repo_url)]
+            result[veld_key] = [CLS[_generate_hash(chain_repo_url)]]
     return result
 
 
