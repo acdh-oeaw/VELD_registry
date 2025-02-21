@@ -23,12 +23,6 @@
         <https://clscor.io/entity/type/format/xslt> ;
     crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
-<https://clscor.io/entity/4fc165c0b6> a pem:PE19_Persistent_Digital_Object ;
-    crm:P1_is_identified_by <https://clscor.io/entity/0fe674ce-632e-5eaf-84a0-75c10ac0e9fb>,
-        <https://clscor.io/entity/f45cf867-125a-5da8-baae-6befc58f11ac> ;
-    crm:P3_has_note "parent git repo that integrates various ELTeC corpora as submodules for downstream processing." ;
-    crmcls:Y2_has_format <https://clscor.io/entity/type/format/xml> .
-
 <https://clscor.io/entity/75a1430723> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/a9c48f2175> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/486810d152> ;
@@ -36,7 +30,8 @@
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://github.com/veldhub/veld_chain__eltec_udpipe_inference> a crmcls:X5_Research_Activity ;
-    crmcls:Y7_uses <https://clscor.io/entity/486810d152> .
+    crmcls:Y7_uses <https://clscor.io/entity/486810d152> ;
+    crmcls:hadInput <https://clscor.io/entity/4fc165c0b6> .
 
 <https://clscor.io/entity/0fe674ce-632e-5eaf-84a0-75c10ac0e9fb> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -48,6 +43,12 @@
 <https://clscor.io/entity/378e9780-2ed9-5790-8f34-503c3d846da8> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
     rdf:value "veld_chain__eltec_udpipe_inference__step_1_preprocess" .
+
+<https://clscor.io/entity/4fc165c0b6> a pem:PE19_Persistent_Digital_Object ;
+    crm:P1_is_identified_by <https://clscor.io/entity/0fe674ce-632e-5eaf-84a0-75c10ac0e9fb>,
+        <https://clscor.io/entity/f45cf867-125a-5da8-baae-6befc58f11ac> ;
+    crm:P3_has_note "parent git repo that integrates various ELTeC corpora as submodules for downstream processing." ;
+    crmcls:Y2_has_format <https://clscor.io/entity/type/format/xml> .
 
 <https://clscor.io/entity/57d312dc-d575-52ff-9aad-1e358fded264> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;

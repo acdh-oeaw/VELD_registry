@@ -44,7 +44,6 @@ def _is_chain_veld(veld_data):
     return _get_data_recursively(veld_data, ["content", "x-veld", "chain"]) is not None
     
 
-# TODO: result of this seems a little bit low; check it
 def _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io):
     result = []
     volumes_list = []
@@ -56,26 +55,21 @@ def _get_data_veld_uris__as_chain_io_by_io_and_veld(veld_data, io):
                 for vol in v:
                     volumes_list.append(vol)
     if volumes_list:
-        data_veld_uris = {}
+        data_veld_path_url_dict = {}
         for data_veld_id, data_veld_data in VELD_DATA_ALL.items():
             if _is_data_veld(data_veld_data):
-                data_veld_uris[data_veld_id] = data_veld_data["url"]
+                data_veld_name = data_veld_id.split("___")[0]
+                data_veld_path_url_dict[data_veld_name] = data_veld_data["url"]
         for vol in volumes_list:
             vol = vol.split(":")
             if io in vol[1]:
                 chain_data_path = vol[0][2:]
                 chain_data_path = chain_data_path.split("/")
-                match_count_max = 0
-                for data_id, data_uri in data_veld_uris.items():
-                    data_id = data_id.split("___")
-                    match_count_tmp = 0
-                    for i in range(min(len(chain_data_path), len(data_id))):
-                        if chain_data_path[i] == data_id[i]:
-                            match_count_tmp += 1
-                    if match_count_tmp > match_count_max:
-                        match_count_max = match_count_tmp
-                        if match_count_max > 0:
-                            result.append(CLS[_generate_hash(data_uri + "__uri_hash")])
+                for chain_data_path_part in chain_data_path:
+                    data_veld_url = data_veld_path_url_dict.get(chain_data_path_part)
+                    if data_veld_url:
+                        result.append(CLS[_generate_hash(data_veld_url + "__uri_hash")])
+                        print(data_veld_url)
     return result
 
 
