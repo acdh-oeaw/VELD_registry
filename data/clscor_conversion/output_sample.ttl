@@ -15,6 +15,10 @@
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
 
+<https://clscor.io/entity/35b65e7f77> a crmcls:X5_Research_Activity ;
+    crmcls:Y11_received_input <https://clscor.io/entity/4f237b13f7> ;
+    crmcls:Y7_uses <https://clscor.io/entity/7f7824fa9a> .
+
 <https://clscor.io/entity/6c2ec8edfe> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/7e02f3bc48> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/7f7824fa9a> ;
@@ -38,10 +42,6 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/86d1efb159> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/xml> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
-
-<https://github.com/veldhub/veld_chain__eltec_udpipe_inference> a crmcls:X5_Research_Activity ;
-    crmcls:Y11_received_input <https://clscor.io/entity/4f237b13f7> ;
-    crmcls:Y7_uses <https://clscor.io/entity/7f7824fa9a> .
 
 <https://clscor.io/entity/0fe674ce-632e-5eaf-84a0-75c10ac0e9fb> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
