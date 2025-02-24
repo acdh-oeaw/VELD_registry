@@ -105,6 +105,7 @@ def _get_topic_as_method_uri(veld_data):
                                 result.add(URIRef(cm))
                         else:
                             result.add(CRM_METHOD[t.replace(" ", "_")])
+    result = sorted(list(result))
     return result
 
 
