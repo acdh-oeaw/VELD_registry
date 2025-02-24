@@ -443,6 +443,18 @@ def get_format_per_e13_per_y10():
     return result
 
 
+def get_pc3_uri():
+    result = {}
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        veld_data_tmp = _get_data_recursively(veld_data, ["content", "x-veld"])
+        veld_data_tmp = list(veld_data_tmp.values())[0]
+        if veld_data_tmp:
+            description = veld_data_tmp.get("description")
+            if description:
+                result[veld_key] = [CLS[_generate_hash(veld_data["url"] + "__pc3")]]
+    return result
+
+
 def main():
     
     def check(a, b):

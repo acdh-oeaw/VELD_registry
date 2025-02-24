@@ -5,10 +5,25 @@ from src.clscor_convert import *
 mappings = {
 
     # all velds
-    "veld_instance -P3-> veld_description": {
-        "s": get_all_veld_uris,
-        "p": CRM["P3_has_note"],
+    "pc3_instance -a-> PC3": {
+        "s": get_pc3_uri,
+        "p": RDF.type,
+        "o": CRM["PC3_has_note"],
+    },
+    "pc3_instance -p01-> veld_instance": {
+        "s": get_pc3_uri,
+        "p": CRM["P01_has_domain"],
+        "o": get_all_veld_uris,
+    },
+    "pc3_instance -p03-> description literal": {
+        "s": get_pc3_uri,
+        "p": CRM["P03_has_range_literal"],
         "o": get_data_description,
+    },
+    "pc3_instance -p3.1-> tool_description": {
+        "s": get_pc3_uri,
+        "p": CRM["P3.1_has_type"],
+        "o": CRMCLS["tool_description"],
     },
 
     # data velds
