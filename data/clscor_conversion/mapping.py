@@ -55,6 +55,18 @@ mappings = {
         "o": get_integrated_code_veld_uri,
     },
 
+    # code and chain velds
+    "code_veld_instance -a-> X12": {
+        "s": get_chain_veld_uris,
+        "p": RDF.type,
+        "o": CRMCLS["X12_Tool"],
+    },
+    "chain_veld_instance -a-> X12": {
+        "s": get_code_veld_uris,
+        "p": RDF.type,
+        "o": CRMCLS["X12_Tool"],
+    },
+
     # veld identification
     "veld_instance -P1-> E41_instance": {
         "s": get_all_veld_uris,
