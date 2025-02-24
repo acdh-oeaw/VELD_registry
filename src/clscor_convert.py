@@ -126,17 +126,25 @@ def _get_veld_url_by_type(veld_data, veld_type):
     
     
 def _get_veld_label(veld_data):
-    result = None
-    veld_url = veld_data.get("url")
-    if veld_url is not None:
-        url_part_list = veld_url.split("https://github.com/veldhub/")[1].split("/")
-        label_repo = url_part_list[0]
-        label_veld = url_part_list[-1].split(".yaml")[0]
-        if label_veld == "veld":
-            label = label_repo
-        else:
-            label = label_repo + "__" + label_veld.replace("veld_", "")
-        result = Literal(label)
+    url_part_list = veld_data["url"].split("https://github.com/veldhub/")[1].split("/")
+    label = url_part_list[0]
+    suffix = ""
+    if label.startswith("veld_data"):
+        suffix = " (data veld)"
+        label = label.replace("veld_data", "")
+    elif label.startswith("veld_code"):
+        suffix = " (code veld)"
+        label = label.replace("veld_code", "")
+    elif label.startswith("veld_chain"):
+        suffix = " (chain veld)"
+        label = label.replace("veld_chain", "")
+    label = label.replace("__", "")
+    label_veld = url_part_list[-1].split(".yaml")[0]
+    if label_veld.startswith("veld_"):
+        label += ": " + label_veld.replace("veld_", "")
+    label = label.replace("_", " ")
+    label += suffix
+    result = Literal(label)
     return result
 
 
