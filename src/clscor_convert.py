@@ -301,7 +301,7 @@ def get_all_veld_appellation_label():
     return result
 
 
-def get_all_veld_identifier_uri():
+def get_all_veld_e42_uri():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
         veld_uuid = uuid.uuid5(uuid.uuid5(uuid.NAMESPACE_DNS, CLS), veld_key + "__e42")

@@ -106,20 +106,20 @@ mappings = {
     "veld_instance -P1-> E42_instance": {
         "s": get_all_veld_uris,
         "p": CRM["P1_is_identified_by"],
-        "o": get_all_veld_identifier_uri,
+        "o": get_all_veld_e42_uri,
     },
     "E42_instance -a-> E42": {
-        "s": get_all_veld_identifier_uri,
+        "s": get_all_veld_e42_uri,
         "p": RDF.type,
         "o": CRM["E42_Identifier"],
     },
     "E42_instance -P190-> veld_instance": {
-        "s": get_all_veld_identifier_uri,
+        "s": get_all_veld_e42_uri,
         "p": CRM["P190_has_symbolic_content"],
         "o": get_all_veld_urls,
     },
     "E42_instance -P2-> veld_instance": {
-        "s": get_all_veld_identifier_uri,
+        "s": get_all_veld_e42_uri,
         "p": CRM["P2_has_type"],
         "o": CLS_LINK["documentation"],
     },
