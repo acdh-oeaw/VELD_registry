@@ -3,21 +3,21 @@ services:
 
   create_registry_serial:
     extends:
-      file: compose.yaml
+      file: compose_individual.yaml
       service: create_registry
 
   clscor_convert_serial:
     extends:
-      file: compose.yaml
+      file: compose_individual.yaml
       service: clscor_convert
     depends_on:
-      create_registry:
+      create_registry_serial:
         condition: service_completed_successfully
 
   clscor_match_vocabs_serial:
     extends:
-      file: compose.yaml
+      file: compose_individual.yaml
       service: clscor_match_vocabs
     depends_on:
-      clscor_convert:
+      clscor_convert_serial:
         condition: service_completed_successfully
