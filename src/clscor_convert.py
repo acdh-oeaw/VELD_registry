@@ -138,10 +138,12 @@ def _get_veld_label(veld_data):
     elif label.startswith("veld_chain"):
         suffix = " (chain veld)"
         label = label.replace("veld_chain", "")
-    label = label.replace("__", "")
+    if label.startswith("__"):
+        label = label[2:]
     label_veld = url_part_list[-1].split(".yaml")[0]
     if label_veld.startswith("veld_"):
         label += ": " + label_veld.replace("veld_", "")
+    label = label.replace("__", " ")
     label = label.replace("_", " ")
     label += suffix
     result = Literal(label)
