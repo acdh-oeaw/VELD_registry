@@ -264,17 +264,17 @@ def main():
     # sets
     content += "\n## topic vocab\n"
     list_vocab = list(set_topic)
-    list_vocab = sorted(list_vocab)
+    list_vocab = sorted(list_vocab, key=str.casefold)
     for s in list_vocab:
         content += "- " + s + "\n"
     content += "\n## content vocab\n"
     list_vocab = list(set_content)
-    list_vocab = sorted(list_vocab)
+    list_vocab = sorted(list_vocab, key=str.casefold)
     for s in list_vocab:
         content += "- " + s + "\n"
     content += "\n## file_type vocab\n"
     list_vocab = list(set_file_type)
-    list_vocab = sorted(list_vocab)
+    list_vocab = sorted(list_vocab, key=str.casefold)
     for s in list_vocab:
         content += "- " + s + "\n"
 

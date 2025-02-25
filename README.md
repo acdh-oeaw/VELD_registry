@@ -1383,45 +1383,30 @@ After reproducing the entire previous sequences yourself and execution of the no
 - Bible Studies
 - Data Cleaning
 - Data Visualization
+- database
+- demo
 - Dependency Parsing
 - ETL
 - Evaluation
 - Grammatical Annotation
 - Lemmatization
 - Machine Learning
-- NLP
 - Named Entity Recognition
+- NLP
 - Part Of Speech
 - Preprocessing
 - RDF
 - Testing
 - Tokenization
+- triplestore
 - Universal Dependencies
 - Word Embeddings
-- database
-- demo
-- triplestore
 
 ## content vocab
-- Evaluation data
-- ML gold data
-- NER data
-- NER gold data
-- NER model
-- NLP data
-- NLP gold data
-- NLP model
-- NLP statistics
-- NLP training data
-- Part Of Speech of text
-- TEI
-- Universal Dependencies of text
-- Word Embeddings
-- Word Embeddings model
-- Word Embeddings training data
 - annotated literature
 - data visualization
 - enriched text
+- Evaluation data
 - evaluation data
 - gold data
 - grammatically annotated text
@@ -1432,24 +1417,39 @@ After reproducing the entire previous sequences yourself and execution of the no
 - linguistically enriched text
 - log
 - metadata
+- ML gold data
 - model metadata
 - natural text
+- NER data
+- NER gold data
+- NER model
 - newspaper texts
+- NLP data
+- NLP gold data
+- NLP model
+- NLP statistics
+- NLP training data
+- Part Of Speech of text
 - raw text
 - spaCy model
 - spacy training config
 - statistics
+- TEI
 - tokenized text
 - tokenizer
+- Universal Dependencies of text
+- Word Embeddings
 - word embeddings model
+- Word Embeddings model
+- Word Embeddings training data
 
 ## file_type vocab
-- GloVe model
 - bin
 - cfg
 - conllu
 - csv
 - fastText model
+- GloVe model
 - html
 - ini
 - json
