@@ -349,99 +349,100 @@ def get_method_per_e13_per_y8():
     return result
 
 
-def get_e13_per_veld_per_y9():
+def _get_io_of_code_or_chain(veld_data, io):
+    result = []
+    if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
+        result = _get_code_veld_file_type_to_format_of_io(veld_data, io)
+    return result
+
+
+def _get_y9_or_y10_per_io(io):
+    io_id = None
+    if io == "input":
+        io_id = "y9"
+    elif io == "output":
+        io_id = "y10"
+    return io_id
+
+
+def _get_e13_per_veld_per_y9_or_y10(io):
     result = {}
+    io_id = _get_y9_or_y10_per_io(io)
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            inputs = _get_code_veld_file_type_to_format_of_io(veld_data, "input")
-            for i in range(len(inputs)):
-                hashed_uri = _generate_hash(veld_key + "__e13__y9__" + str(i))
-                result[veld_key + "__e13__y9__" + str(i)] = [CLS[hashed_uri]]
+        io_result = _get_io_of_code_or_chain(veld_data, io)
+        for i in range(len(io_result)):
+            hashed_uri = _generate_hash(veld_key + "__e13__" + io_id + "__" + str(i))
+            result[veld_key + "__e13__" + io_id + "__" + str(i)] = [CLS[hashed_uri]]
+    return result
+
+
+def get_e13_per_veld_per_y9():
+    return _get_e13_per_veld_per_y9_or_y10("input")
+
+
+def get_e13_per_veld_per_y10():
+    return _get_e13_per_veld_per_y9_or_y10("output")
+
+
+def _get_veld_uri_per_e13_per_y9_or_y10(io):
+    result = {}
+    io_id = _get_y9_or_y10_per_io(io)
+    for veld_key, veld_data in VELD_DATA_ALL.items():
+        result_tmp = []
+        io_result = _get_io_of_code_or_chain(veld_data, io)
+        for i in range(len(io_result)):
+            hashed_uri = _generate_hash(veld_data["url"])
+            result_tmp.append(CLS[hashed_uri])
+            result[veld_key + "__e13__" + io_id + "__" + str(i)] = result_tmp
     return result
 
 
 def get_veld_uri_per_e13_per_y9():
+    return _get_veld_uri_per_e13_per_y9_or_y10("input")
+
+
+def get_veld_uri_per_e13_per_y10():
+    return _get_veld_uri_per_e13_per_y9_or_y10("output")
+
+
+def _get_x13_per_e13_per_y9_or_y10(io):
     result = {}
+    io_id = _get_y9_or_y10_per_io(io)
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            inputs = _get_code_veld_file_type_to_format_of_io(veld_data, "input")
-            result_tmp = []
-            for i in range(len(inputs)):
-                hashed_uri = _generate_hash(veld_data["url"])
-                result_tmp.append(CLS[hashed_uri])
-                result[veld_key + "__e13__y9__" + str(i)] = result_tmp
+        result_tmp = []
+        io_result = _get_io_of_code_or_chain(veld_data, io)
+        for i in range(len(io_result)):
+            hashed_uri = _generate_hash(veld_data["url"] + "__x13")
+            result_tmp.append(CLS[hashed_uri])
+            result[veld_key + "__e13__" + io_id + "__" + str(i)] = result_tmp
     return result
 
 
 def get_x13_per_e13_per_y9():
+    return _get_x13_per_e13_per_y9_or_y10("input")
+
+
+def get_x13_per_e13_per_y10():
+    return _get_x13_per_e13_per_y9_or_y10("output")
+
+
+def _get_format_per_e13_per_y9_or_y10(io):
     result = {}
+    io_id = _get_y9_or_y10_per_io(io)
     for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            inputs = _get_code_veld_file_type_to_format_of_io(veld_data, "input")
-            result_tmp = []
-            for i in range(len(inputs)):
-                hashed_uri = _generate_hash(veld_data["url"] + "__x13")
-                result_tmp.append(CLS[hashed_uri])
-                result[veld_key + "__e13__y9__" + str(i)] = result_tmp
+        io_result = _get_io_of_code_or_chain(veld_data, io)
+        for i, io_individual in enumerate(io_result):
+            result[veld_key + "__e13__" + io_id + "__" + str(i)] = [io_individual]
     return result
 
 
 def get_format_per_e13_per_y9():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            inputs = _get_code_veld_file_type_to_format_of_io(veld_data, "input")
-            for i, io in enumerate(inputs):
-                result[veld_key + "__e13__y9__" + str(i)] = [io]
-    return result
-
-
-def get_e13_per_veld_per_y10():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            outputs = _get_code_veld_file_type_to_format_of_io(veld_data, "output")
-            for i in range(len(outputs)):
-                hashed_uri = _generate_hash(veld_key + "__e13__y10__" + str(i))
-                result[veld_key + "__e13__y10__" + str(i)] = [CLS[hashed_uri]]
-    return result
-
-
-def get_veld_uri_per_e13_per_y10():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            outputs = _get_code_veld_file_type_to_format_of_io(veld_data, "output")
-            result_tmp = []
-            for i in range(len(outputs)):
-                hashed_uri = _generate_hash(veld_data["url"])
-                result_tmp.append(CLS[hashed_uri])
-                result[veld_key + "__e13__y10__" + str(i)] = result_tmp
-    return result
-
-
-def get_x13_per_e13_per_y10():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            outputs = _get_code_veld_file_type_to_format_of_io(veld_data, "output")
-            result_tmp = []
-            for i in range(len(outputs)):
-                hashed_uri = _generate_hash(veld_data["url"] + "__x13")
-                result_tmp.append(CLS[hashed_uri])
-                result[veld_key + "__e13__y10__" + str(i)] = result_tmp
-    return result
+    return _get_format_per_e13_per_y9_or_y10("input")
 
 
 def get_format_per_e13_per_y10():
-    result = {}
-    for veld_key, veld_data in VELD_DATA_ALL.items():
-        if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
-            outputs = _get_code_veld_file_type_to_format_of_io(veld_data, "output")
-            for i, io in enumerate(outputs):
-                result[veld_key + "__e13__y10__" + str(i)] = [io]
-    return result
-
+    return _get_format_per_e13_per_y9_or_y10("output")
+    
 
 def get_pc3_uri():
     result = {}
