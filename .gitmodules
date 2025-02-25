@@ -1,0 +1,3 @@
+[submodule "data/veldhub_meta_repo"]
+	path = data/veldhub_meta_repo
+	url = https://github.com/veldhub/.github.git
