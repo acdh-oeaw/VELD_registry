@@ -12,7 +12,9 @@ GITLAB_TOKEN = os.getenv("gitlab_token")
 IN_LINKS_DATA_PATH = "/app/data/links_repos/links_data_velds.txt"
 IN_LINKS_CODE_PATH = "/app/data/links_repos/links_code_velds.txt"
 IN_LINKS_CHAIN_PATH = "/app/data/links_repos/links_chain_velds.txt"
-OUT_README_PATH = "/app/README.md"
+IN_README_TEMPLATE_PATH = "/app/data/veldhub_meta_repo/profile/README_template.md"
+OUT_README_PATH_REGISTRY = "/app/README.md"
+OUT_README_PATH_VELHDUB = "/app/data/veldhub_meta_repo/profile/README.md"
 OUT_VELD_INDIVIDUAL_FOLDER = "/app/data/veld_files/individual/"
 OUT_VELD_MERGED_PATH = "/app/data/veld_files/merged/all_velds_merged.yaml"
 
@@ -219,8 +221,10 @@ def crawl_all(link_txt_path, all_velds):
 def main():
     
     # delete all veld output
-    if os.path.exists(OUT_README_PATH):
-        os.remove(OUT_README_PATH)
+    if os.path.exists(OUT_README_PATH_REGISTRY):
+        os.remove(OUT_README_PATH_REGISTRY)
+    if os.path.exists(OUT_README_PATH_VELHDUB):
+        os.remove(OUT_README_PATH_VELHDUB)
     if os.path.exists(OUT_VELD_MERGED_PATH):
         os.remove(OUT_VELD_MERGED_PATH)
     if os.path.exists(OUT_VELD_INDIVIDUAL_FOLDER):
@@ -228,7 +232,7 @@ def main():
             os.remove(OUT_VELD_INDIVIDUAL_FOLDER + "/" + f)
             
     # README header
-    content = (
+    content_prefix_registry = (
         "# VELD registry\n\n"
         "This is a living collection of VELD repositories and their contained velds.\n\n"
         "The technical concept for the VELD design can be found here: "
@@ -241,8 +245,11 @@ def main():
         "[content vocab](#content-vocab)\n\n"
         "[file_type vocab](#file_type-vocab)\n\n"
     )
+    with open(IN_README_TEMPLATE_PATH, "r") as f:
+        content_prefix_veldhub = f.read()
     
     # crawl over all links
+    content = ""
     all_velds = {}
     content += "\n## data velds\n"
     content_tmp, all_velds = crawl_all(IN_LINKS_DATA_PATH, all_velds)
@@ -253,7 +260,7 @@ def main():
     content += "\n## chain velds\n"
     content_tmp, all_velds = crawl_all(IN_LINKS_CHAIN_PATH, all_velds)
     content += content_tmp
-    
+
     # sets
     content += "\n## topic vocab\n"
     list_vocab = list(set_topic)
@@ -270,10 +277,14 @@ def main():
     list_vocab = sorted(list_vocab)
     for s in list_vocab:
         content += "- " + s + "\n"
-    
+
     # write
-    with open(OUT_README_PATH, "w") as f:
-        f.write(content)
+    content_registry = content_prefix_registry + content
+    content_veldhub = content_prefix_veldhub + content
+    with open(OUT_README_PATH_REGISTRY, "w") as f:
+        f.write(content_registry)
+    with open(OUT_README_PATH_VELHDUB, "w") as f:
+        f.write(content_veldhub)
     with open(OUT_VELD_MERGED_PATH, "w", encoding="utf-8") as f_out:
         yaml.dump(all_velds, f_out, sort_keys=False)
 
