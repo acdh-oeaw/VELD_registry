@@ -104,7 +104,7 @@ def _get_topic_as_method_uri(veld_data):
                             for cm in clscor_mapped:
                                 result.add(URIRef(cm))
                         else:
-                            result.add(CRM_METHOD[t.replace(" ", "_")])
+                            result.add(CLS_METHOD[t.replace(" ", "_")])
     result = sorted(list(result))
     return result
 
@@ -114,7 +114,7 @@ def _transform_file_type(file_type_data):
     if type(file_type_data) is str:
         file_type_data = [file_type_data]
     for ft in file_type_data:
-        result.append(CRM_FORMAT[ft.replace(" ", "_")])
+        result.append(CLS_FORMAT[ft.replace(" ", "_")])
     return result
 
 

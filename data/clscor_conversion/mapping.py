@@ -118,6 +118,11 @@ mappings = {
         "p": CRM["P190_has_symbolic_content"],
         "o": get_all_veld_urls,
     },
+    "E42_instance -P2-> veld_instance": {
+        "s": get_all_veld_identifier_uri,
+        "p": CRM["P2_has_type"],
+        "o": CLS_LINK["info_website"],
+    },
     
     # Tool Event Description
     "X13_instance -a-> X13": {
