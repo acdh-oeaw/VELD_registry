@@ -155,6 +155,23 @@ def _get_data_veld_uris__as_chain_io_by_io(io):
         if io_result:
             result[veld_key] = io_result
     return result
+
+
+def _get_code_veld_from_chain(veld_data):
+    result = {}
+    services = _get_data_recursively(veld_data, ["content", "services"])
+    if services is not None:
+        code_veld_file_list = []
+        for s in services.values():
+            code_veld_file = _get_data_recursively(s, ["extends", "file"])
+            if code_veld_file is not None:
+                code_veld_file_list.append(code_veld_file)
+        for code_veld_file in code_veld_file_list:
+            code_veld_file = code_veld_file.replace("./code/", "./")
+            code_veld_id = code_veld_file[2:].replace("/", "___")
+            result[code_veld_id] = VELD_DATA_ALL.get(code_veld_id)
+    return result
+
     
     
 def get_data_veld_uris():
@@ -350,8 +367,12 @@ def get_method_per_e13_per_y8():
 
 def _get_io_of_code_or_chain(veld_data, io):
     result = []
-    if _is_code_veld(veld_data) or _is_chain_veld(veld_data):
+    if _is_code_veld(veld_data):
         result = _get_code_veld_file_type_to_format_of_io(veld_data, io)
+    if _is_chain_veld(veld_data):
+        code_veld_data_dict = _get_code_veld_from_chain(veld_data)
+        for code_veld_data_io in code_veld_data_dict.values():
+            result.extend(_get_code_veld_file_type_to_format_of_io(code_veld_data_io, io))
     return result
 
 
