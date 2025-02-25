@@ -181,7 +181,6 @@ def get_chain_veld_uris():
     return result
 
 
-# TODO: consider replace hash(veld_uri) with hash(veld_uri)
 def get_all_veld_uris():
     result = {}
     for veld_key, veld_data in VELD_DATA_ALL.items():
