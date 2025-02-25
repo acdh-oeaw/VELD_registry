@@ -459,7 +459,7 @@ veld_data__apis_spacy_ner_models___m1___model-best___veld.yaml:
       data:
         file_type: spaCy model
         content:
-        - spacy model
+        - spaCy model
         - NLP model
         additional:
           performance:
@@ -488,7 +488,7 @@ veld_data__apis_spacy_ner_models___m2___model-best___veld.yaml:
       data:
         file_type: spaCy model
         content:
-        - spacy model
+        - spaCy model
         - NLP model
         additional:
           performance:
@@ -995,6 +995,49 @@ veld_data__wordembeddings_evaluation___evaluation_gold_data___lowercase___veld.y
         content:
         - evaluation data
         - NLP gold data
+veld_code__akp_ner_inference___veld_infer.yaml:
+  url: https://github.com/veldhub/veld_code__akp_ner_inference/blob/main/veld_infer.yaml
+  content:
+    x-veld:
+      code:
+        description: apply NER models on linkedcat data for usage of the inferenced
+          entites in the AKP project
+        topic:
+        - NLP
+        - Machine Learning
+        - Named Entity Recognition
+        input:
+        - volume: /veld/input/
+          file_type: spaCy model
+          content:
+          - NLP model
+          - NER model
+        output:
+        - volume: /veld/output/
+          file_type: csv
+          environment_var: out_csv_file
+          description: inferenced NLP / NER data.
+          content:
+          - inferenced NLP data
+          - NLP data
+          - NER data
+        config:
+        - environment_var: solr_core_url
+          description: url pointing to a solr core from where text data should be
+            loaded
+          var_type: str
+    services:
+      veld_infer:
+        build: .
+        command: jupyter notebook --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password=''
+        ports:
+        - 8888:8888
+        working_dir: /veld/code/
+        volumes:
+        - ./src:/veld/code/
+        environment:
+          solr_core_url: null
+          out_csv_file: null
 veld_code__analyse_conllu___veld.yaml:
   url: https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml
   content:

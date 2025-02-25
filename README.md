@@ -132,12 +132,12 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: True
     - metadata:
       - file_type: spaCy model
-      - content: spacy model, NLP model
+      - content: spaCy model, NLP model
   - [m2/model-best/veld.yaml](https://github.com/veldhub/veld_data__apis_spacy_ner_models/blob/main/m2/model-best/veld.yaml)
     - valid: True
     - metadata:
       - file_type: spaCy model
-      - content: spacy model, NLP model
+      - content: spaCy model, NLP model
 - https://github.com/veldhub/veld_data__bert_amc_embeddings_db
 - https://github.com/veldhub/veld_data__demo_inference_input_ts-vienna-2024
   - [veld.yaml](https://github.com/veldhub/veld_data__demo_inference_input_ts-vienna-2024/blob/main/veld.yaml)
@@ -294,7 +294,19 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
 ## code velds
 - https://github.com/veldhub/veld_code__akp_ner_inference
   - [veld_infer.yaml](https://github.com/veldhub/veld_code__akp_ner_inference/blob/main/veld_infer.yaml)
-    - valid: False, all possible options are invalid: (is not dict at: /x-veld/code/config/; all possible options are invalid: (single content mismatch: expected: 'str', found: url, at: /x-veld/code/config/0/var_type/; single content mismatch: expected: 'bool', found: url, at: /x-veld/code/config/0/var_type/; single content mismatch: expected: 'int', found: url, at: /x-veld/code/config/0/var_type/; single content mismatch: expected: 'float', found: url, at: /x-veld/code/config/0/var_type/))
+    - valid: True
+    - metadata:
+      - description: apply NER models on linkedcat data for usage of the inferenced entites in the AKP project
+      - topic: NLP, Machine Learning, Named Entity Recognition
+      - input:
+        - 1:
+          - file_type: spaCy model
+          - content: NLP model, NER model
+      - output:
+        - 1:
+          - description: inferenced NLP / NER data.
+          - file_type: csv
+          - content: inferenced NLP data, NLP data, NER data
 - https://github.com/veldhub/veld_code__analyse_conllu
   - [veld.yaml](https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml)
     - valid: True
@@ -1395,6 +1407,8 @@ After reproducing the entire previous sequences yourself and execution of the no
 - ML gold data
 - NER data
 - NER gold data
+- NER model
+- NLP data
 - NLP gold data
 - NLP model
 - NLP statistics
@@ -1422,7 +1436,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 - natural text
 - newspaper texts
 - raw text
-- spacy model
+- spaCy model
 - spacy training config
 - statistics
 - tokenized text
