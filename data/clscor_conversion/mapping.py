@@ -121,7 +121,7 @@ mappings = {
     "E42_instance -P2-> veld_instance": {
         "s": get_all_veld_identifier_uri,
         "p": CRM["P2_has_type"],
-        "o": CLS_LINK["info_website"],
+        "o": CLS_LINK["documentation"],
     },
     
     # Tool Event Description

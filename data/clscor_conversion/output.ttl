@@ -5274,7 +5274,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/01488d30-cd2f-5eb8-8334-0eaf300ac4cc> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_export.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0197147f-39a2-597b-a727-b980f28b1d5f> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5282,7 +5282,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/0263b657-be0c-510b-86ca-60fb19a378e2> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/02ebfebf-7080-5464-834c-ebca7b2aa4f1> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5290,7 +5290,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/03b22388-7840-5b90-8297-8f78bd8bf6ec> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m3/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/04393fa6-5d84-569d-aa37-4ff70d3e601d> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5298,15 +5298,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/04c65e5c-03e9-572d-a3fe-0d3d94b1cc2b> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0542d65f-eeee-5d82-99ba-d1170b5e21ad> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/066c01e4-653d-53e6-855d-f3b0175da966> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step1_xml2standoff.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0758d116-22f1-5437-abb7-e149c8848b22> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5314,7 +5314,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/08248acb-5a9b-506d-bdef-b85c0d036cc3> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_11_analyse_evaluation.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/086fb16c-ce1e-5c86-ba7f-e9b9e665c2dd> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5322,11 +5322,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/09078447-2116-5333-9fbc-5106e3bb53cd> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_all_multi_chain.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0a17f08c-91a4-575f-b15a-f191ac9001e6> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step5_download_gutenberg_books.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0a35a6f3-909c-5740-849c-bfaeabdada06> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5334,11 +5334,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/0a5ca788-574f-5758-8499-ba49b314b276> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0b6770b4-8662-53e7-91e1-5c147fb49701> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m4/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0b6cbd20-9a42-5352-a535-5244a3308822> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5374,7 +5374,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/115b78e0-992d-59a6-b19e-ddb8fd1819fe> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/11d177f4-db15-580b-8eff-8230f7f0d40a> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5382,7 +5382,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/124e42db-a63f-5458-8a30-949a4797a443> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_udpipe2teitok.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/1287a217-6135-5365-8c45-99392a805ce2> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5394,7 +5394,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/130564f8-61e1-5217-8b37-c53cc2e53be5> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/130a843c-574a-51e3-bb9c-7a3c48b5b7c3> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5402,7 +5402,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/131589b6-fdd8-5b69-a347-ddbbfc864f7e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/133a6c0b-a6c1-563c-bc02-f68030c3251f> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5410,7 +5410,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/13dcf45e-eaa0-55f3-a817-2ef7fbb96df0> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_1_preprocess.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/149180e9-8386-55d2-9c92-0c9321f8caf9> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5418,11 +5418,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/14c56d6c-1387-5a71-a507-92945387516c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_analysis.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/15b8dc44-df4d-56b3-81f3-8347ccb572d5> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/16945bbf-a976-5802-8d81-2fe7e0231d1e> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5434,11 +5434,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/18265ac3-926f-54c4-bff0-233cb1a4f151> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step3_ann2standoff.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/184dd291-16de-5125-8f70-06cc6b64b1c5> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_export.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/1abadb9a-aad5-5cdd-86cc-657b2c511384> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5455,11 +5455,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/1cddceea-cde2-5906-a21d-3ed42508cbab> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_clean.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/1cf0e53f-2212-5af4-a924-1093ed97a18d> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_02__single_download__designate_file_name.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/1d3f3f4e89> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/6f0d2d21-1c8f-5392-b670-86c5f0790ed9>,
@@ -5468,31 +5468,31 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/1d61ba9b-89f6-5d90-b279-1ba32abbc524> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_5_inspect_with_conllueditor.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/1e105f15-3cbc-5e42-88f7-b135863999b4> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_3_train_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/1ff41cbf-6616-5cf8-8bd9-ac94cfd9e835> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed__cleaned/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/211691f7-d1a6-5eea-bce5-97bf884ab63d> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_05__csv_bulk_download.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/21427b1d-602a-5ca0-af64-4ee3c9ab47a2> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_remove_punctuation.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2158df5a-f8b7-57a7-9fdc-7da1f90ced29> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed__cleaned/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/22eda19b-8a8d-5e0d-8564-6a4247f71c76> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__apis_oebl__ner_gold/blob/main/data_cleaned/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2772c5a6-04d5-5cfa-94a4-ef785a924f2c> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5500,11 +5500,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/2b707903-21e9-5d28-87b2-0158767b7024> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m7/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2bbed87b-650b-5ac1-91c4-fafcf9a4ee01> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2c2c3540-684b-597f-9a7f-a3039cd164a1> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5516,7 +5516,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/2e0c33ff-8ca6-5c70-8026-fccb460e18f1> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__akp_ner_inference/blob/main/veld_infer.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2e61961d-8ec2-5b94-959d-1761ffb97a40> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5528,15 +5528,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/2f027cd3-4fb2-51f6-990c-7f4c8c61c5be> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_01__single_download.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2f47d785-f329-56b0-807d-e3b2cac1471f> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_udpipe2teitok.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2f61f75b-68f6-590e-bfda-adc4e8001578> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/2faef94b-6f38-596c-a71f-888a8757dcc8> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5564,13 +5564,13 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/31e7fb3e-3f7d-5ae3-92e2-952fa8217e30> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_ann2standoff.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/3236a9ef4d> a crmcls:X13_Tool_Description .
 
 <https://clscor.io/entity/32586c10-ed87-5c80-bb89-12e6d45dc251> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_sample.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/33466d1cc1> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/15b8dc44-df4d-56b3-81f3-8347ccb572d5>,
@@ -5583,7 +5583,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/34c60bf8-438b-5473-bc11-e509ec85f17c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_remove_punctuation.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/352b14b0-18fd-59f1-b5c5-2619589324e4> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5603,11 +5603,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/3724274a-9177-5bd8-b924-8bce5c62bcd1> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/code/veld_code__jupyter_analysis/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/3751574b-6f13-58ce-9b38-06396ded1521> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_5_train_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/378e9780-2ed9-5790-8f34-503c3d846da8> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5623,7 +5623,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/3a0d1c91-aa8b-56c6-9d4d-1b1059728e50> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_05_train_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/3ac0ec5d9b> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/719bd1c7-0431-522c-a998-c74a9b1d86ad>,
@@ -5632,7 +5632,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/3b0f9aef-c691-501c-80cd-d6de92164f97> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_09__csv_bulk_download__designate_file_name__extract__csv_no_headers.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/3bdbb210-9299-5e64-a807-ccd51f6f347d> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5640,11 +5640,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/3c29569b-de87-53d3-8376-a445d69ee495> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/3c541cfc-0197-5bc9-b969-7d1717e791bf> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_publish_to_hf.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/3cbed544-6dfc-5891-bde9-96cef07bf2e5> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5677,15 +5677,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/40dc92f7-cd88-5879-a727-2998a821de77> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_strip.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/41fa84de-2493-51fa-8d95-16d14e69c8df> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_infer.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/429fda96-067e-5a6e-a19d-efe4b1ae2c0a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/436bd670-f74d-5fe4-9ce2-d6d622c9b8e8> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5701,7 +5701,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/48ee2598-1eb6-5dc3-8814-ed5c057b6ea9> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__sampled__lowercased__punctuation_removed/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/4a33c6346d> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/f8c45a90-5011-5997-bab4-2eadf98c7b4c>,
@@ -5719,7 +5719,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/4d942462-bc77-5c44-9153-71cd0cbf0d21> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step4_standoff2xml.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/4dc848dd4a> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/03b22388-7840-5b90-8297-8f78bd8bf6ec>,
@@ -5740,15 +5740,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/4f740c99-0ef2-5df9-b58a-cbb736d70286> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_all.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/5055ef33-93f3-5a51-a345-e9f7d0e53ec9> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_strip.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/50a857c2-a6d6-5906-be02-30193231d855> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_08_eval_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/50e820bd-80c0-5418-9926-7187d8255735> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5765,23 +5765,23 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/530d7f72-8a55-5faf-946e-2a9df76e3ccc> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/53e15359-f4a8-5580-8bab-30b6fcb58f75> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__word2vec_models/blob/main/m6/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/55adba40-d676-5e85-9085-21285f6b4ee3> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_all_steps.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/5612d875-28ef-5725-a9bb-a4d5296dfdee> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__word2vec_models/blob/main/m8/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/57485a67-9d30-59e3-827e-ab0d5dfaa5ee> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/57d312dc-d575-52ff-9aad-1e358fded264> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5789,11 +5789,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/5a200015-b38c-5164-90bb-565344af51c6> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/5af31b5f-c107-5e49-98cd-8aa590aa9f61> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_1_download.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/5b62517ad7> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/78e23982-d342-5e01-be57-2ea28da533c3>,
@@ -5806,7 +5806,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/5cb1c43b-1fed-5478-82c5-ea32325caa5e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__word2vec_models/blob/main/m7/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/5d0f1ffd-1a70-5a0a-ac76-0fc00532a824> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5814,15 +5814,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/5d142c1b-7e4c-53ea-9d95-db1ee7da9ef2> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__demo_train_data_ts-vienna-2024/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/5de78137-4205-57ea-9beb-91ebb8fb514d> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_tag_ud.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/5ff278bf-4705-53c2-a86c-2ed7db6c570a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__word2vec_models/blob/main/m3/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/601d3a3e-32fa-5f5e-998b-4212a4d06a3a> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5830,7 +5830,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/6157ecd9-f9dc-5645-a4b7-0af7afbf44ba> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step1_download_gutenberg_metadata.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6307cd3c52> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/5cb1c43b-1fed-5478-82c5-ea32325caa5e>,
@@ -5843,7 +5843,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/6369b051-1c80-519c-8349-cb340688a5b0> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_analyse_evaluation_non_interactive.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/640f170a-312f-52c5-b3b6-cc0e7aaf02af> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5855,7 +5855,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/6654f01b-a3d6-5c01-aff8-a8876efde5a1> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__spacy/blob/main/veld_convert.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/66d9d112-e525-58c0-94ff-a7627762217d> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5863,7 +5863,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/670aafd3-241d-5858-8a3b-1611c9afe9d7> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__apis_oebl__ner_gold/blob/main/data_uncleaned/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/675fd1a8-90b6-509f-8337-4ce1784f4389> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5875,15 +5875,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/67f2ce09-bc17-526a-9e24-1075bc35ff2f> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_03_preprocess_lowercase.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6932c3b6-c4d0-5049-8ed8-93ff158b5b20> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_2_download_models.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6995d594-d63e-5408-834e-881560fc62bd> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6b83a23c-c197-50a8-88f9-c33cd32427c1> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5891,11 +5891,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/6b92045f-d027-5415-882b-e812da97495c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step1_xml2standoff.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6bdae81c-26ee-5db8-be5d-9d5cae1c5e16> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_parseudpipe.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6c6eb5fa-bae9-5a6d-8b07-34cb1cb9ef18> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -5907,11 +5907,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/6dd4e372-f879-5197-b6e6-7943cec8d258> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_08__csv_bulk_download__csv_no_headers.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6f0d2d21-1c8f-5392-b670-86c5f0790ed9> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__word2vec_models/blob/main/m4/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/6f714137-1ba4-5bd7-be7d-587ac8ec9ff9> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5919,7 +5919,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/6fed9244-911e-5500-953a-8cdfde00eff5> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_parseudpipe.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/719bd1c7-0431-522c-a998-c74a9b1d86ad> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5944,15 +5944,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/748856ec-8cf1-5083-a73e-5ed95133a3b4> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_import_rdf.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/750ce5bd-206d-54a4-8bcb-1ab5f83025a4> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/7551e8ff-7f73-5dcb-924a-c880b946c6a7> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step4_standoff2xml.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/75797a81-4cd1-5f47-9c9c-f452a90b8c0a> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -5960,11 +5960,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/76181b19-ca3b-5afb-a377-02a333d4ac0e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_create_config.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/7628642e-7628-5b7c-9f66-0d23c9d3d818> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__glove/blob/main/veld_train.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/76705ada47> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/b8b65052-2235-5b47-8839-637664bc5613>,
@@ -5977,7 +5977,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/770455a2-0530-52fd-9cb7-f71b8679fe66> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_sample.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/771d3cad-dd63-545d-ada4-daafd0ed8683> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -5993,15 +5993,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/7866ee13-b6f5-55ac-83e4-fa44ddb55070> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_03__single_download__extract.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/78a3210d-c6c0-5b1e-a012-da5eff27e939> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_all_steps.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/78e23982-d342-5e01-be57-2ea28da533c3> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m6/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/792c0c8f-9b9f-5e79-b20f-1dfbcf8fbab5> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6021,11 +6021,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/7ac036a8-1d6a-5057-bd68-a0bfdf272c20> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/7b412865-3fb0-511a-a74a-488cfdad66eb> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_10_eval_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/7b5b8e96-e53e-5fa6-97bf-949cec317cf0> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6033,7 +6033,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/7b740f9d-41ea-513e-8b3d-c8c841a27999> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/7bedc98b-e8aa-5c9b-9de0-2412428afbcf> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6053,7 +6053,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/7f0ef481-895c-5dc8-9322-89ac1ccc1c90> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__apis_oebl__ner_gold/blob/main/data_cleaned_simplified/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/81a4ac6fc4> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/5ff278bf-4705-53c2-a86c-2ed7db6c570a>,
@@ -6066,7 +6066,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/83a70f47-83c2-5b8e-951a-e2ac39dc05f3> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_04_preprocess_remove_punctuation.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/83ac6c3f41> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/8470a754-d92d-5b39-82e5-83e4bbd2425d>,
@@ -6079,7 +6079,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/8470a754-d92d-5b39-82e5-83e4bbd2425d> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__word2vec_models/blob/main/m5/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/84bfb10a-7f75-59bd-979f-6617da780e3e> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6095,11 +6095,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/8604a29b-e9f8-5241-8c5d-408d20a27303> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_run_server.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/86c5e3b9-6319-547f-b34e-10c428341aab> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/86ff5cb430> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/2bbed87b-650b-5ac1-91c4-fafcf9a4ee01>,
@@ -6108,7 +6108,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/87400aef-0f36-54bd-9175-99fcd286427c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_train.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8860a6b07c> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/66d9d112-e525-58c0-94ff-a7627762217d>,
@@ -6125,7 +6125,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/89500c4c-f406-5103-8aee-68dac18aab76> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step3_ann2standoff.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8958022d-619d-543b-a496-8bf1923355d3> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6137,7 +6137,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/8ab2f670-c9c2-50a9-95f5-efedc3c20bf6> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__apis_spacy_ner_models/blob/main/m1/model-best/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8aba6e00-be7c-5503-b492-857e3b6c4701> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6149,27 +6149,27 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/8bfa1b7e-fd35-53e5-8a77-73c84ce22bbc> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_07_train_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8c6f2848-f5ff-5bf2-b712-e6b961272d47> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_09_eval_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8cdf3daa-d818-5296-ab19-dd9dc36d3f79> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_4_train_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8daaf920-fe81-56db-8d66-c8c45daae915> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__analyse_conllu/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8eb23a92-c304-5a7c-b8bf-675f4b07801e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_transform_wiki_json_to_txt.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/8ef2c5c2-88b9-5a83-aeb8-7e7364293786> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_06_train_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/904256e8-60cd-5616-8f5e-08c9b034ccb0> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6181,7 +6181,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/913266bb-dea9-5dd0-b02a-135d51120f2c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_04__single_download__designate_file_name__extract.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/913cfad7-3932-5f2c-a290-2ecd61075805> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6193,41 +6193,41 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/92490f06-55c6-5f19-862c-e3e7e80d3c62> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__apis_ner_evaluate_old_models/blob/main/veld_evaluate.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/924b9178-4f14-5e58-bdad-f31870cf3b30> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/93712cf8-af35-522f-964c-c0a6ef41825c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m1/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/93754499-c044-513f-b4f4-e25580571d3c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__apis_spacy_ner_models/blob/main/m2/model-best/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/9427c352-4cb0-5205-a0f9-fd194c35cf9c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__word2vec_models/blob/main/m9/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/95676ee5-1175-54a3-b7a5-4d06ec5bbb44> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__demo_inference_input_ts-vienna-2024/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/956df60b-eeaf-5270-91f7-803282899749> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/95a7b09b-8071-5b6f-8cd8-d2ebb8dcd207> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/963738391d> a crmcls:X13_Tool_Description .
 
 <https://clscor.io/entity/9640896b-860a-5d0e-8d99-3e4077d2866f> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__akp_ner_inference/blob/main/veld_infer.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/96992c4d-b6a9-5b22-ba24-0aeef7f4b84d> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6251,15 +6251,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/9ae20c8f-568b-517b-b920-5c33781267ab> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_standoff2xml.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/9beca68b-6d68-5a94-af16-e9adfd71ce77> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_preprocessing/blob/main/veld_preprocess_lowercase.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/9cc4f308-9d32-5293-b73c-3da11a88bc68> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step5_xml2vrt.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/9cecd667-73a0-56e3-967d-e41ec2a34958> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -6275,11 +6275,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/9ef30eb6-65a3-5d84-8e61-9da8ee9cf744> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__glove_models/blob/main/m3/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/a005bd3a-c409-5c56-a5e5-81b5681d6158> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__spacy/blob/main/veld_publish_to_hf.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/a05f796f-b778-55e7-aacc-42479a1effce> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6295,7 +6295,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/a1fe8853-aa61-5804-ba58-ed818c98aab6> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_udipe_ts-vienna-2024/blob/main/veld_train.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/a303890443> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/131589b6-fdd8-5b69-a347-ddbbfc864f7e>,
@@ -6304,7 +6304,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/a3401bbc-7aee-587e-86d5-b2b04353bb4f> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_eval_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/a483200099> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -6314,7 +6314,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/a6b7f85b-bfd3-5ca4-bdf6-f8742a3cf286> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__akp_ner_linkedcat/blob/main/linkedcat2/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/a6d42fb9-273d-5e9f-9bef-55ae8d481541> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -6326,7 +6326,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/a950e9d2-9550-5a8d-9b58-4fc2c2a08943> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_02_preprocess_transform_wiki_json_to_txt.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/a98c7909-f86b-5352-97b6-40218648db91> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -6334,19 +6334,19 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/a9dc3659-76ae-5e07-9027-c531db5060cb> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/a9dd3dcc-aa7a-50a7-912a-11b650cc60e4> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m9/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/aa87e6da-e58d-5c75-b93e-82ed6a323976> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_teitok-tools/blob/main/veld_xmltokenize.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ab42e757-bbcb-5757-8d23-0488687608f2> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__apis_ner_transform_to_gold/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/abd9da1a-9cca-54cd-914b-642ade1f1ecf> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6354,11 +6354,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/ad208365-f928-5c2e-9b39-a429b1c52210> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m8/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ae05ada2-52c7-5768-8e0d-92def6f40ee7> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__udpipe/blob/main/veld_infer.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ae80fde7-6c4d-5c5c-b590-ef56594cee63> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6366,11 +6366,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/aed7e5d2-34cb-578d-bdd2-bbe5ab57e98c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_train.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/b0053e56-360c-5eea-8737-ff2bf8325f0e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__gutenberg_triplestore/blob/main/veld_download_gutenberg_metadata.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/b01b8ae2-180c-5daf-b809-7430172b0f0c> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -6386,7 +6386,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/b14b7db2-f771-5e43-b6ad-d3a5f646f75b> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/b18f3affc4> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/133a6c0b-a6c1-563c-bc02-f68030c3251f>,
@@ -6403,7 +6403,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/b73fccb8-3183-5d2f-9eb3-9b64590619ce> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_export.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/b801d977-f38b-58ec-897a-6c3232c3e174> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6411,7 +6411,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/b857fcf1-32e5-589f-bb0e-d8c0010a005d> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_2_preprocess.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/b85838e0-e66c-5746-b87e-0ef2b0a8c975> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6431,11 +6431,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/b9017425-3cb6-5678-83be-f77ca0dbd2ff> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__eltec_conllu_stats/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/b9116ece-e3bc-55a0-a641-55a51bccc31e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__spacy/blob/main/veld_create_config.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ba8215b0-064e-53f1-8a82-761d9e3bd313> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6447,7 +6447,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/bb319d54-c9c7-59b2-a68d-6a96fc3cb655> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2vrt.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/bb3ddc6d-4e70-538a-84e7-8bf087122fb3> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -6455,7 +6455,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/bba75c0c-5e72-5c5f-8a3e-c110bfdc2cf4> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__xml_xslt_transformer/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/bbff182f75> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/5612d875-28ef-5725-a9bb-a4d5296dfdee>,
@@ -6464,15 +6464,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/bce93fe1-e00c-50f8-a048-f01a7941b18b> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation_non_interactive.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/bf0736e0-5274-5752-9fe2-6ba73da9b3a0> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_train.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/bfe0d190-029e-57ec-84df-fb85100e3c5a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_4_analyse.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/bfe44d01-1929-56cf-8dae-4937a9e23883> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6480,7 +6480,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/c1053239-5d8b-559d-99bd-932c07744e83> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c1b69f1d-6ecf-5719-8444-6824f80a6be6> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6488,7 +6488,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/c20a76cc-b109-5ac6-ab75-4cb818c34995> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__spacy/blob/main/veld_train.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c461847a-72c1-577f-a242-9358f9651541> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6496,7 +6496,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/c4ce4fc6-a75d-57c6-8a2e-3ed7bdd58ffc> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_lowercase.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c4f077c08e> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/7ac036a8-1d6a-5057-bd68-a0bfdf272c20>,
@@ -6505,7 +6505,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/c60f4dd9-ebeb-5504-8fac-122d37bd2f6a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step5_xml2vrt.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c64e844c0b> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/b01b8ae2-180c-5daf-b809-7430172b0f0c>,
@@ -6514,7 +6514,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/c6a5d1a5-c8cb-596e-9471-c23790604a72> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_analyse_evaluation.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c7eb9cc9-df30-5af7-83a7-6079edd8c4a1> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6522,15 +6522,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/c8551008-ae78-5530-b157-2ff7497db45a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c90299ad-f52a-5a2f-adf5-8eac200922e3> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/capitalized/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c9332ffe-2092-5911-b28b-75548ad2a56e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/c9e64837-51d7-552d-b9b3-76599bd93903> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6546,11 +6546,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/cbb81232-74cc-53d1-ae3c-4cd52ee1432c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_10__invalid__out_file_and_csv.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ccc4465e-0ef7-533e-ac56-1633f712087b> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_pypi_publisher/blob/main/veld_publish.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/cce1c5d2-2421-549c-8d9c-1cca5207ce20> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -6566,7 +6566,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/d07e8326-367e-58a5-8c4c-070e36455928> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__akp_ner_linkedcat/blob/main/linkedcat/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/d256087a-9f13-5a9b-9030-32eea0b494be> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6596,7 +6596,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/d4dc2b7b-e6d9-5d72-9e0c-fa0a16da1138> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__wordembeddings_evaluation/blob/main/evaluation_gold_data/lowercase/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/d4f01458-b634-59de-bfba-fdac529a5e4b> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6608,7 +6608,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/d5a1a7bb-3b24-53b2-951f-921cf000c656> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step2_run_server.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/d700117661> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/a6d42fb9-273d-5e9f-9bef-55ae8d481541>,
@@ -6617,11 +6617,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/d71c25e9-d4e0-59f8-ab75-0dde62df8108> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_06__csv_bulk_download__designate_file_name.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/d7981b95-954c-5131-9924-3fc7a16460b3> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_tei_example1_step2_tag_ud.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/da2ea6eb-6497-541d-834b-cd9967e33e23> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6643,15 +6643,15 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/ddc5a176-f37e-54ff-b288-5ce47e8479db> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__word2vec/blob/main/veld_train.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/df856ef4-0189-5334-921a-bfb92b90ed9d> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__glove_models/blob/main/m1/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/dfb0114d-df38-5f5f-9124-33071750e906> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_all.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/dfd2808c-37c4-533c-9ae1-a96c5d89f9c0> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6659,11 +6659,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/e024309f-451e-5460-ac0c-7f1709804070> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step3_import_rdf.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/e1002832-6d5a-5aeb-905c-30370febdc0a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_playground_jupyter_notebook_fasttext.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/e164ec10-5a7a-5cab-a7f3-32e7678fea47> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6681,21 +6681,21 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/e3449e4c-5c3e-5454-8e0f-7b6f003e41e8> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/e34cb09a-7747-58a3-8406-70f555ffa122> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_01_preprocess_download_and_extract.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/e39d8e15e8> a crmcls:X13_Tool_Description .
 
 <https://clscor.io/entity/e40b4e97-59c2-56d4-a017-7b0e9196cf82> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step4_query_books_urls.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/e454f4ad-f7b0-53fe-9797-3b0ad6c27d0c> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/e4a3e689-bd8c-54c5-8db7-8f786ad35e9f> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6727,7 +6727,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/ea4d4735-b120-5c98-9f72-40da5d94d763> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wordembeddings_evaluation/blob/main/veld_eval_glove.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/eae4e91c-a8ff-513c-9baa-7d97411a7da0> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6743,7 +6743,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/ec3efe15-cb1c-5b0b-a210-37b75b1b779a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step6_convert_books_to_teitok.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ecb8a3de38> a pem:PE19_Persistent_Digital_Object ;
     crm:P1_is_identified_by <https://clscor.io/entity/75797a81-4cd1-5f47-9c9c-f452a90b8c0a>,
@@ -6756,11 +6756,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/edbd52b8-4646-5daa-bc0f-852c2a640d1a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__amc_we_training_data/blob/main/203_vert_rftt_inhalt_nodup__uniq__stripped__lowercased__punctuation_removed/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/edc47fb8-12a0-5ef8-9369-c12d91c83d0f> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_train_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ee8ff611-66a5-559a-b9f6-070041fa73be> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6768,11 +6768,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/ef0e8f57-709c-5f43-b6a1-5064bdfe572e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__fasttext/blob/main/veld_export.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/efb53553-927f-53d9-a673-f99c6e9aac7a> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/f16527f2-1789-57a3-9e87-4e518975406b> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6784,7 +6784,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/f45cf867-125a-5da8-baae-6befc58f11ac> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__eltec_original_selection/blob/main/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/f5464105-0b30-5075-97a8-b3065d24c6ff> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6796,11 +6796,11 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/f594a895-5ea3-52d2-9d35-9b435de6e978> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_spacy_apis_ner/blob/main/veld_convert.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/f60065a6-d4aa-59f6-a171-3215811ac6fa> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_xmlanntools/blob/main/veld_simple_poetry1_step2_tag_ud.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/f62f84f6-4b12-5b55-8d42-cc8ae843d8b8> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/data_veld> ;
@@ -6808,7 +6808,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/f765ff64-083c-5258-87d4-75700faae9d1> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_3_infer.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/f7f41c99-c3be-5fea-b3f8-51056b25a9af> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
@@ -6832,7 +6832,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/f99bdef2-71a8-5004-b3eb-143d5089a655> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__xmlanntools/blob/main/veld_xml2standoff.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/fb8837ae54> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -6841,7 +6841,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/fc5024b8-ec5f-587f-92a7-694363cdc60e> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_11__invalid__url_and_csv.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/fcf6d3fc17> a crmcls:X13_Tool_Description .
 
@@ -6860,23 +6860,23 @@ After reproducing the entire previous sequences yourself and execution of the no
 
 <https://clscor.io/entity/ff0297a1-9099-5e1b-9fcb-d23f802a1c83> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ff36b687-2418-50f7-bfe8-2885f5b1cfd6> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__mara_load_and_publish_models/blob/main/veld_publish_to_hf.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ff9e78bc-3f95-5409-a1c4-e5a2599c949b> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_jupyter_notebook_word2vec.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ffba746c-59d5-5a59-9c27-6e3adb525843> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_data__fasttext_models/blob/main/m5/veld.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/ffe99e93-fa24-5a03-9f88-1c0f04364e48> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__demo_downloader/blob/main/veld_demo_07__csv_bulk_download__extract.yaml> ;
-    crm:P2_has_type <https://clscor.io/entity/type/link/info_website> .
+    crm:P2_has_type <https://clscor.io/entity/type/link/documentation> .
 
 <https://clscor.io/entity/0bdf5299a4> a crmcls:X13_Tool_Description .
 
