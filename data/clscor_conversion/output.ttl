@@ -73,6 +73,12 @@
     crm:P03_has_range_literal "invalid chain demonstrating that giving `in_csv_file` and `url` at the same time is invalid, since `url` relates to single downloads only and not bulk downloads." ;
     crm:P3.1_has_type crmcls:tool_description .
 
+<https://clscor.io/entity/03559960d7> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/e700291848> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5e4a152de7> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/03f25f6458> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/feefdeb2ca> ;
     crm:P140_assigned_attribute_to <https://clscor.io/entity/fb4143d381> ;
@@ -382,6 +388,11 @@
     crm:P140_assigned_attribute_to <https://clscor.io/entity/3b61d68918> ;
     crm:P141_assigned <https://clscor.io/entity/type/method/machine_learning> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
+<https://clscor.io/entity/18dd42597b> a crm:PC3_has_note ;
+    crm:P01_has_domain <https://clscor.io/entity/5e4a152de7> ;
+    crm:P03_has_range_literal "apply NER models on linkedcat data for usage of the inferenced entites in the AKP project" ;
+    crm:P3.1_has_type crmcls:tool_description .
 
 <https://clscor.io/entity/1919fb8b7f> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/0984310319> ;
@@ -1399,6 +1410,12 @@ After reproducing the entire previous sequences yourself and execution of the no
     crm:P141_assigned <https://clscor.io/entity/type/method/quantitative_analysis> ;
     crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
+<https://clscor.io/entity/5f62106881> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/e700291848> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5e4a152de7> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/csv> ;
+    crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
 <https://clscor.io/entity/5fa5e045bd> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://clscor.io/entity/0e42930c34>,
         <https://clscor.io/entity/59719c8059>,
@@ -1873,6 +1890,12 @@ After reproducing the entire previous sequences yourself and execution of the no
     crm:P140_assigned_attribute_to <https://clscor.io/entity/fb4143d381> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/word2vec_model> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/7db4658cd6> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/e700291848> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5e4a152de7> ;
+    crm:P141_assigned <https://clscor.io/entity/type/format/spaCy_model> ;
+    crm:P177_assigned_property_of_type crmcls:Y9_expects_input .
 
 <https://clscor.io/entity/7e96358397> a crm:E13_Attribute_Assignment ;
     crm:P134_continued <https://clscor.io/entity/4227a0cfd4> ;
@@ -2906,6 +2929,12 @@ After reproducing the entire previous sequences yourself and execution of the no
     crm:P03_has_range_literal "preprocessing by making the entire text lowercase." ;
     crm:P3.1_has_type crmcls:tool_description .
 
+<https://clscor.io/entity/c157f6919d> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/e700291848> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5e4a152de7> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/named_entity_recognition> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
+
 <https://clscor.io/entity/c17aa505c0> a crm:PC3_has_note ;
     crm:P01_has_domain <https://clscor.io/entity/7f40725364> ;
     crm:P03_has_range_literal "exports a glove model to a pkl file containing a python dict, where the keys are words and its values are the learned vectors, represented as high-dimensional numpy arrays." ;
@@ -3149,6 +3178,12 @@ After reproducing the entire previous sequences yourself and execution of the no
     crm:P140_assigned_attribute_to <https://clscor.io/entity/3437a12fd2> ;
     crm:P141_assigned <https://clscor.io/entity/type/format/txt> ;
     crm:P177_assigned_property_of_type crmcls:Y10_generates_output .
+
+<https://clscor.io/entity/ce231568d8> a crm:E13_Attribute_Assignment ;
+    crm:P134_continued <https://clscor.io/entity/e700291848> ;
+    crm:P140_assigned_attribute_to <https://clscor.io/entity/5e4a152de7> ;
+    crm:P141_assigned <https://clscor.io/entity/type/method/applying_nlp_methods> ;
+    crm:P177_assigned_property_of_type crmcls:Y8_implements .
 
 <https://clscor.io/entity/ce998eea56> a crmcls:X5_Research_Activity ;
     crmcls:Y7_uses <https://clscor.io/entity/4d29d6b759>,
@@ -4775,6 +4810,10 @@ After reproducing the entire previous sequences yourself and execution of the no
         <https://clscor.io/entity/b0cdac75-97e2-5e89-a97d-012d8b5310e5> ;
     crmcls:Y2_has_format <https://clscor.io/entity/type/format/word2vec_model> .
 
+<https://clscor.io/entity/82009d80-0e8b-5646-b842-17fd5cd1408c> a crm:E41_Appellation ;
+    crm:P2_has_type <https://clscor.io/entity/type/appellation/code_veld> ;
+    rdf:value "akp ner inference: infer (code veld)" .
+
 <https://clscor.io/entity/83a70f47-83c2-5b8e-951a-e2ac39dc05f3> a crm:E42_Identifier ;
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__wikipedia/blob/main/veld_step_04_preprocess_remove_punctuation.yaml> .
 
@@ -4917,6 +4956,9 @@ After reproducing the entire previous sequences yourself and execution of the no
     crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml> .
 
 <https://clscor.io/entity/963738391d> a crmcls:X13_Tool_Description .
+
+<https://clscor.io/entity/9640896b-860a-5d0e-8d99-3e4077d2866f> a crm:E42_Identifier ;
+    crm:P190_has_symbolic_content <https://github.com/veldhub/veld_code__akp_ner_inference/blob/main/veld_infer.yaml> .
 
 <https://clscor.io/entity/96992c4d-b6a9-5b22-ba24-0aeef7f4b84d> a crm:E41_Appellation ;
     crm:P2_has_type <https://clscor.io/entity/type/appellation/chain_veld> ;
@@ -6071,7 +6113,8 @@ After reproducing the entire previous sequences yourself and execution of the no
 <https://clscor.io/entity/c76d88d471> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
     crm:P1_is_identified_by <https://clscor.io/entity/2e0c33ff-8ca6-5c70-8026-fccb460e18f1>,
-        <https://clscor.io/entity/43ab0ba4-b3cb-51d5-b2ee-6ce868a11bdc> .
+        <https://clscor.io/entity/43ab0ba4-b3cb-51d5-b2ee-6ce868a11bdc> ;
+    crmcls:Y7_uses <https://clscor.io/entity/5e4a152de7> .
 
 <https://clscor.io/entity/ce7d0492ef> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
@@ -6095,6 +6138,8 @@ After reproducing the entire previous sequences yourself and execution of the no
     crm:P1_is_identified_by <https://clscor.io/entity/e3449e4c-5c3e-5454-8e0f-7b6f003e41e8>,
         <https://clscor.io/entity/f588a6f8-65f9-5625-96b5-dfcc92e8b095> ;
     crmcls:Y7_uses <https://clscor.io/entity/e842491bff> .
+
+<https://clscor.io/entity/e700291848> a crmcls:X13_Tool_Description .
 
 <https://clscor.io/entity/f0d6ac7edf> a crmcls:X13_Tool_Description .
 
@@ -6263,6 +6308,10 @@ After reproducing the entire previous sequences yourself and execution of the no
         <https://clscor.io/entity/517b3169-8960-59fa-9e5f-63cac1127106> ;
     crmcls:Y7_uses <https://clscor.io/entity/6b40c1a440>,
         <https://clscor.io/entity/fb4143d381> .
+
+<https://clscor.io/entity/5e4a152de7> a crmcls:X12_Tool ;
+    crm:P1_is_identified_by <https://clscor.io/entity/82009d80-0e8b-5646-b842-17fd5cd1408c>,
+        <https://clscor.io/entity/9640896b-860a-5d0e-8d99-3e4077d2866f> .
 
 <https://clscor.io/entity/73b52c1a7a> a pem:PE23_Volatile_Software,
         crmcls:X12_Tool ;
