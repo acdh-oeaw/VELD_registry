@@ -1,6 +1,7 @@
 import base64
 import math
 import os
+from dataclasses import dataclass, field
 
 import yaml
 import requests
@@ -24,6 +25,51 @@ set_file_type = set()
 set_content = set()
 
 
+@dataclass
+class VeldRepresentation():
+    url_repo: str = None
+    url_veld_yaml: str = None
+    path_relative: str = None
+    content_str: str = None
+    content_dict: dict = None
+    is_valid: bool = None
+    validation_message: str = None
+    veld_type: str = None
+    contains_code: list = field(default_factory=list)
+    contains_input: list = field(default_factory=list)
+    contains_output: list = field(default_factory=list)
+    is_code_of: list = field(default_factory=list)
+    is_input_of: list = field(default_factory=list)
+    is_output_of: list = field(default_factory=list)
+    # "path": item_path,
+    # "item_content": item_content,
+    # "validation_result": validation_result,
+    # "metadata": metadata,
+    # "contained_velds_in_chain": contained_velds_in_chain,
+    # })
+    # "repo_url": repo_url,
+    # "url": veld_url,
+    # "path": veld["path"],
+    # "metadata": veld["metadata"],
+    # "item_content": veld["item_content"],
+    # "validation_result": veld["validation_result"],
+    # "contained_velds_in_chain": veld["contained_velds_in_chain"],
+    # "used_in_chain": {
+    #     "as_code": [],
+    #     "as_input": [],
+    #     "as_output": [],
+    # }
+    
+    
+def get_veld_type(metadata):
+    type = None
+    try:
+        type = list(metadata["x-veld"].keys())[0]
+    except:
+        pass
+    return type
+
+    
 def validate_metadata(veld_metadata_str):
     try:
         veld_metadata = yaml.safe_load(veld_metadata_str)
@@ -36,15 +82,6 @@ def validate_metadata(veld_metadata_str):
         validation_result = (False, "broken yaml")
         veld_metadata = None
     return validation_result, veld_metadata
-
-
-def is_chain_veld(metadata):
-    try:
-        _ = metadata["x-veld"]["chain"]
-    except:
-        return False
-    else:
-        return True
     
     
 def normalize_submodule_path(path):
@@ -55,16 +92,8 @@ def normalize_submodule_path(path):
     return path
 
 
-def get_contained_velds_in_chain(metadata, gitmodules_dict):
-    contained_data_dict = {
-        "code": [],
-        "data": {
-            "input": [],
-            "output": [],
-            "storage": []
-        }
-    }
-    service_dict_list = metadata.get("services", [])
+def get_contained_velds_of_chain(veld, gitmodules_dict):
+    service_dict_list = veld.content_dict.get("services", [])
     for service_dict in service_dict_list.values():
         service_extends = service_dict.get("extends")
         if service_extends:
@@ -73,8 +102,8 @@ def get_contained_velds_in_chain(metadata, gitmodules_dict):
                 service_extends_path = normalize_submodule_path(service_extends_path)
                 for gitmodule_path, gitmodule_url in gitmodules_dict.items():
                     if gitmodule_path in service_extends_path:
-                        if gitmodule_url not in contained_data_dict["code"]:
-                            contained_data_dict["code"].append(gitmodule_url)
+                        if gitmodule_url not in veld.contains_code:
+                            veld.contains_code.append(gitmodule_url)
         volume_list = service_dict.get("volumes", [])
         for volume in volume_list:
             volume_host, volume_container = volume.split(":")[:2]
@@ -83,20 +112,17 @@ def get_contained_velds_in_chain(metadata, gitmodules_dict):
                 for gitmodule_path, gitmodule_url in gitmodules_dict.items():
                     if gitmodule_path in volume_host:
                         if volume_container.startswith("/veld/input"):
-                            if not gitmodule_url in contained_data_dict["data"]["input"]:
-                                contained_data_dict["data"]["input"].append(gitmodule_url)
+                            if gitmodule_url not in veld.contains_input:
+                                veld.contains_input.append(gitmodule_url)
                         elif volume_container.startswith("/veld/output"):
-                            if not gitmodule_url in contained_data_dict["data"]["output"]:
-                                contained_data_dict["data"]["output"].append(gitmodule_url)
-                        elif volume_container.startswith("/veld/storage"):
-                            if not gitmodule_url in contained_data_dict["data"]["storage"]:
-                                contained_data_dict["data"]["storage"].append(gitmodule_url)
-    return contained_data_dict
+                            if gitmodule_url not in veld.contains_output:
+                                veld.contains_output.append(gitmodule_url)
+    return veld
 
 
 def get_submodule_content(repo_api_url):
     gitmodules_dict = None
-    gitmodules_response = get_from_path(repo_api_url, ".gitmodules")
+    gitmodules_response = get_from_repo_path(repo_api_url, ".gitmodules")
     if gitmodules_response.status_code == 200:
         gitmodules_dict = {}
         gitmodules_str = base64.b64decode(gitmodules_response.json()["content"]).decode("utf-8")
@@ -118,7 +144,7 @@ def get_submodule_content(repo_api_url):
     return gitmodules_dict
 
 
-def get_from_path(repo_api_url, path):
+def get_from_repo_path(repo_api_url, path):
     return requests.get(
         url=repo_api_url + "/" + path,
         headers={"Authorization": f"token {GITHUB_TOKEN}"}
@@ -126,11 +152,7 @@ def get_from_path(repo_api_url, path):
     
 
 def crawl_repo_github_recursively(repo_api_url, path, veld_list, gitmodules_dict):
-    # response = requests.get(
-    #     url=repo_api_url + "/" + path,
-    #     headers={"Authorization": f"token {GITHUB_TOKEN}"}
-    # )
-    response = get_from_path(repo_api_url, path)
+    response = get_from_repo_path(repo_api_url, path)
     if response.status_code != 200:
         raise Exception("Not 200 status: " + str(response.content))
     response = response.json()
@@ -140,25 +162,22 @@ def crawl_repo_github_recursively(repo_api_url, path, veld_list, gitmodules_dict
         if item_type == "file":
             item_file_name = item_path.split("/")[-1]
             if item_file_name.startswith("veld") and item_file_name.endswith(".yaml"):
-                # response = requests.get(
-                #     url=repo_api_url + item_path,
-                #     headers={"Authorization": f"token {GITHUB_TOKEN}"}
-                # )
-                response = get_from_path(repo_api_url, item_path)
+                response = get_from_repo_path(repo_api_url, item_path)
                 response = response.json()
                 item_content = base64.b64decode(response["content"]).decode("utf-8")
                 if item_content != "":
                     validation_result, metadata = validate_metadata(item_content)
-                    contained_velds_in_chain = None
-                    if is_chain_veld(metadata):
-                        contained_velds_in_chain = get_contained_velds_in_chain(metadata, gitmodules_dict)
-                    veld_list.append({
-                        "path": item_path,
-                        "item_content": item_content,
-                        "validation_result": validation_result,
-                        "metadata": metadata,
-                        "contained_velds_in_chain": contained_velds_in_chain,
-                    })
+                    veld = VeldRepresentation(
+                        path_relative=item_path,
+                        is_valid=validation_result[0],
+                        validation_message=validation_result[1],
+                        content_dict=metadata,
+                        content_str=item_content,
+                        veld_type=get_veld_type(metadata),
+                    )
+                    if veld.veld_type == "chain":
+                        veld = get_contained_velds_of_chain(veld, gitmodules_dict)
+                    veld_list.append(veld)
         elif item_type == "dir":
             crawl_repo_github_recursively(repo_api_url, item_path, veld_list, gitmodules_dict)
     return veld_list
@@ -168,7 +187,6 @@ def crawl_repo_github(repo_api_url, path, veld_list):
     gitmodules_dict = get_submodule_content(repo_api_url)
     return crawl_repo_github_recursively(repo_api_url, path, veld_list, gitmodules_dict)
     
-
 
 def crawl_repo_gitlab(repo_api_url, path, veld_list):
     page = "1"
@@ -245,20 +263,19 @@ def add_to_set(k, v):
         add_to_specific_set(v, set_file_type)
 
 
-def handle_metadata(veld, level):
+def handle_metadata(metadata, level):
     content = ""
-    md = veld.get("metadata")
-    md = md.get("x-veld")
-    if md is not None:
-        md = list(md.values())[0]
-        if md is not None:
+    metadata = metadata.get("x-veld")
+    if metadata:
+        metadata = list(metadata.values())[0]
+        if metadata is not None:
             for k in ["description", "topic", "file_type", "content"]:
-                v = md.get(k)
+                v = metadata.get(k)
                 if v is not None:
                     add_to_set(k, v)
                     content += transform_dict(k, v, level + 2)
             for k in ["input", "output"]:
-                v = md.get(k)
+                v = metadata.get(k)
                 if type(v) is list:
                     for i, d in enumerate(v):
                         if i == 0:
@@ -272,132 +289,115 @@ def handle_metadata(veld, level):
     return content
 
 
-def crawl_all(link_txt_path, all_velds):
+def crawl_all(link_txt_path, veld_dict_all):
     test_count_gh = 0
     test_count_gl = 0
     limit = math.inf
     with open(link_txt_path, "r") as f:
-        for repo_url in f.read().splitlines():
-            print("crawling repo url:", repo_url)
-            veld_list = []
-            if "github.com" in repo_url and test_count_gh < limit:
-                repo_api_url = repo_url.replace(
+        for url_repo in f.read().splitlines():
+            print("crawling repo url:", url_repo)
+            veld_list_pre_repo = []
+            if "github.com" in url_repo and test_count_gh < limit:
+                repo_api_url = url_repo.replace(
                     "https://github.com/", "https://api.github.com/repos/"
                 )
                 repo_api_url += "/contents/"
-                veld_list = crawl_repo_github(repo_api_url, "", [])
+                veld_list_pre_repo = crawl_repo_github(repo_api_url, "", [])
                 test_count_gh += 1
-            elif "gitlab.oeaw.ac.at" in repo_url and test_count_gh < limit:
-                repo_api_url = repo_url.replace("https://gitlab.oeaw.ac.at/", "")
+            elif "gitlab.oeaw.ac.at" in url_repo and test_count_gh < limit:
+                repo_api_url = url_repo.replace("https://gitlab.oeaw.ac.at/", "")
                 repo_api_url = repo_api_url.replace("/", "%2F")
                 repo_api_url = "https://gitlab.oeaw.ac.at/api/v4/projects/" + repo_api_url + "/repository"
-                veld_list = crawl_repo_gitlab(repo_api_url, "", [])
+                veld_list_pre_repo = crawl_repo_gitlab(repo_api_url, "", [])
                 test_count_gl += 1
-            for veld in veld_list:
-                veld_url = repo_url + "/blob/main/" + veld["path"]
-                print("found veld url:", veld_url)
-                print(f"valid: {veld['validation_result'][0]}")
-                out_veld_id = repo_url.split("/")[-1] + "___" + veld["path"].replace("/", "___")
-                all_velds[out_veld_id] = {
-                    "repo_url": repo_url,
-                    "url": veld_url,
-                    "path": veld["path"],
-                    "metadata": veld["metadata"],
-                    "item_content": veld["item_content"],
-                    "validation_result": veld["validation_result"],
-                    "contained_velds_in_chain": veld["contained_velds_in_chain"],
-                    "used_in_chain": {
-                        "as_code": [],
-                        "as_input": [],
-                        "as_output": [],
-                    }
-                }
-    return all_velds
+            for veld in veld_list_pre_repo:
+                url_veld_yaml = url_repo + "/blob/main/" + veld.path_relative
+                veld_id = url_repo.split("/")[-1] + "___" + veld.path_relative.replace("/", "___")
+                veld.url_veld_yaml = url_veld_yaml
+                veld.url_repo = url_repo
+                print("found veld url:", url_veld_yaml)
+                print(f"valid: {veld.is_valid}")
+                veld_dict_all[veld_id] = veld
+    return veld_dict_all
 
 
-def link_contained_velds(all_velds):
-    for veld_1 in all_velds.values():
-        for veld_2 in all_velds.values():
-            if veld_1["contained_velds_in_chain"]:
-                for code_veld_url in veld_1["contained_velds_in_chain"]["code"]:
-                    if code_veld_url == veld_2["repo_url"]:
-                        if veld_1["repo_url"] not in veld_2["used_in_chain"]["as_code"]:
-                            veld_2["used_in_chain"]["as_code"].append(veld_1["repo_url"])
-                for input_veld_url in veld_1["contained_velds_in_chain"]["data"]["input"]:
-                    if input_veld_url == veld_2["repo_url"]:
-                        if veld_1["repo_url"] not in veld_2["used_in_chain"]["as_input"]:
-                            veld_2["used_in_chain"]["as_input"].append(veld_1["repo_url"])
-                for output_veld_url in veld_1["contained_velds_in_chain"]["data"]["output"]:
-                    if output_veld_url == veld_2["repo_url"]:
-                        if veld_1["repo_url"] not in veld_2["used_in_chain"]["as_output"]:
-                            veld_2["used_in_chain"]["as_output"].append(veld_1["repo_url"])
-    return all_velds
+def link_contained_velds(veld_dict_all):
+    for veld_key, veld_chain in veld_dict_all.items():
+        for veld_other in veld_dict_all.values():
+            if veld_chain.veld_type == "chain":
+                for contained_code_url in veld_chain.contains_code:
+                    if veld_other.url_repo == contained_code_url and veld_chain.url_repo not in veld_other.is_code_of:
+                        veld_other.is_code_of.append(veld_chain.url_repo)
+                for contained_input_url in veld_chain.contains_input:
+                    if veld_other.url_repo == contained_input_url and veld_chain.url_repo not in veld_other.is_input_of:
+                        veld_other.is_input_of.append(veld_chain.url_repo)
+                for contained_output_url in veld_chain.contains_output:
+                    if veld_other.url_repo == contained_output_url and veld_chain.url_repo not in veld_other.is_output_of:
+                        veld_other.is_output_of.append(veld_chain.url_repo)
+    return veld_dict_all
 
 
-def convert_to_readme_section_individual(all_velds, veld_type):
+def convert_to_readme_section_individual(veld_dict_all, veld_type):
     content = ""
-    repo_url_set = {
-        veld["repo_url"]
-        for veld in all_velds.values()
-        if "x-veld" in veld["metadata"] and list(veld["metadata"]["x-veld"].keys())[0] == veld_type
-    }
-    repo_url_list = sorted(list(repo_url_set))
-    for repo_url in repo_url_list:
-        content += "- " + repo_url + "\n"
-        for veld in all_velds.values():
-            if "x-veld" in veld["metadata"] and list(veld["metadata"]["x-veld"].keys())[0] == veld_type and veld["repo_url"] == repo_url:
-                content += f"  - [{veld['path']}]({veld['url']})\n"
-                if veld["validation_result"][0]:
-                    validate_message = "True"
-                else:
-                    validate_message = "False, " + veld["validation_result"][1]
-                content += f"    - valid: {validate_message}\n"
-                if veld["contained_velds_in_chain"]:
-                    if veld["contained_velds_in_chain"]["code"]:
-                        content += f"    - contained code velds:\n"
-                        for code_veld_url in veld["contained_velds_in_chain"]["code"]:
-                            content += f"      - {code_veld_url}\n"
-                    if veld["contained_velds_in_chain"]["data"]["input"]:
-                        content += f"    - input data velds:\n"
-                        for input_data_veld_url in veld["contained_velds_in_chain"]["data"]["input"]:
-                            content += f"      - {input_data_veld_url}\n"
-                    if veld["contained_velds_in_chain"]["data"]["output"]:
-                        content += f"    - output data velds:\n"
-                        for output_data_veld_url in veld["contained_velds_in_chain"]["data"]["output"]:
-                            content += f"      - {output_data_veld_url}\n"
-                    # TODO: uncomment this section, once 'storage' is decided to be valid metadata
-                    # if veld["contained_velds_in_chain"]["data"]["storage"]:
-                    #     content += f"    - storage data velds:\n"
-                    #     for storage_data_veld_url in veld["contained_velds_in_chain"]["data"]["storage"]:
-                    #         content += f"      - {storage_data_veld_url}\n"
-                if veld['used_in_chain']["as_code"]:
-                    content += f"    - used as code veld in:\n"
-                    for chain_veld_url in veld['used_in_chain']["as_code"]:
+    
+    veld_dict_by_repo = {}
+    for veld_key, veld in veld_dict_all.items():
+        if veld.veld_type == veld_type:
+            contained_velds = veld_dict_by_repo.get(veld.url_repo, [])
+            contained_velds.append(veld)
+            veld_dict_by_repo[veld.url_repo] = contained_velds
+            
+    for url_repo, veld_list in veld_dict_by_repo.items():
+        content += "- " + url_repo + "\n"
+        for veld in veld_list:
+            veld: VeldRepresentation
+            content += f"  - [{veld.path_relative}]({veld.url_veld_yaml})\n"
+            if veld.is_valid:
+                content += f"    - valid: {veld.is_valid}\n"
+            else:
+                content += f"    - valid: {veld.is_valid}, {veld.validation_message}\n"
+            if veld.veld_type == "chain":
+                if veld.contains_code:
+                    content += f"    - contains code velds:\n"
+                    for contained_veld_url in veld.contains_code:
+                        content += f"      - {contained_veld_url}\n"
+                if veld.contains_input:
+                    content += f"    - contains input velds:\n"
+                    for contained_veld_url in veld.contains_input:
+                        content += f"      - {contained_veld_url}\n"
+                if veld.contains_output:
+                    content += f"    - contains output velds:\n"
+                    for contained_veld_url in veld.contains_output:
+                        content += f"      - {contained_veld_url}\n"
+            else:
+                if veld.is_code_of:
+                    content += f"    - is contained as code veld in:\n"
+                    for chain_veld_url in veld.is_code_of:
                         content += f"      - {chain_veld_url}\n"
-                if veld['used_in_chain']["as_input"]:
-                    content += f"    - was input veld in:\n"
-                    for chain_veld_url in veld['used_in_chain']["as_input"]:
+                if veld.is_input_of:
+                    content += f"    - is contained as input veld in:\n"
+                    for chain_veld_url in veld.is_input_of:
                         content += f"      - {chain_veld_url}\n"
-                if veld['used_in_chain']["as_output"]:
-                    content += f"    - was output veld of:\n"
-                    for chain_veld_url in veld['used_in_chain']["as_output"]:
+                if veld.is_output_of:
+                    content += f"    - is contained as output veld in:\n"
+                    for chain_veld_url in veld.is_output_of:
                         content += f"      - {chain_veld_url}\n"
-                if veld["validation_result"][0]:
-                    content_md = handle_metadata(veld, 4)
-                    if content_md != "":
-                        content += f"    - metadata:\n"
-                        content += content_md
+            if veld.is_valid:
+                content_md = handle_metadata(veld.content_dict, 4)
+                if content_md != "":
+                    content += f"    - metadata:\n"
+                    content += content_md
     return content
 
 
-def convert_to_readme_section(all_velds):
+def convert_to_readme_section(veld_dict_all):
     content = ""
     content += "\n## data velds\n"
-    content += convert_to_readme_section_individual(all_velds, "data")
+    content += convert_to_readme_section_individual(veld_dict_all, "data")
     content += "\n## code velds\n"
-    content += convert_to_readme_section_individual(all_velds, "code")
+    content += convert_to_readme_section_individual(veld_dict_all, "code")
     content += "\n## chain velds\n"
-    content += convert_to_readme_section_individual(all_velds, "chain")
+    content += convert_to_readme_section_individual(veld_dict_all, "chain")
     return content
 
 
@@ -432,14 +432,14 @@ def main():
         content_prefix_veldhub = f.read()
     
     # crawl over all links
-    all_velds = {}
-    all_velds = crawl_all(IN_LINKS_DATA_PATH, all_velds)
-    all_velds = crawl_all(IN_LINKS_CODE_PATH, all_velds)
-    all_velds = crawl_all(IN_LINKS_CHAIN_PATH, all_velds)
-    all_velds = link_contained_velds(all_velds)
+    veld_dict_all = {}
+    veld_dict_all = crawl_all(IN_LINKS_CHAIN_PATH, veld_dict_all)
+    veld_dict_all = crawl_all(IN_LINKS_DATA_PATH, veld_dict_all)
+    veld_dict_all = crawl_all(IN_LINKS_CODE_PATH, veld_dict_all)
+    veld_dict_all = link_contained_velds(veld_dict_all)
     
     # create readme content
-    content = convert_to_readme_section(all_velds)
+    content = convert_to_readme_section(veld_dict_all)
     content += "\n## topic vocab\n"
     list_vocab = list(set_topic)
     list_vocab = sorted(list_vocab, key=str.casefold)
@@ -464,17 +464,17 @@ def main():
     with open(OUT_README_PATH_VELHDUB, "w") as f:
         f.write(content_veldhub)
     # TODO
-    for veld_id, veld_content in all_velds.items():
+    for veld_id, veld in veld_dict_all.items():
         with open(OUT_VELD_INDIVIDUAL_FOLDER + veld_id, "w") as f_out:
-            f_out.write(veld_content["item_content"])
-    veld_metadata = {}
-    for vk, vv in all_velds.items():
-        veld_metadata[vk] = {
-            "url": vv["url"],
-            "content": vv["metadata"],
+            f_out.write(veld.content_str)
+    veld_metadata_only = {}
+    for veld_id, veld in veld_dict_all.items():
+        veld_metadata_only[veld_id] = {
+            "url": veld.url_veld_yaml,
+            "content": veld.content_dict,
         }
     with open(OUT_VELD_MERGED_PATH, "w", encoding="utf-8") as f_out:
-        yaml.dump(veld_metadata, f_out, sort_keys=False)
+        yaml.dump(veld_metadata_only, f_out, sort_keys=False)
 
 
 if __name__ == "__main__":
