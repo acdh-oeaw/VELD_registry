@@ -1197,6 +1197,48 @@ veld_code__apache_jena_fuseki___veld_import_rdf.yaml:
           fuseki_graph_uri: default
     networks:
       veld_fuseki: null
+veld_code__apache_jena_fuseki___veld_run_server.yaml:
+  url: https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_run_server.yaml
+  content:
+    x-veld:
+      code:
+        description: An Apache Fuseki triplestore instance. Note that, changing the
+          port is recommended to be done via the compose' file `ports` section (if
+          present, then best in the inhereting chain veld). And other docker services
+          needing to connect to this server must be added to a docker network `veld_fuseki`.
+        topic:
+        - RDF
+        - triplestore
+        - database
+        input:
+          volume: /veld/input/config/
+          description: The shiro.ini file for configuring the triplestore instance.
+            A working default is provided with this code veld. See https://shiro.apache.org/
+            for more information.
+          optional: true
+        storage:
+          volume: /veld/storage/
+          file_type: apache fuseki triplestore data
+          content:
+          - triplestore data
+          - rdf data
+          description: storage place for the entire data of a apache fuseki triplestore
+            instance.
+    services:
+      veld_run_server:
+        build: .
+        entrypoint: bash /veld/code/scripts/copy_config.sh
+        command: /veld/code/fuseki-server
+        volumes:
+        - ./scripts/:/veld/code/scripts/
+        - ./data/fuseki_data/:/veld/storage/
+        - ./data/fuseki_config/:/veld/input/config/
+        ports:
+        - 3030:3030
+        networks:
+        - veld_fuseki
+    networks:
+      veld_fuseki: null
 veld_code__bert_embeddings___veld_infer_and_create_index.yaml:
   url: https://github.com/veldhub/veld_code__bert_embeddings/blob/main/veld_infer_and_create_index.yaml
   content:
@@ -1208,6 +1250,38 @@ veld_code__bert_embeddings___veld_infer_and_create_index.yaml:
         command: python /veld/code/infer_and_create_index.py
         volumes:
         - ./src/:/veld/code/
+veld_code__conllueditor___veld.yaml:
+  url: https://github.com/veldhub/veld_code__conllueditor/blob/main/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: a veldified code, enapsulating the conllueditor web server from
+          https://github.com/Orange-OpenSource/conllueditor . It uses a pre-built
+          image from dockerhub. After starting this docker container, the web service
+          can be reached at http://localhost:8888/ .
+        topic:
+        - NLP
+        - Universal Dependencies
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Grammatical Annotation
+        storage:
+          volume: /data/
+          description: the storage folder for all the conllu files to be processed.
+          file_type: conllu
+          environment_var: filename
+    services:
+      veld_conllueditor:
+        image: jheinecke/conllueditor:latest
+        ports:
+        - 8888:5555
+        volumes:
+        - ./data/:/data/
+        user: 1000:1000
+        environment:
+          filename: null
 veld_code__downloader___veld.yaml:
   url: https://github.com/veldhub/veld_code__downloader/blob/main/veld.yaml
   content:
@@ -1366,6 +1440,77 @@ veld_code__fasttext___veld_train.yaml:
           vector_size: 200
           epochs: 50
           window_size: 5
+veld_code__flair___veld_infer.yaml:
+  url: https://github.com/veldhub/veld_code__flair/blob/main/veld_infer.yaml
+  content:
+    x-veld:
+      code:
+        description: null
+        topic: null
+        additional: null
+        input:
+        - volume: /veld/input/
+          file_type: null
+          content: null
+          environemnt_var: null
+        output:
+        - volume: /veld/output/
+          file_type: null
+          content: null
+          environemnt_var: null
+        config:
+        - environemnt_var: null
+          description: null
+          var_type: null
+          default: null
+          optional: null
+    services:
+      veld_infer:
+        build: .
+        command: bash /veld/code/run.sh infer
+        ports:
+        - 8888:8888
+        volumes:
+        - ./src/:/veld/code/
+        - ./data/models_cache/:/veld/input/models_cache/
+        environment:
+          run_interactively: true
+          in_file: ''
+          out_file: ''
+veld_code__flair___veld_train.yaml:
+  url: https://github.com/veldhub/veld_code__flair/blob/main/veld_train.yaml
+  content:
+    x-veld:
+      code:
+        description: null
+        topic: null
+        additional: null
+        input:
+        - volume: /veld/input/
+          file_type: null
+          content: null
+          environemnt_var: null
+        output:
+        - volume: /veld/output/
+          file_type: null
+          content: null
+          environemnt_var: null
+        config:
+        - environemnt_var: null
+          description: null
+          var_type: null
+          default: null
+          optional: null
+    services:
+      veld_train:
+        build: .
+        command: bash /veld/code/run.sh train
+        ports:
+        - 8888:8888
+        volumes:
+        - ./src/:/veld/code/
+        environment:
+          run_interactively: true
 veld_code__glove___veld_export.yaml:
   url: https://github.com/veldhub/veld_code__glove/blob/main/veld_export.yaml
   content:
@@ -1518,6 +1663,75 @@ veld_code__glove___veld_train.yaml:
           binary: 2
           num_threads: 8
           x_max: 10
+veld_code__inception___veld.yaml:
+  url: https://github.com/veldhub/veld_code__inception/blob/main/veld.yaml
+  content:
+    x-veld:
+      code:
+        description: An veldified inception instance. See https://github.com/inception-project/inception
+          for more information.
+        topic:
+        - NLP
+        - Annotation
+        - Universal Dependencies
+        - Tokenization
+        - Lemmatization
+        - Part Of Speech
+        - Dependency Parsing
+        - Grammatical Annotation
+        storage:
+        - volume: /export/
+          service: veld_inception_app
+          content: inception metadata
+        - volume: /var/lib/mysql/
+          service: veld_inception_db
+          content: maria db
+    services:
+      veld_inception_app:
+        image: ghcr.io/inception-project/inception:latest
+        ports:
+        - 8080:8080
+        environment:
+        - INCEPTION_DB_DIALECT=org.hibernate.dialect.MariaDB106Dialect
+        - INCEPTION_DB_URL=jdbc:mariadb://veld_inception_db:3306/inception?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        - INCEPTION_DB_USERNAME=${DBUSER:-inception}
+        - INCEPTION_DB_PASSWORD=${DBPASSWORD:-inception}
+        volumes:
+        - ./data/inception_app/:/export/
+        depends_on:
+          veld_inception_db:
+            condition: service_healthy
+        networks:
+          inception-net: null
+      veld_inception_db:
+        image: mariadb:11.4
+        environment:
+        - MARIADB_RANDOM_ROOT_PASSWORD=yes
+        - MARIADB_DATABASE=inception
+        - MARIADB_USER=${DBUSER:-inception}
+        - MARIADB_PASSWORD=${DBPASSWORD:-inception}
+        - MARIADB_AUTO_UPGRADE=1
+        volumes:
+        - ./data/inception_db/:/var/lib/mysql/
+        command:
+        - --character-set-server=utf8mb4
+        - --collation-server=utf8mb4_bin
+        healthcheck:
+          test:
+          - CMD
+          - mariadb-admin
+          - ping
+          - -h
+          - localhost
+          - -p${DBPASSWORD:-inception}
+          - -u${DBUSER:-inception}
+          interval: 20s
+          timeout: 10s
+          retries: 10
+        networks:
+          inception-net: null
+    networks:
+      inception-net: null
 veld_code__jupyter_notebook_base___veld.yaml:
   url: https://github.com/veldhub/veld_code__jupyter_notebook_base/blob/main/veld.yaml
   content:
@@ -1535,6 +1749,58 @@ veld_code__jupyter_notebook_base___veld.yaml:
         - ./src:/veld/code/
         - ./volumes/input/:/veld/input/
         - ./volumes/output/:/veld/output/
+veld_code__pypi_publisher___veld_publish.yaml:
+  url: https://github.com/veldhub/veld_code__pypi_publisher/blob/main/veld_publish.yaml
+  content:
+    x-veld:
+      code:
+        description: This code veld encapsulates a publishing workflow to pypi.org
+          .
+        topic:
+        - pypi
+        - packaging
+        inputs:
+          volume: /veld/input/
+          content: python code base
+          description: Any suitable python code base containing a setup.py or pyproject.toml
+            .
+        config:
+        - environment_var: TWINE_USERNAME
+          description: Contains the username, or better, just `__token__` if a token
+            is used which was created on pypi.org .
+          default: __token__
+          var_type: str
+        - environment_var: TWINE_PASSWORD
+          description: 'Contains the password, or better, a token which was created
+            on pypi.org .
+
+            IMPORTANT: DON''T HARDCODE THE TOKEN HERE!
+
+            Rather define this environment variable on the host, by either: - PREFERRED:
+            do this manually before calling this docker compose service. On linux
+            and mac, this can be done with `export TWINE_PASSWORD=<TOKEN>` and on
+            windows with `set TWINE_PASSWORD=<TOKEN>` (and the same way for `TWINE_USERNAME`)
+            before launching a docker compose service. - LESS PREFERRED: only do this
+            if you know .gitignore: you may persist it in a `.env` file (with the
+            content simply being `hf_token=<TOKEN>`) file next to the chain veld yaml
+            file, which docker would automatically load, and then add the `.env` to
+            `.gitignore`!'
+          var_type: str
+        - environment_var: testing
+          description: If set to true, it will publish to test.pypi.org . If set to
+            false, it will publish to pypi.org .
+          var_type: bool
+    services:
+      veld_publish:
+        build: .
+        volumes:
+        - ./veld_publish.sh:/veld/code/veld_publish.sh
+        command: bash /veld/code/veld_publish.sh
+        working_dir: /veld/input/
+        environment:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: null
+          testing: true
 veld_code__simple_docker_test___veld.yaml:
   url: https://github.com/veldhub/veld_code__simple_docker_test/blob/main/veld.yaml
   content:
@@ -2512,6 +2778,19 @@ veld_code__udpipe___veld_train.yaml:
           parser_learning_rate_final: 0.001
           parser_l2: 0.5
           parser_early_stopping: null
+veld_code__wikipedia_nlp_preprocessing___data___wikipedia_json___veld_data_extracted.yaml:
+  url: https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/data/wikipedia_json/veld_data_extracted.yaml
+  content:
+    x-veld:
+      data:
+        description: null
+        topics: NLP
+        contents:
+        - training data
+        - raw text
+        file_type: json
+        additional:
+          data size: '0'
 veld_code__wikipedia_nlp_preprocessing___veld_download_and_extract.yaml:
   url: https://github.com/veldhub/veld_code__wikipedia_nlp_preprocessing/blob/main/veld_download_and_extract.yaml
   content:
@@ -3848,6 +4127,189 @@ veld_chain__compare_tokenizations___code___veld_code__jupyter_analysis___veld.ya
         - ./src:/veld/code/
         - ./volumes/input/:/veld/input/
         - ./volumes/output/:/veld/output/
+veld_chain__compare_tokenizations___veld_step_1_download.yaml:
+  url: https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_1_download.yaml
+  content:
+    x-veld:
+      chain:
+        description: null
+        topic: null
+    services:
+      veld_step_1_download_xmlanntools:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/xmlanntools/:/veld/output/
+        environment:
+          url: https://raw.githubusercontent.com/COST-ELTeC/ELTeC-deu/refs/heads/master/level1/DEU100.xml
+          out_file: DEU100.xml
+      veld_step_1_download_teitok:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/teitok/:/veld/output/
+        environment:
+          url: https://raw.githubusercontent.com/COST-ELTeC/ELTeC-deu/refs/heads/master/level1/DEU100.xml
+          out_file: DEU100.xml
+veld_chain__compare_tokenizations___veld_step_2_xmlanntools.yaml:
+  url: https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_2_xmlanntools.yaml
+  content:
+    x-veld:
+      chain:
+        description: null
+        topic: null
+    services:
+      veld_step_2_xmlanntools_xml2standoff:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_xml2standoff.yaml
+          service: veld_xml2standoff
+        volumes:
+        - ./data/xmlanntools/:/veld/input/
+        - ./data/xmlanntools/:/veld/output/
+        environment:
+          in_xml_file: DEU100.xml
+          out_txt_file: DEU100.txt
+          out_json_file: DEU100.json
+      veld_step_2_xmlanntools_tag_ud:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+          service: veld_tag_ud
+        volumes:
+        - ./data/xmlanntools/:/veld/input/
+        - ./data/xmlanntools/:/veld/output/
+        environment:
+          in_txt_file: DEU100.txt
+          out_conllu_file: DEU100.conllu
+          model: german-hdt-ud-2.5-191206
+        depends_on:
+          veld_step_2_xmlanntools_xml2standoff:
+            condition: service_completed_successfully
+      veld_step_2_xmlanntools_ann2standoff:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_ann2standoff.yaml
+          service: veld_ann2standoff
+        volumes:
+        - ./data/xmlanntools/:/veld/input/data/
+        - ./data/xmlanntools/:/veld/output/
+        environment:
+          in_conllu_file: DEU100.conllu
+          in_txt_file: DEU100.txt
+          out_json_file: DEU100.ann.json
+          profile_name: conllu
+        depends_on:
+          veld_step_2_xmlanntools_tag_ud:
+            condition: service_completed_successfully
+      veld_step_2_xmlanntools_standoff2xml:
+        extends:
+          file: ./code/veld_code__xmlanntools/veld_standoff2xml.yaml
+          service: veld_standoff2xml
+        volumes:
+        - ./data/xmlanntools/:/veld/input/
+        - ./data/xmlanntools/:/veld/output/
+        environment:
+          in_txt_file: DEU100.txt
+          in_json_file: DEU100.json
+          in_ann_json_file: DEU100.ann.json
+          out_ann_xml_file: DEU100.ann.xml
+        depends_on:
+          veld_step_2_xmlanntools_ann2standoff:
+            condition: service_completed_successfully
+veld_chain__compare_tokenizations___veld_step_3_teitok.yaml:
+  url: https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_3_teitok.yaml
+  content:
+    x-veld:
+      chain:
+        description: null
+        topic: null
+    services:
+      veld_step_3_teitok:
+        extends:
+          file: ./code/veld_code__teitok-tools/veld_parseudpipe.yaml
+          service: veld_parseudpipe
+        volumes:
+        - ./data/teitok/:/veld/input/
+        - ./data/teitok/:/veld/output/
+        environment:
+          in_xml_file: DEU100.xml
+          out_xml_file: DEU100.xml
+          model: german-hdt-ud-2.5-191206
+veld_chain__compare_tokenizations___veld_step_4_jupyter_analysis.yaml:
+  url: https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_4_jupyter_analysis.yaml
+  content:
+    x-veld:
+      chain:
+        description: null
+        topic: null
+    services:
+      veld_step_4_jupyter_analysis:
+        extends:
+          file: ./code/veld_code__jupyter_analysis/veld.yaml
+          service: veld
+        volumes:
+        - ./data/xmlanntools/:/veld/input/xmlanntools/
+        - ./data/teitok/:/veld/input/teitok/
+veld_chain__compare_tokenizations___veld_step_all.yaml:
+  url: https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_all.yaml
+  content:
+    x-veld:
+      chain:
+        description: null
+        topic: null
+    services:
+      veld_step_1_download_xmlanntools:
+        extends:
+          file: ./veld_step_1_download.yaml
+          service: veld_step_1_download_xmlanntools
+      veld_step_2_xmlanntools_xml2standoff:
+        extends:
+          file: ./veld_step_2_xmlanntools.yaml
+          service: veld_step_2_xmlanntools_xml2standoff
+        depends_on:
+          veld_step_1_download_xmlanntools:
+            condition: service_completed_successfully
+      veld_step_2_xmlanntools_tag_ud:
+        extends:
+          file: ./veld_step_2_xmlanntools.yaml
+          service: veld_step_2_xmlanntools_tag_ud
+        depends_on:
+          veld_step_2_xmlanntools_xml2standoff:
+            condition: service_completed_successfully
+      veld_step_2_xmlanntools_ann2standoff:
+        extends:
+          file: ./veld_step_2_xmlanntools.yaml
+          service: veld_step_2_xmlanntools_ann2standoff
+        depends_on:
+          veld_step_2_xmlanntools_tag_ud:
+            condition: service_completed_successfully
+      veld_step_2_xmlanntools_standoff2xml:
+        extends:
+          file: ./veld_step_2_xmlanntools.yaml
+          service: veld_step_2_xmlanntools_standoff2xml
+        depends_on:
+          veld_step_2_xmlanntools_ann2standoff:
+            condition: service_completed_successfully
+      veld_step_1_download_teitok:
+        extends:
+          file: ./veld_step_1_download.yaml
+          service: veld_step_1_download_xmlanntools
+      veld_step_3_teitok:
+        extends:
+          file: ./veld_step_3_teitok.yaml
+          service: veld_step_3_teitok
+        depends_on:
+          veld_step_1_download_teitok:
+            condition: service_completed_successfully
+      veld_step_4_jupyter_analysis:
+        extends:
+          file: ./veld_step_4_jupyter_analysis.yaml
+          service: veld_step_4_jupyter_analysis
+        depends_on:
+          veld_step_2_xmlanntools_standoff2xml:
+            condition: service_completed_successfully
+          veld_step_3_teitok:
+            condition: service_completed_successfully
 veld_chain__demo_conllueditor___veld.yaml:
   url: https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml
   content:
@@ -4074,6 +4536,29 @@ veld_chain__demo_downloader___veld_demo_11__invalid__url_and_csv.yaml:
         environment:
           in_csv_file: goethe.csv
           url: https://www.gutenberg.org/cache/epub/52521/pg52521.txt
+veld_chain__demo_flair___veld_demo_01_infer.yaml:
+  url: https://github.com/veldhub/veld_chain__demo_flair/blob/main/veld_demo_01_infer.yaml
+  content:
+    services:
+      veld_demo_01__infer_ner:
+        extends:
+          file: ./code/veld_code__flair/veld_infer.yaml
+          service: veld_infer
+        volumes:
+        - ./data/demo_01_infer/in/:/veld/input/data/
+        - ./data/models_cache/:/veld/input/models_cache/
+        - ./data/demo_01_infer/out/:/veld/output/
+        environment:
+          run_interactively: false
+          in_file: test.txt
+          out_file: text.json
+          do_split_sentences: true
+          model_infer_ner: flair/ner-english-large
+          model_infer_sentiment: sentiment
+          model_infer_linker: linker
+          model_infer_frame: frame
+          model_infer_chunk: flair/chunk-english
+          model_infer_relations: relations
 veld_chain__demo_pypi_publisher___veld_publish.yaml:
   url: https://github.com/veldhub/veld_chain__demo_pypi_publisher/blob/main/veld_publish.yaml
   content:
@@ -4837,6 +5322,24 @@ veld_chain__demo_xmlanntools___veld_tei_example1_step5_xml2vrt.yaml:
           out_conlluish_xml_file: TEI_example1.vrt
           include_elements: text
           exclude_elements: front
+veld_chain__dta_semantic_drift_analysis___veld_step_1_download.yaml:
+  url: https://github.com/veldhub/veld_chain__dta_semantic_drift_analysis/blob/main/veld_step_1_download.yaml
+  content:
+    x-veld:
+      chain:
+        description: null
+        topic: null
+        additional: null
+    services:
+      veld_step_1_download:
+        extends:
+          file: ./code/veld_code__downloader/veld.yaml
+          service: veld_downloader
+        volumes:
+        - ./data/step_1_raw_data/:/veld/output/
+        environment:
+          url: https://www.deutschestextarchiv.de/media/download/dta-lingattr-tei_2020-07-27.zip
+          do_extract: true
 veld_chain__eltec_udpipe_inference___veld_step_1_preprocess.yaml:
   url: https://github.com/veldhub/veld_chain__eltec_udpipe_inference/blob/main/veld_step_1_preprocess.yaml
   content:
