@@ -41,24 +41,6 @@ class VeldRepresentation():
     is_code_of: list = field(default_factory=list)
     is_input_of: list = field(default_factory=list)
     is_output_of: list = field(default_factory=list)
-    # "path": item_path,
-    # "item_content": item_content,
-    # "validation_result": validation_result,
-    # "metadata": metadata,
-    # "contained_velds_in_chain": contained_velds_in_chain,
-    # })
-    # "repo_url": repo_url,
-    # "url": veld_url,
-    # "path": veld["path"],
-    # "metadata": veld["metadata"],
-    # "item_content": veld["item_content"],
-    # "validation_result": veld["validation_result"],
-    # "contained_velds_in_chain": veld["contained_velds_in_chain"],
-    # "used_in_chain": {
-    #     "as_code": [],
-    #     "as_input": [],
-    #     "as_output": [],
-    # }
     
     
 def get_veld_type(metadata):
@@ -463,7 +445,6 @@ def main():
         f.write(content_registry)
     with open(OUT_README_PATH_VELHDUB, "w") as f:
         f.write(content_veldhub)
-    # TODO
     for veld_id, veld in veld_dict_all.items():
         with open(OUT_VELD_INDIVIDUAL_FOLDER + veld_id, "w") as f_out:
             f_out.write(veld.content_str)
@@ -479,4 +460,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
