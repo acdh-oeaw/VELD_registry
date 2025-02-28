@@ -353,15 +353,15 @@ def convert_to_readme_section_individual(veld_dict_all, veld_type):
                         content += f"      - {contained_veld_url}\n"
             else:
                 if veld.is_code_of:
-                    content += f"    - is contained as code veld in:\n"
+                    content += f"    - repo is contained as code veld in:\n"
                     for chain_veld_url in veld.is_code_of:
                         content += f"      - {chain_veld_url}\n"
                 if veld.is_input_of:
-                    content += f"    - is contained as input veld in:\n"
+                    content += f"    - repo is contained as input veld in:\n"
                     for chain_veld_url in veld.is_input_of:
                         content += f"      - {chain_veld_url}\n"
                 if veld.is_output_of:
-                    content += f"    - is contained as output veld in:\n"
+                    content += f"    - repo is contained as output veld in:\n"
                     for chain_veld_url in veld.is_output_of:
                         content += f"      - {chain_veld_url}\n"
             if veld.is_valid:

@@ -6046,7 +6046,7 @@ veld_code__wordembeddings_evaluation___veld_analyse_evaluation.yaml:
           environment_var: in_evaluation_summary_file
           description: summary of the custom evaluation logic on word embeddings
           file_type: yaml
-          content: Evaluation data
+          content: evaluation data
         output:
         - volume: /veld/output/
           environment_var: out_visualization_html_file
