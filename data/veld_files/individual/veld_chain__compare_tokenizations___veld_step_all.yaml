@@ -1,7 +1,17 @@
 x-veld:
   chain:
-    description:
+    description: "This aggregated chain consists of sub chains and serves the purpose of providing 
+      a single execution point for the entire workflow reproduction of this repository. The chain 
+      services below simply load their definitions from their respective veld yaml files. See these 
+      files for more details on each workflow step. At the end of all this processing, a jupyter 
+      notebook is launched, where statistics on the previous workflows are perfmored. This 
+      notebook can be reached at http://localhost:8888/ ."
     topic:
+      - ETL
+      - Preprocessing
+      - NLP
+      - Universal Dependencies
+      - Grammatical Annotation
 
 services:
 
@@ -49,15 +59,25 @@ services:
   veld_step_1_download_teitok:
     extends:
       file: ./veld_step_1_download.yaml
-      service: veld_step_1_download_xmlanntools
+      service: veld_step_1_download_teitok
 
-  veld_step_3_teitok:
+  veld_step_3_teitok_xmltokenize:
     extends:
       file: ./veld_step_3_teitok.yaml
-      service: veld_step_3_teitok
+      service: veld_step_3_teitok_xmltokenize
     depends_on:
       veld_step_1_download_teitok:
         condition: service_completed_successfully
+
+  veld_step_3_teitok_parseudpipe:
+    extends:
+      file: ./veld_step_3_teitok.yaml
+      service: veld_step_3_teitok_parseudpipe
+    depends_on:
+      veld_step_3_teitok_xmltokenize:
+        condition: service_completed_successfully
+
+  # - analysis --------------------------------------------
 
   veld_step_4_jupyter_analysis:
     extends:
@@ -66,6 +86,6 @@ services:
     depends_on:
       veld_step_2_xmlanntools_standoff2xml:
         condition: service_completed_successfully
-      veld_step_3_teitok:
+      veld_step_3_teitok_parseudpipe:
         condition: service_completed_successfully
 

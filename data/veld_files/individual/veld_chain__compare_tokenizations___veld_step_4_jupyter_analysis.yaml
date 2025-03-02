@@ -1,7 +1,14 @@
 x-veld:
   chain:
-    description:
+    description: "This chain compares the two enriched TEI XML files which were the output of 
+      xmlanntools and teitok-tools. The comparison is done by aggregating and counting the various 
+      occurrences of grammatical metadata, structured by universal dependencies. This chain 
+      launches an interactive jupyter notebook for easy replication of these count statistics. 
+      After exceuting this chain, the notebook can be reached at http://localhost:8888/ ."
     topic:
+      - NLP
+      - Universal Dependencies
+      - Grammatical Annotation
 
 services:
   veld_step_4_jupyter_analysis:

@@ -1263,21 +1263,36 @@ After reproducing the entire previous sequences yourself and execution of the no
       - topic: NLP, Grammatical Annotation, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing
 - https://github.com/veldhub/veld_chain__compare_tokenizations
   - [veld_step_1_download.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_1_download.yaml)
-    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+    - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__downloader
+    - metadata:
+      - description: Downloads sample data from the german ELTeC corpus at https://github.com/COST-ELTeC/ELTeC-deu , into two folders, one for xmlanntools and the other for teitok-tools.
+      - topic: ETL, Preprocessing
   - [veld_step_2_xmlanntools.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_2_xmlanntools.yaml)
-    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+    - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__xmlanntools
+    - metadata:
+      - description: Uses a combination of tools provided mainly by xmlanntools at https://github.com/czcorpus/xmlanntools and veldified as code veld at https://github.com/veldhub/veld_code__xmlanntools . This chain processes an input TEI XML file by tokenizing and enriching it with udpipe and universal dependencies (https://universaldependencies.org/) metadata.
+      - topic: NLP, Universal Dependencies, Grammatical Annotation
   - [veld_step_3_teitok.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_3_teitok.yaml)
-    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+    - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__teitok-tools
+    - metadata:
+      - description: Uses a combination of tools provided mainly by teitok-tools at https://github.com/ufal/teitok-tools and veldified as code veld at https://github.com/veldhub/veld_code__teitok-tools. This chain processes an input TEI XML file by tokenizing and enriching it with udpipe and universal dependencies (https://universaldependencies.org/) metadata.
+      - topic: NLP, Universal Dependencies, Grammatical Annotation
   - [veld_step_4_jupyter_analysis.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_4_jupyter_analysis.yaml)
-    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+    - valid: True
+    - metadata:
+      - description: This chain compares the two enriched TEI XML files which were the output of xmlanntools and teitok-tools. The comparison is done by aggregating and counting the various occurrences of grammatical metadata, structured by universal dependencies. This chain launches an interactive jupyter notebook for easy replication of these count statistics. After exceuting this chain, the notebook can be reached at http://localhost:8888/ .
+      - topic: NLP, Universal Dependencies, Grammatical Annotation
   - [veld_step_all.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_all.yaml)
-    - valid: False, non-optional value: '<SCALAR> | {<SCALAR>}' missing at: /x-veld/chain/topic/
+    - valid: True
+    - metadata:
+      - description: This aggregated chain consists of sub chains and serves the purpose of providing a single execution point for the entire workflow reproduction of this repository. The chain services below simply load their definitions from their respective veld yaml files. See these files for more details on each workflow step. At the end of all this processing, a jupyter notebook is launched, where statistics on the previous workflows are perfmored. This notebook can be reached at http://localhost:8888/ .
+      - topic: ETL, Preprocessing, NLP, Universal Dependencies, Grammatical Annotation
 - https://github.com/veldhub/veld_chain__demo_conllueditor
   - [veld.yaml](https://github.com/veldhub/veld_chain__demo_conllueditor/blob/main/veld.yaml)
     - valid: True

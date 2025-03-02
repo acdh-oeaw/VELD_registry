@@ -21,7 +21,6 @@ services:
       in_xml_file: DEU001.xml
       out_xml_file: DEU001.xml
       textnode: body
-      tok: xyz
       # TODO: set better example on usage
       #exclude: null
       enumerate: true

@@ -1,7 +1,14 @@
 x-veld:
   chain:
-    description:
+    description: "Uses a combination of tools provided mainly by xmlanntools at 
+      https://github.com/czcorpus/xmlanntools and veldified as code veld at 
+      https://github.com/veldhub/veld_code__xmlanntools . This chain processes an input TEI XML file 
+      by tokenizing and enriching it with udpipe and universal dependencies 
+      (https://universaldependencies.org/) metadata."
     topic:
+      - NLP
+      - Universal Dependencies
+      - Grammatical Annotation
 
 services:
 
@@ -16,6 +23,7 @@ services:
       in_xml_file: DEU100.xml
       out_txt_file: DEU100.txt
       out_json_file: DEU100.json
+      text_elements: body
 
   veld_step_2_xmlanntools_tag_ud:
     extends:

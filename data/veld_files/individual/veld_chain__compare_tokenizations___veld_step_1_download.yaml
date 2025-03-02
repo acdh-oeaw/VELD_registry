@@ -1,7 +1,11 @@
 x-veld:
   chain:
-    description:
+    description: "Downloads sample data from the german ELTeC corpus at 
+      https://github.com/COST-ELTeC/ELTeC-deu , into two folders, one for xmlanntools and the other 
+      for teitok-tools."
     topic:
+      - ETL
+      - Preprocessing
 
 services:
 
