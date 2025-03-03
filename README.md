@@ -1029,7 +1029,7 @@ After reproducing the entire previous sequences yourself and execution of the no
         - 1:
           - description: word2vec model file to be evaluated
           - file_type: word2vec model
-          - content: NLP model, word embeddings model
+          - content: NLP model, Word Embeddings model
         - 2:
           - description: word2vec model metadata
           - file_type: yaml
@@ -2047,7 +2047,6 @@ After reproducing the entire previous sequences yourself and execution of the no
 - tokenizer
 - Universal Dependencies of text
 - Word Embeddings
-- word embeddings model
 - Word Embeddings model
 - Word Embeddings training data
 - Word Embeddings vectors

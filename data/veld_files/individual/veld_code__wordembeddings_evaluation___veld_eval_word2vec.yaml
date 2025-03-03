@@ -13,7 +13,7 @@ x-veld:
         file_type: "word2vec model"
         content:
           - "NLP model"
-          - "word embeddings model"
+          - "Word Embeddings model"
       - volume: /veld/input/model/
         environment_var: in_model_metadata_file
         description: "word2vec model metadata"
