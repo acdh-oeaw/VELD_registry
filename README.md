@@ -493,6 +493,15 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: Exports data from an Apache Fuseki triplestore given a rq query file, into several serialization formats.
       - topic: ETL, RDF, triplestore
+      - input:
+        - 1:
+          - description: Contains the sparql query that is ran at the triplestore
+          - file_type: rq
+          - content: sparql query
+      - output:
+        - 1:
+          - description: Output file where the query results should be writte into.
+          - file_type: csv, json, tsv, xml
   - [veld_import_rdf.yaml](https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_import_rdf.yaml)
     - valid: True
     - repo is contained as code veld in:
@@ -501,6 +510,11 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: Import script to batch import rdf data from a folder into an apache fuseki triplestore. Note that if this service should connect to a triplestore running in another docker compose service, the relevant `networks` section might be necessary to set accordingly.
       - topic: ETL, RDF, triplestore, database
+      - input:
+        - 1:
+          - description: A folder containing RDF/XML files. If var `in_rdf_file` is set, that file is imported; if not, the folder is recursively searched.
+          - file_type: xml
+          - content: RDF/XML
   - [veld_run_server.yaml](https://github.com/veldhub/veld_code__apache_jena_fuseki/blob/main/veld_run_server.yaml)
     - valid: False, elements not allowed: /x-veld/code/storage
     - repo is contained as code veld in:
@@ -529,6 +543,14 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: A download helper, for simple or batch downloads. Also offers automatic compressed file extraction.
       - topic: ETL
+      - input:
+        - 1:
+          - description: Besides downloading directly from a given url, the downloader may also process a csv file for batch downloading. The first column of the csv must be the url, and the optional second column a designated file name. Column names are ignored by default (by var `csv_has_headers` being set to `true`). Note that the var `in_csv_file` can not be set at the same time as `url`, since the former designates batch processing while the latter designates a single download.
+          - file_type: csv
+          - content: download urls and target file names
+      - output:
+        - 1:
+          - description: optional. If `out_file` is unset, this script will fetch the file name from the resource.
 - https://github.com/veldhub/veld_code__fasttext
   - [veld_export.yaml](https://github.com/veldhub/veld_code__fasttext/blob/main/veld_export.yaml)
     - valid: True
@@ -539,6 +561,14 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: exports a fasttext model to a pkl file containing a python dict, where the keys are words and its values are the learned vectors, represented as high-dimensional numpy arrays.
       - topic: ETL, NLP, Machine Learning, Word Embeddings
+      - input:
+        - 1:
+          - file_type: fastText model
+          - content: Word Embeddings vectors
+      - output:
+        - 1:
+          - file_type: pkl
+          - content: Word Embeddings model, Word Embeddings vectors
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__fasttext/blob/main/veld_jupyter_notebook.yaml)
     - valid: True
     - repo is contained as code veld in:
@@ -581,6 +611,14 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: exports a glove model to a pkl file containing a python dict, where the keys are words and its values are the learned vectors, represented as high-dimensional numpy arrays.
       - topic: ETL, NLP, Machine Learning, Word Embeddings
+      - input:
+        - 1:
+          - file_type: txt
+          - content: GloVe model, Word Embeddings model, Word Embeddings vectors
+      - output:
+        - 1:
+          - file_type: pkl
+          - content: Word Embeddings model, Word Embeddings vectors
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__glove/blob/main/veld_jupyter_notebook.yaml)
     - valid: True
     - repo is contained as code veld in:
@@ -739,6 +777,12 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: This code veld encapsulates and veldifies the udpipe2teitok script. All its config here are passed down to the script. For more information on its usage and config, see: https://github.com/ufal/teitok-tools?tab=readme-ov-file#udpipe2teitok
       - topic: NLP, Grammatical Annotation, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing
+      - input:
+        - 1:
+          - file_type: txt
+      - output:
+        - 1:
+          - file_type: xml
   - [veld_xmltokenize.yaml](https://github.com/veldhub/veld_code__teitok-tools/blob/main/veld_xmltokenize.yaml)
     - valid: True
     - repo is contained as code veld in:
@@ -834,6 +878,14 @@ After reproducing the entire previous sequences yourself and execution of the no
     - metadata:
       - description: exports a word2vec model to a pkl file containing a python dict, where the keys are words and its values are the learned vectors, represented as high-dimensional numpy arrays.
       - topic: ETL, NLP, Machine Learning, Word Embeddings
+      - input:
+        - 1:
+          - file_type: word2vec model
+          - content: Word Embeddings model, Word Embeddings vectors
+      - output:
+        - 1:
+          - file_type: pkl
+          - content: Word Embeddings model, Word Embeddings vectors
   - [veld_jupyter_notebook.yaml](https://github.com/veldhub/veld_code__word2vec/blob/main/veld_jupyter_notebook.yaml)
     - valid: True
     - repo is contained as code veld in:
@@ -1217,50 +1269,50 @@ After reproducing the entire previous sequences yourself and execution of the no
       - description: Conversion of apis ner model data to harmonized custom json format.
       - topic: ETL, Data Cleaning
 - https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg
-  - [veld_multichain_all.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml)
-    - valid: True
-  - [veld_step1_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step1_download_gutenberg_metadata.yaml)
+  - [veld_step_1_download_gutenberg_metadata.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_1_download_gutenberg_metadata.yaml)
     - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__downloader
     - metadata:
       - description: Downloads and extracts the project gutenberg metadata.
       - topic: ETL
-  - [veld_step2_run_server.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step2_run_server.yaml)
+  - [veld_step_2_run_server.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_2_run_server.yaml)
     - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__apache_jena_fuseki
     - metadata:
       - description: An Apache Fuseki instance storing the entire gutenberg metadata.
       - topic: RDF, triplestore, database
-  - [veld_step3_import_rdf.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step3_import_rdf.yaml)
+  - [veld_step_3_import_rdf.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_3_import_rdf.yaml)
     - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__apache_jena_fuseki
     - metadata:
       - description: imports the gutenberg metadata into the Fuseki triplestore.
       - topic: ETL, RDF, triplestore
-  - [veld_step4_query_books_urls.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step4_query_books_urls.yaml)
+  - [veld_step_4_query_books_urls.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_4_query_books_urls.yaml)
     - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__apache_jena_fuseki
     - metadata:
       - description: Exports a csv file containing download links and file names of all german books that have no TEI files, but a txt, which will be used for automatic TEI generation further downstream.
       - topic: ETL, RDF, triplestore
-  - [veld_step5_download_gutenberg_books.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step5_download_gutenberg_books.yaml)
+  - [veld_step_5_download_gutenberg_books.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_5_download_gutenberg_books.yaml)
     - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__downloader
     - metadata:
       - description: Downlaods all german books without TEI, as designated by the previously generated csv.
       - topic: ETL
-  - [veld_step6_convert_books_to_teitok.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step6_convert_books_to_teitok.yaml)
+  - [veld_step_6_convert_books_to_teitok.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_6_convert_books_to_teitok.yaml)
     - valid: True
     - contains code velds:
       - https://github.com/veldhub/veld_code__teitok-tools
     - metadata:
       - description: Automatic creation of tokenized TEI files of downloaded txt books
       - topic: NLP, Grammatical Annotation, Universal Dependencies, Tokenization, Lemmatization, Part Of Speech, Dependency Parsing
+  - [veld_step_all.yaml](https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_all.yaml)
+    - valid: True
 - https://github.com/veldhub/veld_chain__compare_tokenizations
   - [veld_step_1_download.yaml](https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/veld_step_1_download.yaml)
     - valid: True
@@ -1958,8 +2010,10 @@ After reproducing the entire previous sequences yourself and execution of the no
 ## content vocab
 - annotated literature
 - data visualization
+- download urls and target file names
 - enriched text
 - evaluation data
+- GloVe model
 - gold data
 - grammatically annotated text
 - inferenced NLP data
@@ -1983,8 +2037,10 @@ After reproducing the entire previous sequences yourself and execution of the no
 - NLP training data
 - Part Of Speech of text
 - raw text
+- RDF/XML
 - spaCy model
 - spacy training config
+- sparql query
 - statistics
 - TEI
 - tokenized text
@@ -1994,6 +2050,7 @@ After reproducing the entire previous sequences yourself and execution of the no
 - word embeddings model
 - Word Embeddings model
 - Word Embeddings training data
+- Word Embeddings vectors
 
 ## file_type vocab
 - bin
@@ -2005,7 +2062,9 @@ After reproducing the entire previous sequences yourself and execution of the no
 - html
 - ini
 - json
+- pkl
 - png
+- rq
 - spaCy docbin
 - spaCy model
 - tsv

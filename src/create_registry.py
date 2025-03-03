@@ -258,6 +258,8 @@ def handle_metadata(metadata, level):
                     content += transform_dict(k, v, level + 2)
             for k in ["input", "output"]:
                 v = metadata.get(k)
+                if type(v) is dict:
+                    v = [v]
                 if type(v) is list:
                     for i, d in enumerate(v):
                         if i == 0:

@@ -66,55 +66,15 @@ veld_chain__apis_ner_transform_to_gold___veld.yaml:
           out_json_cleaned_file: cleaned.json
           out_json_cleaned_simplified_file: cleaned_simplified.json
           out_log_file: extract_and_clean.log
-veld_chain__automatic_tei-ification_of_gutenberg___veld_multichain_all.yaml:
-  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_multichain_all.yaml
-  content:
-    x-veld:
-      chain: null
-    services:
-      veld_step1_download_gutenberg_metadata:
-        extends:
-          file: ./veld_step1_download_gutenberg_metadata.yaml
-          service: veld_step1_download_gutenberg_metadata
-      veld_step2_run_server:
-        extends:
-          file: ./veld_step2_run_server.yaml
-          service: veld_step2_run_server
-        depends_on:
-          veld_step1_download_gutenberg_metadata:
-            condition: service_completed_successfully
-      veld_step3_import_rdf:
-        extends:
-          file: ./veld_step3_import_rdf.yaml
-          service: veld_step3_import_rdf
-        depends_on:
-          veld_step2_run_server:
-            condition: service_healthy
-      veld_step4_query_books_urls:
-        extends:
-          file: ./veld_step4_query_books_urls.yaml
-          service: veld_step4_query_books_urls
-        depends_on:
-          veld_step3_import_rdf:
-            condition: service_completed_successfully
-      veld_step5_download_gutenberg_books:
-        extends:
-          file: ./veld_step5_download_gutenberg_books.yaml
-          service: veld_step5_download_gutenberg_books
-        depends_on:
-          veld_step4_query_books_urls:
-            condition: service_completed_successfully
-    networks:
-      veld_fuseki: null
-veld_chain__automatic_tei-ification_of_gutenberg___veld_step1_download_gutenberg_metadata.yaml:
-  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step1_download_gutenberg_metadata.yaml
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step_1_download_gutenberg_metadata.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_1_download_gutenberg_metadata.yaml
   content:
     x-veld:
       chain:
         description: Downloads and extracts the project gutenberg metadata.
         topic: ETL
     services:
-      veld_step1_download_gutenberg_metadata:
+      veld_step_1_download_gutenberg_metadata:
         extends:
           file: ./code/veld_code__downloader/veld.yaml
           service: veld_downloader
@@ -124,8 +84,8 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step1_download_gutenberg
           url: https://gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2
           out_file: rdf-files.tar.bz2
           do_extract: true
-veld_chain__automatic_tei-ification_of_gutenberg___veld_step2_run_server.yaml:
-  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step2_run_server.yaml
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step_2_run_server.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_2_run_server.yaml
   content:
     x-veld:
       chain:
@@ -135,7 +95,7 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step2_run_server.yaml:
         - triplestore
         - database
     services:
-      veld_step2_run_server:
+      veld_step_2_run_server:
         extends:
           file: ./code/veld_code__apache_jena_fuseki/veld_run_server.yaml
           service: veld_run_server
@@ -144,8 +104,8 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step2_run_server.yaml:
         - ./data/fuseki_config/:/veld/input/config/
     networks:
       veld_fuseki: null
-veld_chain__automatic_tei-ification_of_gutenberg___veld_step3_import_rdf.yaml:
-  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step3_import_rdf.yaml
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step_3_import_rdf.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_3_import_rdf.yaml
   content:
     x-veld:
       chain:
@@ -155,19 +115,19 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step3_import_rdf.yaml:
         - RDF
         - triplestore
     services:
-      veld_step3_import_rdf:
+      veld_step_3_import_rdf:
         extends:
           file: ./code/veld_code__apache_jena_fuseki/veld_import_rdf.yaml
           service: veld_import_rdf
         volumes:
         - ./data/gutenberg_rdf/rdf-files/cache/epub/:/veld/input/
         environment:
-          fuseki_server_url: http://veld_step2_run_server
+          fuseki_server_url: http://veld_step_2_run_server
           fuseki_dataset_name: gutenberg
     networks:
       veld_fuseki: null
-veld_chain__automatic_tei-ification_of_gutenberg___veld_step4_query_books_urls.yaml:
-  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step4_query_books_urls.yaml
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step_4_query_books_urls.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_4_query_books_urls.yaml
   content:
     x-veld:
       chain:
@@ -179,7 +139,7 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step4_query_books_urls.y
         - RDF
         - triplestore
     services:
-      veld_step4_query_books_urls:
+      veld_step_4_query_books_urls:
         extends:
           file: ./code/veld_code__apache_jena_fuseki/veld_export.yaml
           service: veld_export
@@ -190,12 +150,12 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step4_query_books_urls.y
           in_query_file: german_books_txt_no_tei.rq
           out_file: german_books_txt_no_tei.csv
           out_format: csv
-          fuseki_server_url: http://veld_step2_run_server
+          fuseki_server_url: http://veld_step_2_run_server
           fuseki_dataset_name: gutenberg
     networks:
       veld_fuseki: null
-veld_chain__automatic_tei-ification_of_gutenberg___veld_step5_download_gutenberg_books.yaml:
-  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step5_download_gutenberg_books.yaml
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step_5_download_gutenberg_books.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_5_download_gutenberg_books.yaml
   content:
     x-veld:
       chain:
@@ -203,7 +163,7 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step5_download_gutenberg
           previously generated csv.
         topic: ETL
     services:
-      veld_step5_download_gutenberg_books:
+      veld_step_5_download_gutenberg_books:
         extends:
           file: ./code/veld_code__downloader/veld.yaml
           service: veld_downloader
@@ -212,8 +172,8 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step5_download_gutenberg
         - ./data/gutenberg_books/:/veld/output/
         environment:
           in_csv_file: german_books_txt_no_tei.csv
-veld_chain__automatic_tei-ification_of_gutenberg___veld_step6_convert_books_to_teitok.yaml:
-  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step6_convert_books_to_teitok.yaml
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step_6_convert_books_to_teitok.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_6_convert_books_to_teitok.yaml
   content:
     x-veld:
       chain:
@@ -227,7 +187,7 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step6_convert_books_to_t
         - Part Of Speech
         - Dependency Parsing
     services:
-      veld_step6_convert_books_to_teitok:
+      veld_step_6_convert_books_to_teitok:
         extends:
           file: ./code/veld_code__teitok-tools/veld_udpipe2teitok.yaml
           service: veld_udpipe2teitok
@@ -237,6 +197,46 @@ veld_chain__automatic_tei-ification_of_gutenberg___veld_step6_convert_books_to_t
         environment:
           lang: de
           model: german-hdt-ud-2.6-200830
+veld_chain__automatic_tei-ification_of_gutenberg___veld_step_all.yaml:
+  url: https://github.com/veldhub/veld_chain__automatic_tei-ification_of_gutenberg/blob/main/veld_step_all.yaml
+  content:
+    x-veld:
+      chain: null
+    services:
+      veld_step_1_download_gutenberg_metadata:
+        extends:
+          file: ./veld_step_1_download_gutenberg_metadata.yaml
+          service: veld_step_1_download_gutenberg_metadata
+      veld_step_2_run_server:
+        extends:
+          file: ./veld_step_2_run_server.yaml
+          service: veld_step_2_run_server
+        depends_on:
+          veld_step_1_download_gutenberg_metadata:
+            condition: service_completed_successfully
+      veld_step_3_import_rdf:
+        extends:
+          file: ./veld_step_3_import_rdf.yaml
+          service: veld_step_3_import_rdf
+        depends_on:
+          veld_step_2_run_server:
+            condition: service_healthy
+      veld_step_4_query_books_urls:
+        extends:
+          file: ./veld_step_4_query_books_urls.yaml
+          service: veld_step_4_query_books_urls
+        depends_on:
+          veld_step_3_import_rdf:
+            condition: service_completed_successfully
+      veld_step_5_download_gutenberg_books:
+        extends:
+          file: ./veld_step_5_download_gutenberg_books.yaml
+          service: veld_step_5_download_gutenberg_books
+        depends_on:
+          veld_step_4_query_books_urls:
+            condition: service_completed_successfully
+    networks:
+      veld_fuseki: null
 veld_chain__compare_tokenizations___code___veld_code__jupyter_analysis___veld.yaml:
   url: https://github.com/veldhub/veld_chain__compare_tokenizations/blob/main/code/veld_code__jupyter_analysis/veld.yaml
   content:
