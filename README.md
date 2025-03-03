@@ -439,13 +439,6 @@ The technical concept for the VELD design can be found here: https://zenodo.org/
     - valid: True
     - metadata:
       - description: template veld code repo for a juptyer notebook
-- https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch
-  - [veld_step_6_analyse_vectors.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml)
-    - valid: True
-    - metadata:
-      - description: Reads in the trained word vectors from their pkl serializations and tests them for plausability on a few selected words which should show intuitive close or distant relations to each other. This chain does not inherit from a code veld but is defined entirely within its containing chain repository since its code and data are highly context-specific.
-After reproducing the entire previous sequences yourself and execution of the notebook, feel free to save the notebook and compare the resulting differences with `git diff ./code/analyse_vectors/notebooks/analyse_vectors.ipynb`, where the reproduced vector similarities will have only slight differences to the record of previously trained ones. This difference is due to randomization within the training, but should be small enough to indicate approximate reproduction.
-      - topic: ETL, NLP, Machine Learning, Word Embeddings, Bible Studies
 - https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc
   - [veld_preprocess_clean.yaml](https://github.com/veldhub/veld_chain__train_infer_wordembeddings_multiple_architectures__amc/blob/main/veld_preprocess_clean.yaml)
     - valid: True
@@ -1512,6 +1505,12 @@ After reproducing the entire previous sequences yourself and execution of the no
       - https://github.com/veldhub/veld_code__word2vec
     - metadata:
       - description: Trains a word2vec model on the bible and exports its vectors as a dict serialized into a pkl file. The training data is rather small and the hyperparameteres are simplistic, in order to demonstrate the reproducibility of this chain rather than claiming any deeper insight into the data's words context.
+      - topic: ETL, NLP, Machine Learning, Word Embeddings, Bible Studies
+  - [veld_step_6_analyse_vectors.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml)
+    - valid: True
+    - metadata:
+      - description: Reads in the trained word vectors from their pkl serializations and tests them for plausability on a few selected words which should show intuitive close or distant relations to each other. This chain does not inherit from a code veld but is defined entirely within its containing chain repository since its code and data are highly context-specific.
+After reproducing the entire previous sequences yourself and execution of the notebook, feel free to save the notebook and compare the resulting differences with `git diff ./code/analyse_vectors/notebooks/analyse_vectors.ipynb`, where the reproduced vector similarities will have only slight differences to the record of previously trained ones. This difference is due to randomization within the training, but should be small enough to indicate approximate reproduction.
       - topic: ETL, NLP, Machine Learning, Word Embeddings, Bible Studies
   - [veld_step_all.yaml](https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_all.yaml)
     - valid: True

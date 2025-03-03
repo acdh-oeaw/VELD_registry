@@ -1062,7 +1062,7 @@ veld_chain__demo_wordembeddings_multiarch___veld_step_6_analyse_vectors.yaml:
   url: https://github.com/veldhub/veld_chain__demo_wordembeddings_multiarch/blob/main/veld_step_6_analyse_vectors.yaml
   content:
     x-veld:
-      code:
+      chain:
         description: 'Reads in the trained word vectors from their pkl serializations
           and tests them for plausability on a few selected words which should show
           intuitive close or distant relations to each other. This chain does not
